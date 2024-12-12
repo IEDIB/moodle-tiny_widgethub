@@ -1,9 +1,9 @@
-# WidgetHub
+# WidgetHub Customized version @IEDIB
 
 - Design, use and customize widget components seamlessly within the Tiny Editor.
 - Use Bootstrap components easily.
 
-> [!ALERT]
+> [!CAUTION]
 > This is a customized version of the Moodle plugin widgethub. If you are interested in a mantained community version, please check the repository [jmulet/moodle-tiny_widgethub](https://github.com/jmulet/moodle-tiny_widgethub)
 
 
