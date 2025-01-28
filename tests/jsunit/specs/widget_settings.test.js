@@ -76,13 +76,13 @@ describe('widget_settings', () => {
 
     test.each([
         ['Invalid yml', 'key: key2\na:\n    - a\n  - !as', 'Yaml syntax error', []],
-        ['Missing key', 'name: hello\ntemplate: here', "must have 'key'", []],
-        ['Missing name', 'key: hello\ntemplate: here', "must have 'name'", []],
-        ['Repeated key', 'key: key1\nname: name\ntemplate: here', "Key key1 is already in use", ['key1', 'key2']],
-        ['Repeated key', 'key: key0\nname: name\ntemplate: here\nfilter: filter', "Cannot have template and filter", ['key1', 'key2']],
-        ['Missing author', 'key: key3\nname: name\ntemplate: here', "must have 'author'", ['key1', 'key2']],
-        ['Missing version', 'key: key3\nname: name\ntemplate: here\nauthor: pep', "must have 'author' and 'version'", ['key1', 'key2']],
-        ['Valid definition', 'key: key3\nname: name\ntemplate: here\nauthor: pep\nversion: 1.0', "", ['key1', 'key2']],
+        ['Missing key', 'name: hello\ntemplate: here', "The properties 'key' are required ", []],
+        ['Missing name', 'key: hello\ntemplate: here', "The properties 'name' are required ", []],
+        ['Repeated key', 'key: key1\nname: name\ntemplate: here', "Key key1 is already in use. Please rename it ", ['key1', 'key2']],
+        ['Repeated key', 'key: key0\nname: name\ntemplate: here\nfilter: filter', "The properties 'template' & 'filter' cannot be used simultaneously ", ['key1', 'key2']],
+        ['Missing author', 'key: key3\nname: name\ntemplate: here', "The properties 'author' & 'version' are required", ['key1', 'key2']],
+        ['Missing version', 'key: key3\nname: name\ntemplate: here\nauthor: pep', "The properties 'author' & 'version' are required ", ['key1', 'key2']],
+        ['Valid definition', 'key: key3\nname: name\ntemplate: here\nauthor: pep\nversion: 1.0', '', ['key1', 'key2']],
     ])
     ('%s widget definition', async (issue, yml, msg, keys) => {
         const id = 0;
@@ -126,7 +126,7 @@ describe('widget_settings', () => {
         expect($jsonArea.val().indexOf("Hello world!")>=0).toBeTruthy();
 
         // Delete button must not be in page
-        expect(document.querySelector('button.btn-danger')).toBeNull();
+        expect(document.querySelector('button.btn-outline-danger')).toBeNull();
         // Expect save button to submit new widget
         /** @type {HTMLButtonElement | null} */
         const saveBtn = document.querySelector('button.form-submit');
@@ -156,7 +156,7 @@ describe('widget_settings', () => {
 
         await settingsModule.init({id, keys: usedKeys});
         // Delete button must be in page
-        expect(document.querySelector('button.btn-danger')).toBeTruthy();
+        expect(document.querySelector('button.btn-outline-danger')).toBeTruthy();
 
         expect(spyGetAreas).toHaveBeenCalledWith(id);
         // Editor setter has been called
@@ -215,7 +215,7 @@ describe('widget_settings', () => {
         await settingsModule.init({id, keys: usedKeys});
         // Delete button must be in page
         /** @type {HTMLButtonElement | null} */
-        const deleteBtn = document.querySelector('button.btn-danger');
+        const deleteBtn = document.querySelector('button.btn-outline-danger');
         expect(deleteBtn).toBeTruthy();
         mockConfirm.mockClear();
         // Do not accept

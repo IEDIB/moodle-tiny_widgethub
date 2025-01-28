@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /* eslint-disable max-len */
 import {registerMenuItemProvider} from "../extension";
 import {convertInt, findVariableByName} from "../util";
@@ -29,7 +28,7 @@ const SUPPORTED_SIZES = [
  */
 
 /**
- * @param {import("../contextInit").ItemMenuContext} ctx
+ * @param {import("../contextinit").ItemMenuContext} ctx
  * @returns {UserDefinedItem[]}
  **/
 function provider(ctx) {

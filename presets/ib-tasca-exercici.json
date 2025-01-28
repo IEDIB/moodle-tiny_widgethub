@@ -7,33 +7,7 @@
     "selectors": "div.iedib-capsa.iedib-tasca-exercici",
     "insertquery": ".iedib-tasca>div.iedib-inspoint",
     "parameters": [
-        {
-            "name": "_lang",
-            "value": "ca",
-            "title": "Idioma",
-            "options": [
-                {
-                    "v": "ca",
-                    "l": "Català"
-                },
-                {
-                    "v": "es",
-                    "l": "Castellà"
-                },
-                {
-                    "v": "en",
-                    "l": "English"
-                },
-                {
-                    "v": "fr",
-                    "l": "Francès"
-                },
-                {
-                    "v": "de",
-                    "l": "Alemany"
-                }
-            ]
-        },
+        "__LANG__",
         {
             "name": "tipus",
             "value": "epr",

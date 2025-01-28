@@ -250,6 +250,29 @@ h4.tiny_widgethub-headertext {
   }
 }
 
+/********************************* Icons definitions */
+/** Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.**/
+.twh-icon {
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 14px;
+  width: 14px;
+  vertical-align: top;
+  display: inline-block;
+}
+.btn-primary .twh-icon path {
+  fill: #fff;
+}
+.btn-secondary .twh-icon path {
+  fill: #474747;
+}
+.btn-outline-primary .twh-icon path {
+  fill: #0f6cbf;
+}
+.btn-outline-primary:hover .twh-icon path {
+  fill: #fff;
+}
+
 /********************************** Specific Widget definitions styles */
 /** Compatibility bs < 4 **/
 .accordion-group {

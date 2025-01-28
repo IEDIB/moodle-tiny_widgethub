@@ -1,10 +1,33 @@
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+/**
+ * Tiny WidgetHub plugin.
+ *
+ * @module      tiny_widgethub/plugin
+ * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 import jQuery from 'jquery';
 import YmlEditor from './libs/ymleditor-lazy';
 import {load, dump} from './libs/js_yaml-lazy';
-import {get_strings as getStrings} from 'core/str';
-import {getTemplateSrv} from './service/templateSrv';
+// eslint-disable-next-line camelcase
+import {get_strings as getStrings, get_string} from 'core/str';
+import {getTemplateSrv} from './service/template_service';
 import {applyPartials} from './options';
 
 const templateSrv = getTemplateSrv();
@@ -78,6 +101,7 @@ export default {
      * @param {Record<string, *>} partials
      * @returns {Promise<{msg: string, json?: string, html?: string}>}
      */
+    // eslint-disable-next-line complexity
     validate: async function(yml, opts, partials) {
         /**
          * @type {{
@@ -94,30 +118,32 @@ export default {
             try {
                 jsonObj = load(yml, null) ?? {};
             } catch (ex) {
-                validation.msg = "Yaml syntax error:: " + ex;
+                validation.msg = await get_string('erryaml', 'tiny_widgethub') + ':: ' + ex;
                 return validation;
             }
             validation.json = JSON.stringify(jsonObj, null, 0);
 
             // Check if the structure is correct
             if (!jsonObj?.key) {
-                validation.msg = "Yaml file must have 'key' property. ";
-            } else if (jsonObj.key === "partials") {
+                validation.msg = await get_string('errproprequired', 'tiny_widgethub', "'key'") + ' ';
+            } else if (jsonObj.key === 'partials') {
                 return validation;
             } else if (jsonObj.key !== 'partials') {
-                if (!jsonObj.name || !(jsonObj.template || jsonObj.filter)) {
-                    validation.msg += "Widgets must have 'name' and 'template or filter' properties. ";
+                if (!jsonObj.name) {
+                    validation.msg += await get_string('errproprequired', 'tiny_widgethub', "'name'") + ' ';
+                } else if (!(jsonObj.template || jsonObj.filter)) {
+                    validation.msg += await get_string('errproprequired', 'tiny_widgethub', "'template' | 'filter'") + ' ';
                 } else if (jsonObj.template && jsonObj.filter) {
-                    validation.msg += "Cannot have template and filter simultaneously. ";
+                    validation.msg += await get_string('errpropincompatible', 'tiny_widgethub', "'template' & 'filter'") + ' ';
                 } else if (!jsonObj.author || !jsonObj.version) {
-                    validation.msg += "Widgets must have 'author' and 'version' properties. ";
+                    validation.msg += await get_string('errproprequired', 'tiny_widgethub', "'author' & 'version'") + ' ';
                 }
             }
-            // Check for duplicated keys
+            // Check for duplicated keys (TODO: also check for key renaming when id > 0)
             if (opts.id === 0 && jsonObj?.key) {
                 const keys = opts.keys || [];
                 if (keys.includes(jsonObj.key)) {
-                    validation.msg += `Key ${jsonObj.key} is already in use. Please rename it. `;
+                    validation.msg += await get_string('errkeyinuse', 'tiny_widgethub', jsonObj.key) + ' ';
                 }
             }
             // Handle partials in parameters
@@ -133,7 +159,7 @@ export default {
             const html = await templateSrv.render(jsonObj?.template || '', ctx, translations, engine);
             validation.html = html;
         } catch (ex) {
-            validation.msg = "Renderer error:: " + ex;
+            validation.msg = await get_string('errpreview', 'tiny_widgethub') + ':: ' + ex;
         }
         return validation;
     },
@@ -145,10 +171,12 @@ export default {
      */
     init: async function(opts) {
         const i18n = await getStrings([
-            {key: 'preview', component: 'tiny_widgethub'},
+            {key: 'confirmdelete', component: 'tiny_widgethub'},
             {key: 'delete', component: 'tiny_widgethub'},
+            {key: 'preview', component: 'tiny_widgethub'},
             {key: 'savechanges', component: 'tiny_widgethub'}
         ]);
+        const [confirmdeleteStr, deleteStr, previewStr, savechangesStr] = i18n;
 
         const {$ymlArea, $jsonArea, $partialInput} = this.getAreas(opts.id);
         $ymlArea.css({
@@ -166,7 +194,7 @@ export default {
         $form.find('button[type="submit"], input[type="submit"]').hide();
         // Add submit buttons and manually trigger form submit.
         const $formButtons = jQuery(`<div class="row"><div class="form-buttons offset-sm-3 col-sm-3">
-            <button type="button" class="btn btn-primary form-submit">${i18n[2]}</button></div></div>`);
+            <button type="button" class="btn btn-primary form-submit">${savechangesStr}</button></div></div>`);
         $form.append($formButtons);
         const $saveBtn = $formButtons.find("button");
 
@@ -175,7 +203,7 @@ export default {
         $target.append($previewPanel);
 
         const $previewBtn = jQuery(`<button type="button" class="btn btn-secondary m-1">
-            <i class="fas fa fa-magnifying-glass"></i> ${i18n[0]}</button>`);
+            <i class="fas fa fa-magnifying-glass"></i> ${previewStr}</button>`);
         $previewBtn.on('click', async() => {
             const yml = ymleditor.getValue();
             const validation = await this.validate(yml, opts, partials);
@@ -193,11 +221,11 @@ export default {
 
         if (opts.id > 0) {
             // Only show delete button on saved widgets (id=0 is reserved for new ones)
-            const $deleteBtn = jQuery(`<button type="button" class="btn btn-danger m-1">
-                <i class="fas fa fa-trash"></i> ${i18n[1]}</button>`);
+            const $deleteBtn = jQuery(`<button type="button" class="btn btn-outline-danger m-1">
+                <i class="fas fa fa-trash"></i> ${deleteStr}</button>`);
             $deleteBtn.on('click', async() => {
                 // Ask confirmation
-                const answer = confirm('Do you want to delete this widget?');
+                const answer = confirm(confirmdeleteStr);
                 if (!answer) {
                     return;
                 }

@@ -18,6 +18,7 @@ function expandPartial(obj, partials) {
     if (partialKey) {
         partialKey = partialKey.replace(/__/g, '');
         if (!partials[partialKey]) {
+            // eslint-disable-next-line no-console
             console.error(`Cannot find partial for ${partialKey}`);
         } else {
             // Override with passed properties.
@@ -31,7 +32,7 @@ function expandPartial(obj, partials) {
  * Partials are variables that start with @ which
  * can be expanded in different parts of the widget
  * definition.
- * @param {RawWidget} widget
+ * @param {{template: string, parameters: *[]}} widget
  * @param {Record<string, *>} partials
  * @returns {void} The same widget with partials expanded
  */
@@ -61,6 +62,7 @@ function applyPartials(widget, partials) {
     }
 }
 
+// eslint-disable-next-line no-undef
 module.exports = {
     applyPartials
 };

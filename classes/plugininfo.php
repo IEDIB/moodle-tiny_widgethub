@@ -37,7 +37,7 @@ use editor_tiny\plugin_with_menuitems;
  * @param string $searchkey
  * @return mixed
  */
-function search_by_key($array, $searchkey) {
+function tiny_widgethub_searchbykey($array, $searchkey) {
     foreach ($array as $index => $value) {
         if ($value['key'] === $searchkey) {
             return $index;
@@ -52,7 +52,7 @@ function search_by_key($array, $searchkey) {
  * @param string $configstr
  * @return string[]
  */
-function parse_config($configstr) {
+function tiny_widgethub_parseconfig($configstr) {
     $config = [];
     $lines = explode("\n", trim($configstr)); // Split into lines.
     foreach ($lines as $line) {
@@ -138,7 +138,7 @@ class plugininfo extends plugin implements
             $params['sharecss'] = $conf->sharecss;
             $params['additionalcss'] = $conf->additionalcss;
             // Syntax key=value per line.
-            $params['cfg'] = parse_config($conf->cfg ?? '');
+            $params['cfg'] = tiny_widgethub_parseconfig($conf->cfg ?? '');
         }
         return $params;
     }
@@ -362,21 +362,20 @@ class plugininfo extends plugin implements
 
         foreach ($presets as $preset) {
             // Check if the $preset key is in the $index.
-            $id = search_by_key($widgetindex, $preset['key']);
+            $id = tiny_widgethub_searchbykey($widgetindex, $preset['key']);
             $mustupdate = true;
 
             if ($id == null) {
                 // Create a new entry.
                 $id = self::update_seq($conf);
-            } else {
+            } else if (isset($conf->{'def_' . $id})) {
                 // Load the old definition.
                 $old = json_decode($conf->{'def_' . $id});
-                if (isset($old)) {
-                    // Condition to override existing definition.
-                    // Author has changed or (TODO) version is less than previous.
-                    if (isset($preset['author']) && $old->author != $preset['author']) {
-                        $mustupdate = false;
-                    }
+                // Condition to override existing definition.
+                // Author has changed or version is less than previous.
+                if (isset($old) && (isset($preset['author']) && $old->author != $preset['author'])
+                    || (isset($preset['version']) && strcmp($old->version, $preset['version']) >= 0)) {
+                    $mustupdate = false;
                 }
             }
             if ($mustupdate) {

@@ -278,14 +278,14 @@ export function applyWidgetFilterFactory(editor, coreStr) {
                     editor.notificationManager.open({
                         text: translations[1],
                         type: 'info',
-                        timeout: 4000
+                        timeout: 5000
                     });
                 }
             } else if (!silent) {
                 editor.notificationManager.open({
                     text: translations[1],
                     type: 'info',
-                    timeout: 4000
+                    timeout: 5000
                 });
             }
         };
@@ -532,10 +532,13 @@ const bindingFactory = function($e) {
             return {
                 getValue: () => {
                     let ret = '';
-                    const clazz = elem.attr('class') ?? '';
-                    const match = new RegExp(classExpr).exec(clazz);
-                    if (match?.[1] && typeof (match[1]) === "string") {
-                        ret = match[1];
+                    const classes = (elem.attr('class') ?? '').split(' ');
+                    for (const clazz of classes) {
+                        const match = new RegExp(classExpr).exec(clazz);
+                        if (match?.[1] && typeof (match[1]) === "string") {
+                            ret = match[1];
+                            break;
+                        }
                     }
                     return performCasting(ret, castTo);
                 },
@@ -768,7 +771,7 @@ const bindingFactory = function($e) {
                     let newValue;
                     if (styValue) {
                         // Case val <= 0 && styName contains width or height
-                        if ((styName.includes("width") || styName.includes("height")) && (parseFloat(val + '') < 0)) {
+                        if ((styName.includes("width") || styName.includes("height")) && (parseFloat(val + '') <= 0)) {
                             newValue = '';
                         } else {
                             const oldValue = elem.prop('style').getPropertyValue(styName) ?? '';

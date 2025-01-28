@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable camelcase */
 /* eslint-disable max-len */
 // This file is part of Moodle - http://moodle.org/
 //
@@ -17,8 +17,8 @@
 
 import {getWidgetDict} from './options';
 import jQuery from "jquery";
-import {getDomSrv} from './service/domSrv';
-import {getWidgetPropertiesCtrl} from './controller/widgetPropertiesCtrl';
+import {getDomSrv} from './service/dom_service';
+import {getWidgetPropertiesCtrl} from './controller/widgetproperties_ctrl';
 import {getMenuItemProviders, getListeners} from './extension';
 import {get_strings} from 'core/str';
 
@@ -36,7 +36,7 @@ import {get_strings} from 'core/str';
  * @property {JQuery<HTMLElement>} selectedElement - The DOM element from which the search starts.
  * @property {JQuery<HTMLElement>} [elem] - Indicates the element corresponding to the selector of the widget found
  * @property {JQuery<HTMLElement>} [targetElement] - Indicates the element corresponding the intermediate selector
- * @property {import('./options').Widget=} widget - The current widget definition associated with the elem
+ * @property {import('./options').Widget} [widget] - The current widget definition associated with the elem
  */
 
 /**
@@ -111,7 +111,7 @@ const matchesCondition = function(condition, key) {
 
 /**
  * @param {import('./plugin').TinyMCE} editor
- * @param {import('./service/domSrv').DomSrv} domSrv
+ * @param {import('./service/dom_service').DomSrv} domSrv
  */
 const predefinedActionsFactory = function(editor, domSrv) {
     /** @type {Record<string, Function>} */

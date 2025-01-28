@@ -17,6 +17,7 @@ global.window["require"] = requirejs;
 // @ts-ignore
 global.requirejs = requirejs;
 
+// @ts-ignore
 module.exports = function applyMocks(jest) { 
     jest.mock("jquery", () => {
         const $ = require('../node_modules/jquery/dist/jquery.js');
@@ -52,10 +53,17 @@ module.exports = function applyMocks(jest) {
         };
         const coreStr = {
             /** 
-             * @param  {string}  key 
-             * @param  {string}  component 
+             * @param  {string} key 
+             * @param  {string} component
+             * @param  {string} [placeholder]
              */
-            get_string: (key, component) => Promise.resolve(map.get(key) ?? key),
+            get_string: (key, component, placeholder) => {
+                let str = map.get(key) ?? key;
+                if (placeholder) {
+                    str = str.replace('{$a}', placeholder);
+                }
+                return Promise.resolve(str)
+            },
             get_strings
         };
         return {

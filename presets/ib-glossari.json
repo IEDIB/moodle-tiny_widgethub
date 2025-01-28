@@ -7,33 +7,7 @@
     "insertquery": "div.iedib-iq",
     "selectors": "div.iedib-glossari",
     "parameters": [
-        {
-            "name": "_lang",
-            "value": "ca",
-            "title": "Idioma",
-            "options": [
-                {
-                    "v": "ca",
-                    "l": "Català"
-                },
-                {
-                    "v": "es",
-                    "l": "Castellà"
-                },
-                {
-                    "v": "en",
-                    "l": "English"
-                },
-                {
-                    "v": "fr",
-                    "l": "Francès"
-                },
-                {
-                    "v": "de",
-                    "l": "Alemany"
-                }
-            ]
-        },
+        "__LANG__",
         {
             "name": "estil",
             "value": "reading",
