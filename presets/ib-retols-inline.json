@@ -38,7 +38,7 @@
             "value": "contingut a ressaltar",
             "title": "Text a ressaltar",
             "type": "textarea",
-            "when": "SELECT_MODE!='selection'"
+            "when": "!SELECT_MODE"
         }
     ],
     "stars": 2,

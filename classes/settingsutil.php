@@ -65,7 +65,7 @@ class settingsutil {
             'tiny_widgethub/cfg',
             'tiny_widgethub_cfg',
             get_string('cfg', 'tiny_widgethub'),
-            "enable.contextmenu.level=1\ndisable.plugin.pages=",
+            "imgBaseUrl=https://iedib.net/assets\nenable.contextmenu.level=1\ndisable.plugin.pages=",
             PARAM_RAW
         );
         return $items;

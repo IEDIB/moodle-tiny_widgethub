@@ -11,7 +11,7 @@
             "name": "titol",
             "value": "Títol de la secció",
             "title": "Títol de la secció",
-            "when": "SELECT_MODE!=='selection'"
+            "when": "!SELECT_MODE"
         }
     ],
     "stars": 3,

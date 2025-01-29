@@ -15,7 +15,7 @@ parameters:
   - name: titol
     value: Escriviu un títol
     title: Títol de la capçalera
-    when: "{{SELECT_MODE}}!='selection'"
+    when: "!SELECT_MODE"
 scope: ^page-mod-(page|quizz|assign)-mod$
 author: Josep Mulet Pol <pep.mulet@gmail.com>
 version: 2023.01.07

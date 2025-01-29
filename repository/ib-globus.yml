@@ -16,7 +16,7 @@ parameters:
     title: Paraula
     type: textfield
     tip: Quan es faci click a aquesta paraula apareixerà el globus
-    when: "SELECT_MODE!='selection'" 
+    when: "!SELECT_MODE" 
   - name: titol
     value: ""
     title: Títol globus

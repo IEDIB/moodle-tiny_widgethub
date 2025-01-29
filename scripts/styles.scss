@@ -235,6 +235,9 @@ h4.tiny_widgethub-headertext {
 }
 
 .tiny_widgethub-blink {
+  position: absolute;
+  right: 100px;
+  top: 20px;
   animation: tiny_widgethub-blinker 1s infinite;
 }
 

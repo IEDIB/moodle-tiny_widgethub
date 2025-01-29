@@ -16,7 +16,7 @@ parameters:
   - name: words
     value: awesome
     title: Paraula o frase
-    when: "{{SELECT_MODE}}!='selection'" 
+    when: "!SELECT_MODE" 
   - name: voice
     value: en-GB
     title: Idioma de reproducció

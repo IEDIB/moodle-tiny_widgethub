@@ -23,7 +23,7 @@ parameters:
     value: contingut a ressaltar
     title: Text a ressaltar
     type: textarea
-    when: "SELECT_MODE!='selection'" 
+    when: "!SELECT_MODE" 
 stars: 2
 author: Josep Mulet Pol <pep.mulet@gmail.com>
 version: 2021.06.21

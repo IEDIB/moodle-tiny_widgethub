@@ -45,7 +45,7 @@
             "value": "",
             "title": "Contingut per defecte (només exercicis)",
             "type": "textarea",
-            "when": "tipus=='epr' && SELECT_MODE!='selection'"
+            "when": "tipus=='epr' && !SELECT_MODE"
         }
     ],
     "I18n": {

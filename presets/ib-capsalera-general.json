@@ -11,7 +11,7 @@
             "name": "titol",
             "value": "Escriviu un títol",
             "title": "Títol de la capçalera",
-            "when": "{{SELECT_MODE}}!='selection'"
+            "when": "!SELECT_MODE"
         }
     ],
     "scope": "^page-mod-(page|quizz|assign)-mod$",
