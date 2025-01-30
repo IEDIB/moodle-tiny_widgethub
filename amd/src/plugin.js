@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -34,7 +33,7 @@ import {register as registerOptions} from './options';
 import {getSetup as getCommandSetup} from './commands';
 import * as Configuration from './configuration';
 
-const documentationUrl = 'https://github.com/jmulet/moodle_tiny-widgethub';
+const documentationUrl = 'https://github.com/IEDIB/moodle-tiny_widgethub';
 const {component, pluginName} = Common;
 
 // Import extensions to the plugin
