@@ -3,49 +3,68 @@ name: Notranslate LaTeX
 category: filtres
 instructions: Aquest filtre encapsula les fòrmules LaTeX amb la classe notranslate per evitar que Google les tradueixi.
 filter: >
-    var inlineRegex2 = /\\\(((?:.|\n)+?)\\\)/mgi;
-    var displayRegex2 = /\\\[((?:.|\n)+?)\\\]/mgi;
-    var divDisplaynotranslateRegex = /<\s*div\s+class\s*=\s*\"\s*notranslate\s*\"\s*>(\s*\\\[((?:.|\n)+?)\\\]\s*)<\/\s*div\s*>/mgi;
-    var spanInlinenotranslateRegex = /<\s*span\s+class\s*=\s*\"\s*notranslate\s*\"\s*>(\s*\\\(((?:.|\n)+?)\\\)\s*)<\/\s*span\s*>/mgi;
-    var verifiedRegex = /<!--filtre notranslate aplicat (.*?)-->/mgi;
-
-    var randomkey = function() {
-          return 'k'+Math.random().toString(32).substring(2);
-    };
-    var formulesOk = 0;
-    var formulesPendents = 0; 
-    var mapaFormulas = {};
-    var code = text.replace(divDisplaynotranslateRegex, function ($0, $1, $2, $3) {
-         var key = randomkey() + formulesOk;
-         mapaFormulas[key] = $0;
-         formulesOk++;
-         return " [[["+key+"]]] ";
-    });
-    code = code.replace(spanInlinenotranslateRegex, function ($0, $1, $2, $3) {
-         var key = randomkey() + formulesOk;
-         mapaFormulas[key] = $0;
-         formulesOk++;
-         return " [[["+key+"]]] ";
-    }); 
-    code = code.replace(inlineRegex2, function ($0, $1, $2, $3) {
-         formulesPendents++;
-         return "<span class=\"notranslate\"> \\(" + $1 + "\\)</span>";
-    });
-    code = code.replace(displayRegex2, function ($0, $1, $2, $3) {
-         formulesPendents++;
-         return " <div class=\"notranslate\"> \\[" + $1 + "\\] </div>";
-    });  
-    var claus = Object.keys(mapaFormulas);
-    for(var i=0; i<claus.length; i++) {
-         var key = claus[i];
-         code = code.replace("[[["+key+"]]]", mapaFormulas[key]);
-    }
-    var total = formulesPendents + formulesOk;
-    var msg_stats = "S'han detectat " + total + " fòrmules i s'han corregit "+formulesPendents; 
-    if(formulesPendents===0){
-        code=null;
-    }
-    return [code, msg_stats];
+     var inlineRegex2 = /\\\(((?:.|\n)+?)\\\)/mgi;
+     var displayRegex2 = /\\\[((?:.|\n)+?)\\\]/mgi;
+     var formulaRegex = /((?:\\\[|\\\()(?:.|\n)+?(?:\\\]|\\\)))/mgi;
+     var formulesOk = 0;
+     var filterFn = function(node) {
+          if(node.textContent.match(inlineRegex2) || node.textContent.match(displayRegex2)) {
+          var elem = node.parentElement;
+          if(!elem.classList.contains("notranslate") && !elem.closest(".notranslate")) {
+               return 1;
+          }
+          formulesOk += 1;
+          return -1;
+          }
+          return 0;
+     };
+     var n, walker = document.createTreeWalker(editor.getBody(), NodeFilter.SHOW_TEXT, null, false);
+     var formulesPendents = 0; 
+     var toTreat = [];
+     var toFixNested = [];
+     while(n=walker.nextNode()) {
+               const res = filterFn(n);
+               if(!res) {continue;}
+               if(res > 0) {
+                    toTreat.push(n);
+               } else {
+                    toFixNested.push(n.parentElement);
+               }
+          }
+          toTreat.forEach(function(n) {
+               var elem = n.parentElement;
+               var parts = n.textContent.split(formulaRegex);
+               parts.forEach(txt => {
+               if(txt.match(formulaRegex)) {
+               var span = document.createElement('span');
+               span.innerHTML = txt;
+               span.classList.add('notranslate');
+               elem.insertBefore(span, n);
+               } else {
+               var txtNode = document.createTextNode(txt);
+               elem.insertBefore(txtNode, n);
+               }
+               });
+               elem.removeChild(n);
+               formulesPendents++;
+          });
+          toFixNested.forEach(function(elem) {
+          var currentElem = elem;
+          while(currentElem && currentElem.nodeName==="SPAN" &&
+               currentElem.classList.contains("notranslate") && currentElem.parentElement && 
+               Array.from(currentElem.parentElement.childNodes).filter(function(n){return n.nodeName!=='#text' || n.textContent.trim()!=='';}).length==1 &&
+               currentElem.parentElement.classList.contains("notranslate")) {
+               currentElem = currentElem.parentElement;
+          }
+          if(currentElem!=elem) {
+               currentElem.innerHTML = elem.innerHTML;
+               formulesPendents +=1;
+          }
+          });
+     var total = formulesPendents + formulesOk;
+     var msg_stats = "S'han detectat " + total + " fòrmules i s'han corregit "+formulesPendents;
+     var markUpdated = formulesPendents > 0;
+     return [markUpdated, msg_stats];
 for: "31,794,5806"
 stars: 1
 author: Josep Mulet Pol <pep.mulet@gmail.com>
