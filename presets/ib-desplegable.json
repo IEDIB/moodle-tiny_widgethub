@@ -8,7 +8,7 @@
     "parameters": [
         {
             "name": "nombre",
-            "value": 3,
+            "value": 1,
             "title": "Nombre de desplegables",
             "type": "numeric",
             "min": 1
@@ -29,5 +29,5 @@
         }
     ],
     "author": "Josep Mulet Pol <pep.mulet@gmail.com>",
-    "version": "2021.03.31"
+    "version": "2025.05.06"
 }
