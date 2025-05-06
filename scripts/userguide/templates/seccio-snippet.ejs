@@ -1,0 +1,139 @@
+<p>
+    <hr><br>
+<p>
+<a name="section-<%=snippet['key']%>"></a>
+<!--ini:div-snippet-->
+<div style="position:relative;">
+    <h4 class="iedib-subsub" title="<%=snippet['key']%>" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
+        <% if(snippet.nou) { %>
+            <i class="fas fa-comment-plus" style="color:darkorange;"></i>
+            <% } %>
+                <%=snippet['name']%>
+                    &nbsp;&nbsp;
+                    <% if(recomanacio==3) { %>
+                        <i class="fas fa-thumbs-up"></i>&nbsp;&nbsp;
+                        <% } else if(recomanacio==0) { %>
+                            <i class="fas fa-thumbs-down"></i>&nbsp;&nbsp;
+                            <% } %>
+                            <% if(snippet['future']) { %>
+                                &nbsp;&nbsp;<span class="badge badge-info">Pròximament</span>
+                            <% } %>
+                            <% if(snippet['misc']['for']) { %>
+                                &nbsp;&nbsp;<span class="badge badge-danger">Restringit a usuaris <%=snippet['misc']['for']%></span>
+                            <% } %>
+    </h4>
+    <p><br></p> 
+
+        <div
+            style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
+            <em>Àmbit d'aplicació</em>: <%=ambit%><br>
+                <em>Recomanació d'ús</em>: <%=recomanacio%>/3<br>
+                    <em>Versió</em>: <%=snippet['version']%>
+        </div>
+
+        <!--begin:tabmenu-->
+        <div class="tabbable iedib-tabmenu" id="tabmenu-<%=tabid%>" style="position:relative; margin-left:0; padding: 10px; width:99%; background: whitesmoke;">
+            <% if(allowfullscreen) { %>
+            <button data-enlargeable="<%=tabid%>" style="position:absolute;right:10px;top:4px;"
+                class="btn btn-light btn-sm" title="Fullscreen"><i class="fas fa-expand-arrows-alt"></i></button> <% } %>
+            
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#tab-<%=tabid%>-0" data-toggle="tab"><span>&nbsp;</span><span>Es mostra
+                            com...</span></a></li>
+                <li><a href="#tab-<%=tabid%>-1" data-toggle="tab"><span>&nbsp;</span><span>Codi HTML</span></a></li>
+            </ul>
+
+            
+            <div class="tab-content" style="background:white;">
+                <div class="tab-pane  active  iedib-tabpane" id="tab-<%=tabid%>-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
+                    <% if(snippet['category'] != 'filtres') { %>
+                    <%-codiSnippetCompilat%>
+                    <%} else { %>
+                    <em>Els filtres no disposen de previsualització.</em>
+                    <% } %>
+                </div>
+                <div class="tab-pane iedib-tabpane" id="tab-<%=tabid%>-1">
+                    <div style="position:relative;max-height: 400px;overflow: auto;">
+                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-<%=tabid%>-12" style="min-height: 100px;"><%-codiSnippetCompilatEscaped%>
+                </code></pre>
+                    <button data-key="<%=snippet['key']%>" style="position:absolute;right:10px;top:4px;"
+                        class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
+                    </div>
+                    <div>
+                <% if(snippet['misc'].requires){ %>
+                <div class="alert alert-warning">
+                    <p>Dependències JS necessàries (col·locar a final del codi HTML):</p>
+                    <ul>
+                    <% Object.keys(snippet['misc'].requires).map(function(k){return snippet['misc'].requires[k];}).forEach( function(v){ %>
+                    <li>&lt;script src="https://iedib.net/assets<%=v%>"&gt;&lt;/script&gt;</li>
+                    <% }) %>
+                    </ul>
+                </div>
+                <% } %>
+                </div>
+            </div>
+            <!--end:tabmenu-->
+            <!--begin:accordion-->
+            <div id="<%=accordionid%>" class="accordion iedib-accordion">
+                <div class="accordion-group">
+                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_<%=accordionid%>_0"
+                            data-toggle="collapse" data-parent="#<%=accordionid%>" style="background: whitesmoke;">
+                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
+                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
+                    <div id="collapse_<%=accordionid%>_0" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                            <%-snippetControls%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end: accordion-->
+        </div>
+
+        <p><br></p>
+
+         
+            <% if (snippet["pro"] && snippet["pro"].length) { %> 
+                <p style="color:green"><b><i class="fas fa-check-circle"></i> S'aconsella...</b></p> 
+                <div class="alert alert-success" style="width:90%;margin-left:30px;"><ul>
+                <% snippet["pro"].forEach((pro) => { %>
+                    <li><%-pro%></li>
+                <% }) %>
+             </ul></div>
+            <% } %>
+             
+            <% if (snippet["con"] && snippet["con"].length) { %>
+                <p style="color:#a50b0b"><b><i class="fas fa-times-circle"></i> Cal evitar...</b></p>
+                <div class="alert alert-danger" style="width:90%;margin-left:30px;"><ul>
+                <% snippet["con"].forEach((con) => { %>
+                    <li><%-con%> </li>
+                <% }) %>
+                </ul></div>
+            <% } %>
+
+            <% if (snippet["hint"] && snippet["hint"].length) { %>
+                <p style="color: rgb(62, 3, 62)"><b><i class="fas fa-lightbulb"></i> Tingues en compte...</b></p>
+                <div class="alert alert-info" style="width:90%;margin-left:30px; color: rgb(62, 3, 62)"><ul>
+                <% snippet["hint"].forEach((hint) => { %>
+                    <li><%-hint%> </li>
+                <% }) %>
+                </ul></div>
+            <% } %>
+        
+
+        <% if (snippet["instructions"]) { %>
+        <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
+        <div style="margin-left:35px;">
+            <p>
+                <%-snippet['instructions']%>
+            </p>
+        </div> 
+        <% } %>
+
+    <p><br>
+    <p>
+    <p><br>
+    <p>
+</div>
+<!--fi:divsnippet-->

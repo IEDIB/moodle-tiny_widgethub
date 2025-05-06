@@ -1,0 +1,18 @@
+
+video:
+    hint:
+        - Emprau l'snippet Youtube sempre que sigui possible
+        - Video GDrive només per a contingut que no pogueu penjar al canal institucional IEDIB 
+
+capses:
+    hint:
+        - Emprau les capses amb seny per evitar una fragmentació del text excessiva
+
+imatge:
+    hint:
+        - Aneu en compte amb la graella d'imatges que es vegi bé per amplades petites
+        - L'snippet imatge permet que la graella sigui responsiva
+
+filtres:
+    hint: 
+        - Els filtres són una funció que transformen el codi HTML d'entrada en un codi de sortida d'acord amb unes normes.

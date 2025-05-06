@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ca">
+<!--Pàgina autogenerada-->
+<head>
+    <title><%=titolPagina%></title>
+    <meta charset="utf-8">
+    <% if (DEBUG) { %>
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({TeX: {extensions: ["cancel.js"]},CommonHTML: { linebreaks: { automatic: true } },"HTML-CSS": { linebreaks: { automatic: true } },SVG: { linebreaks: { automatic: true } }});
+            </script>
+        <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+            integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../../styles/iedib-avirtual-stylesheet-div37.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+            crossorigin="anonymous" />
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
+        <script src="https://ibsuite.es/iedib/node_modules/handlebars/dist/handlebars.min.js"></script>
+        <script src="https://ibsuite.es/iedib/node_modules/js-beautify/js/lib/beautify-html.js"></script>
+        <% } %>
+</head>
+
+<body>
+
+    <p>Els components <em>snippet</em> estan organitzats en les següents categories</p>
+
+    <p style="margin-left:35px;font-size:90%;"><b>Llegenda</b></p>
+    <div style="margin-left:45px;font-size:90%;border: 1px solid gray;border-radius: 10px;padding-top: 10px; padding-left: 20px; width: 80%;">
+        &nbsp;&nbsp;<i class="fas fa-thumbs-up" style="color:darkgreen;"></i> &nbsp;&nbsp; Component d'ús recomanat o emprat amb freqüència
+        <br>
+        &nbsp;&nbsp;<i class="fas fa-thumbs-down" style="color:gray;"></i> &nbsp;&nbsp; Component desaconsellat o d'ús molt restringit
+        <br>
+        &nbsp;&nbsp;<i class="fas fa-comment-plus" style="color:darkorange;"></i> &nbsp;&nbsp; Novetat
+    </div>
+
+    <p><br></p>
+
+    <ul>
+
+        <% listCategories.forEach((e)=> { %>
+
+            <li><b>Categoria - <%=e.name%></b>
+                <div id="accordion-<%=e.randid%>" style="margin-top: 1px; margin-bottom:20px;">
+                    <div class="card">
+                        <div class="card-header" id="<%=e.randid%>" style="padding: 5px;">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse"
+                                    data-target="#collapse-<%=e.randid%>" aria-expanded="true"
+                                    aria-controls="collapse-<%=e.randid%>">
+                                    Conté <%=e.snippets.length%> snippets &nbsp;&nbsp;
+                                        <% if(e.handsup) { %>
+                                            <%=e.handsup%> <i class="fas fa-thumbs-up"></i>&nbsp;&nbsp;
+                                        <% } %>
+                                        <% if(e.handsdown) { %>
+                                            <%=e.handsdown%> <i class="fas fa-thumbs-down"></i>&nbsp;&nbsp;
+                                        <% } %>
+                                        <% if(e.nous) { %>
+                                            <%=e.nous%> <i class="fas fa-comment-plus"
+                                                                        style="color:darkorange;"></i>&nbsp;&nbsp;
+                                        <% } %>
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapse-<%=e.randid%>" class="collapse" aria-labelledby="<%=e.name%>"
+                            data-parent="#accordion-<%=e.randid%>">
+                            <ul>
+                                <% e.snippets.forEach( (s)=> { %>
+                                    <li>
+                                        <% if(s.nou) { %>
+                                            <i style="height:20px;width:20px;display:inline-block;color:darkorange;"
+                                                class="fas fa-comment-plus"></i>
+                                        <% } else if(s.stars==3) { %>
+                                           <i style="height:20px;width:20px;display:inline-block;color:darkgreen;"
+                                                    class="fas fa-thumbs-up"></i>
+                                        <% } else if(s.stars==0) { %>
+                                            <i style="height:20px;width:20px;display:inline-block;color:grey;"
+                                                        class="fas fa-thumbs-down"></i>
+                                        <% } else { %>
+                                            <i style="height:20px;width:20px;display:inline-block;"></i>
+                                        <% } %>
+                                           <%=s.name%>
+                                           <% if(s.future) { %>
+                                            &nbsp;&nbsp;<span class="badge badge-info">Pròximament</span>
+                                           <% } %>
+                                        </li>
+                                    <% }) %>
+                            </ul>
+                        </div>
+
+                        <% if(e.listHints && e.listHints.length) { %>
+                            <div class="card" style="color:purple;font-size:90%;min-height:30px;padding:15px;border: 1px solid #dacdda;">
+                                <span style="position:absolute;left:3px;top:3px;font-size:110%;">
+                                    <i class="fas fa-lightbulb"></i></span>
+                                <ul>
+                                    <% e.listHints.forEach( (eh)=>{ %>
+                                        <li> <%-eh%> </li>
+                                    <% }) %>
+                                </ul>
+                            </div>
+                        <% } %>
+
+                    </div>
+                </div> 
+                <p><br></p>
+            </li>
+            <% }) %>
+    </ul>
+ 
+    <script>
+    // Router for snippet atto
+    var catids = {
+      'altres': 41217,
+      'bootstrap': 41218,
+      'capses':41219,
+      'idiomes':41220,
+      'filtres':41221,
+      'imatge':41222,
+      'video':41223
+    };
+    var loc = window.location.href.split("?");
+    var cmid = '';
+    var id = '';
+    var snpt = null;
+    if(loc){
+      var params = loc[1].split("&"); 
+      for(var i=0, len=params.length; i<len; i++){
+          var kv = params[i].split("=");
+        if(kv.length==2 && kv[0]=='snpt'){
+          snpt = kv[1];
+        } else if(kv.length==2 && (kv[0]=='cmid'||kv[0]=='chapterid')){
+          cmid = kv[1];
+        } else if(kv.length==2 && kv[0]=='id'){
+          id = kv[1];
+        }
+      }
+    }
+    if(snpt) {
+      var snpt_pts=snpt.split('$');
+      if(snpt_pts.length==2) {
+        cmid = catids[snpt_pts[0]];
+        if(cmid && id) {
+           var redirect = loc[0]+"?id="+id+"&chapterid="+cmid+"#section-"+snpt_pts[1];
+           window.location.href = redirect;
+        }
+      }
+    }
+    </script>
+</body>
+
+</html>
