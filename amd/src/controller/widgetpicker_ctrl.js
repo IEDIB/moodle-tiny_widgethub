@@ -283,6 +283,8 @@ export class WidgetPickerCtrl {
             this.modal.header.find("span.tiny_widgethub-blink").addClass("d-none");
         }
 
+        // TODO: Opened issue: Closing a tiny dialog -- afects the main bootstap dialog
+        this.modal.modal?.removeClass("hide");
         this.modal.show();
 
         setTimeout(() => {
@@ -294,11 +296,6 @@ export class WidgetPickerCtrl {
             }
             this.modal.body.find("input").trigger('focus');
         }, 200);
-    }
-
-
-    show() {
-        this.modal?.show();
     }
 
     /**
