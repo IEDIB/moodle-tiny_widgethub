@@ -2,7 +2,7 @@
     "key": "menu-pestanyes2",
     "name": "Menú pestanyes",
     "category": "bootstrap",
-    "instructions": "Crea un menú de pestanyes. És important que escriviu una ID aleatòria que sigui diferent per a cada menú creat en la pàgina. Podeu definir el nombre de pestanyes (<b>com a mínim 2</b>).\n",
+    "instructions": "Crea un menú de pestanyes. És important que escriviu una ID aleatòria que sigui diferent per a cada menú creat en la pàgina. Podeu definir el nombre de pestanyes (<b>com a mínim 2</b>). <a class=\"d-block m-1\" href=\"https://iedib.net/avirtual/mod/book/view.php?id=37192&chapterid=41216&snpt=bootstrap$menu-pestanyes2\" target=\"_blank\"><i class=\"fas fa fa-book\"></i> Més informació...</a>\n",
     "template": "<p><br></p> \n<!--ini menu pestanyes-->\n<div class=\"tabbable iedib-tabmenu\">\n<ul class=\"nav nav-tabs\">\n{{#each}}[pestanyes]<li {{#if}}[i==1]class=\"active\"{{/if}}><a href=\"#{{ID}}_{{i}}\"\ndata-toggle=\"tab\"><span>&nbsp;</span><span>Pestanya{{i}}</span></a>{{/each}}</li> \n</ul>\n<div class=\"tab-content\">\n{{#each}}[pestanyes]<div class=\"tab-pane {{#if}}[i==1]active{{/if}} iedib-tabpane\" id=\"{{ID}}_{{i}}\">\n<p>{{i}}) __LOREM__</p>\n</div>{{/each}}\n</div>\n</div> \n<!--fi menu pestanyes-->\n<p><br></p>\n",
     "selectors": "div.iedib-tabmenu.tabbable",
     "unwrap": "div.tab-content > div.tab-pane > *",

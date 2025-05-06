@@ -5,6 +5,7 @@ instructions: |
   Crea una graella n files i m columnes on col·locar imatges amb els seus corresponents títols. 
   Doble click sobre les imatges per canviar-les. 
   <b style="color:darkred;">Reviseu la visualització en dispositius petits!</b>
+  <a class="d-block m-1" href="https://iedib.net/avirtual/mod/book/view.php?id=37192&chapterid=41216&snpt=obsolet$image-grid" target="_blank"><i class="fas fa fa-book"></i> Més informació...</a>
 template: >
   <p><br></p>
   <!--begin:: graella d'imatges-->

@@ -3,6 +3,7 @@ name: Taula predefinida
 instructions: >
  Crea una taula predefinida amb n files i m columnes.
  Cal que reviseu la visualització en dispositius mòbils.
+  <a class="d-block m-1" href="https://iedib.net/avirtual/mod/book/view.php?id=37192&chapterid=41216&snpt=altres$taula-predefinida" target="_blank"><i class="fas fa fa-book"></i> Més informació...</a>
 template: |
   <p><br></p> 
   <!--ini taula predef-->

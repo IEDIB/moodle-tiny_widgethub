@@ -2,7 +2,7 @@
     "key": "two-cols",
     "name": "Dues columnes",
     "category": "bootstrap",
-    "instructions": "Formateu continguts en dues columnes responsives (s'adapten a la mida dels dispositius).\n",
+    "instructions": "Formateu continguts en dues columnes responsives (s'adapten a la mida dels dispositius). <a class=\"d-block m-1\" href=\"https://iedib.net/avirtual/mod/book/view.php?id=37192&chapterid=41216&snpt=bootstrap$two-cols\" target=\"_blank\"><i class=\"fas fa fa-book\"></i> Més informació...</a>\n",
     "template": "{{#var}}amplada_col2=12-amplada_col1{{/var}}\n<p><br></p>\n<!--ini dues columnes-->\n<div class=\"row-fluid iedib-tabpane\">\n<div class=\"span{{amplada_col1}}\">\n<p>__LOREM__</p>\n</div>\n<div class=\"span{{amplada_col2}}\">\n<p><br></p>\n<img src=\"https://www.actualidadliteratura.com/wp-content/uploads/2019/06/tablilla-en-latin.jpg\" alt=\"Demo\" style=\"width:90%;max-width:300px;\" role=\"presentation\" class=\"img-fluid align-middle\"/>\n<p><br></p>\n</div>\n</div>\n<!--fi dues columnes-->\n <p><br></p>\n",
     "selectors": "div.row-fluid.iedib-tabpane",
     "parameters": [

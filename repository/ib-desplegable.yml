@@ -5,6 +5,7 @@ instructions: |
   Crea un grup de desplegables. El nombre de desplegables es defineix en camp 'nombre'. Assegureu-vos que el títol de
   cada desplegable sigui clicable. Recordeu a col·lapsar els desplegables abans de desar. No modifiqueu l'identificador
   generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que creeu en la pàgina.
+  <a class="d-block m-1" href="https://iedib.net/avirtual/mod/book/view.php?id=37192&chapterid=41216&snpt=bootstrap$desplegable2" target="_blank"><i class="fas fa fa-book"></i> Més informació...</a>
 template: >
   <p><br></p> 
   <!--ini desplegable-->

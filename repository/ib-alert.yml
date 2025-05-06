@@ -1,6 +1,9 @@
 key: bs-alert
 name: Alert container
 category: bootstrap
+instructions: > 
+  Permet inserir capses "alert" de Boostrap de diferent tipus. Emprau aquestes capses si desitjau
+  que l'usuari les pugui tancar.
 template: |
   <p></p>
   <div class="m-2 alert alert-{{severity}}{{#closable}} alert-dismissible{{/closable}} fade show" role="alert">
@@ -19,7 +22,7 @@ insertquery: div[role="alert"].alert .alert-content
 unwrap: '*'
 parameters:
   - name: severity
-    title: Type of alert
+    title: Tipus d'alerta
     bind: classRegex('alert-(.*)')
     value: primary    
     options:
@@ -32,7 +35,21 @@ parameters:
       - light
       - dark
   - name: closable
-    title: Closable
-    value: false
+    title: Tancable
+    value: true
+    bind:
+      get: (e) => e.find("button.btn-close.close").length > 0
+      set: |
+        (e, v) => {
+            if (v && !e.find("button.btn-close.close")[0]) {
+              var btn = '<button type="button" class="btn-close close" data-dismiss="alert" data-bs-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+              e.prepend(btn);
+              e.addClass('alert-dismissible');
+            } else {
+              e.removeClass('alert-dismissible');
+              e.find("button.btn-close.close").remove();
+            }
+        }
+autocomplete: severity
 author: Josep Mulet <pep.mulet@gmail.com>
-version: 1.0.0
+version: 1.2.1

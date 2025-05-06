@@ -8,6 +8,7 @@ instructions: >
   <b>Important</b>: Remarcar que és un contingut rellevant que cal estudiar.<br>
   <b>Introducció</b>: Serveix per introduir un lliurament o una secció d'ell. 
   Triau una mida i idioma per a la capsa.
+  <a class="d-block m-1" href="https://iedib.net/avirtual/mod/book/view.php?id=37192&chapterid=41216&snpt=capses$capsa-generica" target="_blank"><i class="fas fa fa-book"></i> Més informació...</a>
 template: |
   <p><br></p><!--begin: Capsa {{severity}} {{mida}} -->
   <div class="iedib-capsa iedib-capsa-{{mida}} iedib-{{severity}}-border" data-lang="{{_lang}}">
