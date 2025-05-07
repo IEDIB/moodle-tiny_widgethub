@@ -34,11 +34,11 @@
 
     <p style="margin-left:35px;font-size:90%;"><b>Llegenda</b></p>
     <div style="margin-left:45px;font-size:90%;border: 1px solid gray;border-radius: 10px;padding-top: 10px; padding-left: 20px; width: 80%;">
-        &nbsp;&nbsp;<i class="fas fa-thumbs-up" style="color:darkgreen;"></i> &nbsp;&nbsp; Component d'ús recomanat o emprat amb freqüència
+        &nbsp;&nbsp;<i class="fas fa fa-thumbs-up" style="color:darkgreen;"></i> &nbsp;&nbsp; Component d'ús recomanat o emprat amb freqüència
         <br>
-        &nbsp;&nbsp;<i class="fas fa-thumbs-down" style="color:gray;"></i> &nbsp;&nbsp; Component desaconsellat o d'ús molt restringit
+        &nbsp;&nbsp;<i class="fas fa fa-thumbs-down" style="color:gray;"></i> &nbsp;&nbsp; Component desaconsellat o d'ús molt restringit
         <br>
-        &nbsp;&nbsp;<i class="fas fa-comment-plus" style="color:darkorange;"></i> &nbsp;&nbsp; Novetat
+        &nbsp;&nbsp;<i class="fas fa fa-comment-plus" style="color:darkorange;"></i> &nbsp;&nbsp; Novetat
     </div>
 
     <p><br></p>
@@ -57,13 +57,13 @@
                                     aria-controls="collapse-<%=e.randid%>">
                                     Conté <%=e.widgets.length%> snippets &nbsp;&nbsp;
                                         <% if(e.handsup) { %>
-                                            <%=e.handsup%> <i class="fas fa-thumbs-up"></i>&nbsp;&nbsp;
+                                            <%=e.handsup%> <i class="fas fa fa-thumbs-up"></i>&nbsp;&nbsp;
                                         <% } %>
                                         <% if(e.handsdown) { %>
-                                            <%=e.handsdown%> <i class="fas fa-thumbs-down"></i>&nbsp;&nbsp;
+                                            <%=e.handsdown%> <i class="fas fa fa-thumbs-down"></i>&nbsp;&nbsp;
                                         <% } %>
                                         <% if(e.nous) { %>
-                                            <%=e.nous%> <i class="fas fa-comment-plus"
+                                            <%=e.nous%> <i class="fas fa fa-comment-plus"
                                                                         style="color:darkorange;"></i>&nbsp;&nbsp;
                                         <% } %>
                                 </button>
@@ -77,13 +77,13 @@
                                     <li>
                                         <% if(s.nou) { %>
                                             <i style="height:20px;width:20px;display:inline-block;color:darkorange;"
-                                                class="fas fa-comment-plus"></i>
+                                                class="fas fa fa-comment-plus"></i>
                                         <% } else if(s.stars==3) { %>
                                            <i style="height:20px;width:20px;display:inline-block;color:darkgreen;"
-                                                    class="fas fa-thumbs-up"></i>
+                                                    class="fas fa fa-thumbs-up"></i>
                                         <% } else if(s.stars==0) { %>
                                             <i style="height:20px;width:20px;display:inline-block;color:grey;"
-                                                        class="fas fa-thumbs-down"></i>
+                                                        class="fas fa fa-thumbs-down"></i>
                                         <% } else { %>
                                             <i style="height:20px;width:20px;display:inline-block;"></i>
                                         <% } %>
@@ -99,7 +99,7 @@
                         <% if(e.listHints && e.listHints.length) { %>
                             <div class="card" style="color:purple;font-size:90%;min-height:30px;padding:15px;border: 1px solid #dacdda;">
                                 <span style="position:absolute;left:3px;top:3px;font-size:110%;">
-                                    <i class="fas fa-lightbulb"></i></span>
+                                    <i class="fas fa fa-lightbulb"></i></span>
                                 <ul>
                                     <% e.listHints.forEach( (eh)=>{ %>
                                         <li> <%-eh%> </li>

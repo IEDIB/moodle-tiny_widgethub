@@ -45,12 +45,12 @@
 <a name="section-imatge"></a>
 <!--ini:div-widget-->
 <div style="position:relative;">
-    <h3 title="imatge" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="imatge" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> &nbsp;
         
                 Inserir imatge
                     &nbsp;&nbsp;
                     
-                        <i class="fas fa-thumbs-up"></i>&nbsp;&nbsp;
+                        <i class="fas fa fa-thumbs-up"></i>&nbsp;&nbsp;
                         
                             
                             
@@ -101,7 +101,7 @@
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
                 </code></pre>
                     <button data-key="imatge" style="position:absolute;right:10px;top:4px;"
-                        class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
+                        class="btn btn-sm btn-secondary"><i class="fas fa fa-copy"></i> Copiar</button>
                     </div>
                     <div>
                 
@@ -196,7 +196,7 @@
         
 
         
-        <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
+        <p style="color:#5252ec"><i class="fas fa fa-book"></i> <b>Instruccions de l'snippet...</b></p>
         <div style="margin-left:35px;">
             <p>
                 Codi per inserir una o diverses imatge i una descripció a sota.  Doble click sobre la imatge per canviar-la. Permet diverses disposicions en columnes  amb un comportament <b>responsiu</b>. Si s'activa el zoom, el podrà ampliar les imatges amb la rodeta del ratolí.
@@ -218,7 +218,7 @@
 <a name="section-imatge-fons"></a>
 <!--ini:div-widget-->
 <div style="position:relative;">
-    <h3 title="imatge-fons" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="imatge-fons" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> &nbsp;
         
                 Text sobre fons d&#39;imatge
                     &nbsp;&nbsp;
@@ -272,7 +272,7 @@
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
                 </code></pre>
                     <button data-key="imatge-fons" style="position:absolute;right:10px;top:4px;"
-                        class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
+                        class="btn btn-sm btn-secondary"><i class="fas fa fa-copy"></i> Copiar</button>
                     </div>
                     <div>
                 
@@ -292,7 +292,7 @@
         
 
         
-        <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
+        <p style="color:#5252ec"><i class="fas fa fa-book"></i> <b>Instruccions de l'snippet...</b></p>
         <div style="margin-left:35px;">
             <p>
                 Permet crear una capçalera amb una imatge que ocupa el fons d'un contenidor. Aquest snippet pot servir per posar el títol del lliurament en el grid. <span class="iedib-ret iedib-ret-consell">Trobareu més patrons gratuïts en aquest <a href="https://www.svgbackgrounds.com/set/free-svg-backgrounds-and-patterns/" target="_blank">enllaç</a>. Es recomana baixar el format SVG.</span>
@@ -353,8 +353,7 @@
         // Bind copy actions
         document.querySelectorAll(".btn.btn-sm.btn-secondary").forEach((elem) => {
             elem.addEventListener("click", function(evt){
-                var key = elem.dataset.key;  
-                console.log(elem, key )
+                var key = elem.dataset.key;
                 if(copyToClipboard(mapSnippets[key]?.['html'] || "")){
                     // Show tooltip - copied!
                     console.log("Contents copied to clipboard!");

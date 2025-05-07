@@ -45,7 +45,7 @@
 <a name="section-glossari"></a>
 <!--ini:div-widget-->
 <div style="position:relative;">
-    <h3 title="glossari" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="glossari" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> &nbsp;
         
                 Glossari
                     &nbsp;&nbsp;
@@ -107,7 +107,7 @@
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
                 </code></pre>
                     <button data-key="glossari" style="position:absolute;right:10px;top:4px;"
-                        class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
+                        class="btn btn-sm btn-secondary"><i class="fas fa fa-copy"></i> Copiar</button>
                     </div>
                     <div>
                 
@@ -127,7 +127,7 @@
         
 
         
-        <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
+        <p style="color:#5252ec"><i class="fas fa fa-book"></i> <b>Instruccions de l'snippet...</b></p>
         <div style="margin-left:35px;">
             <p>
                 Aquest snippet permet incloure un glossari per a idiomes.
@@ -149,7 +149,7 @@
 <a name="section-speak-aloud"></a>
 <!--ini:div-widget-->
 <div style="position:relative;">
-    <h3 title="speak-aloud" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="speak-aloud" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> &nbsp;
         
                 Reprodueix en veu alta
                     &nbsp;&nbsp;
@@ -189,7 +189,7 @@
                     <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-speak-aloud-12" style="min-height: 100px;">&lt;a href=&quot;#speak_en-GB&quot;&gt;&lt;span class=&quot;iedib-inspoint&quot;&gt;awesome&lt;/span&gt;&lt;/a&gt;
                 </code></pre>
                     <button data-key="speak-aloud" style="position:absolute;right:10px;top:4px;"
-                        class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
+                        class="btn btn-sm btn-secondary"><i class="fas fa fa-copy"></i> Copiar</button>
                     </div>
                     <div>
                 
@@ -248,7 +248,7 @@
         
 
         
-        <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
+        <p style="color:#5252ec"><i class="fas fa fa-book"></i> <b>Instruccions de l'snippet...</b></p>
         <div style="margin-left:35px;">
             <p>
                 Reprodueix en veu alta una paraula o una frase en l'idioma triat en el menú desplegable. Opcionalment es pot afegir una anotació tipus globus que es mostra en fer click. <span class="iedib-ret iedib-ret-alerta">El funcionament en dispositius mòbils està en forma experimental.  Les veus disponibles depenen del sistema operatiu que s'empra.</span>
@@ -309,8 +309,7 @@
         // Bind copy actions
         document.querySelectorAll(".btn.btn-sm.btn-secondary").forEach((elem) => {
             elem.addEventListener("click", function(evt){
-                var key = elem.dataset.key;  
-                console.log(elem, key )
+                var key = elem.dataset.key;
                 if(copyToClipboard(mapSnippets[key]?.['html'] || "")){
                     // Show tooltip - copied!
                     console.log("Contents copied to clipboard!");

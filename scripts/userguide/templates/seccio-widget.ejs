@@ -4,16 +4,16 @@
 <a name="section-<%=widget['key']%>"></a>
 <!--ini:div-widget-->
 <div style="position:relative;">
-    <h3 title="<%=widget['key']%>" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
-        <% if(widget.nou) { %>
-            <i class="fas fa-comment-plus" style="color:darkorange;"></i>
-            <% } %>
+    <h3 title="<%=widget['key']%>" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> &nbsp;
+        <% if(widget.nou) { %>
+            <i class="fas fa fa-plus" style="color:darkorange;"></i>
+            <% } %>
                 <%=widget['name']%>
                     &nbsp;&nbsp;
                     <% if(recomanacio==3) { %>
-                        <i class="fas fa-thumbs-up"></i>&nbsp;&nbsp;
+                        <i class="fas fa fa-thumbs-up"></i>&nbsp;&nbsp;
                         <% } else if(recomanacio==0) { %>
-                            <i class="fas fa-thumbs-down"></i>&nbsp;&nbsp;
+                            <i class="fas fa fa-thumbs-down"></i>&nbsp;&nbsp;
                             <% } %>
                             <% if(widget['future']) { %>
                                 &nbsp;&nbsp;<span class="badge badge-info">Pròximament</span>
@@ -35,7 +35,7 @@
         <div class="tabbable iedib-tabmenu" id="tabmenu-<%=tabid%>" style="position:relative; margin-left:0; padding: 10px; width:99%; background: whitesmoke;">
             <% if(allowfullscreen) { %>
             <button data-enlargeable="<%=tabid%>" style="position:absolute;right:10px;top:4px;"
-                class="btn btn-light btn-sm" title="Fullscreen"><i class="fas fa-expand-arrows-alt"></i></button> <% } %>
+                class="btn btn-light btn-sm" title="Fullscreen"><i class="fas fa fa-expand-arrows-alt"></i></button> <% } %>
             
             <ul class="nav nav-tabs">
                 <li class="active">
@@ -58,7 +58,7 @@
                     <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-<%=tabid%>-12" style="min-height: 100px;"><%-codiSnippetCompilatEscaped%>
                 </code></pre>
                     <button data-key="<%=widget['key']%>" style="position:absolute;right:10px;top:4px;"
-                        class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
+                        class="btn btn-sm btn-secondary"><i class="fas fa fa-copy"></i> Copiar</button>
                     </div>
                     <div>
                 <% if(widget.requires){ %>
@@ -80,7 +80,7 @@
 
          
             <% if (widget["pro"] && widget["pro"].length) { %> 
-                <p style="color:green"><b><i class="fas fa-check-circle"></i> S'aconsella...</b></p> 
+                <p style="color:green"><b><i class="fas fa fa-check-circle"></i> S'aconsella...</b></p> 
                 <div class="alert alert-success" style="width:90%;margin-left:30px;"><ul>
                 <% widget["pro"].forEach((pro) => { %>
                     <li><%-pro%></li>
@@ -89,7 +89,7 @@
             <% } %>
              
             <% if (widget["con"] && widget["con"].length) { %>
-                <p style="color:#a50b0b"><b><i class="fas fa-times-circle"></i> Cal evitar...</b></p>
+                <p style="color:#a50b0b"><b><i class="fas fa fa-times-circle"></i> Cal evitar...</b></p>
                 <div class="alert alert-danger" style="width:90%;margin-left:30px;"><ul>
                 <% widget["con"].forEach((con) => { %>
                     <li><%-con%> </li>
@@ -98,7 +98,7 @@
             <% } %>
 
             <% if (widget["hint"] && widget["hint"].length) { %>
-                <p style="color: rgb(62, 3, 62)"><b><i class="fas fa-lightbulb"></i> Tingues en compte...</b></p>
+                <p style="color: rgb(62, 3, 62)"><b><i class="fas fa fa-lightbulb"></i> Tingues en compte...</b></p>
                 <div class="alert alert-info" style="width:90%;margin-left:30px; color: rgb(62, 3, 62)"><ul>
                 <% widget["hint"].forEach((hint) => { %>
                     <li><%-hint%> </li>
@@ -108,7 +108,7 @@
         
 
         <% if (widget["instructions"]) { %>
-        <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
+        <p style="color:#5252ec"><i class="fas fa fa-book"></i> <b>Instruccions de l'snippet...</b></p>
         <div style="margin-left:35px;">
             <p>
                 <%-widget['instructions']%>
