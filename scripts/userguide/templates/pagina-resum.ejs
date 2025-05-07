@@ -55,7 +55,7 @@
                                 <button class="btn btn-link" data-toggle="collapse"
                                     data-target="#collapse-<%=e.randid%>" aria-expanded="true"
                                     aria-controls="collapse-<%=e.randid%>">
-                                    Conté <%=e.snippets.length%> snippets &nbsp;&nbsp;
+                                    Conté <%=e.widgets.length%> snippets &nbsp;&nbsp;
                                         <% if(e.handsup) { %>
                                             <%=e.handsup%> <i class="fas fa-thumbs-up"></i>&nbsp;&nbsp;
                                         <% } %>
@@ -73,7 +73,7 @@
                         <div id="collapse-<%=e.randid%>" class="collapse" aria-labelledby="<%=e.name%>"
                             data-parent="#accordion-<%=e.randid%>">
                             <ul>
-                                <% e.snippets.forEach( (s)=> { %>
+                                <% e.widgets.forEach( (s)=> { %>
                                     <li>
                                         <% if(s.nou) { %>
                                             <i style="height:20px;width:20px;display:inline-block;color:darkorange;"

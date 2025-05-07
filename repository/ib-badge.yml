@@ -25,4 +25,5 @@ parameters:
     bind: hasClass('badge-pill')
     value: false
 author: Josep Mulet <pep.mulet@gmail.com>
+nou: true
 version: 1.1.0

@@ -6,9 +6,33 @@
     <title>Bootstrap</title>
     <meta charset="utf-8">
     
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({TeX: {extensions: ["cancel.js"]},CommonHTML: { linebreaks: { automatic: true } },"HTML-CSS": { linebreaks: { automatic: true } },SVG: { linebreaks: { automatic: true } }});
+            </script>
+        <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+            integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../../styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
+        
 </head>
 
 <body>
+    
+     <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-bs-alert">
+        
+            <i class="fas fa-comment-plus" style="color:darkorange;"></i>
+        
+        Alert container
+    </a>
     
      <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-globus">
         
@@ -22,7 +46,14 @@
     
      <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-two-cols">
         
-        Dues Columnes
+        Dues columnes
+    </a>
+    
+     <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-bs-badge">
+        
+            <i class="fas fa-comment-plus" style="color:darkorange;"></i>
+        
+        Etiqueta / Badge
     </a>
     
      <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-menu-pestanyes2">
@@ -35,29 +66,136 @@
         Presentació diapositives
     </a>
     
+     <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-taula-bs">
+        
+        Taula Bootstrap
+    </a>
+    
    
     
         <p>
     <hr><br>
 <p>
-<a name="section-globus"></a>
-<!--ini:div-snippet-->
+<a name="section-bs-alert"></a>
+<!--ini:div-widget-->
 <div style="position:relative;">
-    <h4 class="iedib-subsub" title="globus" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="bs-alert" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
         
-                Anotació globus multi-propòsit
+            <i class="fas fa-comment-plus" style="color:darkorange;"></i>
+            
+                Alert container
                     &nbsp;&nbsp;
                     
                             
                             
-    </h4>
+    </h3>
     <p><br></p> 
 
         <div
             style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
             <em>Àmbit d'aplicació</em>: Tots<br>
                 <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2.1.0
+                    <em>Versió</em>: 1.2.1
+        </div>
+
+        <!--begin:tabmenu-->
+        <div class="tabbable iedib-tabmenu" id="tabmenu-bs-alert" style="position:relative; margin-left:0; padding: 10px; width:99%; background: whitesmoke;">
+            
+            
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#tab-bs-alert-0" data-toggle="tab"><span>&nbsp;</span><span>Es mostra
+                            com...</span></a></li>
+                <li><a href="#tab-bs-alert-1" data-toggle="tab"><span>&nbsp;</span><span>Codi HTML</span></a></li>
+            </ul>
+
+            
+            <div class="tab-content" style="background:white;">
+                <div class="tab-pane  active  iedib-tabpane" id="tab-bs-alert-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
+                    
+                    <p></p>
+<div class="m-2 alert alert-primary alert-dismissible fade show" role="alert">
+  <button type="button" class="btn-close close" data-dismiss="alert" data-bs-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="alert-content">
+    <p>Lorem ipsum.</p>
+  </div>
+</div>
+<p></p>
+                    
+                </div>
+                <div class="tab-pane iedib-tabpane" id="tab-bs-alert-1">
+                    <div style="position:relative;max-height: 400px;overflow: auto;">
+                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-bs-alert-12" style="min-height: 100px;">&lt;p&gt;&lt;/p&gt;
+&lt;div class=&quot;m-2 alert alert-primary alert-dismissible fade show&quot; role=&quot;alert&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn-close close&quot; data-dismiss=&quot;alert&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;
+    &lt;span aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;div class=&quot;alert-content&quot;&gt;
+    &lt;p&gt;Lorem ipsum.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;
+                </code></pre>
+                    <button data-key="bs-alert" style="position:absolute;right:10px;top:4px;"
+                        class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
+                    </div>
+                    <div>
+                
+                </div>
+            </div>
+            <!--end:tabmenu-->
+        </div>
+
+        <p><br></p>
+
+         
+            
+             
+            
+
+            
+        
+
+        
+        <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
+        <div style="margin-left:35px;">
+            <p>
+                Permet inserir capses "alert" de Boostrap de diferent tipus. Emprau aquestes capses si desitjau que l'usuari les pugui tancar.
+
+            </p>
+        </div> 
+        
+
+    <p><br>
+    <p>
+    <p><br>
+    <p>
+</div>
+<!--fi:divwidget-->
+    
+        <p>
+    <hr><br>
+<p>
+<a name="section-globus"></a>
+<!--ini:div-widget-->
+<div style="position:relative;">
+    <h3 title="globus" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
+        
+                Anotació globus multi-propòsit
+                    &nbsp;&nbsp;
+                    
+                            
+                            
+    </h3>
+    <p><br></p> 
+
+        <div
+            style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
+            <em>Àmbit d'aplicació</em>: Tots<br>
+                <em>Recomanació d'ús</em>: 2/3<br>
+                    <em>Versió</em>: 2022.10.12
         </div>
 
         <!--begin:tabmenu-->
@@ -75,12 +213,12 @@
             <div class="tab-content" style="background:white;">
                 <div class="tab-pane  active  iedib-tabpane" id="tab-globus-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
                     
-                    <a href="javascript:void(0)" data-toggle="popover" data-trigger="hover" title="" data-content="&lt;b&gt;IEDIB&lt;/b&gt; Institut d&#x27;Ensenyaments a Distància de les Illes Balears &lt;br&gt; &lt;img src&#x3D;&#x27;https://piworld.es/iedib/img/iedib-logo.png&#x27; style&#x3D;&#x27;width:50px&#x27;&gt;" data-html="true" data-placement="auto">IEDIB</a>
+                    <a href="javascript:void(0)" data-toggle="popover" data-trigger="hover" data-original-title="" data-content="<b>IEDIB</b> Institut d'Ensenyaments a Distància de les Illes Balears <br> <img src='https://ibsuite.es/iedib/img/iedib-logo.png' width='200'/>" data-html="true" data-container="body" data-placement="auto"><span class="iedib-inspoint">IEDIB</span></a>
                     
                 </div>
                 <div class="tab-pane iedib-tabpane" id="tab-globus-1">
                     <div style="position:relative;max-height: 400px;overflow: auto;">
-                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-globus-12" style="min-height: 100px;">&lt;a href=&quot;javascript:void(0)&quot; data-toggle=&quot;popover&quot; data-trigger=&quot;hover&quot; title=&quot;&quot; data-content=&quot;&amp;lt;b&amp;gt;IEDIB&amp;lt;/b&amp;gt; Institut d&amp;#x27;Ensenyaments a Distància de les Illes Balears &amp;lt;br&amp;gt; &amp;lt;img src&amp;#x3D;&amp;#x27;https://piworld.es/iedib/img/iedib-logo.png&amp;#x27; style&amp;#x3D;&amp;#x27;width:50px&amp;#x27;&amp;gt;&quot; data-html=&quot;true&quot; data-placement=&quot;auto&quot;&gt;IEDIB&lt;/a&gt;
+                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-globus-12" style="min-height: 100px;">&lt;a href=&quot;javascript:void(0)&quot; data-toggle=&quot;popover&quot; data-trigger=&quot;hover&quot; data-original-title=&quot;&quot; data-content=&quot;&lt;b&gt;IEDIB&lt;/b&gt; Institut d&#39;Ensenyaments a Distància de les Illes Balears &lt;br&gt; &lt;img src=&#39;https://ibsuite.es/iedib/img/iedib-logo.png&#39; width=&#39;200&#39;/&gt;&quot; data-html=&quot;true&quot; data-container=&quot;body&quot; data-placement=&quot;auto&quot;&gt;&lt;span class=&quot;iedib-inspoint&quot;&gt;IEDIB&lt;/span&gt;&lt;/a&gt;
                 </code></pre>
                     <button data-key="globus" style="position:absolute;right:10px;top:4px;"
                         class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
@@ -90,34 +228,6 @@
                 </div>
             </div>
             <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-r3u0om56g68" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-r3u0om56g68_0"
-                            data-toggle="collapse" data-parent="#acc-r3u0om56g68" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-r3u0om56g68_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="globus_paraula">Paraula <a href="javascript:void(0)" data-toggle="popover" data-trigger="hover" data-content="Quan es passi el cursor per sobre aquesta paraula apareixerà el globus"><i class="fas fa-question-circle text-info"></i></a></label>
-            <input type="text" class="form-control" id="globus_paraula" aria-describedby="[object Object]" value="IEDIB" title="paraula">
-            </div>
-            <div class="form-group">
-            <label for="globus_titol">Títol globus <a href="javascript:void(0)" data-toggle="popover" data-trigger="hover" data-content="Aquest paràmetre és opcional. Si l'afegiu, el títol apareixerà a la part superior del globus"><i class="fas fa-question-circle text-info"></i></a></label>
-            <input type="text" class="form-control" id="globus_titol" aria-describedby="[object Object]" value="" title="titol">
-            </div>
-            <div class="form-group">
-            <label for="globus_anotacio">Contingut globus <a href="javascript:void(0)" data-toggle="popover" data-trigger="hover" data-content="Si es vol, el contingut del globus pot contenir codi HTML bàsic"><i class="fas fa-question-circle text-info"></i></a></label>
-            <textarea class="form-control" id="globus_anotacio" title="anotacio"><b>IEDIB</b> Institut d'Ensenyaments a Distància de les Illes Balears <br> <img src='https://piworld.es/iedib/img/iedib-logo.png' style='width:50px'></textarea>
-            </div>
-         <button class="btn btn-primary" data-key="globus"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
         </div>
 
         <p><br></p>
@@ -134,7 +244,7 @@
         <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
         <div style="margin-left:35px;">
             <p>
-                Afegeix una anotació tipus globus a una paraula. S'activa quan es passa el ratolí per sobre.
+                Afegeix una anotació tipus globus a una paraula/es. S'activa quan es passa el ratolí per sobre o es fa click.
 
             </p>
         </div> 
@@ -145,29 +255,29 @@
     <p><br>
     <p>
 </div>
-<!--fi:divsnippet-->
+<!--fi:divwidget-->
     
         <p>
     <hr><br>
 <p>
 <a name="section-desplegable2"></a>
-<!--ini:div-snippet-->
+<!--ini:div-widget-->
 <div style="position:relative;">
-    <h4 class="iedib-subsub" title="desplegable2" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="desplegable2" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
         
                 Desplegable
                     &nbsp;&nbsp;
                     
                             
                             
-    </h4>
+    </h3>
     <p><br></p> 
 
         <div
             style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
             <em>Àmbit d'aplicació</em>: Tots<br>
-                <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2021.03.30
+                <em>Recomanació d'ús</em>: 1/3<br>
+                    <em>Versió</em>: 2025.05.06
         </div>
 
         <!--begin:tabmenu-->
@@ -185,69 +295,33 @@
             <div class="tab-content" style="background:white;">
                 <div class="tab-pane  active  iedib-tabpane" id="tab-desplegable2-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
                     
-                    <p><br></p>
-<!--ini desplegable-->
-<div id="ceo9ppdv1m4o" class="accordion iedib-accordion">
+                    <p><br></p> <!--ini desplegable-->
+<div id="cjaqbjj0tcfg" class="accordion iedib-accordion">
   <div class="accordion-group">
-    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_ceo9ppdv1m4o_0" data-toggle="collapse" data-parent="#ceo9ppdv1m4o"><span class="icon icon-plus-sign"></span> <span>&nbsp;</span><span>Desplegable0</span></a></div>
-    <div id="collapse_ceo9ppdv1m4o_0" class="accordion-body collapse">
-      <div class="accordion-inner">
-        <p>Més informació sobre l'apartat 0...</p>
-      </div>
-    </div>
-  </div>
-  <div class="accordion-group">
-    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_ceo9ppdv1m4o_1" data-toggle="collapse" data-parent="#ceo9ppdv1m4o"><span class="icon icon-plus-sign"></span> <span>&nbsp;</span><span>Desplegable1</span></a></div>
-    <div id="collapse_ceo9ppdv1m4o_1" class="accordion-body collapse">
+    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_cjaqbjj0tcfg_1" data-toggle="collapse" data-parent="#cjaqbjj0tcfg"><span class="icon icon-plus-sign"></span> <span>&nbsp;</span><span>Desplegable1&nbsp;</span></a></div>
+    <div id="collapse_cjaqbjj0tcfg_1" class="accordion-body collapse">
       <div class="accordion-inner">
         <p>Més informació sobre l'apartat 1...</p>
       </div>
     </div>
   </div>
-  <div class="accordion-group">
-    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_ceo9ppdv1m4o_2" data-toggle="collapse" data-parent="#ceo9ppdv1m4o"><span class="icon icon-plus-sign"></span> <span>&nbsp;</span><span>Desplegable2</span></a></div>
-    <div id="collapse_ceo9ppdv1m4o_2" class="accordion-body collapse">
-      <div class="accordion-inner">
-        <p>Més informació sobre l'apartat 2...</p>
-      </div>
-    </div>
-  </div>
-</div>
-<!--fi desplegable-->
+</div> <!--fi desplegable-->
 <p><br></p>
                     
                 </div>
                 <div class="tab-pane iedib-tabpane" id="tab-desplegable2-1">
                     <div style="position:relative;max-height: 400px;overflow: auto;">
-                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-desplegable2-12" style="min-height: 100px;">&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;!--ini desplegable--&gt;
-&lt;div id=&quot;ceo9ppdv1m4o&quot; class=&quot;accordion iedib-accordion&quot;&gt;
+                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-desplegable2-12" style="min-height: 100px;">&lt;p&gt;&lt;br&gt;&lt;/p&gt; &lt;!--ini desplegable--&gt;
+&lt;div id=&quot;cjaqbjj0tcfg&quot; class=&quot;accordion iedib-accordion&quot;&gt;
   &lt;div class=&quot;accordion-group&quot;&gt;
-    &lt;div class=&quot;accordion-heading&quot;&gt;&lt;a class=&quot;accordion-toggle&quot; href=&quot;#collapse_ceo9ppdv1m4o_0&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#ceo9ppdv1m4o&quot;&gt;&lt;span class=&quot;icon icon-plus-sign&quot;&gt;&lt;/span&gt; &lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;span&gt;Desplegable0&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
-    &lt;div id=&quot;collapse_ceo9ppdv1m4o_0&quot; class=&quot;accordion-body collapse&quot;&gt;
-      &lt;div class=&quot;accordion-inner&quot;&gt;
-        &lt;p&gt;Més informació sobre l&#39;apartat 0...&lt;/p&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;accordion-group&quot;&gt;
-    &lt;div class=&quot;accordion-heading&quot;&gt;&lt;a class=&quot;accordion-toggle&quot; href=&quot;#collapse_ceo9ppdv1m4o_1&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#ceo9ppdv1m4o&quot;&gt;&lt;span class=&quot;icon icon-plus-sign&quot;&gt;&lt;/span&gt; &lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;span&gt;Desplegable1&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
-    &lt;div id=&quot;collapse_ceo9ppdv1m4o_1&quot; class=&quot;accordion-body collapse&quot;&gt;
+    &lt;div class=&quot;accordion-heading&quot;&gt;&lt;a class=&quot;accordion-toggle&quot; href=&quot;#collapse_cjaqbjj0tcfg_1&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#cjaqbjj0tcfg&quot;&gt;&lt;span class=&quot;icon icon-plus-sign&quot;&gt;&lt;/span&gt; &lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;span&gt;Desplegable1&amp;nbsp;&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
+    &lt;div id=&quot;collapse_cjaqbjj0tcfg_1&quot; class=&quot;accordion-body collapse&quot;&gt;
       &lt;div class=&quot;accordion-inner&quot;&gt;
         &lt;p&gt;Més informació sobre l&#39;apartat 1...&lt;/p&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;accordion-group&quot;&gt;
-    &lt;div class=&quot;accordion-heading&quot;&gt;&lt;a class=&quot;accordion-toggle&quot; href=&quot;#collapse_ceo9ppdv1m4o_2&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#ceo9ppdv1m4o&quot;&gt;&lt;span class=&quot;icon icon-plus-sign&quot;&gt;&lt;/span&gt; &lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;span&gt;Desplegable2&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
-    &lt;div id=&quot;collapse_ceo9ppdv1m4o_2&quot; class=&quot;accordion-body collapse&quot;&gt;
-      &lt;div class=&quot;accordion-inner&quot;&gt;
-        &lt;p&gt;Més informació sobre l&#39;apartat 2...&lt;/p&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;!--fi desplegable--&gt;
+&lt;/div&gt; &lt;!--fi desplegable--&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
                 </code></pre>
                     <button data-key="desplegable2" style="position:absolute;right:10px;top:4px;"
@@ -258,35 +332,6 @@
                 </div>
             </div>
             <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-01cra1ladkg" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-01cra1ladkg_0"
-                            data-toggle="collapse" data-parent="#acc-01cra1ladkg" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-01cra1ladkg_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="desplegable2_nombre">Nombre de desplegables </label>
-            <input type="numeric" class="form-control" id="desplegable2_nombre" aria-describedby="[object Object]" value="3" min=1 title="nombre">
-            </div><div class="form-check" style="margin-bottom:10px;">
-            <input type="checkbox" class="form-check-input" value="1" checked id="desplegable2_independents" title="independents">
-            <label class="form-check-label" for="desplegable2_independents">
-                Desplegables independents  <a href="javascript:void(0)" data-toggle="popover" data-trigger="hover" data-content="Si la casella està marcada, es pot desplegar més d'un quadre alhora. Si està desmarcada, quan es desplega un quadre, es tanquen tots els altres."><i class="fas fa-question-circle text-info"></i></a>
-            </label>
-          </div>
-            <div class="form-group">
-            <label for="desplegable2_clau">Identificador autogenerat </label>
-            <input type="text" class="form-control" id="desplegable2_clau" aria-describedby="[object Object]" value="ceo9ppdv1m4o" title="clau">
-            </div>
-         <button class="btn btn-primary" data-key="desplegable2"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
         </div>
 
         <p><br></p>
@@ -332,6 +377,7 @@
 cada desplegable sigui clicable. Recordeu a col·lapsar els desplegables abans de desar. No modifiqueu l'identificador
 generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que creeu en la pàgina.
 
+
             </p>
         </div> 
         
@@ -341,29 +387,29 @@ generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que cr
     <p><br>
     <p>
 </div>
-<!--fi:divsnippet-->
+<!--fi:divwidget-->
     
         <p>
     <hr><br>
 <p>
 <a name="section-two-cols"></a>
-<!--ini:div-snippet-->
+<!--ini:div-widget-->
 <div style="position:relative;">
-    <h4 class="iedib-subsub" title="two-cols" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="two-cols" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
         
-                Dues Columnes
+                Dues columnes
                     &nbsp;&nbsp;
                     
                             
                             
-    </h4>
+    </h3>
     <p><br></p> 
 
         <div
             style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
             <em>Àmbit d'aplicació</em>: Tots<br>
                 <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2.1.0
+                    <em>Versió</em>: 2023.01.07
         </div>
 
         <!--begin:tabmenu-->
@@ -385,20 +431,13 @@ generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que cr
 <!--ini dues columnes-->
 <div class="row-fluid iedib-tabpane">
   <div class="span6">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    </p>
   </div>
   <div class="span6">
-    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-      aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-      ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-      voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-      velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim
-      ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi
-      consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,
-      vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+    <p><br></p>
+    <img src="https://www.actualidadliteratura.com/wp-content/uploads/2019/06/tablilla-en-latin.jpg" alt="Demo" style="width:90%;max-width:300px;" role="presentation" class="img-fluid align-middle" />
+    <p><br></p>
   </div>
 </div>
 <!--fi dues columnes-->
@@ -411,20 +450,13 @@ generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que cr
 &lt;!--ini dues columnes--&gt;
 &lt;div class=&quot;row-fluid iedib-tabpane&quot;&gt;
   &lt;div class=&quot;span6&quot;&gt;
-    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    &lt;/p&gt;
   &lt;/div&gt;
   &lt;div class=&quot;span6&quot;&gt;
-    &lt;p&gt;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-      aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-      ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-      voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-      velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim
-      ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi
-      consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,
-      vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?&lt;/p&gt;
+    &lt;p&gt;&lt;br&gt;&lt;/p&gt;
+    &lt;img src=&quot;https://www.actualidadliteratura.com/wp-content/uploads/2019/06/tablilla-en-latin.jpg&quot; alt=&quot;Demo&quot; style=&quot;width:90%;max-width:300px;&quot; role=&quot;presentation&quot; class=&quot;img-fluid align-middle&quot; /&gt;
+    &lt;p&gt;&lt;br&gt;&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;!--fi dues columnes--&gt;
@@ -438,26 +470,6 @@ generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que cr
                 </div>
             </div>
             <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-d785m5okc18" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-d785m5okc18_0"
-                            data-toggle="collapse" data-parent="#acc-d785m5okc18" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-d785m5okc18_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="two-cols_AMPLADA_COL1">Amplada primera columna </label>
-            <input type="numeric" class="form-control" id="two-cols_AMPLADA_COL1" aria-describedby="[object Object]" value="6" min=1 max=11 title="AMPLADA_COL1">
-            </div>
-         <button class="btn btn-primary" data-key="two-cols"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
         </div>
 
         <p><br></p>
@@ -481,7 +493,7 @@ generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que cr
         <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
         <div style="margin-left:35px;">
             <p>
-                Formateu continguts en dues columnes responsives (s'adapten a la mida dels dispositius).  Entreu l'amplada de la primera columna; ha d'ésser un número de 1 a 11.
+                Formateu continguts en dues columnes responsives (s'adapten a la mida dels dispositius). 
 
             </p>
         </div> 
@@ -492,29 +504,105 @@ generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que cr
     <p><br>
     <p>
 </div>
-<!--fi:divsnippet-->
+<!--fi:divwidget-->
     
         <p>
     <hr><br>
 <p>
-<a name="section-menu-pestanyes2"></a>
-<!--ini:div-snippet-->
+<a name="section-bs-badge"></a>
+<!--ini:div-widget-->
 <div style="position:relative;">
-    <h4 class="iedib-subsub" title="menu-pestanyes2" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="bs-badge" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
         
-                Menú pestanyes
+            <i class="fas fa-comment-plus" style="color:darkorange;"></i>
+            
+                Etiqueta / Badge
                     &nbsp;&nbsp;
                     
                             
                             
-    </h4>
+    </h3>
     <p><br></p> 
 
         <div
             style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
             <em>Àmbit d'aplicació</em>: Tots<br>
                 <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2.1.0
+                    <em>Versió</em>: 1.1.0
+        </div>
+
+        <!--begin:tabmenu-->
+        <div class="tabbable iedib-tabmenu" id="tabmenu-bs-badge" style="position:relative; margin-left:0; padding: 10px; width:99%; background: whitesmoke;">
+            
+            
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#tab-bs-badge-0" data-toggle="tab"><span>&nbsp;</span><span>Es mostra
+                            com...</span></a></li>
+                <li><a href="#tab-bs-badge-1" data-toggle="tab"><span>&nbsp;</span><span>Codi HTML</span></a></li>
+            </ul>
+
+            
+            <div class="tab-content" style="background:white;">
+                <div class="tab-pane  active  iedib-tabpane" id="tab-bs-badge-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
+                    
+                    <span class="badge badge-primary">Lorem ipsum</span>
+                    
+                </div>
+                <div class="tab-pane iedib-tabpane" id="tab-bs-badge-1">
+                    <div style="position:relative;max-height: 400px;overflow: auto;">
+                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-bs-badge-12" style="min-height: 100px;">&lt;span class=&quot;badge badge-primary&quot;&gt;Lorem ipsum&lt;/span&gt;
+                </code></pre>
+                    <button data-key="bs-badge" style="position:absolute;right:10px;top:4px;"
+                        class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
+                    </div>
+                    <div>
+                
+                </div>
+            </div>
+            <!--end:tabmenu-->
+        </div>
+
+        <p><br></p>
+
+         
+            
+             
+            
+
+            
+        
+
+        
+
+    <p><br>
+    <p>
+    <p><br>
+    <p>
+</div>
+<!--fi:divwidget-->
+    
+        <p>
+    <hr><br>
+<p>
+<a name="section-menu-pestanyes2"></a>
+<!--ini:div-widget-->
+<div style="position:relative;">
+    <h3 title="menu-pestanyes2" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
+        
+                Menú pestanyes
+                    &nbsp;&nbsp;
+                    
+                            
+                            
+    </h3>
+    <p><br></p> 
+
+        <div
+            style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
+            <em>Àmbit d'aplicació</em>: Tots<br>
+                <em>Recomanació d'ús</em>: 2/3<br>
+                    <em>Versió</em>: 2023.01.07
         </div>
 
         <!--begin:tabmenu-->
@@ -536,21 +624,17 @@ generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que cr
 <!--ini menu pestanyes-->
 <div class="tabbable iedib-tabmenu">
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#ccnk52etrsh_0" data-toggle="tab"><span>&nbsp;</span><span>Pestanya0</span></a>
-    <li><a href="#ccnk52etrsh_1" data-toggle="tab"><span>&nbsp;</span><span>Pestanya1</span></a></li>
+    <li class="active"><a href="#cv8efqj2rtp8_1" data-toggle="tab"><span>&nbsp;</span><span>Pestanya1</span></a>
+    <li><a href="#cv8efqj2rtp8_2" data-toggle="tab"><span>&nbsp;</span><span>Pestanya2</span></a></li>
   </ul>
   <div class="tab-content">
-    <div class="tab-pane  active  iedib-tabpane" id="ccnk52etrsh_0">
-      <p>0) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="tab-pane active iedib-tabpane" id="cv8efqj2rtp8_1">
+      <p>1) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      </p>
     </div>
-    <div class="tab-pane  iedib-tabpane" id="ccnk52etrsh_1">
-      <p>1) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="tab-pane  iedib-tabpane" id="cv8efqj2rtp8_2">
+      <p>2) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      </p>
     </div>
   </div>
 </div>
@@ -564,21 +648,17 @@ generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que cr
 &lt;!--ini menu pestanyes--&gt;
 &lt;div class=&quot;tabbable iedib-tabmenu&quot;&gt;
   &lt;ul class=&quot;nav nav-tabs&quot;&gt;
-    &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#ccnk52etrsh_0&quot; data-toggle=&quot;tab&quot;&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;span&gt;Pestanya0&lt;/span&gt;&lt;/a&gt;
-    &lt;li&gt;&lt;a href=&quot;#ccnk52etrsh_1&quot; data-toggle=&quot;tab&quot;&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;span&gt;Pestanya1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#cv8efqj2rtp8_1&quot; data-toggle=&quot;tab&quot;&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;span&gt;Pestanya1&lt;/span&gt;&lt;/a&gt;
+    &lt;li&gt;&lt;a href=&quot;#cv8efqj2rtp8_2&quot; data-toggle=&quot;tab&quot;&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;span&gt;Pestanya2&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
   &lt;div class=&quot;tab-content&quot;&gt;
-    &lt;div class=&quot;tab-pane  active  iedib-tabpane&quot; id=&quot;ccnk52etrsh_0&quot;&gt;
-      &lt;p&gt;0) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+    &lt;div class=&quot;tab-pane active iedib-tabpane&quot; id=&quot;cv8efqj2rtp8_1&quot;&gt;
+      &lt;p&gt;1) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      &lt;/p&gt;
     &lt;/div&gt;
-    &lt;div class=&quot;tab-pane  iedib-tabpane&quot; id=&quot;ccnk52etrsh_1&quot;&gt;
-      &lt;p&gt;1) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+    &lt;div class=&quot;tab-pane  iedib-tabpane&quot; id=&quot;cv8efqj2rtp8_2&quot;&gt;
+      &lt;p&gt;2) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      &lt;/p&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -593,30 +673,6 @@ generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que cr
                 </div>
             </div>
             <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-hvfidtt52f" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-hvfidtt52f_0"
-                            data-toggle="collapse" data-parent="#acc-hvfidtt52f" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-hvfidtt52f_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="menu-pestanyes2_pestanyes">Núm. de pestanyes <a href="javascript:void(0)" data-toggle="popover" data-trigger="hover" data-content="Un nombre de pestanyes excessiu pot causar problemes de visualització en mòbils."><i class="fas fa-question-circle text-info"></i></a></label>
-            <input type="numeric" class="form-control" id="menu-pestanyes2_pestanyes" aria-describedby="[object Object]" value="2" min=1 max=6 title="pestanyes">
-            </div>
-            <div class="form-group">
-            <label for="menu-pestanyes2_clau">Identificador autogenerat </label>
-            <input type="text" class="form-control" id="menu-pestanyes2_clau" aria-describedby="[object Object]" value="ccnk52etrsh" title="clau">
-            </div>
-         <button class="btn btn-primary" data-key="menu-pestanyes2"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
         </div>
 
         <p><br></p>
@@ -630,7 +686,7 @@ generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que cr
                 
                     <li>No té massa sentit un menú pestanyes amb una única pestanya. </li>
                 
-                    <li>Evitar més de 4 pestanyes perquè, en dispositius mòbils, les pestanyes es mostren una sobre l'altra. </li>
+                    <li>Evitar més de 4 pestanyes perquè, en dispositius mòbils, les pestanyes es mostren una sobre de l'altra. </li>
                 
                 </ul></div>
             
@@ -639,7 +695,7 @@ generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que cr
                 <p style="color: rgb(62, 3, 62)"><b><i class="fas fa-lightbulb"></i> Tingues en compte...</b></p>
                 <div class="alert alert-info" style="width:90%;margin-left:30px; color: rgb(62, 3, 62)"><ul>
                 
-                    <li>Pensau que la pestanya que teniu seleccionada al moment de desar la pàgina serà la que apareixerà seleccionada en primera instància. </li>
+                    <li>Pensau que la pestanya que estigui seleccionada al moment de desar la pàgina serà la que es visualitzarà en primera instància. </li>
                 
                 </ul></div>
             
@@ -649,7 +705,7 @@ generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que cr
         <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
         <div style="margin-left:35px;">
             <p>
-                Crea un menú de pestanyes. És important que escriviu una clau aleatòria que sigui diferent per a cada menú creat en la pàgina. Podeu definir el nombre de pestanyes (<b>com a mínim 2</b>).
+                Crea un menú de pestanyes. És important que escriviu una ID aleatòria que sigui diferent per a cada menú creat en la pàgina. Podeu definir el nombre de pestanyes (<b>com a mínim 2</b>). 
 
             </p>
         </div> 
@@ -660,31 +716,29 @@ generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que cr
     <p><br>
     <p>
 </div>
-<!--fi:divsnippet-->
+<!--fi:divwidget-->
     
         <p>
     <hr><br>
 <p>
 <a name="section-dinamic-presentacio"></a>
-<!--ini:div-snippet-->
+<!--ini:div-widget-->
 <div style="position:relative;">
-    <h4 class="iedib-subsub" title="dinamic-presentacio" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="dinamic-presentacio" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
         
                 Presentació diapositives
                     &nbsp;&nbsp;
                     
                             
                             
-                                &nbsp;&nbsp;<span class="badge badge-danger">Restringit a usuaris 4,31,2399</span>
-                            
-    </h4>
+    </h3>
     <p><br></p> 
 
         <div
             style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
             <em>Àmbit d'aplicació</em>: Tots<br>
                 <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2022.07.01
+                    <em>Versió</em>: 2022.09.28
         </div>
 
         <!--begin:tabmenu-->
@@ -704,23 +758,23 @@ generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que cr
                     
                     <p><br></p>
 <!--ini presentació diapositives-->
-<div role="snptd_presentacio" data-durades="2,1,5" data-autostart="1" data-loop="0" data-transition="fade" class="tabbable d-print-none">
+<div role="snptd_presentacio" data-durades="5" data-autostart="false" data-loop="false" data-transition="fade" class="align-top tabbable">
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#ckl2nis33cf8_0" data-toggle="tab"><span>&nbsp;</span><span>0.</span></a>
-    <li><a href="#ckl2nis33cf8_1" data-toggle="tab"><span>&nbsp;</span><span>1.</span></a>
-    <li><a href="#ckl2nis33cf8_2" data-toggle="tab"><span>&nbsp;</span><span>2.</span></a></li>
+    <li class="active"><a href="#cpkda83rbmn8_1" data-toggle="tab"><span>&nbsp;</span><span>1.</span></a>
+    <li><a href="#cpkda83rbmn8_2" data-toggle="tab"><span>&nbsp;</span><span>2.</span></a>
+    <li><a href="#cpkda83rbmn8_3" data-toggle="tab"><span>&nbsp;</span><span>3.</span></a></li>
   </ul>
   <div class="tab-content">
-    <div class="tab-pane  active  iedib-tabpane" id="ckl2nis33cf8_0">
-      <p>Editeu el contingut de la diapositiva núm. 0)</p>
-      <p><br></p>
-    </div>
-    <div class="tab-pane  iedib-tabpane" id="ckl2nis33cf8_1">
+    <div class="tab-pane active iedib-tabpane" id="cpkda83rbmn8_1">
       <p>Editeu el contingut de la diapositiva núm. 1)</p>
       <p><br></p>
     </div>
-    <div class="tab-pane  iedib-tabpane" id="ckl2nis33cf8_2">
+    <div class="tab-pane  iedib-tabpane" id="cpkda83rbmn8_2">
       <p>Editeu el contingut de la diapositiva núm. 2)</p>
+      <p><br></p>
+    </div>
+    <div class="tab-pane  iedib-tabpane" id="cpkda83rbmn8_3">
+      <p>Editeu el contingut de la diapositiva núm. 3)</p>
       <p><br></p>
     </div>
   </div>
@@ -733,23 +787,23 @@ generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que cr
                     <div style="position:relative;max-height: 400px;overflow: auto;">
                     <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-dinamic-presentacio-12" style="min-height: 100px;">&lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;!--ini presentació diapositives--&gt;
-&lt;div role=&quot;snptd_presentacio&quot; data-durades=&quot;2,1,5&quot; data-autostart=&quot;1&quot; data-loop=&quot;0&quot; data-transition=&quot;fade&quot; class=&quot;tabbable d-print-none&quot;&gt;
+&lt;div role=&quot;snptd_presentacio&quot; data-durades=&quot;5&quot; data-autostart=&quot;false&quot; data-loop=&quot;false&quot; data-transition=&quot;fade&quot; class=&quot;align-top tabbable&quot;&gt;
   &lt;ul class=&quot;nav nav-tabs&quot;&gt;
-    &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#ckl2nis33cf8_0&quot; data-toggle=&quot;tab&quot;&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;span&gt;0.&lt;/span&gt;&lt;/a&gt;
-    &lt;li&gt;&lt;a href=&quot;#ckl2nis33cf8_1&quot; data-toggle=&quot;tab&quot;&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;span&gt;1.&lt;/span&gt;&lt;/a&gt;
-    &lt;li&gt;&lt;a href=&quot;#ckl2nis33cf8_2&quot; data-toggle=&quot;tab&quot;&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;span&gt;2.&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#cpkda83rbmn8_1&quot; data-toggle=&quot;tab&quot;&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;span&gt;1.&lt;/span&gt;&lt;/a&gt;
+    &lt;li&gt;&lt;a href=&quot;#cpkda83rbmn8_2&quot; data-toggle=&quot;tab&quot;&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;span&gt;2.&lt;/span&gt;&lt;/a&gt;
+    &lt;li&gt;&lt;a href=&quot;#cpkda83rbmn8_3&quot; data-toggle=&quot;tab&quot;&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;span&gt;3.&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
   &lt;div class=&quot;tab-content&quot;&gt;
-    &lt;div class=&quot;tab-pane  active  iedib-tabpane&quot; id=&quot;ckl2nis33cf8_0&quot;&gt;
-      &lt;p&gt;Editeu el contingut de la diapositiva núm. 0)&lt;/p&gt;
-      &lt;p&gt;&lt;br&gt;&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;tab-pane  iedib-tabpane&quot; id=&quot;ckl2nis33cf8_1&quot;&gt;
+    &lt;div class=&quot;tab-pane active iedib-tabpane&quot; id=&quot;cpkda83rbmn8_1&quot;&gt;
       &lt;p&gt;Editeu el contingut de la diapositiva núm. 1)&lt;/p&gt;
       &lt;p&gt;&lt;br&gt;&lt;/p&gt;
     &lt;/div&gt;
-    &lt;div class=&quot;tab-pane  iedib-tabpane&quot; id=&quot;ckl2nis33cf8_2&quot;&gt;
+    &lt;div class=&quot;tab-pane  iedib-tabpane&quot; id=&quot;cpkda83rbmn8_2&quot;&gt;
       &lt;p&gt;Editeu el contingut de la diapositiva núm. 2)&lt;/p&gt;
+      &lt;p&gt;&lt;br&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;tab-pane  iedib-tabpane&quot; id=&quot;cpkda83rbmn8_3&quot;&gt;
+      &lt;p&gt;Editeu el contingut de la diapositiva núm. 3)&lt;/p&gt;
       &lt;p&gt;&lt;br&gt;&lt;/p&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -766,7 +820,49 @@ generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que cr
                     <p>Dependències JS necessàries (col·locar a final del codi HTML):</p>
                     <ul>
                     
-                    <li>&lt;script src="https://iedib.net/assets/sd/presentacio.min.js"&gt;&lt;/script&gt;</li>
+                    <li>&lt;script src="https://iedib.net/assets/"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetss"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsd"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assets/"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsp"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsr"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetse"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetss"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetse"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsn"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetst"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsa"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsc"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsi"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetso"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assets."&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsm"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsi"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsn"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assets."&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsj"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetss"&gt;&lt;/script&gt;</li>
                     
                     </ul>
                 </div>
@@ -774,63 +870,6 @@ generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que cr
                 </div>
             </div>
             <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-i2jmijkjqog" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-i2jmijkjqog_0"
-                            data-toggle="collapse" data-parent="#acc-i2jmijkjqog" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-i2jmijkjqog_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="dinamic-presentacio_pestanyes">Núm. de diapositives </label>
-            <input type="numeric" class="form-control" id="dinamic-presentacio_pestanyes" aria-describedby="[object Object]" value="3" min=2 title="pestanyes">
-            </div>
-            <div class="form-group">
-            <label for="dinamic-presentacio_durades">Durada de la transició <a href="javascript:void(0)" data-toggle="popover" data-trigger="hover" data-content="Segons de cada diapositiva separats per comes. Escriviu 0 si voleu deshabilitar el pas automàtic."><i class="fas fa-question-circle text-info"></i></a></label>
-            <input type="text" class="form-control" id="dinamic-presentacio_durades" aria-describedby="[object Object]" value="2,1,5" title="durades">
-            </div>
-            <div class="form-group">
-            <label for="dinamic-presentacio_transition">Efecte de transició </label>
-            <select class="form-control" id="dinamic-presentacio_transition"><option value="none" selected>Cap</option><option value="fade" >Esvair</option></select>
-            </div><div class="form-check" style="margin-bottom:10px;">
-            <input type="checkbox" class="form-check-input" value="1" checked id="dinamic-presentacio_autostart" title="autostart">
-            <label class="form-check-label" for="dinamic-presentacio_autostart">
-                Inici automàtic  <a href="javascript:void(0)" data-toggle="popover" data-trigger="hover" data-content="S'inicia automàticament la presentació, sempre que les durades siguin diferent de 0."><i class="fas fa-question-circle text-info"></i></a>
-            </label>
-          </div><div class="form-check" style="margin-bottom:10px;">
-            <input type="checkbox" class="form-check-input" value="0"  id="dinamic-presentacio_loop" title="loop">
-            <label class="form-check-label" for="dinamic-presentacio_loop">
-                Pas cíclic  <a href="javascript:void(0)" data-toggle="popover" data-trigger="hover" data-content="En reproducció automàtica, quan arriba a la darrera diapositiva torna a la primera."><i class="fas fa-question-circle text-info"></i></a>
-            </label>
-          </div><div class="form-check" style="margin-bottom:10px;">
-            <input type="checkbox" class="form-check-input" value="0"  id="dinamic-presentacio_dark" title="dark">
-            <label class="form-check-label" for="dinamic-presentacio_dark">
-                Activa el tema fosc  
-            </label>
-          </div><div class="form-check" style="margin-bottom:10px;">
-            <input type="checkbox" class="form-check-input" value="0"  id="dinamic-presentacio_full" title="full">
-            <label class="form-check-label" for="dinamic-presentacio_full">
-                Empra tota l'amplada de pàgina  
-            </label>
-          </div><div class="form-check" style="margin-bottom:10px;">
-            <input type="checkbox" class="form-check-input" value="0"  id="dinamic-presentacio_imprimible" title="imprimible">
-            <label class="form-check-label" for="dinamic-presentacio_imprimible">
-                Imprimible?  <a href="javascript:void(0)" data-toggle="popover" data-trigger="hover" data-content="Si està marcat, les diapositives s'imprimiran una davall l'altra."><i class="fas fa-question-circle text-info"></i></a>
-            </label>
-          </div>
-            <div class="form-group">
-            <label for="dinamic-presentacio_clau">Identificador autogenerat </label>
-            <input type="text" class="form-control" id="dinamic-presentacio_clau" aria-describedby="[object Object]" value="ckl2nis33cf8" title="clau">
-            </div>
-         <button class="btn btn-primary" data-key="dinamic-presentacio"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
         </div>
 
         <p><br></p>
@@ -847,7 +886,7 @@ generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que cr
         <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
         <div style="margin-left:35px;">
             <p>
-                Crea un pas de diapositives. És important que escriviu una clau aleatòria que sigui diferent per a cada menú creat en la pàgina. Heu de definir el nombre de diapositives (<b>com a mínim 2</b>). El temps de transició 0, indica que es deshabilita el pas automàtic per complet. Marcau la casella si desitjau que les diapositives apareguin en la impressió.
+                Crea un pas de diapositives. Heu de definir el nombre de diapositives (<b>com a mínim 2</b>). El temps de transició 0, indica que es deshabilita el pas automàtic per complet. Marcau la casella si desitjau que les diapositives apareguin en la impressió.
 
             </p>
         </div> 
@@ -858,292 +897,226 @@ generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que cr
     <p><br>
     <p>
 </div>
-<!--fi:divsnippet-->
+<!--fi:divwidget-->
+    
+        <p>
+    <hr><br>
+<p>
+<a name="section-taula-bs"></a>
+<!--ini:div-widget-->
+<div style="position:relative;">
+    <h3 title="taula-bs" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
+        
+                Taula Bootstrap
+                    &nbsp;&nbsp;
+                    
+                            
+                            
+    </h3>
+    <p><br></p> 
+
+        <div
+            style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
+            <em>Àmbit d'aplicació</em>: Tots<br>
+                <em>Recomanació d'ús</em>: 2/3<br>
+                    <em>Versió</em>: 2022.11.06
+        </div>
+
+        <!--begin:tabmenu-->
+        <div class="tabbable iedib-tabmenu" id="tabmenu-taula-bs" style="position:relative; margin-left:0; padding: 10px; width:99%; background: whitesmoke;">
+            
+            
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#tab-taula-bs-0" data-toggle="tab"><span>&nbsp;</span><span>Es mostra
+                            com...</span></a></li>
+                <li><a href="#tab-taula-bs-1" data-toggle="tab"><span>&nbsp;</span><span>Codi HTML</span></a></li>
+            </ul>
+
+            
+            <div class="tab-content" style="background:white;">
+                <div class="tab-pane  active  iedib-tabpane" id="tab-taula-bs-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
+                    
+                    <p><br></p>
+<!--ini bstable-->
+
+<table class="table table-striped iedib-bstable">
+  <thead>
+    <tr>
+      <th role="col">Títol1</th>
+      <th role="col">Títol2</th>
+      <th role="col">Títol3</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+
+</table>
+
+<p style="margin-top:5px;text-align: center;"><span class="iedib-caption-counter">Taula</span>: <span class="iedib-caption-title">Descripció
+    de la taula.</span></p>
+<!--fi bstable-->
+<p><br></p>
+                    
+                </div>
+                <div class="tab-pane iedib-tabpane" id="tab-taula-bs-1">
+                    <div style="position:relative;max-height: 400px;overflow: auto;">
+                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-taula-bs-12" style="min-height: 100px;">&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;!--ini bstable--&gt;
+
+&lt;table class=&quot;table table-striped iedib-bstable&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th role=&quot;col&quot;&gt;Títol1&lt;/th&gt;
+      &lt;th role=&quot;col&quot;&gt;Títol2&lt;/th&gt;
+      &lt;th role=&quot;col&quot;&gt;Títol3&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody class=&quot;table-group-divider&quot;&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+
+&lt;/table&gt;
+
+&lt;p style=&quot;margin-top:5px;text-align: center;&quot;&gt;&lt;span class=&quot;iedib-caption-counter&quot;&gt;Taula&lt;/span&gt;: &lt;span class=&quot;iedib-caption-title&quot;&gt;Descripció
+    de la taula.&lt;/span&gt;&lt;/p&gt;
+&lt;!--fi bstable--&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+                </code></pre>
+                    <button data-key="taula-bs" style="position:absolute;right:10px;top:4px;"
+                        class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
+                    </div>
+                    <div>
+                
+                </div>
+            </div>
+            <!--end:tabmenu-->
+        </div>
+
+        <p><br></p>
+
+         
+            
+             
+            
+
+            
+        
+
+        
+        <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
+        <div style="margin-left:35px;">
+            <p>
+                Crea una taula Bootstrap amb n files i m columnes. 
+
+            </p>
+        </div> 
+        
+
+    <p><br>
+    <p>
+    <p><br>
+    <p>
+</div>
+<!--fi:divwidget-->
     
  
 
     <p><br></p>
     <p><br></p>
-    <p><small>Versió revisada 23.06.2022</small></p>
+    <p><small>Versió revisada 07/05/2025</small></p>
 
-    
-    <script src="https://piworld.es/iedib/node_modules/handlebars/dist/handlebars.min.js"></script>
-    <script src="https://piworld.es/iedib/node_modules/js-beautify/js/lib/beautify-html.js"></script>
-      
     <!--load_all_snippets-->
-    <script src="https://piworld.es/iedib/snippets/sd/all.min.js"></script> 
+    <script src="https://ibsuite.es/iedib/snippets/sd/all.min.js"></script> 
     <script>
-        
-        var mapSnippets = {"globus":{"name":"Anotació globus multi-propòsit","key":"globus","instructions":"Afegeix una anotació tipus globus a una paraula. S'activa quan es passa el ratolí per sobre.\n","defaults":{"titol":"","paraula":"IEDIB","anotacio":"<b>IEDIB</b> Institut d'Ensenyaments a Distància de les Illes Balears <br> <img src='https://piworld.es/iedib/img/iedib-logo.png' style='width:50px'>","$id":"ree7btioqfuo"},"body":"<a href=\"javascript:void(0)\" data-toggle=\"popover\" data-trigger=\"hover\" \ntitle=\"{{titol}}\" data-content=\"{{anotacio}}\" data-html=\"true\" \ndata-placement=\"auto\">{{paraula}}</a>\n","version":"2.1.0","misc":{"category":"bootstrap","stars":2,"scope":"*","parameters":[{"name":"paraula","title":"Paraula","type":"textfield","tip":"Quan es passi el cursor per sobre aquesta paraula apareixerà el globus"},{"name":"titol","title":"Títol globus","type":"textfield","transform":"trim","tip":"Aquest paràmetre és opcional. Si l'afegiu, el títol apareixerà a la part superior del globus"},{"name":"anotacio","title":"Contingut globus","type":"textarea","transform":"escapeQuotes","tip":"Si es vol, el contingut del globus pot contenir codi HTML bàsic"}]},"generated":"Thu Jun 16 2022 10:52:50 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"bootstrap","parent":"","html":"<a href=\"javascript:void(0)\" data-toggle=\"popover\" data-trigger=\"hover\" title=\"\" data-content=\"&lt;b&gt;IEDIB&lt;/b&gt; Institut d&#x27;Ensenyaments a Distància de les Illes Balears &lt;br&gt; &lt;img src&#x3D;&#x27;https://piworld.es/iedib/img/iedib-logo.png&#x27; style&#x3D;&#x27;width:50px&#x27;&gt;\" data-html=\"true\" data-placement=\"auto\">IEDIB</a>"},"desplegable2":{"name":"Desplegable","key":"desplegable2","instructions":"Crea un grup de desplegables. El nombre de desplegables es defineix en camp 'nombre'. Assegureu-vos que el títol de\ncada desplegable sigui clicable. Recordeu a col·lapsar els desplegables abans de desar. No modifiqueu l'identificador\ngenerat aleatòriament ja que ha d'ésser diferent per a cada desplegable que creeu en la pàgina.\n","defaults":{"nombre":3,"independents":1,"clau":"ceo9ppdv1m4o","$id":"rukfltf6red"},"body":"<p><br></p>  <!--ini desplegable--> <div id=\"{{clau}}\" class=\"accordion iedib-accordion\"> {{#times nombre}}<div class=\"accordion-group\"> <div class=\"accordion-heading\"><a class=\"accordion-toggle\" href=\"#collapse_{{../clau}}_{{@index}}\" data-toggle=\"collapse\" {{#ifCond independents 'eq' 1}}data-parent=\"#{{../clau}}\"{{/ifCond}}><span class=\"icon icon-plus-sign\"></span> <span>&nbsp;</span><span>Desplegable{{@index}}</span></a></div> <div id=\"collapse_{{../clau}}_{{@index}}\" class=\"accordion-body collapse\" {{#ifCond independents 'eq' 0}}data-parent=\"#{{../clau}}\"{{/ifCond}}> <div class=\"accordion-inner\"> <p>Més informació sobre l'apartat {{@index}}...</p> </div> </div> </div>{{/times}} </div> <!--fi desplegable--> <p><br></p>\n","version":"2021.03.30","misc":{"scope":"*","stars":1,"category":"bootstrap","parameters":[{"name":"nombre","title":"Nombre de desplegables","type":"numeric","min":1},{"name":"independents","title":"Desplegables independents","type":"checkbox","tip":"Si la casella està marcada, es pot desplegar més d'un quadre alhora. Si està desmarcada, quan es desplega un quadre, es tanquen tots els altres."},{"name":"clau","title":"Identificador autogenerat","type":"textfield","editable":false}]},"generated":"Thu Jun 16 2022 10:17:47 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"bootstrap","date":"2021-03-29T22:00:00.000Z","parent":"","pro":["Està recomanat l'ús per a escriure la resolució d'un exemple."],"con":["Tot el títol del desplegable ha d'ésser clicable. No únicament la fletxeta.","Evitar un ús excessiu de desplegables."],"hint":["Recordau a col·lapsar els desplegables abans de desar.","Novetat: El paràmetre 'Independents' permet control·lar el comportament."],"html":"<p><br></p>\n<!--ini desplegable-->\n<div id=\"ceo9ppdv1m4o\" class=\"accordion iedib-accordion\">\n  <div class=\"accordion-group\">\n    <div class=\"accordion-heading\"><a class=\"accordion-toggle\" href=\"#collapse_ceo9ppdv1m4o_0\" data-toggle=\"collapse\" data-parent=\"#ceo9ppdv1m4o\"><span class=\"icon icon-plus-sign\"></span> <span>&nbsp;</span><span>Desplegable0</span></a></div>\n    <div id=\"collapse_ceo9ppdv1m4o_0\" class=\"accordion-body collapse\">\n      <div class=\"accordion-inner\">\n        <p>Més informació sobre l'apartat 0...</p>\n      </div>\n    </div>\n  </div>\n  <div class=\"accordion-group\">\n    <div class=\"accordion-heading\"><a class=\"accordion-toggle\" href=\"#collapse_ceo9ppdv1m4o_1\" data-toggle=\"collapse\" data-parent=\"#ceo9ppdv1m4o\"><span class=\"icon icon-plus-sign\"></span> <span>&nbsp;</span><span>Desplegable1</span></a></div>\n    <div id=\"collapse_ceo9ppdv1m4o_1\" class=\"accordion-body collapse\">\n      <div class=\"accordion-inner\">\n        <p>Més informació sobre l'apartat 1...</p>\n      </div>\n    </div>\n  </div>\n  <div class=\"accordion-group\">\n    <div class=\"accordion-heading\"><a class=\"accordion-toggle\" href=\"#collapse_ceo9ppdv1m4o_2\" data-toggle=\"collapse\" data-parent=\"#ceo9ppdv1m4o\"><span class=\"icon icon-plus-sign\"></span> <span>&nbsp;</span><span>Desplegable2</span></a></div>\n    <div id=\"collapse_ceo9ppdv1m4o_2\" class=\"accordion-body collapse\">\n      <div class=\"accordion-inner\">\n        <p>Més informació sobre l'apartat 2...</p>\n      </div>\n    </div>\n  </div>\n</div>\n<!--fi desplegable-->\n<p><br></p>"},"two-cols":{"name":"Dues Columnes","key":"two-cols","instructions":"Formateu continguts en dues columnes responsives (s'adapten a la mida dels dispositius).  Entreu l'amplada de la primera columna; ha d'ésser un número de 1 a 11.\n","defaults":{"AMPLADA_COL1":6,"$id":"rs81qua4jfdo"},"body":"<p><br></p>\n<!--ini dues columnes-->\n<div class=\"row-fluid iedib-tabpane\">\n<div class=\"span{{AMPLADA_COL1}}\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna\naliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint\noccaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n</div>\n<div class=\"span{{math '12' '-' AMPLADA_COL1}}\">\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem\naperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim\nipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione\nvoluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci\nvelit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim\nad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi\nconsequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,\nvel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>\n</div>\n</div>\n<!--fi dues columnes-->\n <p><br></p>\n","version":"2.1.0","misc":{"category":"bootstrap","stars":2,"scope":"*","parameters":[{"name":"AMPLADA_COL1","title":"Amplada primera columna","type":"numeric","min":1,"max":11}]},"generated":"Sun Jun 27 2021 10:35:57 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"bootstrap","parent":"","pro":["Està recomanat per aconseguir columnes responsives. Per exemple, quan voleu posar dues imatges (una devora l'altre), però, voleu que per amplades de pantalla petites es vegi en una sola columna."],"con":[],"hint":[],"html":"<p><br></p>\n<!--ini dues columnes-->\n<div class=\"row-fluid iedib-tabpane\">\n  <div class=\"span6\">\n    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna\n      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint\n      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n  </div>\n  <div class=\"span6\">\n    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem\n      aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim\n      ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione\n      voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci\n      velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim\n      ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi\n      consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,\n      vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>\n  </div>\n</div>\n<!--fi dues columnes-->\n<p><br></p>"},"menu-pestanyes2":{"name":"Menú pestanyes","key":"menu-pestanyes2","instructions":"Crea un menú de pestanyes. És important que escriviu una clau aleatòria que sigui diferent per a cada menú creat en la pàgina. Podeu definir el nombre de pestanyes (<b>com a mínim 2</b>).\n","defaults":{"pestanyes":2,"clau":"ccnk52etrsh","$id":"ri7io8d3cdfo"},"body":"<p><br></p> \n<!--ini menu pestanyes-->\n<div class=\"tabbable iedib-tabmenu\">\n<ul class=\"nav nav-tabs\">\n{{#times pestanyes}}<li {{#if @first}} class=\"active\" {{/if}}><a href=\"#{{../clau}}_{{@index}}\"\ndata-toggle=\"tab\"><span>&nbsp;</span><span>Pestanya{{@index}}</span></a>{{/times}}</li> \n</ul>\n<div class=\"tab-content\">\n{{#times pestanyes}}<div class=\"tab-pane {{#if @first}} active {{/if}} iedib-tabpane\" id=\"{{../clau}}_{{@index}}\">\n<p>{{@index}}) Lorem  ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n</div>{{/times}}\n</div>\n</div> \n<!--fi menu pestanyes-->\n<p><br></p>\n","version":"2.1.0","misc":{"category":"bootstrap","scope":"*","stars":2,"parameters":[{"name":"pestanyes","title":"Núm. de pestanyes","type":"numeric","min":1,"max":6,"tip":"Un nombre de pestanyes excessiu pot causar problemes de visualització en mòbils."},{"name":"clau","title":"Identificador autogenerat","type":"textfield","hidden":true}]},"generated":"Thu Jun 16 2022 10:17:47 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"bootstrap","parent":"","pro":[],"con":["No té massa sentit un menú pestanyes amb una única pestanya.","Evitar més de 4 pestanyes perquè, en dispositius mòbils, les pestanyes es mostren una sobre l'altra."],"hint":["Pensau que la pestanya que teniu seleccionada al moment de desar la pàgina serà la que apareixerà seleccionada en primera instància."],"html":"<p><br></p>\n<!--ini menu pestanyes-->\n<div class=\"tabbable iedib-tabmenu\">\n  <ul class=\"nav nav-tabs\">\n    <li class=\"active\"><a href=\"#ccnk52etrsh_0\" data-toggle=\"tab\"><span>&nbsp;</span><span>Pestanya0</span></a>\n    <li><a href=\"#ccnk52etrsh_1\" data-toggle=\"tab\"><span>&nbsp;</span><span>Pestanya1</span></a></li>\n  </ul>\n  <div class=\"tab-content\">\n    <div class=\"tab-pane  active  iedib-tabpane\" id=\"ccnk52etrsh_0\">\n      <p>0) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et\n        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n    </div>\n    <div class=\"tab-pane  iedib-tabpane\" id=\"ccnk52etrsh_1\">\n      <p>1) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et\n        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n    </div>\n  </div>\n</div>\n<!--fi menu pestanyes-->\n<p><br></p>"},"dinamic-presentacio":{"name":"Presentació diapositives","key":"dinamic-presentacio","instructions":"Crea un pas de diapositives. És important que escriviu una clau aleatòria que sigui diferent per a cada menú creat en la pàgina. Heu de definir el nombre de diapositives (<b>com a mínim 2</b>). El temps de transició 0, indica que es deshabilita el pas automàtic per complet. Marcau la casella si desitjau que les diapositives apareguin en la impressió.\n","defaults":{"pestanyes":3,"durades":"2,1,5","transition":"fade","autostart":1,"loop":0,"imprimible":0,"dark":0,"full":0,"clau":"ckl2nis33cf8","$id":"rialu1s9pog"},"body":"<p><br></p> \n<!--ini presentació diapositives-->\n<div role=\"snptd_presentacio\" data-durades=\"{{durades}}\" data-autostart=\"{{autostart}}\" data-loop=\"{{loop}}\" data-transition=\"{{transition}}\" class=\"tabbable{{#ifCond imprimible 'eq' 0}} d-print-none{{/ifCond}}{{#if dark}} theme-dark{{/if}}\" {{#if full}}style=\"max-width:100%;\"{{/if}}>\n<ul class=\"nav nav-tabs\">\n{{#times pestanyes}}<li {{#if @first}} class=\"active\" {{/if}}><a href=\"#{{../clau}}_{{@index}}\"\ndata-toggle=\"tab\"><span>&nbsp;</span><span>{{@index}}.</span></a>{{/times}}</li> \n</ul>\n<div class=\"tab-content\">\n{{#times pestanyes}}<div class=\"tab-pane {{#if @first}} active {{/if}} iedib-tabpane\" id=\"{{../clau}}_{{@index}}\">\n<p>Editeu el contingut de la diapositiva núm. {{@index}})</p>\n<p><br></p>\n</div>{{/times}}\n</div> \n</div>\n<!--fi presentació diapositives-->\n<p><br></p>\n","version":"2022.07.01","misc":{"category":"bootstrap","for":"4,31,2399","scope":"*","stars":2,"requires":["/sd/presentacio.min.js"],"parameters":[{"name":"pestanyes","title":"Núm. de diapositives","type":"numeric","min":2},{"name":"durades","title":"Durada de la transició","tooltip":"Segons de cada diapositiva separats per comes. Escriviu 0 si voleu deshabilitar el pas automàtic.","type":"textfield"},{"name":"transition","title":"Efecte de transició","type":"select","options":[{"l":"Cap","v":"none"},{"l":"Esvair","v":"fade"}]},{"name":"autostart","title":"Inici automàtic","tooltip":"S'inicia automàticament la presentació, sempre que les durades siguin diferent de 0.","type":"checkbox"},{"name":"loop","title":"Pas cíclic","tooltip":"En reproducció automàtica, quan arriba a la darrera diapositiva torna a la primera.","type":"checkbox"},{"name":"dark","title":"Activa el tema fosc","type":"checkbox"},{"name":"full","title":"Empra tota l'amplada de pàgina","type":"checkbox"},{"name":"imprimible","title":"Imprimible?","tooltip":"Si està marcat, les diapositives s'imprimiran una davall l'altra.","type":"checkbox"},{"name":"clau","title":"Identificador autogenerat","type":"textfield","hidden":true}]},"generated":"Tue Jun 21 2022 10:45:50 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"bootstrap","date":"2022-06-30T22:00:00.000Z","parent":"","html":"<p><br></p>\n<!--ini presentació diapositives-->\n<div role=\"snptd_presentacio\" data-durades=\"2,1,5\" data-autostart=\"1\" data-loop=\"0\" data-transition=\"fade\" class=\"tabbable d-print-none\">\n  <ul class=\"nav nav-tabs\">\n    <li class=\"active\"><a href=\"#ckl2nis33cf8_0\" data-toggle=\"tab\"><span>&nbsp;</span><span>0.</span></a>\n    <li><a href=\"#ckl2nis33cf8_1\" data-toggle=\"tab\"><span>&nbsp;</span><span>1.</span></a>\n    <li><a href=\"#ckl2nis33cf8_2\" data-toggle=\"tab\"><span>&nbsp;</span><span>2.</span></a></li>\n  </ul>\n  <div class=\"tab-content\">\n    <div class=\"tab-pane  active  iedib-tabpane\" id=\"ckl2nis33cf8_0\">\n      <p>Editeu el contingut de la diapositiva núm. 0)</p>\n      <p><br></p>\n    </div>\n    <div class=\"tab-pane  iedib-tabpane\" id=\"ckl2nis33cf8_1\">\n      <p>Editeu el contingut de la diapositiva núm. 1)</p>\n      <p><br></p>\n    </div>\n    <div class=\"tab-pane  iedib-tabpane\" id=\"ckl2nis33cf8_2\">\n      <p>Editeu el contingut de la diapositiva núm. 2)</p>\n      <p><br></p>\n    </div>\n  </div>\n</div>\n<!--fi presentació diapositives-->\n<p><br></p>"}};
-        var compiledCache = {};
-
-function copyToClipboard(text) {
-  // must use a temporary form element for the selection and copy
-  var target = document.getElementById("snpclipboard");
-  if(!target) {
-    target = document.createElement("textarea");
-    target.style.position = "absolute";
-    target.style.left = "-9999px";
-    target.style.top = "0";
-    target.id = 'snpclipboard';
-    document.body.appendChild(target);
-  }
-  target.textContent = text;
-  // select the content 
-  var currentFocus = document.activeElement;
-  var sx = window.scrollX;
-  var sy = window.scrollY;
-  target.focus();
-  target.setSelectionRange(0, target.value.length);
-  // copy the selection
-  var succeed;
-  try {
-        succeed = document.execCommand("copy");
-  } catch(e) {
-      succeed = false;
-  } 
-  // restore original focus
-  if (currentFocus && typeof currentFocus.focus === "function") {
-    currentFocus.focus();
-  }
-  window.scrollTo(sx, sy);
-  return succeed;
-}
-// Register helpers to Handlebars 
-Handlebars.registerHelper('times', function(n, block) {
-    var accum = '';
-    for(var i = 0; i < n; ++i) {
-        block.data.index = i;
-        block.data.first = i === 0;
-        block.data.last = i === (n - 1);
-        accum += block.fn(this);
-    }
-    return accum;
-});
-Handlebars.registerHelper('ifCond', function(a, condition, b, opts) {
-    var bool;
-    if (condition == "==" || condition == "eq"){
-        bool = (a==b);
-    } else if (condition == "<" || condition == "lt"){
-        bool = (a<b);
-    } else if (condition == ">" || condition == "gt"){
-        bool = (a>b);
-    } else if (condition == "<=" || condition == "leq"){
-        bool = (a<=b);
-    } else if (condition == ">=" || condition == "geq"){
-        bool = (a>=b);
-    } else {
-        bool = (a!=b);
-    }
-    if (bool) {
-        return opts.fn(this);
-    } else {
-        return opts.inverse(this);
-    }
-});
-Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
-lvalue = parseFloat(lvalue);
-rvalue = parseFloat(rvalue);
-    
-return {
-    "+": lvalue + rvalue,
-    "-": lvalue - rvalue,
-    "*": lvalue * rvalue,
-    "/": lvalue / rvalue,
-    "%": lvalue % rvalue
-}[operator];
-}); 
-
-var I18n = {
-    locale: "ca",
-    resources: {}
-}; 
-
-Handlebars.registerHelper('I18n', function (arg, opts) {
-    var locale = opts.locale || I18n.locale;
-    var translations = I18n.resources[arg] || {};
-    return translations[locale] || arg;
-}); 
-
-/** Set of transformer utilities */
-var Transformers = {
-    "toUpperCase": function(txt) {
-        return (txt+"").toUpperCase();
-    },
-    "toLowerCase": function(txt) {
-        return (txt+"").toLowerCase();
-    },
-    "trim": function(txt) {
-        return (txt+"").trim();
-    },
-    "ytId": function(txt) {
-        // Finds the youtubeId in a text
-        var rx = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/|shorts\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
-        var r = (txt || '').match(rx);
-        if(r && r.length) {
-            return r[1];
-        }
-        return txt;
-    },
-    "vimeoId": function(txt) {
-        var regExp = /^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/;
-        var match = (txt||"").match(regExp);
-        if(match && match[5]) {
-            return match[5];
-        }
-        return txt;
-    },
-    "serveGDrive": function(txt) {
-        //Expecting https://drive.google.com/file/d/1DDUzcFrOlzWb3CBdFPJ1NCNXClvPbm5B/preview
-        var res = (txt+"").match(/https:\/\/drive.google.com\/file\/d\/([a-zA-Z0-9_]+)\//)
-        if(res && res.length) {
-            var driveId = res[1];
-            return "https://docs.google.com/uc?export=open&id="+driveId;
-        }
-        return txt;
-    },
-    "removeHTML": function(txt) {
-        return (txt || '').replace(/<[^>]*>?/gm, '');
-    },
-    "escapeHTML": function(txt) {
-        return  (txt || '').replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    },
-    "encodeHTML": function(txt) {
-        return this.encodeURIComponent(txt || "");
-    },
-    "escapeQuotes": function(txt) {
-        return  (txt || '').replace(/"/gm, "'");
-    }
-};
-
-function compilaSnippet(snippetKey) { 
-    var template = compiledCache[snippetKey];
-    if(!template) { 
-        var snippet = mapSnippets[snippetKey];
-        var body = snippet["body"];
-        // TODO hi ha un problema amb inner references {{../foo}}
-        body = body.replace(/\{\{..\//g, "{{");     
-        template = Handlebars.compile(body);
-        compiledCache[snippetKey] = template;
-    }
-    return template;
-}
-function paramId(snippetKey, paramKey) {
-    var key = snippetKey + '_' + paramKey.replace("$","")
-    return key.replace(/ /g, '')
-}
-function updateSnippetParameters(snippetKey) {
-    var snip = mapSnippets[snippetKey]; 
-    var values = JSON.parse(JSON.stringify(snip['defaults']));
-    var plist = snip['misc']['parameters'];
-    for(var i=0, len=plist.length; i < len; i++) {
-        var param = plist[i];
-        var pname = param.name;
-        //find the control
-        var cid = paramId(snippetKey, pname);
-        var $control = $('#' + cid); 
-        if($control.length) {
-            if(param.type=='checkbox') {
-                values[pname] = $control.prop('checked')?1:0;
-            } else {
-                values[pname] = $control.val();
+        var mapSnippets  = {"bs-alert":{"html":"<p></p>\n<div class=\"m-2 alert alert-primary alert-dismissible fade show\" role=\"alert\">\n   <button type=\"button\" class=\"btn-close close\" data-dismiss=\"alert\" data-bs-dismiss=\"alert\" aria-label=\"Close\">\n     <span aria-hidden=\"true\">&times;</span>\n   </button>\n  <div class=\"alert-content\">\n    <p>Lorem ipsum.</p>\n  </div>\n</div>\n<p></p>\n"},"globus":{"html":"<a href=\"javascript:void(0)\" data-toggle=\"popover\" data-trigger=\"hover\" \ndata-original-title=\"\" data-content=\"<b>IEDIB</b> Institut d'Ensenyaments a Distància de les Illes Balears <br> <img src='https://ibsuite.es/iedib/img/iedib-logo.png' width='200'/>\" data-html=\"true\" data-container=\"body\"\ndata-placement=\"auto\"><span class=\"iedib-inspoint\">IEDIB</span></a>\n"},"desplegable2":{"html":"<p><br></p>  <!--ini desplegable--> <div id=\"cjaqbjj0tcfg\" class=\"accordion iedib-accordion\"> <div class=\"accordion-group\"> <div class=\"accordion-heading\"><a class=\"accordion-toggle\" href=\"#collapse_cjaqbjj0tcfg_1\" data-toggle=\"collapse\" data-parent=\"#cjaqbjj0tcfg\"><span class=\"icon icon-plus-sign\"></span> <span>&nbsp;</span><span>Desplegable1&nbsp;</span></a></div> <div id=\"collapse_cjaqbjj0tcfg_1\" class=\"accordion-body collapse\" > <div class=\"accordion-inner\"> <p>Més informació sobre l'apartat 1...</p> </div> </div> </div> </div> <!--fi desplegable--> <p><br></p>\n"},"two-cols":{"html":"\n<p><br></p>\n<!--ini dues columnes-->\n<div class=\"row-fluid iedib-tabpane\">\n<div class=\"span6\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n</p>\n</div>\n<div class=\"span6\">\n<p><br></p>\n<img src=\"https://www.actualidadliteratura.com/wp-content/uploads/2019/06/tablilla-en-latin.jpg\" alt=\"Demo\" style=\"width:90%;max-width:300px;\" role=\"presentation\" class=\"img-fluid align-middle\"/>\n<p><br></p>\n</div>\n</div>\n<!--fi dues columnes-->\n <p><br></p>\n"},"bs-badge":{"html":"<span class=\"badge badge-primary\">Lorem ipsum</span>\n"},"menu-pestanyes2":{"html":"<p><br></p> \n<!--ini menu pestanyes-->\n<div class=\"tabbable iedib-tabmenu\">\n<ul class=\"nav nav-tabs\">\n<li class=\"active\"><a href=\"#cv8efqj2rtp8_1\"\ndata-toggle=\"tab\"><span>&nbsp;</span><span>Pestanya1</span></a><li ><a href=\"#cv8efqj2rtp8_2\"\ndata-toggle=\"tab\"><span>&nbsp;</span><span>Pestanya2</span></a></li> \n</ul>\n<div class=\"tab-content\">\n<div class=\"tab-pane active iedib-tabpane\" id=\"cv8efqj2rtp8_1\">\n<p>1) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n</p>\n</div><div class=\"tab-pane  iedib-tabpane\" id=\"cv8efqj2rtp8_2\">\n<p>2) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n</p>\n</div>\n</div>\n</div> \n<!--fi menu pestanyes-->\n<p><br></p>\n"},"dinamic-presentacio":{"html":"<p><br></p> \n<!--ini presentació diapositives-->\n<div role=\"snptd_presentacio\" data-durades=\"5\"  data-autostart=\"false\" data-loop=\"false\" data-transition=\"fade\" class=\"align-top tabbable\" >\n<ul class=\"nav nav-tabs\">\n<li class=\"active\"><a href=\"#cpkda83rbmn8_1\"\ndata-toggle=\"tab\"><span>&nbsp;</span><span>1.</span></a><li ><a href=\"#cpkda83rbmn8_2\"\ndata-toggle=\"tab\"><span>&nbsp;</span><span>2.</span></a><li ><a href=\"#cpkda83rbmn8_3\"\ndata-toggle=\"tab\"><span>&nbsp;</span><span>3.</span></a></li> \n</ul>\n<div class=\"tab-content\">\n<div class=\"tab-pane active iedib-tabpane\" id=\"cpkda83rbmn8_1\">\n<p>Editeu el contingut de la diapositiva núm. 1)</p>\n<p><br></p>\n</div><div class=\"tab-pane  iedib-tabpane\" id=\"cpkda83rbmn8_2\">\n<p>Editeu el contingut de la diapositiva núm. 2)</p>\n<p><br></p>\n</div><div class=\"tab-pane  iedib-tabpane\" id=\"cpkda83rbmn8_3\">\n<p>Editeu el contingut de la diapositiva núm. 3)</p>\n<p><br></p>\n</div>\n</div> \n</div>\n<!--fi presentació diapositives-->\n<p><br></p>\n"},"taula-bs":{"html":"<p><br></p> \n<!--ini bstable-->\n\n<table class=\"table table-striped iedib-bstable\">\n<thead><tr><th role=\"col\">Títol1</th><th role=\"col\">Títol2</th><th role=\"col\">Títol3</th></tr></thead>\n<tbody class=\"table-group-divider\"><tr><td> </td><td> </td><td> </td></tr><tr><td> </td><td> </td><td> </td></tr><tr><td> </td><td> </td><td> </td></tr></tbody>\n\n</table> \n\n<p\nstyle=\"margin-top:5px;text-align: center;\"><span class=\"iedib-caption-counter\">Taula</span>: <span class=\"iedib-caption-title\">Descripció\nde la taula.</span></p>\n<!--fi bstable-->\n<p><br></p>\n"}};
+        function copyToClipboard(text) {
+            // must use a temporary form element for the selection and copy
+            var target = document.getElementById("snpclipboard");
+            if(!target) {
+                target = document.createElement("textarea");
+                target.style.position = "absolute";
+                target.style.left = "-9999px";
+                target.style.top = "0";
+                target.id = 'snpclipboard';
+                document.body.appendChild(target);
             }
-        } else {
-            console.error("Cannot retrieve value from control " +cid);
+            target.textContent = text;
+            // select the content 
+            var currentFocus = document.activeElement;
+            var sx = window.scrollX;
+            var sy = window.scrollY;
+            target.focus();
+            target.setSelectionRange(0, target.value.length);
+            // copy the selection
+            var succeed;
+            try {
+                succeed = document.execCommand("copy");
+            } catch(e) {
+                succeed = false;
+            } 
+            // restore original focus
+            if (currentFocus && typeof currentFocus.focus === "function") {
+                currentFocus.focus();
+            }
+            window.scrollTo(sx, sy);
+            return succeed;
         }
-        // Apply transform functions 
-        if(param['transform']) {
-                var thevalue2 = values[pname];
-                var parts = param['transform'].split('|');
-                for(var j=0, lenj=parts.length; j<lenj; j++) {
-                    var prts = parts[j].trim();
-                    var transfunc = Transformers[prts];
-                    if(transfunc) {
-                        thevalue2 = transfunc(thevalue2);
-                    }
+        // Bind copy actions
+        document.querySelectorAll(".btn.btn-sm.btn-secondary").forEach((elem) => {
+            elem.addEventListener("click", function(evt){
+                var key = elem.dataset.key;  
+                console.log(elem, key )
+                if(copyToClipboard(mapSnippets[key]?.['html'] || "")){
+                    // Show tooltip - copied!
+                    console.log("Contents copied to clipboard!");
+                    $(elem).tooltip({
+                        title: "Copiat al portaretalls!"
+                    });
+                    
+                } else {
+                    console.error("Cannot copy to clipboard");
+                    $(elem).tooltip({
+                        title: "No s'ha pogut copiar :-("
+                    });
                 }
-                values[pname] = thevalue2;
-        }
-    }  
-    I18n.resources = snip['misc']['I18n'] || {};
-    I18n.locale = values['$lang'] || 'ca';
-    return values;
-}
-function compileSnippet(snippetKey, values) {
-    var template = compiledCache[snippetKey];
-    if(!template) {
-        template = compilaSnippet(snippetKey);
-        if(!template) {
-            console.error("Cannot compile ", snippetKey);
-            return;
-        }
-    } 
-    values['$id'] = "c"+Math.random().toString(32).substring(2);
-    var ll = Object.keys(values);
-    for(var i=0, leni=ll.length; i<leni; i++) {
-        var kk = ll[i];
-        if (values[kk] && (values[kk]+'').trim()=='$RND') {
-            values[kk] = "c"+Math.random().toString(32).substring(2); 
-        }  
-    }
-    return template(values);
-}
-$(function(){
-    $(".btn.btn-sm.btn-secondary").click(function(evt){
-        var self = $(this);
-        var key = self.data("key");  
-        if(copyToClipboard(mapSnippets[key]['html']||"")){
-            // Show tooltip - copied!
-            console.log("Contents copied to clipboard!");
-            self.tooltip({
-                title: "Copiat al portaretalls!"
+                $(elem).tooltip('enable');
+                $(elem).tooltip('show');
+                window.setTimeout(function(){
+                    $(elem).tooltip('hide');
+                    $(elem).tooltip('disable');
+                }, 1500);            
             });
-            
-        } else {
-            console.error("Cannot copy to clipboard");
-            self.tooltip({
-                title: "No s'ha pogut copiar :-("
-            });
-        }
-        self.tooltip('enable');
-        self.tooltip('show');
-        window.setTimeout(function(){
-            self.tooltip('hide');
-            self.tooltip('disable');
-        }, 1500);
-        
-    });
-    $(".btn.btn-primary[data-key]").click(function(evt){
-        var key = $(this).data("key");  
-        var parameters = updateSnippetParameters(key);
-        var html = compileSnippet(key, parameters);
-        $("#tab-"+key+"-0").html(html); 
-        var codeblock =$("#tab-"+key+"-12").get(0);
-        html = html_beautify(html);
-        //desa el nou codi
-        mapSnippets[key]['html'] = html;
-        //TODO: update to latest version
-        var newcode = hljs.highlight(html, {language: "html", ignoreIllegals: true }); 
-        codeblock.innerHTML = newcode.value;
-
-
-       //TODO: Update dynamic instances in page
-       if(window.IB && window.IB.sd) {
-        var valors = Object.values(IB.sd);
-        for(var sdIndx = 0, sdLen= valors.length; sdIndx<sdLen; sdIndx++) {
-          var sdObj = valors[sdIndx];  
-          sdObj.unbind && sdObj.unbind();
-          sdObj.bind && sdObj.bind();
-        
-        }
-        }
-    });
-}); 
-     
+        });
     </script>
     
 </body>

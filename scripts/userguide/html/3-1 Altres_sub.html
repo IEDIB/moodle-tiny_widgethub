@@ -6,6 +6,23 @@
     <title>Altres</title>
     <meta charset="utf-8">
     
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({TeX: {extensions: ["cancel.js"]},CommonHTML: { linebreaks: { automatic: true } },"HTML-CSS": { linebreaks: { automatic: true } },SVG: { linebreaks: { automatic: true } }});
+            </script>
+        <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+            integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../../styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
+        
 </head>
 
 <body>
@@ -22,7 +39,14 @@
     
      <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-codi-programacio">
         
-        Codi de programacio
+        Codi de programació
+    </a>
+    
+     <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-ib-colors">
+        
+            <i class="fas fa-comment-plus" style="color:darkorange;"></i>
+        
+        Colors de font i fons
     </a>
     
      <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-correcte-incorrecte">
@@ -40,24 +64,24 @@
         Frase cèlebre
     </a>
     
-     <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-poema2cols">
+     <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-iframe">
         
-        Poema dues columnes
-    </a>
-    
-     <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-retol-inline">
-        
-        Rètol en línia
+        Inserir IFrame/HTML
     </a>
     
      <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-subsub-seccio">
         
-        Sub-subsecció
+        Secció de pàgina
     </a>
     
      <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-taula-predefinida">
         
         Taula predefinida
+    </a>
+    
+     <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-dedication-time">
+        
+        Temps de dedicació
     </a>
     
    
@@ -66,23 +90,23 @@
     <hr><br>
 <p>
 <a name="section-capcalera-examen"></a>
-<!--ini:div-snippet-->
+<!--ini:div-widget-->
 <div style="position:relative;">
-    <h4 class="iedib-subsub" title="capcalera-examen" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="capcalera-examen" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
         
                 Capçalera examen
                     &nbsp;&nbsp;
                     
                             
                             
-    </h4>
+    </h3>
     <p><br></p> 
 
         <div
             style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
             <em>Àmbit d'aplicació</em>: Tots<br>
-                <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2.1.0
+                <em>Recomanació d'ús</em>: 1/3<br>
+                    <em>Versió</em>: 2025.05.06
         </div>
 
         <!--begin:tabmenu-->
@@ -101,8 +125,8 @@
                 <div class="tab-pane  active  iedib-tabpane" id="tab-capcalera-examen-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
                     
                     <!-- inici capçalera examen -->
-<center>
-  <table style="width:96%;margin:auto;border:2px solid black;border-collapse: collapse;border-spacing: 0;margin:0px">
+<div class="table-responsive iedib-capsalera-examen">
+  <table class="table" style="width:96%;margin:auto;border:2px solid black;border-collapse: collapse;border-spacing: 0;margin:0px">
     <tbody>
       <tr style="">
         <td style="text-align: center; width: 20%; border: 1px solid black;"> <img src="https://iedib.net/wordpress/wp-content/uploads/2018/12/iedib-logo.png" alt="Logo IEDIB" width="110" height="73" role="presentation" class="img-responsive atto_image_button_middle"></td>
@@ -153,15 +177,15 @@
         <td style="width:20%;border:1px solid black; background-color:rgb(204,204,204);">
           <p><b>GRUP*:</b></p>
         </td>
-        <td style="text-align: center; border: 1px solid black;">A/B/C/D</td>
+        <td style="text-align: center; border: 1px solid black;">-----</td>
         <td style="width:20%;border:1px solid black;display: none">
         </td>
       </tr>
     </tbody>
   </table>
-</center><span> *grup: A-arts/B-humanitats/C-ciències/D-xarxa</span><br>
+</div>
+<span style="font-size: 75%;"> *grup: A-arts / C-ciències / E-arts escèniques / P-arts plàstiques / G-general / H-humanitats/ X-xarxa</span><br>
 <br>
-
 <div style="width:96%;margin:auto;padding:5px;border:1px solid black;">
   <p> <b>INSTRUCCIONS:</b></p>
   <ul>
@@ -176,8 +200,8 @@
                 <div class="tab-pane iedib-tabpane" id="tab-capcalera-examen-1">
                     <div style="position:relative;max-height: 400px;overflow: auto;">
                     <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-capcalera-examen-12" style="min-height: 100px;">&lt;!-- inici capçalera examen --&gt;
-&lt;center&gt;
-  &lt;table style=&quot;width:96%;margin:auto;border:2px solid black;border-collapse: collapse;border-spacing: 0;margin:0px&quot;&gt;
+&lt;div class=&quot;table-responsive iedib-capsalera-examen&quot;&gt;
+  &lt;table class=&quot;table&quot; style=&quot;width:96%;margin:auto;border:2px solid black;border-collapse: collapse;border-spacing: 0;margin:0px&quot;&gt;
     &lt;tbody&gt;
       &lt;tr style=&quot;&quot;&gt;
         &lt;td style=&quot;text-align: center; width: 20%; border: 1px solid black;&quot;&gt; &lt;img src=&quot;https://iedib.net/wordpress/wp-content/uploads/2018/12/iedib-logo.png&quot; alt=&quot;Logo IEDIB&quot; width=&quot;110&quot; height=&quot;73&quot; role=&quot;presentation&quot; class=&quot;img-responsive atto_image_button_middle&quot;&gt;&lt;/td&gt;
@@ -228,15 +252,15 @@
         &lt;td style=&quot;width:20%;border:1px solid black; background-color:rgb(204,204,204);&quot;&gt;
           &lt;p&gt;&lt;b&gt;GRUP*:&lt;/b&gt;&lt;/p&gt;
         &lt;/td&gt;
-        &lt;td style=&quot;text-align: center; border: 1px solid black;&quot;&gt;A/B/C/D&lt;/td&gt;
+        &lt;td style=&quot;text-align: center; border: 1px solid black;&quot;&gt;-----&lt;/td&gt;
         &lt;td style=&quot;width:20%;border:1px solid black;display: none&quot;&gt;
         &lt;/td&gt;
       &lt;/tr&gt;
     &lt;/tbody&gt;
   &lt;/table&gt;
-&lt;/center&gt;&lt;span&gt; *grup: A-arts/B-humanitats/C-ciències/D-xarxa&lt;/span&gt;&lt;br&gt;
+&lt;/div&gt;
+&lt;span style=&quot;font-size: 75%;&quot;&gt; *grup: A-arts / C-ciències / E-arts escèniques / P-arts plàstiques / G-general / H-humanitats/ X-xarxa&lt;/span&gt;&lt;br&gt;
 &lt;br&gt;
-
 &lt;div style=&quot;width:96%;margin:auto;padding:5px;border:1px solid black;&quot;&gt;
   &lt;p&gt; &lt;b&gt;INSTRUCCIONS:&lt;/b&gt;&lt;/p&gt;
   &lt;ul&gt;
@@ -255,38 +279,6 @@
                 </div>
             </div>
             <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-coia8i38ffg" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-coia8i38ffg_0"
-                            data-toggle="collapse" data-parent="#acc-coia8i38ffg" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-coia8i38ffg_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="capcalera-examen_CURS">Curs </label>
-            <input type="text" class="form-control" id="capcalera-examen_CURS" aria-describedby="[object Object]" value="SEGON BATXILLERAT" title="CURS">
-            </div>
-            <div class="form-group">
-            <label for="capcalera-examen_CODI_MATERIA">Codi matèria </label>
-            <input type="text" class="form-control" id="capcalera-examen_CODI_MATERIA" aria-describedby="[object Object]" value="BAT_MAT2" title="CODI_MATERIA">
-            </div>
-            <div class="form-group">
-            <label for="capcalera-examen_AVALUACIO">Avaluació </label>
-            <input type="text" class="form-control" id="capcalera-examen_AVALUACIO" aria-describedby="[object Object]" value="1a" title="AVALUACIO">
-            </div>
-            <div class="form-group">
-            <label for="capcalera-examen_NOM_MATERIA">Nom de la matèria </label>
-            <input type="text" class="form-control" id="capcalera-examen_NOM_MATERIA" aria-describedby="[object Object]" value="MATEMÀTIQUES II" title="NOM_MATERIA">
-            </div>
-         <button class="btn btn-primary" data-key="capcalera-examen"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
         </div>
 
         <p><br></p>
@@ -303,7 +295,7 @@
         <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
         <div style="margin-left:35px;">
             <p>
-                Capçalera per crear un examen model a l'aula virtual moodle
+                Capçalera per crear un examen model a l'aula virtual Moodle
 
             </p>
         </div> 
@@ -314,29 +306,29 @@
     <p><br>
     <p>
 </div>
-<!--fi:divsnippet-->
+<!--fi:divwidget-->
     
         <p>
     <hr><br>
 <p>
 <a name="section-capcalera"></a>
-<!--ini:div-snippet-->
+<!--ini:div-widget-->
 <div style="position:relative;">
-    <h4 class="iedib-subsub" title="capcalera" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="capcalera" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
         
                 Capçalera general
                     &nbsp;&nbsp;
                     
                             
                             
-    </h4>
+    </h3>
     <p><br></p> 
 
         <div
             style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
             <em>Àmbit d'aplicació</em>: Tots<br>
                 <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2.1.0
+                    <em>Versió</em>: 2023.01.07
         </div>
 
         <!--begin:tabmenu-->
@@ -355,22 +347,18 @@
                 <div class="tab-pane  active  iedib-tabpane" id="tab-capcalera-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
                     
                     <p><br></p>
-<table class="iedib-titol-general">
-  <tr>
-    <td class="iedib-titol-general-text"><br>Títol de la capçalera<br><br></td>
-  </tr>
-</table>
+<div class="iedib-titol-general">
+  <span class="iedib-titol-general-text">Escriviu un títol</span>
+</div>
 <p><br></p>
                     
                 </div>
                 <div class="tab-pane iedib-tabpane" id="tab-capcalera-1">
                     <div style="position:relative;max-height: 400px;overflow: auto;">
                     <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-capcalera-12" style="min-height: 100px;">&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;table class=&quot;iedib-titol-general&quot;&gt;
-  &lt;tr&gt;
-    &lt;td class=&quot;iedib-titol-general-text&quot;&gt;&lt;br&gt;Títol de la capçalera&lt;br&gt;&lt;br&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/table&gt;
+&lt;div class=&quot;iedib-titol-general&quot;&gt;
+  &lt;span class=&quot;iedib-titol-general-text&quot;&gt;Escriviu un títol&lt;/span&gt;
+&lt;/div&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
                 </code></pre>
                     <button data-key="capcalera" style="position:absolute;right:10px;top:4px;"
@@ -381,26 +369,6 @@
                 </div>
             </div>
             <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-070m4f7c3ko" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-070m4f7c3ko_0"
-                            data-toggle="collapse" data-parent="#acc-070m4f7c3ko" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-070m4f7c3ko_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="capcalera_TITOL">Títol de la capçalera </label>
-            <input type="text" class="form-control" id="capcalera_TITOL" aria-describedby="[object Object]" value="Títol de la capçalera" title="TITOL">
-            </div>
-         <button class="btn btn-primary" data-key="capcalera"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
         </div>
 
         <p><br></p>
@@ -412,7 +380,7 @@
                 <p style="color:#a50b0b"><b><i class="fas fa-times-circle"></i> Cal evitar...</b></p>
                 <div class="alert alert-danger" style="width:90%;margin-left:30px;"><ul>
                 
-                    <li>Es desconsella l'ús de la capçalera general en els llibres Moodle. En comptes, emprau sub-subsecció. </li>
+                    <li>Es desconsella l'ús de la capçalera general en els llibres Moodle. En comptes d'això, emprau l'snippet secció de pàgina. </li>
                 
                 </ul></div>
             
@@ -434,29 +402,29 @@
     <p><br>
     <p>
 </div>
-<!--fi:divsnippet-->
+<!--fi:divwidget-->
     
         <p>
     <hr><br>
 <p>
 <a name="section-codi-programacio"></a>
-<!--ini:div-snippet-->
+<!--ini:div-widget-->
 <div style="position:relative;">
-    <h4 class="iedib-subsub" title="codi-programacio" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="codi-programacio" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
         
-                Codi de programacio
+                Codi de programació
                     &nbsp;&nbsp;
                     
                             
                             
-    </h4>
+    </h3>
     <p><br></p> 
 
         <div
             style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
             <em>Àmbit d'aplicació</em>: Tots<br>
                 <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2.1.0
+                    <em>Versió</em>: 2023.01.07
         </div>
 
         <!--begin:tabmenu-->
@@ -475,14 +443,14 @@
                 <div class="tab-pane  active  iedib-tabpane" id="tab-codi-programacio-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
                     
                     <p><br></p>
-<pre class="notranslate iedib-code iedib-code-stripped"><code class="nohljsln">console.log(&#x27;Hello world!&#x27;);  </code></pre>
+<pre class="notranslate iedib-code iedib-code-stripped"> <code class="nohljsln">console.log(&#39;Hello world!&#39;);</code> </pre>
 <p><br></p>
                     
                 </div>
                 <div class="tab-pane iedib-tabpane" id="tab-codi-programacio-1">
                     <div style="position:relative;max-height: 400px;overflow: auto;">
                     <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-codi-programacio-12" style="min-height: 100px;">&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;pre class=&quot;notranslate iedib-code iedib-code-stripped&quot;&gt;&lt;code class=&quot;nohljsln&quot;&gt;console.log(&amp;#x27;Hello world!&amp;#x27;);  &lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;notranslate iedib-code iedib-code-stripped&quot;&gt; &lt;code class=&quot;nohljsln&quot;&gt;console.log(&amp;#39;Hello world!&amp;#39;);&lt;/code&gt; &lt;/pre&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
                 </code></pre>
                     <button data-key="codi-programacio" style="position:absolute;right:10px;top:4px;"
@@ -494,7 +462,67 @@
                     <p>Dependències JS necessàries (col·locar a final del codi HTML):</p>
                     <ul>
                     
-                    <li>&lt;script src="https://iedib.net/assets/sd/programacio.min.js"&gt;&lt;/script&gt;</li>
+                    <li>&lt;script src="https://iedib.net/assets/"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetss"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsd"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assets/"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsp"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsr"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetso"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsg"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsr"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsa"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsm"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsa"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsc"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsi"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetso"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assets."&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsm"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsi"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsn"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assets."&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsj"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetss"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assets "&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assets|"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assets "&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetss"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsy"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsn"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetst"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsa"&gt;&lt;/script&gt;</li>
+                    
+                    <li>&lt;script src="https://iedib.net/assetsx"&gt;&lt;/script&gt;</li>
                     
                     </ul>
                 </div>
@@ -502,46 +530,6 @@
                 </div>
             </div>
             <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-255d59pnhsg" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-255d59pnhsg_0"
-                            data-toggle="collapse" data-parent="#acc-255d59pnhsg" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-255d59pnhsg_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             <div class="form-check" style="margin-bottom:10px;">
-            <input type="checkbox" class="form-check-input" value="1" checked id="codi-programacio_franges_de_fons" title="franges_de_fons">
-            <label class="form-check-label" for="codi-programacio_franges_de_fons">
-                Inclou fons de franges  
-            </label>
-          </div><div class="form-check" style="margin-bottom:10px;">
-            <input type="checkbox" class="form-check-input" value="1" checked id="codi-programacio_notranslate" title="notranslate">
-            <label class="form-check-label" for="codi-programacio_notranslate">
-                Evita que Google tradueixi el codi  
-            </label>
-          </div>
-            <div class="form-group">
-            <label for="codi-programacio__codi">Codi font </label>
-            <textarea class="form-control" id="codi-programacio__codi" title="_codi">console.log('Hello world!');</textarea>
-            </div><div class="form-check" style="margin-bottom:10px;">
-            <input type="checkbox" class="form-check-input" value="1" checked id="codi-programacio_syntax" title="syntax">
-            <label class="form-check-label" for="codi-programacio_syntax">
-                Sintaxi en colors  
-            </label>
-          </div><div class="form-check" style="margin-bottom:10px;">
-            <input type="checkbox" class="form-check-input" value="0"  id="codi-programacio_lnum" title="lnum">
-            <label class="form-check-label" for="codi-programacio_lnum">
-                Enumera les línies  
-            </label>
-          </div>
-         <button class="btn btn-primary" data-key="codi-programacio"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
         </div>
 
         <p><br></p>
@@ -558,7 +546,7 @@
         <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
         <div style="margin-left:35px;">
             <p>
-                Utilitzeu aquest snippet per incloure un bloc de codi de programació. 
+                Utilitzeu aquest snippet per incloure un bloc de codi de programació.
 
             </p>
         </div> 
@@ -569,29 +557,105 @@
     <p><br>
     <p>
 </div>
-<!--fi:divsnippet-->
+<!--fi:divwidget-->
     
         <p>
     <hr><br>
 <p>
-<a name="section-correcte-incorrecte"></a>
-<!--ini:div-snippet-->
+<a name="section-ib-colors"></a>
+<!--ini:div-widget-->
 <div style="position:relative;">
-    <h4 class="iedib-subsub" title="correcte-incorrecte" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="ib-colors" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
         
-                Correcte-Incorrecte
+            <i class="fas fa-comment-plus" style="color:darkorange;"></i>
+            
+                Colors de font i fons
                     &nbsp;&nbsp;
                     
                             
                             
-    </h4>
+    </h3>
     <p><br></p> 
 
         <div
             style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
             <em>Àmbit d'aplicació</em>: Tots<br>
                 <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2021.3.30
+                    <em>Versió</em>: 1.0.0
+        </div>
+
+        <!--begin:tabmenu-->
+        <div class="tabbable iedib-tabmenu" id="tabmenu-ib-colors" style="position:relative; margin-left:0; padding: 10px; width:99%; background: whitesmoke;">
+            
+            
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#tab-ib-colors-0" data-toggle="tab"><span>&nbsp;</span><span>Es mostra
+                            com...</span></a></li>
+                <li><a href="#tab-ib-colors-1" data-toggle="tab"><span>&nbsp;</span><span>Codi HTML</span></a></li>
+            </ul>
+
+            
+            <div class="tab-content" style="background:white;">
+                <div class="tab-pane  active  iedib-tabpane" id="tab-ib-colors-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
+                    
+                    &nbsp;<span style="color:#0000ff;background-color:#ffffff00;" class="wh-sty-colors">Sample text</span>&nbsp;
+                    
+                </div>
+                <div class="tab-pane iedib-tabpane" id="tab-ib-colors-1">
+                    <div style="position:relative;max-height: 400px;overflow: auto;">
+                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-ib-colors-12" style="min-height: 100px;">&amp;nbsp;&lt;span style=&quot;color:#0000ff;background-color:#ffffff00;&quot; class=&quot;wh-sty-colors&quot;&gt;Sample text&lt;/span&gt;&amp;nbsp;
+                </code></pre>
+                    <button data-key="ib-colors" style="position:absolute;right:10px;top:4px;"
+                        class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
+                    </div>
+                    <div>
+                
+                </div>
+            </div>
+            <!--end:tabmenu-->
+        </div>
+
+        <p><br></p>
+
+         
+            
+             
+            
+
+            
+        
+
+        
+
+    <p><br>
+    <p>
+    <p><br>
+    <p>
+</div>
+<!--fi:divwidget-->
+    
+        <p>
+    <hr><br>
+<p>
+<a name="section-correcte-incorrecte"></a>
+<!--ini:div-widget-->
+<div style="position:relative;">
+    <h3 title="correcte-incorrecte" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
+        
+                Correcte-Incorrecte
+                    &nbsp;&nbsp;
+                    
+                            
+                            
+    </h3>
+    <p><br></p> 
+
+        <div
+            style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
+            <em>Àmbit d'aplicació</em>: Tots<br>
+                <em>Recomanació d'ús</em>: 2/3<br>
+                    <em>Versió</em>: 2021.03.30
         </div>
 
         <!--begin:tabmenu-->
@@ -648,21 +712,6 @@
                 </div>
             </div>
             <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-i374dvo4oko" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-i374dvo4oko_0"
-                            data-toggle="collapse" data-parent="#acc-i374dvo4oko" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-i374dvo4oko_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                            <p><em>No admet paràmetres de configuració.</em></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
         </div>
 
         <p><br></p>
@@ -690,29 +739,29 @@
     <p><br>
     <p>
 </div>
-<!--fi:divsnippet-->
+<!--fi:divwidget-->
     
         <p>
     <hr><br>
 <p>
 <a name="section-fragment-text"></a>
-<!--ini:div-snippet-->
+<!--ini:div-widget-->
 <div style="position:relative;">
-    <h4 class="iedib-subsub" title="fragment-text" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="fragment-text" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
         
                 Fragment de text
                     &nbsp;&nbsp;
                     
                             
                             
-    </h4>
+    </h3>
     <p><br></p> 
 
         <div
             style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
             <em>Àmbit d'aplicació</em>: Tots<br>
                 <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2.1.0
+                    <em>Versió</em>: 2023.01.07
         </div>
 
         <!--begin:tabmenu-->
@@ -734,7 +783,8 @@
 <div class="iedib-fragment " data-lang="ca">
   <h4>FRAGMENT DE TEXT:</h4>
   <div class="iedib-iq">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    </p>
   </div>
 </div> <!-- end fragment text -->
 <p><br></p>
@@ -746,7 +796,8 @@
 &lt;div class=&quot;iedib-fragment &quot; data-lang=&quot;ca&quot;&gt;
   &lt;h4&gt;FRAGMENT DE TEXT:&lt;/h4&gt;
   &lt;div class=&quot;iedib-iq&quot;&gt;
-    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    &lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt; &lt;!-- end fragment text --&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
@@ -759,35 +810,6 @@
                 </div>
             </div>
             <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-qnei3ar9q5o" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-qnei3ar9q5o_0"
-                            data-toggle="collapse" data-parent="#acc-qnei3ar9q5o" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-qnei3ar9q5o_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="fragment-text_lang">Idioma </label>
-            <select class="form-control" id="fragment-text_lang"><option value="ca" selected>Català</option><option value="es" >Castellà</option><option value="en" >English</option><option value="fr" >Francès</option><option value="de" >Alemany</option></select>
-            </div>
-            <div class="form-group">
-            <label for="fragment-text_amplada_max">Amplada màxima (px) <a href="javascript:void(0)" data-toggle="popover" data-trigger="hover" data-content="Si no voleu limitar l'amplada, deixeu-la a 0."><i class="fas fa-question-circle text-info"></i></a></label>
-            <input type="numeric" class="form-control" id="fragment-text_amplada_max" aria-describedby="[object Object]" value="0"  title="amplada_max">
-            </div><div class="form-check" style="margin-bottom:10px;">
-            <input type="checkbox" class="form-check-input" value="0"  id="fragment-text_notranslate" title="notranslate">
-            <label class="form-check-label" for="fragment-text_notranslate">
-                Evita ésser traduït per Google  
-            </label>
-          </div>
-         <button class="btn btn-primary" data-key="fragment-text"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
         </div>
 
         <p><br></p>
@@ -816,29 +838,29 @@ Si voleu reduir l'amplada podeu establir una amplada màxima, p.e. 400 px.
     <p><br>
     <p>
 </div>
-<!--fi:divsnippet-->
+<!--fi:divwidget-->
     
         <p>
     <hr><br>
 <p>
 <a name="section-frase-celebre"></a>
-<!--ini:div-snippet-->
+<!--ini:div-widget-->
 <div style="position:relative;">
-    <h4 class="iedib-subsub" title="frase-celebre" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="frase-celebre" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
         
                 Frase cèlebre
                     &nbsp;&nbsp;
                     
                             
                             
-    </h4>
+    </h3>
     <p><br></p> 
 
         <div
             style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
             <em>Àmbit d'aplicació</em>: Tots<br>
-                <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2.1.0
+                <em>Recomanació d'ús</em>: 1/3<br>
+                    <em>Versió</em>: 2023.01.07
         </div>
 
         <!--begin:tabmenu-->
@@ -857,26 +879,22 @@ Si voleu reduir l'amplada podeu establir una amplada màxima, p.e. 400 px.
                 <div class="tab-pane  active  iedib-tabpane" id="tab-frase-celebre-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
                     
                     <p><br></p>
-<!--begin: frase celebre-->
-<div class="iedib-quote notranslate">
+<div class="iedib-quote notranslate"> <!--begin: frase celebre-->
   <div class="iedib-iq">
     <p>No entiendes realmente algo a menos que seas capaz de explicárselo a tu abuela.</p>
-  </div> <cite>Albert Einstein</cite>
+  </div> <cite>Albert Einstein</cite> <!--end: frase celebre-->
 </div>
-<!--end: frase celebre-->
 <p><br></p>
                     
                 </div>
                 <div class="tab-pane iedib-tabpane" id="tab-frase-celebre-1">
                     <div style="position:relative;max-height: 400px;overflow: auto;">
                     <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-frase-celebre-12" style="min-height: 100px;">&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;!--begin: frase celebre--&gt;
-&lt;div class=&quot;iedib-quote notranslate&quot;&gt;
+&lt;div class=&quot;iedib-quote notranslate&quot;&gt; &lt;!--begin: frase celebre--&gt;
   &lt;div class=&quot;iedib-iq&quot;&gt;
     &lt;p&gt;No entiendes realmente algo a menos que seas capaz de explicárselo a tu abuela.&lt;/p&gt;
-  &lt;/div&gt; &lt;cite&gt;Albert Einstein&lt;/cite&gt;
+  &lt;/div&gt; &lt;cite&gt;Albert Einstein&lt;/cite&gt; &lt;!--end: frase celebre--&gt;
 &lt;/div&gt;
-&lt;!--end: frase celebre--&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
                 </code></pre>
                     <button data-key="frase-celebre" style="position:absolute;right:10px;top:4px;"
@@ -887,31 +905,6 @@ Si voleu reduir l'amplada podeu establir una amplada màxima, p.e. 400 px.
                 </div>
             </div>
             <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-t47g0mrfio" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-t47g0mrfio_0"
-                            data-toggle="collapse" data-parent="#acc-t47g0mrfio" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-t47g0mrfio_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="frase-celebre_author">Autor de la cita </label>
-            <input type="text" class="form-control" id="frase-celebre_author" aria-describedby="[object Object]" value="Albert Einstein" title="author">
-            </div><div class="form-check" style="margin-bottom:10px;">
-            <input type="checkbox" class="form-check-input" value="1" checked id="frase-celebre_notranslate" title="notranslate">
-            <label class="form-check-label" for="frase-celebre_notranslate">
-                Evita ésser traduït per Google  
-            </label>
-          </div>
-         <button class="btn btn-primary" data-key="frase-celebre"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
         </div>
 
         <p><br></p>
@@ -940,124 +933,54 @@ Per textos més llargs emprau l'snippet <em>Fragment de text</em>.
     <p><br>
     <p>
 </div>
-<!--fi:divsnippet-->
+<!--fi:divwidget-->
     
         <p>
     <hr><br>
 <p>
-<a name="section-poema2cols"></a>
-<!--ini:div-snippet-->
+<a name="section-iframe"></a>
+<!--ini:div-widget-->
 <div style="position:relative;">
-    <h4 class="iedib-subsub" title="poema2cols" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="iframe" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
         
-                Poema dues columnes
+                Inserir IFrame/HTML
                     &nbsp;&nbsp;
                     
                             
                             
-                                &nbsp;&nbsp;<span class="badge badge-danger">Restringit a usuaris 7,14</span>
-                            
-    </h4>
+    </h3>
     <p><br></p> 
 
         <div
             style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
             <em>Àmbit d'aplicació</em>: Tots<br>
                 <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 1.0.0
+                    <em>Versió</em>: 2023.01.22
         </div>
 
         <!--begin:tabmenu-->
-        <div class="tabbable iedib-tabmenu" id="tabmenu-poema2cols" style="position:relative; margin-left:0; padding: 10px; width:99%; background: whitesmoke;">
+        <div class="tabbable iedib-tabmenu" id="tabmenu-iframe" style="position:relative; margin-left:0; padding: 10px; width:99%; background: whitesmoke;">
             
             
             <ul class="nav nav-tabs">
                 <li class="active">
-                    <a href="#tab-poema2cols-0" data-toggle="tab"><span>&nbsp;</span><span>Es mostra
+                    <a href="#tab-iframe-0" data-toggle="tab"><span>&nbsp;</span><span>Es mostra
                             com...</span></a></li>
-                <li><a href="#tab-poema2cols-1" data-toggle="tab"><span>&nbsp;</span><span>Codi HTML</span></a></li>
+                <li><a href="#tab-iframe-1" data-toggle="tab"><span>&nbsp;</span><span>Codi HTML</span></a></li>
             </ul>
 
             
             <div class="tab-content" style="background:white;">
-                <div class="tab-pane  active  iedib-tabpane" id="tab-poema2cols-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
+                <div class="tab-pane  active  iedib-tabpane" id="tab-iframe-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
                     
-                    <center>
-  <!--Poema2cols-->
-  <table class="iedib-table iedib-poema2cols" style="table-layout:fixed;border-collapse:
-collapse; border-spacing: 0px;width:96%">
-    <tbody>
-      <tr>
-        <td class="iedib-formulacio" style="border: 2px solid
-cadetblue;width:300px;padding:10px;white-space: nowrap;">
-          <p>
-            <b>Definición del amor</b>
-          </p>
-          <p>Es hielo abrasador, es fuego helado,<br>es herida que duele y no se siente,<br>es un
-            soñado bien, un mal presente,
-            <br>es un breve descanso muy cansado.
-          </p>
-          <p><br>Es un descuido que nos da cuidado,<br>un cobarde con nombre de
-            valiente,<br>un andar solitario entre la gente,
-            <br>un amar solamente ser amado.
-          </p>
-          <p><br>Es una libertad encarcelada,<br>que dura hasta el postrero
-            paroxismo;<br>enfermedad que crece si es curada.</p>
-          <p>
-            <br>Éste es el niño Amor, éste es su abismo.<br>¿Mirad cuál amistad tendrá con nada<br>el que en todo es contrario de
-            sí mismo!
-          </p>
-        </td>
-        <td style="border: 2px solid cadetblue;text-align:center">
-          <br>
-          <img src="https://iedib.net/wordpress/wp-content/uploads/2018/12/sample-img.png" alt="Imatge per defecte" width="380" class="img-responsive" height="335">
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <!--end Poema2cols-->
-</center>
+                    
                     
                 </div>
-                <div class="tab-pane iedib-tabpane" id="tab-poema2cols-1">
+                <div class="tab-pane iedib-tabpane" id="tab-iframe-1">
                     <div style="position:relative;max-height: 400px;overflow: auto;">
-                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-poema2cols-12" style="min-height: 100px;">&lt;center&gt;
-  &lt;!--Poema2cols--&gt;
-  &lt;table class=&quot;iedib-table iedib-poema2cols&quot; style=&quot;table-layout:fixed;border-collapse:
-collapse; border-spacing: 0px;width:96%&quot;&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td class=&quot;iedib-formulacio&quot; style=&quot;border: 2px solid
-cadetblue;width:300px;padding:10px;white-space: nowrap;&quot;&gt;
-          &lt;p&gt;
-            &lt;b&gt;Definición del amor&lt;/b&gt;
-          &lt;/p&gt;
-          &lt;p&gt;Es hielo abrasador, es fuego helado,&lt;br&gt;es herida que duele y no se siente,&lt;br&gt;es un
-            soñado bien, un mal presente,
-            &lt;br&gt;es un breve descanso muy cansado.
-          &lt;/p&gt;
-          &lt;p&gt;&lt;br&gt;Es un descuido que nos da cuidado,&lt;br&gt;un cobarde con nombre de
-            valiente,&lt;br&gt;un andar solitario entre la gente,
-            &lt;br&gt;un amar solamente ser amado.
-          &lt;/p&gt;
-          &lt;p&gt;&lt;br&gt;Es una libertad encarcelada,&lt;br&gt;que dura hasta el postrero
-            paroxismo;&lt;br&gt;enfermedad que crece si es curada.&lt;/p&gt;
-          &lt;p&gt;
-            &lt;br&gt;Éste es el niño Amor, éste es su abismo.&lt;br&gt;¿Mirad cuál amistad tendrá con nada&lt;br&gt;el que en todo es contrario de
-            sí mismo!
-          &lt;/p&gt;
-        &lt;/td&gt;
-        &lt;td style=&quot;border: 2px solid cadetblue;text-align:center&quot;&gt;
-          &lt;br&gt;
-          &lt;img src=&quot;https://iedib.net/wordpress/wp-content/uploads/2018/12/sample-img.png&quot; alt=&quot;Imatge per defecte&quot; width=&quot;380&quot; class=&quot;img-responsive&quot; height=&quot;335&quot;&gt;
-        &lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-  &lt;!--end Poema2cols--&gt;
-&lt;/center&gt;
+                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-iframe-12" style="min-height: 100px;">
                 </code></pre>
-                    <button data-key="poema2cols" style="position:absolute;right:10px;top:4px;"
+                    <button data-key="iframe" style="position:absolute;right:10px;top:4px;"
                         class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
                     </div>
                     <div>
@@ -1065,26 +988,6 @@ cadetblue;width:300px;padding:10px;white-space: nowrap;&quot;&gt;
                 </div>
             </div>
             <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-j44u32j9aro" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-j44u32j9aro_0"
-                            data-toggle="collapse" data-parent="#acc-j44u32j9aro" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-j44u32j9aro_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="poema2cols_ampladaPx">Amplada en px de la columna esquerra </label>
-            <input type="numeric" class="form-control" id="poema2cols_ampladaPx" aria-describedby="[object Object]" value="300"  title="ampladaPx">
-            </div>
-         <button class="btn btn-primary" data-key="poema2cols"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
         </div>
 
         <p><br></p>
@@ -1095,20 +998,13 @@ cadetblue;width:300px;padding:10px;white-space: nowrap;&quot;&gt;
             
 
             
-                <p style="color: rgb(62, 3, 62)"><b><i class="fas fa-lightbulb"></i> Tingues en compte...</b></p>
-                <div class="alert alert-info" style="width:90%;margin-left:30px; color: rgb(62, 3, 62)"><ul>
-                
-                    <li>Com alternativa recomanada, emprau l'snippet fragment de text establint una amplada màxima pel poema. </li>
-                
-                </ul></div>
-            
         
 
         
         <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
         <div style="margin-left:35px;">
             <p>
-                Poema en dues columnes, la primera d'amplada fixada pel paràmetre ampladaPx
+                Aquest snippet permet inserir el codi HTML d'un IFrame en un punt determinat del document.
 
             </p>
         </div> 
@@ -1119,144 +1015,31 @@ cadetblue;width:300px;padding:10px;white-space: nowrap;&quot;&gt;
     <p><br>
     <p>
 </div>
-<!--fi:divsnippet-->
-    
-        <p>
-    <hr><br>
-<p>
-<a name="section-retol-inline"></a>
-<!--ini:div-snippet-->
-<div style="position:relative;">
-    <h4 class="iedib-subsub" title="retol-inline" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
-        
-                Rètol en línia
-                    &nbsp;&nbsp;
-                    
-                            
-                            
-    </h4>
-    <p><br></p> 
-
-        <div
-            style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
-            <em>Àmbit d'aplicació</em>: Tots<br>
-                <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2021.6.21
-        </div>
-
-        <!--begin:tabmenu-->
-        <div class="tabbable iedib-tabmenu" id="tabmenu-retol-inline" style="position:relative; margin-left:0; padding: 10px; width:99%; background: whitesmoke;">
-            
-            
-            <ul class="nav nav-tabs">
-                <li class="active">
-                    <a href="#tab-retol-inline-0" data-toggle="tab"><span>&nbsp;</span><span>Es mostra
-                            com...</span></a></li>
-                <li><a href="#tab-retol-inline-1" data-toggle="tab"><span>&nbsp;</span><span>Codi HTML</span></a></li>
-            </ul>
-
-            
-            <div class="tab-content" style="background:white;">
-                <div class="tab-pane  active  iedib-tabpane" id="tab-retol-inline-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
-                    
-                    &nbsp; <span class="iedib-ret iedib-ret-alerta">contingut ressaltat</span> &nbsp;
-                    
-                </div>
-                <div class="tab-pane iedib-tabpane" id="tab-retol-inline-1">
-                    <div style="position:relative;max-height: 400px;overflow: auto;">
-                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-retol-inline-12" style="min-height: 100px;">&amp;nbsp; &lt;span class=&quot;iedib-ret iedib-ret-alerta&quot;&gt;contingut ressaltat&lt;/span&gt; &amp;nbsp;
-                </code></pre>
-                    <button data-key="retol-inline" style="position:absolute;right:10px;top:4px;"
-                        class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
-                    </div>
-                    <div>
-                
-                </div>
-            </div>
-            <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-5ikkfoq9lh8" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-5ikkfoq9lh8_0"
-                            data-toggle="collapse" data-parent="#acc-5ikkfoq9lh8" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-5ikkfoq9lh8_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="retol-inline_severity">Tipus de ressaltat </label>
-            <select class="form-control" id="retol-inline_severity"><option value="iedib-ret-alerta" selected>Alerta</option><option value="iedib-ret-important" >Important</option><option value="iedib-ret-ampliacio" >Ampliació</option><option value="iedib-ret-consell" >Consell</option></select>
-            </div>
-            <div class="form-group">
-            <label for="retol-inline__txt">Text a ressaltar </label>
-            <textarea class="form-control" id="retol-inline__txt" title="_txt">contingut ressaltat</textarea>
-            </div>
-         <button class="btn btn-primary" data-key="retol-inline"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
-        </div>
-
-        <p><br></p>
-
-         
-            
-             
-            
-
-            
-                <p style="color: rgb(62, 3, 62)"><b><i class="fas fa-lightbulb"></i> Tingues en compte...</b></p>
-                <div class="alert alert-info" style="width:90%;margin-left:30px; color: rgb(62, 3, 62)"><ul>
-                
-                    <li>Sempre que sigui possible cal emprar les capses corresponents. </li>
-                
-                    <li>Únicament emprar el rètol en línia quan el contingut sigui molt curt i la capsa quedi descompensada. </li>
-                
-                </ul></div>
-            
-        
-
-        
-        <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
-        <div style="margin-left:35px;">
-            <p>
-                Permet anotar una part d'un paràgraf com important, alerta, ampliació o consell.  Emprau <b>només</b> quan les capses corresponents siguin massa grans pel contingut que vulgueu ressaltar.  
-
-            </p>
-        </div> 
-        
-
-    <p><br>
-    <p>
-    <p><br>
-    <p>
-</div>
-<!--fi:divsnippet-->
+<!--fi:divwidget-->
     
         <p>
     <hr><br>
 <p>
 <a name="section-subsub-seccio"></a>
-<!--ini:div-snippet-->
+<!--ini:div-widget-->
 <div style="position:relative;">
-    <h4 class="iedib-subsub" title="subsub-seccio" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="subsub-seccio" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
         
-                Sub-subsecció
+                Secció de pàgina
                     &nbsp;&nbsp;
                     
+                        <i class="fas fa-thumbs-up"></i>&nbsp;&nbsp;
+                        
                             
                             
-    </h4>
+    </h3>
     <p><br></p> 
 
         <div
             style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
             <em>Àmbit d'aplicació</em>: Tots<br>
-                <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2.1.0
+                <em>Recomanació d'ús</em>: 3/3<br>
+                    <em>Versió</em>: 2024.11.02
         </div>
 
         <!--begin:tabmenu-->
@@ -1275,14 +1058,14 @@ cadetblue;width:300px;padding:10px;white-space: nowrap;&quot;&gt;
                 <div class="tab-pane  active  iedib-tabpane" id="tab-subsub-seccio-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
                     
                     <p><br></p>
-<h4 class="iedib-subsub"><span class="iedib-square"></span>&nbsp;<span class="iedib-iq">Títol de la sub-subsecció</span></h4>
+<h4 class="iedib-subsub"><span class="iedib-iq">Títol de la secció</span></h4>
 <p><br></p>
                     
                 </div>
                 <div class="tab-pane iedib-tabpane" id="tab-subsub-seccio-1">
                     <div style="position:relative;max-height: 400px;overflow: auto;">
                     <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-subsub-seccio-12" style="min-height: 100px;">&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;h4 class=&quot;iedib-subsub&quot;&gt;&lt;span class=&quot;iedib-square&quot;&gt;&lt;/span&gt;&amp;nbsp;&lt;span class=&quot;iedib-iq&quot;&gt;Títol de la sub-subsecció&lt;/span&gt;&lt;/h4&gt;
+&lt;h4 class=&quot;iedib-subsub&quot;&gt;&lt;span class=&quot;iedib-iq&quot;&gt;Títol de la secció&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
                 </code></pre>
                     <button data-key="subsub-seccio" style="position:absolute;right:10px;top:4px;"
@@ -1293,26 +1076,6 @@ cadetblue;width:300px;padding:10px;white-space: nowrap;&quot;&gt;
                 </div>
             </div>
             <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-3keo2nuu6g8" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-3keo2nuu6g8_0"
-                            data-toggle="collapse" data-parent="#acc-3keo2nuu6g8" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-3keo2nuu6g8_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="subsub-seccio_titol">Títol de la sub-subsecció </label>
-            <input type="text" class="form-control" id="subsub-seccio_titol" aria-describedby="[object Object]" value="Títol de la sub-subsecció" title="titol">
-            </div>
-         <button class="btn btn-primary" data-key="subsub-seccio"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
         </div>
 
         <p><br></p>
@@ -1329,7 +1092,7 @@ cadetblue;width:300px;padding:10px;white-space: nowrap;&quot;&gt;
         <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
         <div style="margin-left:35px;">
             <p>
-                Creau una sub-subsecció dins d'una pàgina del llibre moodle. El títol ha d'acabar sense punt final.
+                Creau una secció dins d'una pàgina o un llibre moodle. El títol ha d'acabar sense punt final.
 
             </p>
         </div> 
@@ -1340,29 +1103,29 @@ cadetblue;width:300px;padding:10px;white-space: nowrap;&quot;&gt;
     <p><br>
     <p>
 </div>
-<!--fi:divsnippet-->
+<!--fi:divwidget-->
     
         <p>
     <hr><br>
 <p>
 <a name="section-taula-predefinida"></a>
-<!--ini:div-snippet-->
+<!--ini:div-widget-->
 <div style="position:relative;">
-    <h4 class="iedib-subsub" title="taula-predefinida" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="taula-predefinida" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
         
                 Taula predefinida
                     &nbsp;&nbsp;
                     
                             
                             
-    </h4>
+    </h3>
     <p><br></p> 
 
         <div
             style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
             <em>Àmbit d'aplicació</em>: Tots<br>
-                <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2.1.0
+                <em>Recomanació d'ús</em>: 1/3<br>
+                    <em>Versió</em>: 2023.01.07
         </div>
 
         <!--begin:tabmenu-->
@@ -1381,82 +1144,78 @@ cadetblue;width:300px;padding:10px;white-space: nowrap;&quot;&gt;
                 <div class="tab-pane  active  iedib-tabpane" id="tab-taula-predefinida-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
                     
                     <p><br></p>
-<!--ini taula 3x3-->
-<center>
-  <table class="iedib-table" style="table-layout:fixed;border-collapse: collapse; border-spacing: 0px;width:96%">
-    <thead>
-      <tr>
-        <th style="border: 1px solid black;background:
-aliceblue;">Títol0</th>
-        <th style="border: 1px solid black;background:
+<!--ini taula predef-->
+<table class="iedib-table" style="table-layout:fixed;border-collapse: collapse; border-spacing: 0px;width:96%">
+  <thead>
+    <tr>
+      <th style="border: 1px solid black;background:
 aliceblue;">Títol1</th>
-        <th style="border: 1px solid black;background:
+      <th style="border: 1px solid black;background:
 aliceblue;">Títol2</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="border: 1px solid black;">item</td>
-        <td style="border: 1px solid black;">item</td>
-        <td style="border: 1px solid black;">item</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid black;">item</td>
-        <td style="border: 1px solid black;">item</td>
-        <td style="border: 1px solid black;">item</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid black;">item</td>
-        <td style="border: 1px solid black;">item</td>
-        <td style="border: 1px solid black;">item</td>
-      </tr>
-    </tbody>
-  </table>
-  <p style="margin-top:5px;"><span class="iedib-caption-counter">Taula</span>: <span class="iedib-caption-title">Descripció
-      de la taula.</span></p>
-</center>
-<!--fi taula-->
+      <th style="border: 1px solid black;background:
+aliceblue;">Títol3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid black;"> </td>
+      <td style="border: 1px solid black;"> </td>
+      <td style="border: 1px solid black;"> </td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black;"> </td>
+      <td style="border: 1px solid black;"> </td>
+      <td style="border: 1px solid black;"> </td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black;"> </td>
+      <td style="border: 1px solid black;"> </td>
+      <td style="border: 1px solid black;"> </td>
+    </tr>
+  </tbody>
+</table>
+<p style="margin-top:5px;text-align: center;"><span class="iedib-caption-counter">Taula</span>: <span class="iedib-caption-title">Descripció
+    de la taula.</span></p>
+<!--fi taula predef-->
 <p><br></p>
                     
                 </div>
                 <div class="tab-pane iedib-tabpane" id="tab-taula-predefinida-1">
                     <div style="position:relative;max-height: 400px;overflow: auto;">
                     <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-taula-predefinida-12" style="min-height: 100px;">&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;!--ini taula 3x3--&gt;
-&lt;center&gt;
-  &lt;table class=&quot;iedib-table&quot; style=&quot;table-layout:fixed;border-collapse: collapse; border-spacing: 0px;width:96%&quot;&gt;
-    &lt;thead&gt;
-      &lt;tr&gt;
-        &lt;th style=&quot;border: 1px solid black;background:
-aliceblue;&quot;&gt;Títol0&lt;/th&gt;
-        &lt;th style=&quot;border: 1px solid black;background:
+&lt;!--ini taula predef--&gt;
+&lt;table class=&quot;iedib-table&quot; style=&quot;table-layout:fixed;border-collapse: collapse; border-spacing: 0px;width:96%&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;border: 1px solid black;background:
 aliceblue;&quot;&gt;Títol1&lt;/th&gt;
-        &lt;th style=&quot;border: 1px solid black;background:
+      &lt;th style=&quot;border: 1px solid black;background:
 aliceblue;&quot;&gt;Títol2&lt;/th&gt;
-      &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td style=&quot;border: 1px solid black;&quot;&gt;item&lt;/td&gt;
-        &lt;td style=&quot;border: 1px solid black;&quot;&gt;item&lt;/td&gt;
-        &lt;td style=&quot;border: 1px solid black;&quot;&gt;item&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td style=&quot;border: 1px solid black;&quot;&gt;item&lt;/td&gt;
-        &lt;td style=&quot;border: 1px solid black;&quot;&gt;item&lt;/td&gt;
-        &lt;td style=&quot;border: 1px solid black;&quot;&gt;item&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td style=&quot;border: 1px solid black;&quot;&gt;item&lt;/td&gt;
-        &lt;td style=&quot;border: 1px solid black;&quot;&gt;item&lt;/td&gt;
-        &lt;td style=&quot;border: 1px solid black;&quot;&gt;item&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-  &lt;p style=&quot;margin-top:5px;&quot;&gt;&lt;span class=&quot;iedib-caption-counter&quot;&gt;Taula&lt;/span&gt;: &lt;span class=&quot;iedib-caption-title&quot;&gt;Descripció
-      de la taula.&lt;/span&gt;&lt;/p&gt;
-&lt;/center&gt;
-&lt;!--fi taula--&gt;
+      &lt;th style=&quot;border: 1px solid black;background:
+aliceblue;&quot;&gt;Títol3&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;border: 1px solid black;&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black;&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black;&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;border: 1px solid black;&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black;&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black;&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;border: 1px solid black;&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black;&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black;&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p style=&quot;margin-top:5px;text-align: center;&quot;&gt;&lt;span class=&quot;iedib-caption-counter&quot;&gt;Taula&lt;/span&gt;: &lt;span class=&quot;iedib-caption-title&quot;&gt;Descripció
+    de la taula.&lt;/span&gt;&lt;/p&gt;
+&lt;!--fi taula predef--&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
                 </code></pre>
                     <button data-key="taula-predefinida" style="position:absolute;right:10px;top:4px;"
@@ -1467,55 +1226,6 @@ aliceblue;&quot;&gt;Títol2&lt;/th&gt;
                 </div>
             </div>
             <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-gsgog5hsjag" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-gsgog5hsjag_0"
-                            data-toggle="collapse" data-parent="#acc-gsgog5hsjag" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-gsgog5hsjag_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="taula-predefinida_files">N. files </label>
-            <input type="numeric" class="form-control" id="taula-predefinida_files" aria-describedby="[object Object]" value="3" min=1 title="files">
-            </div>
-            <div class="form-group">
-            <label for="taula-predefinida_columnes">N. columnes </label>
-            <input type="numeric" class="form-control" id="taula-predefinida_columnes" aria-describedby="[object Object]" value="3" min=1 title="columnes">
-            </div><div class="form-check" style="margin-bottom:10px;">
-            <input type="checkbox" class="form-check-input" value="1" checked id="taula-predefinida_capsaleres" title="capsaleres">
-            <label class="form-check-label" for="taula-predefinida_capsaleres">
-                Inclou capçaleres  
-            </label>
-          </div>
-            <div class="form-group">
-            <label for="taula-predefinida_ampladaTPC">Amplada en % </label>
-            <input type="numeric" class="form-control" id="taula-predefinida_ampladaTPC" aria-describedby="[object Object]" value="96" min=10 title="ampladaTPC">
-            </div>
-            <div class="form-group">
-            <label for="taula-predefinida_amplades">Tipus de columna <a href="javascript:void(0)" data-toggle="popover" data-trigger="hover" data-content="Si l'amplada és fixa o s'ajusta al contingut"><i class="fas fa-question-circle text-info"></i></a></label>
-            <select class="form-control" id="taula-predefinida_amplades"><option value="fixed" selected>fixed</option><option value="initial" >initial</option></select>
-            </div>
-            <div class="form-group">
-            <label for="taula-predefinida_gruix">Gruix de la vora </label>
-            <input type="numeric" class="form-control" id="taula-predefinida_gruix" aria-describedby="[object Object]" value="1"  title="gruix">
-            </div>
-            <div class="form-group">
-            <label for="taula-predefinida_vorera">Color de la vora </label>
-            <select class="form-control" id="taula-predefinida_vorera"><option value="cadetblue" selected>cadetblue</option><option value="black" >black</option><option value="gray" >gray</option><option value="white" >white</option></select>
-            </div>
-            <div class="form-group">
-            <label for="taula-predefinida_fonsCapsalera">Color del fons capçalera </label>
-            <select class="form-control" id="taula-predefinida_fonsCapsalera"><option value="aliceblue" selected>aliceblue</option><option value="lightyellow" >lightyellow</option><option value="lightgray" >lightgray</option><option value="white" >white</option></select>
-            </div>
-         <button class="btn btn-primary" data-key="taula-predefinida"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
         </div>
 
         <p><br></p>
@@ -1547,6 +1257,7 @@ aliceblue;&quot;&gt;Títol2&lt;/th&gt;
         <div style="margin-left:35px;">
             <p>
                 Crea una taula predefinida amb n files i m columnes. Cal que reviseu la visualització en dispositius mòbils.
+ 
 
             </p>
         </div> 
@@ -1557,292 +1268,178 @@ aliceblue;&quot;&gt;Títol2&lt;/th&gt;
     <p><br>
     <p>
 </div>
-<!--fi:divsnippet-->
+<!--fi:divwidget-->
+    
+        <p>
+    <hr><br>
+<p>
+<a name="section-dedication-time"></a>
+<!--ini:div-widget-->
+<div style="position:relative;">
+    <h3 title="dedication-time" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
+        
+                Temps de dedicació
+                    &nbsp;&nbsp;
+                    
+                            
+                            
+                                &nbsp;&nbsp;<span class="badge badge-danger">Restringit a usuaris 4,31</span>
+                            
+    </h3>
+    <p><br></p> 
+
+        <div
+            style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
+            <em>Àmbit d'aplicació</em>: Tots<br>
+                <em>Recomanació d'ús</em>: 2/3<br>
+                    <em>Versió</em>: 2022.06.11
+        </div>
+
+        <!--begin:tabmenu-->
+        <div class="tabbable iedib-tabmenu" id="tabmenu-dedication-time" style="position:relative; margin-left:0; padding: 10px; width:99%; background: whitesmoke;">
+            
+            
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#tab-dedication-time-0" data-toggle="tab"><span>&nbsp;</span><span>Es mostra
+                            com...</span></a></li>
+                <li><a href="#tab-dedication-time-1" data-toggle="tab"><span>&nbsp;</span><span>Codi HTML</span></a></li>
+            </ul>
+
+            
+            <div class="tab-content" style="background:white;">
+                <div class="tab-pane  active  iedib-tabpane" id="tab-dedication-time-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
+                    
+                    <div class="iedib-rwrap"> <!--ini: temps-dedicació-->
+  <div role="snptd_dedicacio" class="iedib-time" data-toggle="tooltip" data-placement="bottom" title="Temps de dedicació mínim recomanat per a aquesta pàgina.">
+    <i class="fad fa-stopwatch" aria-hidden="true"></i>
+    <span>
+      2 h
+      15 min
+    </span>
+  </div> <!--end: temps-dedicació-->
+</div>
+<p><br></p>
+                    
+                </div>
+                <div class="tab-pane iedib-tabpane" id="tab-dedication-time-1">
+                    <div style="position:relative;max-height: 400px;overflow: auto;">
+                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-dedication-time-12" style="min-height: 100px;">&lt;div class=&quot;iedib-rwrap&quot;&gt; &lt;!--ini: temps-dedicació--&gt;
+  &lt;div role=&quot;snptd_dedicacio&quot; class=&quot;iedib-time&quot; data-toggle=&quot;tooltip&quot; data-placement=&quot;bottom&quot; title=&quot;Temps de dedicació mínim recomanat per a aquesta pàgina.&quot;&gt;
+    &lt;i class=&quot;fad fa-stopwatch&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+    &lt;span&gt;
+      2 h
+      15 min
+    &lt;/span&gt;
+  &lt;/div&gt; &lt;!--end: temps-dedicació--&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+                </code></pre>
+                    <button data-key="dedication-time" style="position:absolute;right:10px;top:4px;"
+                        class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
+                    </div>
+                    <div>
+                
+                </div>
+            </div>
+            <!--end:tabmenu-->
+        </div>
+
+        <p><br></p>
+
+         
+            
+             
+            
+
+            
+        
+
+        
+        <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
+        <div style="margin-left:35px;">
+            <p>
+                Aquest snippet serveix per recomanar un temps de dedicació mínim a un recurs.  Emprau preferentment múltiples de 15 per als minuts. 
+
+            </p>
+        </div> 
+        
+
+    <p><br>
+    <p>
+    <p><br>
+    <p>
+</div>
+<!--fi:divwidget-->
     
  
 
     <p><br></p>
     <p><br></p>
-    <p><small>Versió revisada 23.06.2022</small></p>
+    <p><small>Versió revisada 07/05/2025</small></p>
 
-    
-    <script src="https://piworld.es/iedib/node_modules/handlebars/dist/handlebars.min.js"></script>
-    <script src="https://piworld.es/iedib/node_modules/js-beautify/js/lib/beautify-html.js"></script>
-      
     <!--load_all_snippets-->
-    <script src="https://piworld.es/iedib/snippets/sd/all.min.js"></script> 
+    <script src="https://ibsuite.es/iedib/snippets/sd/all.min.js"></script> 
     <script>
-        
-        var mapSnippets = {"capcalera-examen":{"name":"Capçalera examen","key":"capcalera-examen","instructions":"Capçalera per crear un examen model a l'aula virtual moodle\n","defaults":{"CURS":"SEGON BATXILLERAT","CODI_MATERIA":"BAT_MAT2","AVALUACIO":"1a","NOM_MATERIA":"MATEMÀTIQUES II","$id":"rh0lbelkhii"},"body":"<!-- inici capçalera examen -->\n<center>\n<table style=\"width:96%;margin:auto;border:2px solid black;border-collapse: collapse;border-spacing: 0;margin:0px\">\n<tbody>\n<tr style=\"\">\n<td style=\"text-align: center; width: 20%; border: 1px solid black;\"> <img\nsrc=\"https://iedib.net/wordpress/wp-content/uploads/2018/12/iedib-logo.png\" alt=\"Logo IEDIB\" width=\"110\" height=\"73\"\nrole=\"presentation\" class=\"img-responsive atto_image_button_middle\"></td>\n<td style=\"width:60%;border:1px solid black;text-align:center;\" colspan=\"3\">\n<p><b>MODEL D'EXAMEN {{NOM_MATERIA}}</b></p>\n<p>{{CURS}} - {{CODI_MATERIA}} </p>\n</td>\n<td style=\"width:20%;border:1px solid black;vertical-align: top;padding:0\">\n<table style=\"width: 100%;border-collapse: collapse;border-spacing: 0;margin:0px\">\n<tbody><tr><td style=\"width:100%; border:1px solid black; background-color:rgb(204,204,204);\"><b>DATA I\nHORA<b></b></b></td></tr>\n<tr><td style=\"text-align: center;\">------------------</td></tr>\n</tbody></table>\n</td> \n</tr><tr style=\"\">\n<td style=\"width:30%;border:1px solid black;background-color:rgb(204,204,204);\">\n<p><b>NOM I COGNOMS:</b></p>\n</td>\n<td style=\"text-align: center; width: 50%; border: 1px solid black;\"\ncolspan=\"3\">---------------------------------------------------------------</td>\n<td style=\"width:20%;border:1px solid black;background-color:rgb(204,204,204);\">\n<p><b>NOTA:</b></p>\n</td>\n</tr><tr style=\"\">\n<td style=\"width:30%;border:1px solid black;background-color:rgb(204,204,204);\">\n<p><b>DNI:</b></p>\n</td>\n<td style=\"text-align: center; width: 20%; border: 1px solid black;\">-------------------------</td>\n<td style=\"width:20%;border:1px solid black; background-color:rgb(204,204,204);\">\n<p><b>AVALUACIÓ:</b></p>\n</td>\n<td style=\"text-align: center; border: 1px solid black;\">{{AVALUACIO}}</td>\n<td style=\"width:20%;border:1px solid black;\" rowspan=\"2\">\n</td></tr><tr style=\"\">\n<td style=\"width:30%;border:1px solid black; background-color:rgb(204,204,204);\">\n<p><b>Lloc d'examen:</b></p>\n</td>\n<td style=\"text-align: center; width: 20%; border: 1px solid black;\">--------------------------</td>\n<td style=\"width:20%;border:1px solid black; background-color:rgb(204,204,204);\">\n<p><b>GRUP*:</b></p>\n</td>\n<td style=\"text-align: center; border: 1px solid black;\">A/B/C/D</td>\n<td style=\"width:20%;border:1px solid black;display: none\">\n</td>\n</tr></tbody>\n</table></center><span> *grup: A-arts/B-humanitats/C-ciències/D-xarxa</span><br> \n<br>\n \n<div style=\"width:96%;margin:auto;padding:5px;border:1px solid black;\">\n  <p> <b>INSTRUCCIONS:</b></p> \n  <ul>\n    <li>...</li>\n    <li>...</li>\n  </ul>\n</div>\n<!-- fi capçalera examen -->\n<p><br></p>\n","version":"2.1.0","misc":{"category":"","scope":"P","stars":1,"parameters":[{"name":"CURS","title":"Curs","type":"textfield"},{"name":"CODI_MATERIA","title":"Codi matèria","type":"textfield"},{"name":"AVALUACIO","title":"Avaluació","type":"textfield"},{"name":"NOM_MATERIA","title":"Nom de la matèria","type":"textfield"}]},"generated":"Mon Jun 20 2022 12:47:17 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"altres","parent":"","html":"<!-- inici capçalera examen -->\n<center>\n  <table style=\"width:96%;margin:auto;border:2px solid black;border-collapse: collapse;border-spacing: 0;margin:0px\">\n    <tbody>\n      <tr style=\"\">\n        <td style=\"text-align: center; width: 20%; border: 1px solid black;\"> <img src=\"https://iedib.net/wordpress/wp-content/uploads/2018/12/iedib-logo.png\" alt=\"Logo IEDIB\" width=\"110\" height=\"73\" role=\"presentation\" class=\"img-responsive atto_image_button_middle\"></td>\n        <td style=\"width:60%;border:1px solid black;text-align:center;\" colspan=\"3\">\n          <p><b>MODEL D'EXAMEN MATEMÀTIQUES II</b></p>\n          <p>SEGON BATXILLERAT - BAT_MAT2 </p>\n        </td>\n        <td style=\"width:20%;border:1px solid black;vertical-align: top;padding:0\">\n          <table style=\"width: 100%;border-collapse: collapse;border-spacing: 0;margin:0px\">\n            <tbody>\n              <tr>\n                <td style=\"width:100%; border:1px solid black; background-color:rgb(204,204,204);\"><b>DATA I\n                    HORA<b></b></b></td>\n              </tr>\n              <tr>\n                <td style=\"text-align: center;\">------------------</td>\n              </tr>\n            </tbody>\n          </table>\n        </td>\n      </tr>\n      <tr style=\"\">\n        <td style=\"width:30%;border:1px solid black;background-color:rgb(204,204,204);\">\n          <p><b>NOM I COGNOMS:</b></p>\n        </td>\n        <td style=\"text-align: center; width: 50%; border: 1px solid black;\" colspan=\"3\">---------------------------------------------------------------</td>\n        <td style=\"width:20%;border:1px solid black;background-color:rgb(204,204,204);\">\n          <p><b>NOTA:</b></p>\n        </td>\n      </tr>\n      <tr style=\"\">\n        <td style=\"width:30%;border:1px solid black;background-color:rgb(204,204,204);\">\n          <p><b>DNI:</b></p>\n        </td>\n        <td style=\"text-align: center; width: 20%; border: 1px solid black;\">-------------------------</td>\n        <td style=\"width:20%;border:1px solid black; background-color:rgb(204,204,204);\">\n          <p><b>AVALUACIÓ:</b></p>\n        </td>\n        <td style=\"text-align: center; border: 1px solid black;\">1a</td>\n        <td style=\"width:20%;border:1px solid black;\" rowspan=\"2\">\n        </td>\n      </tr>\n      <tr style=\"\">\n        <td style=\"width:30%;border:1px solid black; background-color:rgb(204,204,204);\">\n          <p><b>Lloc d'examen:</b></p>\n        </td>\n        <td style=\"text-align: center; width: 20%; border: 1px solid black;\">--------------------------</td>\n        <td style=\"width:20%;border:1px solid black; background-color:rgb(204,204,204);\">\n          <p><b>GRUP*:</b></p>\n        </td>\n        <td style=\"text-align: center; border: 1px solid black;\">A/B/C/D</td>\n        <td style=\"width:20%;border:1px solid black;display: none\">\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</center><span> *grup: A-arts/B-humanitats/C-ciències/D-xarxa</span><br>\n<br>\n\n<div style=\"width:96%;margin:auto;padding:5px;border:1px solid black;\">\n  <p> <b>INSTRUCCIONS:</b></p>\n  <ul>\n    <li>...</li>\n    <li>...</li>\n  </ul>\n</div>\n<!-- fi capçalera examen -->\n<p><br></p>"},"capcalera":{"name":"Capçalera general","key":"capcalera","instructions":"Insereix una capçalera general amb fons blau. Per crear seccions en llibres és recomana emprar l'snippet `sub-subsecció`.","defaults":{"TITOL":"Títol de la capçalera","$id":"rf69sebpr8p8"},"body":"<p><br></p> <table class=\"iedib-titol-general\"> <tr><td class=\"iedib-titol-general-text\"><br>{{TITOL}}<br><br></td></tr> </table> <p><br></p>","version":"2.1.0","misc":{"category":"","scope":"P,Q,T","insertquery":".iedib-titol-general-text","stars":0,"parameters":[{"name":"TITOL","title":"Títol de la capçalera","type":"textfield","when":"{{SNPT_MODE}}!='selection'"}]},"generated":"Thu Jun 16 2022 09:46:00 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"altres","parent":"","pro":[],"con":["Es desconsella l'ús de la capçalera general en els llibres Moodle. En comptes, emprau sub-subsecció."],"hint":[],"html":"<p><br></p>\n<table class=\"iedib-titol-general\">\n  <tr>\n    <td class=\"iedib-titol-general-text\"><br>Títol de la capçalera<br><br></td>\n  </tr>\n</table>\n<p><br></p>"},"codi-programacio":{"name":"Codi de programacio","key":"codi-programacio","instructions":"Utilitzeu aquest snippet per incloure un bloc de codi de programació. \n","defaults":{"franges_de_fons":1,"_codi":"console.log('Hello world!');","notranslate":1,"syntax":1,"lnum":0,"$id":"r8c85ctk5jq8"},"body":"<p><br></p> <pre class=\"{{#ifCond notranslate 'eq' 1}}notranslate {{/ifCond}}iedib-code {{#ifCond franges_de_fons 'eq' 1}}iedib-code-stripped{{/ifCond}}\"><code{{#ifCond syntax 'eq' 0}} class=\"nohighlight\"{{/ifCond}}{{#if syntax}}{{#ifCond lnum 'eq' 0}} class=\"nohljsln\"{{/ifCond}}{{/if}}>{{_codi}}  </code></pre> <p><br></p>\n","version":"2.1.0","misc":{"requires":{"syntax==1":"/sd/programacio.min.js"},"category":"","scope":"*","stars":2,"parameters":[{"name":"franges_de_fons","title":"Inclou fons de franges","type":"checkbox"},{"name":"notranslate","title":"Evita que Google tradueixi el codi","type":"checkbox"},{"name":"_codi","title":"Codi font","type":"textarea"},{"name":"syntax","title":"Sintaxi en colors","type":"checkbox"},{"name":"lnum","title":"Enumera les línies","type":"checkbox","when":"{{syntax}}==1"}]},"generated":"Wed Jun 15 2022 10:40:00 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"altres","parent":"","html":"<p><br></p>\n<pre class=\"notranslate iedib-code iedib-code-stripped\"><code class=\"nohljsln\">console.log(&#x27;Hello world!&#x27;);  </code></pre>\n<p><br></p>"},"correcte-incorrecte":{"name":"Correcte-Incorrecte","key":"correcte-incorrecte","instructions":"Amb aquest snippet podeu mostrar dos procediments; un correcte i l'altre incorrecte.\n","defaults":{"$id":"rvo382m5ob5"},"body":"<p><br></p>\n<!--ini correcte-incorrecte-->\n<div class=\"iedib-correcte-incorrecte\"><div class=\"iedib-correcte\"><p>Aquest procediment és correcte\n1+1=2</p></div>\n<div class=\"iedib-incorrecte\"><p>En canvi, aquest procediment no ho és 1+1=11</p></div>\n</div>\n<!--fi correcte-incorrecte-->\n<p><br></p>\n","version":"2021.3.30","misc":{"category":"","stars":2,"scope":"*","parameters":[]},"generated":"Sun Jun 27 2021 10:35:57 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"altres","date":"2021-03-29T22:00:00.000Z","parent":"","html":"<p><br></p>\n<!--ini correcte-incorrecte-->\n<div class=\"iedib-correcte-incorrecte\">\n  <div class=\"iedib-correcte\">\n    <p>Aquest procediment és correcte\n      1+1=2</p>\n  </div>\n  <div class=\"iedib-incorrecte\">\n    <p>En canvi, aquest procediment no ho és 1+1=11</p>\n  </div>\n</div>\n<!--fi correcte-incorrecte-->\n<p><br></p>"},"fragment-text":{"name":"Fragment de text","key":"fragment-text","instructions":"Utilitzeu aquest snippet per introduir un fragment de text d'algun llibre. \nSi voleu reduir l'amplada podeu establir una amplada màxima, p.e. 400 px.\n","defaults":{"$lang":"ca","amplada_max":0,"notranslate":0,"$id":"ri2jovv6uvoo"},"body":"<p><br></p> <!-- begin fragment text --> <div class=\"iedib-fragment {{#ifCond notranslate 'eq' 1}}notranslate{{/ifCond}}\" data-lang=\"{{$lang}}\" {{#ifCond amplada_max 'gt' 0}}style=\"max-width: {{amplada_max}}px;\"{{/ifCond}}> <h4>{{I18n 'msg'}}:</h4> <div class=\"iedib-iq\"> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> </div> </div> <!-- end fragment text --> <p><br></p>","version":"2.1.0","misc":{"category":"","stars":2,"scope":"*","insertquery":".iedib-fragment>div.iedib-iq","I18n":{"msg":{"ca":"FRAGMENT DE TEXT","es":"FRAGMENTO DE TEXTO","en":"TEXT SNIPPET","fr":"FRAGMENT DE TEXTE","de":"TEXTFRAGMENT"}},"parameters":[{"name":"$lang","title":"Idioma","type":"select","options":[{"v":"ca","l":"Català"},{"v":"es","l":"Castellà"},{"v":"en","l":"English"},{"v":"fr","l":"Francès"},{"v":"de","l":"Alemany"}]},{"name":"amplada_max","title":"Amplada màxima (px)","type":"numeric","min":0,"tip":"Si no voleu limitar l'amplada, deixeu-la a 0."},{"name":"notranslate","title":"Evita ésser traduït per Google","type":"checkbox"}]},"generated":"Thu Jun 16 2022 10:17:47 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"altres","parent":"","html":"<p><br></p> <!-- begin fragment text -->\n<div class=\"iedib-fragment \" data-lang=\"ca\">\n  <h4>FRAGMENT DE TEXT:</h4>\n  <div class=\"iedib-iq\">\n    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n  </div>\n</div> <!-- end fragment text -->\n<p><br></p>"},"frase-celebre":{"name":"Frase cèlebre","key":"frase-celebre","instructions":"Emprau aquest snippet per citar una frase celebre (curta) d'un autor. \nPer textos més llargs emprau l'snippet <em>Fragment de text</em>.\n","defaults":{"author":"Albert Einstein","notranslate":1,"$id":"r25ioha1u13g"},"body":"<p><br></p>  <!--begin: frase celebre--> <div class=\"iedib-quote {{#ifCond notranslate 'eq' 1}}notranslate{{/ifCond}}\"> <div class=\"iedib-iq\"> <p>No entiendes realmente algo a menos que seas capaz de explicárselo a tu abuela.</p> </div> <cite>{{author}}</cite> </div> <!--end: frase celebre--> <p><br></p>\n","version":"2.1.0","misc":{"category":"","stars":1,"scope":"*","insertquery":"div.iedib-iq","parameters":[{"name":"author","title":"Autor de la cita","type":"textfield"},{"name":"notranslate","title":"Evita ésser traduït per Google","type":"checkbox"}]},"generated":"Mon Jun 13 2022 17:30:04 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"altres","parent":"","html":"<p><br></p>\n<!--begin: frase celebre-->\n<div class=\"iedib-quote notranslate\">\n  <div class=\"iedib-iq\">\n    <p>No entiendes realmente algo a menos que seas capaz de explicárselo a tu abuela.</p>\n  </div> <cite>Albert Einstein</cite>\n</div>\n<!--end: frase celebre-->\n<p><br></p>"},"poema2cols":{"name":"Poema dues columnes","key":"poema2cols","instructions":"Poema en dues columnes, la primera d'amplada fixada pel paràmetre ampladaPx\n","defaults":{"ampladaPx":300,"$id":"rmkp696lh43"},"body":"<center>\n<!--Poema2cols-->\n<table class=\"iedib-table iedib-poema2cols\" style=\"table-layout:fixed;border-collapse:\ncollapse; border-spacing: 0px;width:96%\">\n<tbody><tr><td class=\"iedib-formulacio\" style=\"border: 2px solid\ncadetblue;width:{{ampladaPx}}px;padding:10px;white-space: nowrap;\"><p>\n<b>Definición del amor</b></p><p>Es hielo abrasador, es fuego helado,<br>es herida que duele y no se siente,<br>es un\nsoñado bien, un mal presente,\n<br>es un breve descanso muy cansado.</p><p><br>Es un descuido que nos da cuidado,<br>un cobarde con nombre de\nvaliente,<br>un andar solitario entre la gente,\n<br>un amar solamente ser amado.</p><p><br>Es una libertad encarcelada,<br>que dura hasta el postrero\nparoxismo;<br>enfermedad que crece si es curada.</p><p>\n<br>Éste es el niño Amor, éste es su abismo.<br>¿Mirad cuál amistad tendrá con nada<br>el que en todo es contrario de\nsí mismo!</p>\n</td><td style=\"border: 2px solid cadetblue;text-align:center\">\n<br>\n<img src=\"https://iedib.net/wordpress/wp-content/uploads/2018/12/sample-img.png\" alt=\"Imatge per defecte\" width=\"380\"\nclass=\"img-responsive\" height=\"335\">\n</td></tr></tbody></table>\n<!--end Poema2cols-->\n</center>\n","version":"1.0.0","misc":{"category":"","stars":0,"scope":"L","for":"7,14","parameters":[{"name":"ampladaPx","title":"Amplada en px de la columna esquerra","type":"numeric","min":0}]},"generated":"Sun Jun 27 2021 10:35:57 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"altres","parent":"","pro":[],"con":[],"hint":["Com alternativa recomanada, emprau l'snippet fragment de text establint una amplada màxima pel poema."],"html":"<center>\n  <!--Poema2cols-->\n  <table class=\"iedib-table iedib-poema2cols\" style=\"table-layout:fixed;border-collapse:\ncollapse; border-spacing: 0px;width:96%\">\n    <tbody>\n      <tr>\n        <td class=\"iedib-formulacio\" style=\"border: 2px solid\ncadetblue;width:300px;padding:10px;white-space: nowrap;\">\n          <p>\n            <b>Definición del amor</b>\n          </p>\n          <p>Es hielo abrasador, es fuego helado,<br>es herida que duele y no se siente,<br>es un\n            soñado bien, un mal presente,\n            <br>es un breve descanso muy cansado.\n          </p>\n          <p><br>Es un descuido que nos da cuidado,<br>un cobarde con nombre de\n            valiente,<br>un andar solitario entre la gente,\n            <br>un amar solamente ser amado.\n          </p>\n          <p><br>Es una libertad encarcelada,<br>que dura hasta el postrero\n            paroxismo;<br>enfermedad que crece si es curada.</p>\n          <p>\n            <br>Éste es el niño Amor, éste es su abismo.<br>¿Mirad cuál amistad tendrá con nada<br>el que en todo es contrario de\n            sí mismo!\n          </p>\n        </td>\n        <td style=\"border: 2px solid cadetblue;text-align:center\">\n          <br>\n          <img src=\"https://iedib.net/wordpress/wp-content/uploads/2018/12/sample-img.png\" alt=\"Imatge per defecte\" width=\"380\" class=\"img-responsive\" height=\"335\">\n        </td>\n      </tr>\n    </tbody>\n  </table>\n  <!--end Poema2cols-->\n</center>"},"retol-inline":{"name":"Rètol en línia","key":"retol-inline","instructions":"Permet anotar una part d'un paràgraf com important, alerta, ampliació o consell.  Emprau <b>només</b> quan les capses corresponents siguin massa grans pel contingut que vulgueu ressaltar.  \n","defaults":{"severity":"iedib-ret-alerta","_txt":"contingut ressaltat","$id":"r8g21tk3v3fo"},"body":"&nbsp; <span class=\"iedib-ret {{severity}}\">{{_txt}}</span> &nbsp; \n","version":"2021.6.21","misc":{"insertquery":".iedib-ret","category":"","stars":2,"scope":"*","parameters":[{"name":"severity","title":"Tipus de ressaltat","type":"select","options":[{"v":"iedib-ret-alerta","l":"Alerta"},{"v":"iedib-ret-important","l":"Important"},{"v":"iedib-ret-ampliacio","l":"Ampliació"},{"v":"iedib-ret-consell","l":"Consell"}]},{"name":"_txt","title":"Text a ressaltar","type":"textarea","when":"{{SNPT_MODE}}!='selection'"}]},"generated":"Mon Jun 13 2022 17:30:04 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"altres","date":"2021-06-20T22:00:00.000Z","parent":"","pro":[],"con":[],"hint":["Sempre que sigui possible cal emprar les capses corresponents.","Únicament emprar el rètol en línia quan el contingut sigui molt curt i la capsa quedi descompensada."],"html":"&nbsp; <span class=\"iedib-ret iedib-ret-alerta\">contingut ressaltat</span> &nbsp;"},"subsub-seccio":{"name":"Sub-subsecció","key":"subsub-seccio","instructions":"Creau una sub-subsecció dins d'una pàgina del llibre moodle. El títol ha d'acabar sense punt final.\n","defaults":{"titol":"Títol de la sub-subsecció","$id":"rjpdobrfdq4"},"body":"<p><br></p>\n<h4 class=\"iedib-subsub\"><span class=\"iedib-square\"></span>&nbsp;<span class=\"iedib-iq\">{{titol}}</span></h4>\n<p><br></p>\n","version":"2.1.0","misc":{"category":"","stars":3,"scope":"*","insertquery":".iedib-iq","parameters":[{"name":"titol","title":"Títol de la sub-subsecció","type":"textfield","when":"{{SNPT_MODE}}!='selection'"}]},"generated":"Mon Jun 13 2022 17:30:04 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"altres","parent":"","html":"<p><br></p>\n<h4 class=\"iedib-subsub\"><span class=\"iedib-square\"></span>&nbsp;<span class=\"iedib-iq\">Títol de la sub-subsecció</span></h4>\n<p><br></p>"},"taula-predefinida":{"name":"Taula predefinida","key":"taula-predefinida","instructions":"Crea una taula predefinida amb n files i m columnes. Cal que reviseu la visualització en dispositius mòbils.\n","defaults":{"capsaleres":1,"files":3,"columnes":3,"ampladaTPC":96,"amplades":"fixed","gruix":1,"vorera":"black","fonsCapsalera":"aliceblue","$id":"ri4h04968hpg"},"body":"<p><br></p> \n<!--ini taula {{files}}x{{columnes}}-->\n<center>\n<table class=\"iedib-table\"\nstyle=\"table-layout:{{amplades}};border-collapse: collapse; border-spacing: 0px;width:{{ampladaTPC}}%\">{{#ifCond\ncapsaleres 'eq' 1}}<thead><tr>{{#times columnes}}<th style=\"border: {{gruix}}px solid {{vorera}};background:\n{{fonsCapsalera}};\">Títol{{@index}}</th>{{/times}}</tr></thead>{{/ifCond}}<tbody>{{#times files}}<tr>{{#times\ncolumnes}}<td style=\"border: {{gruix}}px solid {{vorera}};\">item</td>{{/times}}</tr>{{/times}}</tbody></table><p\nstyle=\"margin-top:5px;\"><span class=\"iedib-caption-counter\">Taula</span>: <span class=\"iedib-caption-title\">Descripció\nde la taula.</span></p>\n</center> \n<!--fi taula-->\n<p><br></p>\n","version":"2.1.0","misc":{"category":"","scope":"*","stars":1,"parameters":[{"name":"files","title":"N. files","type":"numeric","min":1},{"name":"columnes","title":"N. columnes","type":"numeric","min":1},{"name":"capsaleres","title":"Inclou capçaleres","type":"checkbox"},{"name":"ampladaTPC","title":"Amplada en %","type":"numeric","min":10},{"name":"amplades","title":"Tipus de columna","type":"select","tip":"Si l'amplada és fixa o s'ajusta al contingut","options":["fixed","initial"]},{"name":"gruix","title":"Gruix de la vora","type":"numeric","min":0},{"name":"vorera","title":"Color de la vora","type":"select","options":["cadetblue","black","gray","white"]},{"name":"fonsCapsalera","title":"Color del fons capçalera","type":"select","options":["aliceblue","lightyellow","lightgray","white"]}]},"generated":"Thu Jun 16 2022 10:17:47 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"altres","parent":"","pro":[],"con":["La visualització de continguts formatats en taules són problemàtiques en dispositius mòbils. Sempre que sigui possible, emprau alternatives que siguin responsives."],"hint":["Emprau Chrome DevTools per saber com es visualitzarà en dispositius d'amplada petita."],"html":"<p><br></p>\n<!--ini taula 3x3-->\n<center>\n  <table class=\"iedib-table\" style=\"table-layout:fixed;border-collapse: collapse; border-spacing: 0px;width:96%\">\n    <thead>\n      <tr>\n        <th style=\"border: 1px solid black;background:\naliceblue;\">Títol0</th>\n        <th style=\"border: 1px solid black;background:\naliceblue;\">Títol1</th>\n        <th style=\"border: 1px solid black;background:\naliceblue;\">Títol2</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td style=\"border: 1px solid black;\">item</td>\n        <td style=\"border: 1px solid black;\">item</td>\n        <td style=\"border: 1px solid black;\">item</td>\n      </tr>\n      <tr>\n        <td style=\"border: 1px solid black;\">item</td>\n        <td style=\"border: 1px solid black;\">item</td>\n        <td style=\"border: 1px solid black;\">item</td>\n      </tr>\n      <tr>\n        <td style=\"border: 1px solid black;\">item</td>\n        <td style=\"border: 1px solid black;\">item</td>\n        <td style=\"border: 1px solid black;\">item</td>\n      </tr>\n    </tbody>\n  </table>\n  <p style=\"margin-top:5px;\"><span class=\"iedib-caption-counter\">Taula</span>: <span class=\"iedib-caption-title\">Descripció\n      de la taula.</span></p>\n</center>\n<!--fi taula-->\n<p><br></p>"}};
-        var compiledCache = {};
-
-function copyToClipboard(text) {
-  // must use a temporary form element for the selection and copy
-  var target = document.getElementById("snpclipboard");
-  if(!target) {
-    target = document.createElement("textarea");
-    target.style.position = "absolute";
-    target.style.left = "-9999px";
-    target.style.top = "0";
-    target.id = 'snpclipboard';
-    document.body.appendChild(target);
-  }
-  target.textContent = text;
-  // select the content 
-  var currentFocus = document.activeElement;
-  var sx = window.scrollX;
-  var sy = window.scrollY;
-  target.focus();
-  target.setSelectionRange(0, target.value.length);
-  // copy the selection
-  var succeed;
-  try {
-        succeed = document.execCommand("copy");
-  } catch(e) {
-      succeed = false;
-  } 
-  // restore original focus
-  if (currentFocus && typeof currentFocus.focus === "function") {
-    currentFocus.focus();
-  }
-  window.scrollTo(sx, sy);
-  return succeed;
-}
-// Register helpers to Handlebars 
-Handlebars.registerHelper('times', function(n, block) {
-    var accum = '';
-    for(var i = 0; i < n; ++i) {
-        block.data.index = i;
-        block.data.first = i === 0;
-        block.data.last = i === (n - 1);
-        accum += block.fn(this);
-    }
-    return accum;
-});
-Handlebars.registerHelper('ifCond', function(a, condition, b, opts) {
-    var bool;
-    if (condition == "==" || condition == "eq"){
-        bool = (a==b);
-    } else if (condition == "<" || condition == "lt"){
-        bool = (a<b);
-    } else if (condition == ">" || condition == "gt"){
-        bool = (a>b);
-    } else if (condition == "<=" || condition == "leq"){
-        bool = (a<=b);
-    } else if (condition == ">=" || condition == "geq"){
-        bool = (a>=b);
-    } else {
-        bool = (a!=b);
-    }
-    if (bool) {
-        return opts.fn(this);
-    } else {
-        return opts.inverse(this);
-    }
-});
-Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
-lvalue = parseFloat(lvalue);
-rvalue = parseFloat(rvalue);
-    
-return {
-    "+": lvalue + rvalue,
-    "-": lvalue - rvalue,
-    "*": lvalue * rvalue,
-    "/": lvalue / rvalue,
-    "%": lvalue % rvalue
-}[operator];
-}); 
-
-var I18n = {
-    locale: "ca",
-    resources: {}
-}; 
-
-Handlebars.registerHelper('I18n', function (arg, opts) {
-    var locale = opts.locale || I18n.locale;
-    var translations = I18n.resources[arg] || {};
-    return translations[locale] || arg;
-}); 
-
-/** Set of transformer utilities */
-var Transformers = {
-    "toUpperCase": function(txt) {
-        return (txt+"").toUpperCase();
-    },
-    "toLowerCase": function(txt) {
-        return (txt+"").toLowerCase();
-    },
-    "trim": function(txt) {
-        return (txt+"").trim();
-    },
-    "ytId": function(txt) {
-        // Finds the youtubeId in a text
-        var rx = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/|shorts\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
-        var r = (txt || '').match(rx);
-        if(r && r.length) {
-            return r[1];
-        }
-        return txt;
-    },
-    "vimeoId": function(txt) {
-        var regExp = /^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/;
-        var match = (txt||"").match(regExp);
-        if(match && match[5]) {
-            return match[5];
-        }
-        return txt;
-    },
-    "serveGDrive": function(txt) {
-        //Expecting https://drive.google.com/file/d/1DDUzcFrOlzWb3CBdFPJ1NCNXClvPbm5B/preview
-        var res = (txt+"").match(/https:\/\/drive.google.com\/file\/d\/([a-zA-Z0-9_]+)\//)
-        if(res && res.length) {
-            var driveId = res[1];
-            return "https://docs.google.com/uc?export=open&id="+driveId;
-        }
-        return txt;
-    },
-    "removeHTML": function(txt) {
-        return (txt || '').replace(/<[^>]*>?/gm, '');
-    },
-    "escapeHTML": function(txt) {
-        return  (txt || '').replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    },
-    "encodeHTML": function(txt) {
-        return this.encodeURIComponent(txt || "");
-    },
-    "escapeQuotes": function(txt) {
-        return  (txt || '').replace(/"/gm, "'");
-    }
-};
-
-function compilaSnippet(snippetKey) { 
-    var template = compiledCache[snippetKey];
-    if(!template) { 
-        var snippet = mapSnippets[snippetKey];
-        var body = snippet["body"];
-        // TODO hi ha un problema amb inner references {{../foo}}
-        body = body.replace(/\{\{..\//g, "{{");     
-        template = Handlebars.compile(body);
-        compiledCache[snippetKey] = template;
-    }
-    return template;
-}
-function paramId(snippetKey, paramKey) {
-    var key = snippetKey + '_' + paramKey.replace("$","")
-    return key.replace(/ /g, '')
-}
-function updateSnippetParameters(snippetKey) {
-    var snip = mapSnippets[snippetKey]; 
-    var values = JSON.parse(JSON.stringify(snip['defaults']));
-    var plist = snip['misc']['parameters'];
-    for(var i=0, len=plist.length; i < len; i++) {
-        var param = plist[i];
-        var pname = param.name;
-        //find the control
-        var cid = paramId(snippetKey, pname);
-        var $control = $('#' + cid); 
-        if($control.length) {
-            if(param.type=='checkbox') {
-                values[pname] = $control.prop('checked')?1:0;
-            } else {
-                values[pname] = $control.val();
+        var mapSnippets  = {"capcalera-examen":{"html":"<!-- inici capçalera examen -->\n<div class=\"table-responsive iedib-capsalera-examen\">\n<table class=\"table\" style=\"width:96%;margin:auto;border:2px solid black;border-collapse: collapse;border-spacing: 0;margin:0px\">\n<tbody>\n<tr style=\"\">\n<td style=\"text-align: center; width: 20%; border: 1px solid black;\"> <img\nsrc=\"https://iedib.net/wordpress/wp-content/uploads/2018/12/iedib-logo.png\" alt=\"Logo IEDIB\" width=\"110\" height=\"73\"\nrole=\"presentation\" class=\"img-responsive atto_image_button_middle\"></td>\n<td style=\"width:60%;border:1px solid black;text-align:center;\" colspan=\"3\">\n<p><b>MODEL D'EXAMEN MATEMÀTIQUES II</b></p>\n<p>SEGON BATXILLERAT - BAT_MAT2 </p>\n</td>\n<td style=\"width:20%;border:1px solid black;vertical-align: top;padding:0\">\n<table style=\"width: 100%;border-collapse: collapse;border-spacing: 0;margin:0px\">\n<tbody><tr><td style=\"width:100%; border:1px solid black; background-color:rgb(204,204,204);\"><b>DATA I\nHORA<b></b></b></td></tr>\n<tr><td style=\"text-align: center;\">------------------</td></tr>\n</tbody></table>\n</td> \n</tr><tr style=\"\">\n<td style=\"width:30%;border:1px solid black;background-color:rgb(204,204,204);\">\n<p><b>NOM I COGNOMS:</b></p>\n</td>\n<td style=\"text-align: center; width: 50%; border: 1px solid black;\"\ncolspan=\"3\">---------------------------------------------------------------</td>\n<td style=\"width:20%;border:1px solid black;background-color:rgb(204,204,204);\">\n<p><b>NOTA:</b></p>\n</td>\n</tr><tr style=\"\">\n<td style=\"width:30%;border:1px solid black;background-color:rgb(204,204,204);\">\n<p><b>DNI:</b></p>\n</td>\n<td style=\"text-align: center; width: 20%; border: 1px solid black;\">-------------------------</td>\n<td style=\"width:20%;border:1px solid black; background-color:rgb(204,204,204);\">\n<p><b>AVALUACIÓ:</b></p>\n</td>\n<td style=\"text-align: center; border: 1px solid black;\">1a</td>\n<td style=\"width:20%;border:1px solid black;\" rowspan=\"2\">\n</td></tr><tr style=\"\">\n<td style=\"width:30%;border:1px solid black; background-color:rgb(204,204,204);\">\n<p><b>Lloc d'examen:</b></p>\n</td>\n<td style=\"text-align: center; width: 20%; border: 1px solid black;\">--------------------------</td>\n<td style=\"width:20%;border:1px solid black; background-color:rgb(204,204,204);\">\n<p><b>GRUP*:</b></p>\n</td>\n<td style=\"text-align: center; border: 1px solid black;\">-----</td>\n<td style=\"width:20%;border:1px solid black;display: none\">\n</td>\n</tr></tbody>\n</table></div>\n<span style=\"font-size: 75%;\"> *grup: A-arts / C-ciències / E-arts escèniques / P-arts plàstiques / G-general / H-humanitats/ X-xarxa</span><br> \n<br>\n<div style=\"width:96%;margin:auto;padding:5px;border:1px solid black;\">\n  <p> <b>INSTRUCCIONS:</b></p> \n  <ul>\n    <li>...</li>\n    <li>...</li>\n  </ul>\n</div>\n<!-- fi capçalera examen -->\n<p><br></p>\n"},"capcalera":{"html":"<p><br></p> <div class=\"iedib-titol-general\">\n  <span class=\"iedib-titol-general-text\">Escriviu un títol</span>\n</div> <p><br></p>"},"codi-programacio":{"html":"<p><br></p> <pre class=\"notranslate iedib-code iedib-code-stripped\"> <code class=\"nohljsln\">console.log(&#39;Hello world!&#39;);</code> </pre> <p><br></p>\n"},"ib-colors":{"html":"&nbsp;<span style=\"color:#0000ff;background-color:#ffffff00;\" class=\"wh-sty-colors\">Sample text</span>&nbsp;\n"},"correcte-incorrecte":{"html":"<p><br></p>\n<!--ini correcte-incorrecte-->\n<div class=\"iedib-correcte-incorrecte\"><div class=\"iedib-correcte\"><p>Aquest procediment és correcte\n1+1=2</p></div>\n<div class=\"iedib-incorrecte\"><p>En canvi, aquest procediment no ho és 1+1=11</p></div>\n</div>\n<!--fi correcte-incorrecte-->\n<p><br></p>\n"},"fragment-text":{"html":"<p><br></p> <!-- begin fragment text --> <div class=\"iedib-fragment \" data-lang=\"ca\" > <h4>FRAGMENT DE TEXT:</h4> <div class=\"iedib-iq\"> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n</p> </div> </div> <!-- end fragment text --> <p><br></p>"},"frase-celebre":{"html":"<p><br></p>  <div class=\"iedib-quote notranslate\"> <!--begin: frase celebre--> <div class=\"iedib-iq\"> <p>No entiendes realmente algo a menos que seas capaz de explicárselo a tu abuela.</p> </div> <cite>Albert Einstein</cite> <!--end: frase celebre--> </div> <p><br></p>\n"},"iframe":{"html":""},"subsub-seccio":{"html":"<p><br></p>\n<h4 class=\"iedib-subsub\"><span class=\"iedib-iq\">Títol de la secció</span></h4>\n<p><br></p>\n"},"taula-predefinida":{"html":"<p><br></p> \n<!--ini taula predef-->\n<table class=\"iedib-table\"\nstyle=\"table-layout:fixed;border-collapse: collapse; border-spacing: 0px;width:96%\">\n<thead><tr><th style=\"border: 1px solid black;background:\naliceblue;\">Títol1</th><th style=\"border: 1px solid black;background:\naliceblue;\">Títol2</th><th style=\"border: 1px solid black;background:\naliceblue;\">Títol3</th></tr></thead>\n<tbody><tr>\n<td style=\"border: 1px solid black;\"> </td>\n<td style=\"border: 1px solid black;\"> </td>\n<td style=\"border: 1px solid black;\"> </td></tr><tr>\n<td style=\"border: 1px solid black;\"> </td>\n<td style=\"border: 1px solid black;\"> </td>\n<td style=\"border: 1px solid black;\"> </td></tr><tr>\n<td style=\"border: 1px solid black;\"> </td>\n<td style=\"border: 1px solid black;\"> </td>\n<td style=\"border: 1px solid black;\"> </td></tr></tbody></table><p\nstyle=\"margin-top:5px;text-align: center;\"><span class=\"iedib-caption-counter\">Taula</span>: <span class=\"iedib-caption-title\">Descripció\nde la taula.</span></p>\n<!--fi taula predef-->\n<p><br></p>\n"},"dedication-time":{"html":"<div class=\"iedib-rwrap\"> <!--ini: temps-dedicació--> <div role=\"snptd_dedicacio\" class=\"iedib-time\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Temps de dedicació mínim recomanat per a aquesta pàgina.\">\n  <i class=\"fad fa-stopwatch\" aria-hidden=\"true\"></i>\n  <span>\n     2 h \n     15 min \n  </span>\n</div> <!--end: temps-dedicació--> </div>  <p><br></p>"}};
+        function copyToClipboard(text) {
+            // must use a temporary form element for the selection and copy
+            var target = document.getElementById("snpclipboard");
+            if(!target) {
+                target = document.createElement("textarea");
+                target.style.position = "absolute";
+                target.style.left = "-9999px";
+                target.style.top = "0";
+                target.id = 'snpclipboard';
+                document.body.appendChild(target);
             }
-        } else {
-            console.error("Cannot retrieve value from control " +cid);
+            target.textContent = text;
+            // select the content 
+            var currentFocus = document.activeElement;
+            var sx = window.scrollX;
+            var sy = window.scrollY;
+            target.focus();
+            target.setSelectionRange(0, target.value.length);
+            // copy the selection
+            var succeed;
+            try {
+                succeed = document.execCommand("copy");
+            } catch(e) {
+                succeed = false;
+            } 
+            // restore original focus
+            if (currentFocus && typeof currentFocus.focus === "function") {
+                currentFocus.focus();
+            }
+            window.scrollTo(sx, sy);
+            return succeed;
         }
-        // Apply transform functions 
-        if(param['transform']) {
-                var thevalue2 = values[pname];
-                var parts = param['transform'].split('|');
-                for(var j=0, lenj=parts.length; j<lenj; j++) {
-                    var prts = parts[j].trim();
-                    var transfunc = Transformers[prts];
-                    if(transfunc) {
-                        thevalue2 = transfunc(thevalue2);
-                    }
+        // Bind copy actions
+        document.querySelectorAll(".btn.btn-sm.btn-secondary").forEach((elem) => {
+            elem.addEventListener("click", function(evt){
+                var key = elem.dataset.key;  
+                console.log(elem, key )
+                if(copyToClipboard(mapSnippets[key]?.['html'] || "")){
+                    // Show tooltip - copied!
+                    console.log("Contents copied to clipboard!");
+                    $(elem).tooltip({
+                        title: "Copiat al portaretalls!"
+                    });
+                    
+                } else {
+                    console.error("Cannot copy to clipboard");
+                    $(elem).tooltip({
+                        title: "No s'ha pogut copiar :-("
+                    });
                 }
-                values[pname] = thevalue2;
-        }
-    }  
-    I18n.resources = snip['misc']['I18n'] || {};
-    I18n.locale = values['$lang'] || 'ca';
-    return values;
-}
-function compileSnippet(snippetKey, values) {
-    var template = compiledCache[snippetKey];
-    if(!template) {
-        template = compilaSnippet(snippetKey);
-        if(!template) {
-            console.error("Cannot compile ", snippetKey);
-            return;
-        }
-    } 
-    values['$id'] = "c"+Math.random().toString(32).substring(2);
-    var ll = Object.keys(values);
-    for(var i=0, leni=ll.length; i<leni; i++) {
-        var kk = ll[i];
-        if (values[kk] && (values[kk]+'').trim()=='$RND') {
-            values[kk] = "c"+Math.random().toString(32).substring(2); 
-        }  
-    }
-    return template(values);
-}
-$(function(){
-    $(".btn.btn-sm.btn-secondary").click(function(evt){
-        var self = $(this);
-        var key = self.data("key");  
-        if(copyToClipboard(mapSnippets[key]['html']||"")){
-            // Show tooltip - copied!
-            console.log("Contents copied to clipboard!");
-            self.tooltip({
-                title: "Copiat al portaretalls!"
+                $(elem).tooltip('enable');
+                $(elem).tooltip('show');
+                window.setTimeout(function(){
+                    $(elem).tooltip('hide');
+                    $(elem).tooltip('disable');
+                }, 1500);            
             });
-            
-        } else {
-            console.error("Cannot copy to clipboard");
-            self.tooltip({
-                title: "No s'ha pogut copiar :-("
-            });
-        }
-        self.tooltip('enable');
-        self.tooltip('show');
-        window.setTimeout(function(){
-            self.tooltip('hide');
-            self.tooltip('disable');
-        }, 1500);
-        
-    });
-    $(".btn.btn-primary[data-key]").click(function(evt){
-        var key = $(this).data("key");  
-        var parameters = updateSnippetParameters(key);
-        var html = compileSnippet(key, parameters);
-        $("#tab-"+key+"-0").html(html); 
-        var codeblock =$("#tab-"+key+"-12").get(0);
-        html = html_beautify(html);
-        //desa el nou codi
-        mapSnippets[key]['html'] = html;
-        //TODO: update to latest version
-        var newcode = hljs.highlight(html, {language: "html", ignoreIllegals: true }); 
-        codeblock.innerHTML = newcode.value;
-
-
-       //TODO: Update dynamic instances in page
-       if(window.IB && window.IB.sd) {
-        var valors = Object.values(IB.sd);
-        for(var sdIndx = 0, sdLen= valors.length; sdIndx<sdLen; sdIndx++) {
-          var sdObj = valors[sdIndx];  
-          sdObj.unbind && sdObj.unbind();
-          sdObj.bind && sdObj.bind();
-        
-        }
-        }
-    });
-}); 
-     
+        });
     </script>
     
 </body>

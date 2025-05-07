@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Check and transforms repository yaml widget definitions into json format",
   "main": "presets_tiny.js",
+  "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "crypto": "^1.0.1",
+    "ejs": "^3.1.10",
+    "escape-html": "^1.0.3",
+    "js-beautify": "^1.15.4",
     "js-yaml": "^4.1.0",
     "mustache": "^4.2.0"
   }

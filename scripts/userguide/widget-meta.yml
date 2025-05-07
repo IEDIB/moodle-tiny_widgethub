@@ -1,20 +1,20 @@
 capsa-generica:
     hint:
-        - Aquesta capsa INTRODUCCIÓ ha d'aparèixer al principi de la pàgina
+        - No useu massa capses en una pàgina per evitar trencar la fluïdesa del text principal.
+        - La capsa Introducció ha d'aparèixer al principi de la pàgina.
     pro:
-        - Intentar que tingui una extensió curta
-        - S'empri per indicar una acció que tindrà conseqüències crítiques
+        - Intentar que tingui una extensió curta.
     con:
+        - Si remarcau massa parts de la pàgina, el remarcat deixa de tenir efecte.
         - No s'ha emprar com un dels panells per mostrar dos procediments un bé i l'altre malament. 
           Per això hi ha l'snippet correcte/incorrecte.
-        - Si remarcau massa parts de la pàgina, el remarcat deixa de tenir efecte.
             
 menu-pestanyes2:
     hint: 
-        - Pensau que la pestanya que teniu seleccionada al moment de desar la pàgina serà la que apareixerà seleccionada en primera instància.
+        - Pensau que la pestanya que estigui seleccionada al moment de desar la pàgina serà la que es visualitzarà en primera instància.
     con:
         - No té massa sentit un menú pestanyes amb una única pestanya.
-        - Evitar més de 4 pestanyes perquè, en dispositius mòbils, les pestanyes es mostren una sobre l'altra.
+        - Evitar més de 4 pestanyes perquè, en dispositius mòbils, les pestanyes es mostren una sobre de l'altra.
     
 desplegable2: 
     hint: 
@@ -37,7 +37,7 @@ youtube:
 
 capcalera:
     con:
-        - Es desconsella l'ús de la capçalera general en els llibres Moodle. En comptes, emprau sub-subsecció.
+        - Es desconsella l'ús de la capçalera general en els llibres Moodle. En comptes d'això, emprau l'snippet secció de pàgina.
 
 taula-predefinida:
     con:
@@ -53,22 +53,22 @@ capsa-exemple-simple:
 tasca-exercici:
     hint:
         - Col·loqueu aquest snippet sempre a peu de secció.
-        - Hi pot haver més d'un exercici dins d'un snippet exercicis. No cal repetir la capçalera per cadascún.
+        - Hi pot haver més d'un exercici dins d'un snippet exercicis. No cal repetir la capçalera per a cadascún.
     con:
-        - No empreu les opcions tasca avaluable o tasca d'aprenentatge per incloure una activitat que no estigui al Grid.
+        - No empreu les opcions tasca avaluable o tasca d'aprenentatge per incloure una activitat que no estigui al <i>Grid</i>.
 
 image-grid:
     con:
-        - Aneu alerta com es visualitzen les imatges en dispositius mòbils. Empreu la versió responsiva que proveeix l'snippet imatge.
+        - Reviseu com es visualitzen les imatges en dispositius mòbils. Empreu la versió responsiva que proveeix l'snippet imatge.
     
 poema2cols:
     hint:
-        - Com alternativa recomanada, emprau l'snippet fragment de text establint una amplada màxima pel poema.
+        - Com alternativa recomanada, emprau l'snippet fragment de text establint una amplada màxima del poema.
 
 retol-inline:
     hint:
         - Sempre que sigui possible cal emprar les capses corresponents.
-        - Únicament emprar el rètol en línia quan el contingut sigui molt curt i la capsa quedi descompensada. 
+        - Únicament emprar el rètol en línia quan el contingut sigui molt curt i la capsa quedi massa buida. 
 
 filtre-unjustify:
     hint:     

@@ -22,5 +22,6 @@
         }
     ],
     "author": "Josep Mulet <pep.mulet@gmail.com>",
+    "nou": true,
     "version": "1.0.0"
 }

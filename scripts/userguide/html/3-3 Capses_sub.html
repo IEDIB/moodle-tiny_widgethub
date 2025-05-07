@@ -6,48 +6,55 @@
     <title>Capses</title>
     <meta charset="utf-8">
     
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({TeX: {extensions: ["cancel.js"]},CommonHTML: { linebreaks: { automatic: true } },"HTML-CSS": { linebreaks: { automatic: true } },SVG: { linebreaks: { automatic: true } }});
+            </script>
+        <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+            integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../../styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
+        
 </head>
 
 <body>
     
-     <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-capsa-alerta">
-        
-        Capsa Alerta
-    </a>
-    
-     <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-capsa-ampliacio">
-        
-        Capsa Ampliació
-    </a>
-    
-     <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-capsa-consell">
-        
-        Capsa Consell
-    </a>
-    
-     <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-capsa-exemple-cols">
-        
-        Capsa Exemple 2 Columnes
-    </a>
-    
      <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-capsa-exemple-rows">
         
-        Capsa Exemple 2 Files
+        Capsa exemple dues files
     </a>
     
      <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-capsa-exemple-simple">
         
-        Capsa Exemple Simple
+        Capsa exemple simple
     </a>
     
-     <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-capsa-important">
+     <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-capsa-generica">
         
-        Capsa Important
+        Capsa multi-propòsit
     </a>
     
-     <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-capsa-introduccio">
+     <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-capsa-solucio">
         
-        Capsa Introducció
+        Capsa solució
+    </a>
+    
+     <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-capsa-cloze">
+        
+        Ressalta elements &#39;cloze&#39;
+    </a>
+    
+     <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-retol-inline">
+        
+        Rètol en línia
     </a>
     
      <a class="btn btn-sm btn-outline-info" style="margin:5px;width:200px" href="#section-tasca-exercici">
@@ -60,570 +67,26 @@
         <p>
     <hr><br>
 <p>
-<a name="section-capsa-alerta"></a>
-<!--ini:div-snippet-->
-<div style="position:relative;">
-    <h4 class="iedib-subsub" title="capsa-alerta" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
-        
-                Capsa Alerta
-                    &nbsp;&nbsp;
-                    
-                            
-                            
-    </h4>
-    <p><br></p> 
-
-        <div
-            style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
-            <em>Àmbit d'aplicació</em>: Tots<br>
-                <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2.1.0
-        </div>
-
-        <!--begin:tabmenu-->
-        <div class="tabbable iedib-tabmenu" id="tabmenu-capsa-alerta" style="position:relative; margin-left:0; padding: 10px; width:99%; background: whitesmoke;">
-            
-            
-            <ul class="nav nav-tabs">
-                <li class="active">
-                    <a href="#tab-capsa-alerta-0" data-toggle="tab"><span>&nbsp;</span><span>Es mostra
-                            com...</span></a></li>
-                <li><a href="#tab-capsa-alerta-1" data-toggle="tab"><span>&nbsp;</span><span>Codi HTML</span></a></li>
-            </ul>
-
-            
-            <div class="tab-content" style="background:white;">
-                <div class="tab-pane  active  iedib-tabpane" id="tab-capsa-alerta-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
-                    
-                    <p><br></p>
-<!--begin: Capsa alerta gran -->
-<div class="iedib-capsa iedib-capsa-gran iedib-alerta-border" data-lang="ca">
-  <div class="iedib-lateral iedib-alerta">
-    <p class="iedib-titolLateral">ALERTA<span class="iedib-alerta-logo"></span></p>
-  </div>
-  <div class="iedib-central">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
-</div>
-<!--end: Capsa alerta gran-->
-<p><br></p>
-                    
-                </div>
-                <div class="tab-pane iedib-tabpane" id="tab-capsa-alerta-1">
-                    <div style="position:relative;max-height: 400px;overflow: auto;">
-                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-capsa-alerta-12" style="min-height: 100px;">&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;!--begin: Capsa alerta gran --&gt;
-&lt;div class=&quot;iedib-capsa iedib-capsa-gran iedib-alerta-border&quot; data-lang=&quot;ca&quot;&gt;
-  &lt;div class=&quot;iedib-lateral iedib-alerta&quot;&gt;
-    &lt;p class=&quot;iedib-titolLateral&quot;&gt;ALERTA&lt;span class=&quot;iedib-alerta-logo&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;iedib-central&quot;&gt;
-    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;!--end: Capsa alerta gran--&gt;
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-                </code></pre>
-                    <button data-key="capsa-alerta" style="position:absolute;right:10px;top:4px;"
-                        class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
-                    </div>
-                    <div>
-                
-                </div>
-            </div>
-            <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-624alprr9e8" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-624alprr9e8_0"
-                            data-toggle="collapse" data-parent="#acc-624alprr9e8" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-624alprr9e8_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="capsa-alerta_mida">Mida de la capsa </label>
-            <select class="form-control" id="capsa-alerta_mida"><option value="gran" selected>gran</option><option value="mitjana" >mitjana</option><option value="petita" >petita</option></select>
-            </div>
-            <div class="form-group">
-            <label for="capsa-alerta_lang">Idioma </label>
-            <select class="form-control" id="capsa-alerta_lang"><option value="ca" selected>Català</option><option value="es" >Castellà</option><option value="en" >English</option><option value="fr" >Francès</option><option value="de" >Alemany</option></select>
-            </div>
-         <button class="btn btn-primary" data-key="capsa-alerta"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
-        </div>
-
-        <p><br></p>
-
-         
-             
-                <p style="color:green"><b><i class="fas fa-check-circle"></i> S'aconsella...</b></p> 
-                <div class="alert alert-success" style="width:90%;margin-left:30px;"><ul>
-                
-                    <li>Que tingui una extensió curta, menys de 4 línies.</li>
-                
-                    <li>Avisar a l'alumnat d'una errada greu.</li>
-                
-                    <li>S'empri per indicar una acció que tindrà conseqüències crítiques.</li>
-                
-             </ul></div>
-            
-             
-            
-                <p style="color:#a50b0b"><b><i class="fas fa-times-circle"></i> Cal evitar...</b></p>
-                <div class="alert alert-danger" style="width:90%;margin-left:30px;"><ul>
-                
-                    <li>No s'ha emprar com un dels panells per mostrar dos procediments un bé i l'altre malament. Per això hi ha l'snippet correcte/incorrecte. </li>
-                
-                    <li>No s'ha d'utilitzar per remarcar un contingut 'important'. A aquest efecte, existeix el component <a href="#section-capsa-important">Capsa Important</a>. </li>
-                
-                </ul></div>
-            
-
-            
-        
-
-        
-        <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
-        <div style="margin-left:35px;">
-            <p>
-                Aquesta capsa serveix per informar d'una errada o situació greu a tenir en compte.  Triau una mida per a la capsa.
-
-            </p>
-        </div> 
-        
-
-    <p><br>
-    <p>
-    <p><br>
-    <p>
-</div>
-<!--fi:divsnippet-->
-    
-        <p>
-    <hr><br>
-<p>
-<a name="section-capsa-ampliacio"></a>
-<!--ini:div-snippet-->
-<div style="position:relative;">
-    <h4 class="iedib-subsub" title="capsa-ampliacio" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
-        
-                Capsa Ampliació
-                    &nbsp;&nbsp;
-                    
-                            
-                            
-    </h4>
-    <p><br></p> 
-
-        <div
-            style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
-            <em>Àmbit d'aplicació</em>: Tots<br>
-                <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2.1.0
-        </div>
-
-        <!--begin:tabmenu-->
-        <div class="tabbable iedib-tabmenu" id="tabmenu-capsa-ampliacio" style="position:relative; margin-left:0; padding: 10px; width:99%; background: whitesmoke;">
-            
-            
-            <ul class="nav nav-tabs">
-                <li class="active">
-                    <a href="#tab-capsa-ampliacio-0" data-toggle="tab"><span>&nbsp;</span><span>Es mostra
-                            com...</span></a></li>
-                <li><a href="#tab-capsa-ampliacio-1" data-toggle="tab"><span>&nbsp;</span><span>Codi HTML</span></a></li>
-            </ul>
-
-            
-            <div class="tab-content" style="background:white;">
-                <div class="tab-pane  active  iedib-tabpane" id="tab-capsa-ampliacio-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
-                    
-                    <p><br></p>
-<!--begin: Capsa ampliacio gran -->
-<div class="iedib-capsa iedib-capsa-gran iedib-ampliacio-border" data-lang="ca">
-  <div class="iedib-lateral iedib-ampliacio">
-    <p class="iedib-titolLateral">AMPLIACIÓ<span class="iedib-ampliacio-logo"></span></p>
-  </div>
-  <div class="iedib-central">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
-</div>
-<!--end: Capsa ampliacio gran-->
-<p><br></p>
-                    
-                </div>
-                <div class="tab-pane iedib-tabpane" id="tab-capsa-ampliacio-1">
-                    <div style="position:relative;max-height: 400px;overflow: auto;">
-                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-capsa-ampliacio-12" style="min-height: 100px;">&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;!--begin: Capsa ampliacio gran --&gt;
-&lt;div class=&quot;iedib-capsa iedib-capsa-gran iedib-ampliacio-border&quot; data-lang=&quot;ca&quot;&gt;
-  &lt;div class=&quot;iedib-lateral iedib-ampliacio&quot;&gt;
-    &lt;p class=&quot;iedib-titolLateral&quot;&gt;AMPLIACIÓ&lt;span class=&quot;iedib-ampliacio-logo&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;iedib-central&quot;&gt;
-    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;!--end: Capsa ampliacio gran--&gt;
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-                </code></pre>
-                    <button data-key="capsa-ampliacio" style="position:absolute;right:10px;top:4px;"
-                        class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
-                    </div>
-                    <div>
-                
-                </div>
-            </div>
-            <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-uji93qa9s4" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-uji93qa9s4_0"
-                            data-toggle="collapse" data-parent="#acc-uji93qa9s4" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-uji93qa9s4_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="capsa-ampliacio_mida">Mida de la capsa </label>
-            <select class="form-control" id="capsa-ampliacio_mida"><option value="gran" selected>gran</option><option value="mitjana" >mitjana</option><option value="petita" >petita</option></select>
-            </div>
-            <div class="form-group">
-            <label for="capsa-ampliacio_lang">Idioma </label>
-            <select class="form-control" id="capsa-ampliacio_lang"><option value="ca" selected>Català</option><option value="es" >Castellà</option><option value="en" >English</option><option value="fr" >Francès</option><option value="de" >Alemany</option></select>
-            </div>
-         <button class="btn btn-primary" data-key="capsa-ampliacio"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
-        </div>
-
-        <p><br></p>
-
-         
-            
-             
-            
-
-            
-        
-
-        
-        <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
-        <div style="margin-left:35px;">
-            <p>
-                Utilitzau aquesta capsa per proporcionar material d'ampliació als alumnes. Triau una mida per a la capsa.
-            </p>
-        </div> 
-        
-
-    <p><br>
-    <p>
-    <p><br>
-    <p>
-</div>
-<!--fi:divsnippet-->
-    
-        <p>
-    <hr><br>
-<p>
-<a name="section-capsa-consell"></a>
-<!--ini:div-snippet-->
-<div style="position:relative;">
-    <h4 class="iedib-subsub" title="capsa-consell" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
-        
-                Capsa Consell
-                    &nbsp;&nbsp;
-                    
-                            
-                            
-    </h4>
-    <p><br></p> 
-
-        <div
-            style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
-            <em>Àmbit d'aplicació</em>: Tots<br>
-                <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2021.3.30
-        </div>
-
-        <!--begin:tabmenu-->
-        <div class="tabbable iedib-tabmenu" id="tabmenu-capsa-consell" style="position:relative; margin-left:0; padding: 10px; width:99%; background: whitesmoke;">
-            
-            
-            <ul class="nav nav-tabs">
-                <li class="active">
-                    <a href="#tab-capsa-consell-0" data-toggle="tab"><span>&nbsp;</span><span>Es mostra
-                            com...</span></a></li>
-                <li><a href="#tab-capsa-consell-1" data-toggle="tab"><span>&nbsp;</span><span>Codi HTML</span></a></li>
-            </ul>
-
-            
-            <div class="tab-content" style="background:white;">
-                <div class="tab-pane  active  iedib-tabpane" id="tab-capsa-consell-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
-                    
-                    <p><br></p>
-<!--begin: Capsa consell gran -->
-<div class="iedib-capsa iedib-capsa-gran iedib-consell-border" data-lang="ca">
-  <div class="iedib-lateral iedib-consell">
-    <p class="iedib-titolLateral">CONSELL<span class="iedib-important-logo"></span></p>
-  </div>
-  <div class="iedib-central">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
-</div>
-<!--end: Capsa consell gran-->
-<p><br></p>
-                    
-                </div>
-                <div class="tab-pane iedib-tabpane" id="tab-capsa-consell-1">
-                    <div style="position:relative;max-height: 400px;overflow: auto;">
-                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-capsa-consell-12" style="min-height: 100px;">&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;!--begin: Capsa consell gran --&gt;
-&lt;div class=&quot;iedib-capsa iedib-capsa-gran iedib-consell-border&quot; data-lang=&quot;ca&quot;&gt;
-  &lt;div class=&quot;iedib-lateral iedib-consell&quot;&gt;
-    &lt;p class=&quot;iedib-titolLateral&quot;&gt;CONSELL&lt;span class=&quot;iedib-important-logo&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;iedib-central&quot;&gt;
-    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;!--end: Capsa consell gran--&gt;
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-                </code></pre>
-                    <button data-key="capsa-consell" style="position:absolute;right:10px;top:4px;"
-                        class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
-                    </div>
-                    <div>
-                
-                </div>
-            </div>
-            <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-00vk5guvdq" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-00vk5guvdq_0"
-                            data-toggle="collapse" data-parent="#acc-00vk5guvdq" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-00vk5guvdq_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="capsa-consell_mida">Mida de la capsa </label>
-            <select class="form-control" id="capsa-consell_mida"><option value="gran" selected>gran</option><option value="mitjana" >mitjana</option><option value="petita" >petita</option></select>
-            </div>
-            <div class="form-group">
-            <label for="capsa-consell_lang">Idioma </label>
-            <select class="form-control" id="capsa-consell_lang"><option value="ca" selected>Català</option><option value="es" >Castellà</option><option value="en" >English</option><option value="fr" >Francès</option><option value="de" >Alemany</option></select>
-            </div>
-         <button class="btn btn-primary" data-key="capsa-consell"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
-        </div>
-
-        <p><br></p>
-
-         
-            
-             
-            
-
-            
-        
-
-        
-        <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
-        <div style="margin-left:35px;">
-            <p>
-                Aquesta capsa serveix per donar un consell a l'alumnat. Triau una mida per a la capsa.
-            </p>
-        </div> 
-        
-
-    <p><br>
-    <p>
-    <p><br>
-    <p>
-</div>
-<!--fi:divsnippet-->
-    
-        <p>
-    <hr><br>
-<p>
-<a name="section-capsa-exemple-cols"></a>
-<!--ini:div-snippet-->
-<div style="position:relative;">
-    <h4 class="iedib-subsub" title="capsa-exemple-cols" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
-        
-                Capsa Exemple 2 Columnes
-                    &nbsp;&nbsp;
-                    
-                            
-                            
-    </h4>
-    <p><br></p> 
-
-        <div
-            style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
-            <em>Àmbit d'aplicació</em>: Tots<br>
-                <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2.1.0
-        </div>
-
-        <!--begin:tabmenu-->
-        <div class="tabbable iedib-tabmenu" id="tabmenu-capsa-exemple-cols" style="position:relative; margin-left:0; padding: 10px; width:99%; background: whitesmoke;">
-            
-            
-            <ul class="nav nav-tabs">
-                <li class="active">
-                    <a href="#tab-capsa-exemple-cols-0" data-toggle="tab"><span>&nbsp;</span><span>Es mostra
-                            com...</span></a></li>
-                <li><a href="#tab-capsa-exemple-cols-1" data-toggle="tab"><span>&nbsp;</span><span>Codi HTML</span></a></li>
-            </ul>
-
-            
-            <div class="tab-content" style="background:white;">
-                <div class="tab-pane  active  iedib-tabpane" id="tab-capsa-exemple-cols-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
-                    
-                    <p><br></p>
-<!--begin: Capsa exemple 2 columnes -->
-<div class="iedib-capsa iedib-capsa-gran iedib-exemple-border" data-lang="ca">
-  <div class="iedib-lateral iedib-exemple">
-    <p class="iedib-titolLateral">EXEMPLE<span class="iedib-exemple-logo"></span></p>
-  </div>
-  <div class="row-fluid iedib-fluid">
-    <div class="span4 iedib-formulacio">
-      <p>Escriviu en aquesta columna l'enunciat del problema.</p>
-    </div>
-    <div class="span8 iedib-resolucio">
-      <div class="iedib-central">
-        <p>Escriviu en aquesta altra columna la resolució del problema.</p>
-      </div>
-    </div>
-  </div>
-</div>
-<!--end: Capsa exemple 2 columnes-->
-<p><br></p>
-                    
-                </div>
-                <div class="tab-pane iedib-tabpane" id="tab-capsa-exemple-cols-1">
-                    <div style="position:relative;max-height: 400px;overflow: auto;">
-                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-capsa-exemple-cols-12" style="min-height: 100px;">&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;!--begin: Capsa exemple 2 columnes --&gt;
-&lt;div class=&quot;iedib-capsa iedib-capsa-gran iedib-exemple-border&quot; data-lang=&quot;ca&quot;&gt;
-  &lt;div class=&quot;iedib-lateral iedib-exemple&quot;&gt;
-    &lt;p class=&quot;iedib-titolLateral&quot;&gt;EXEMPLE&lt;span class=&quot;iedib-exemple-logo&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;row-fluid iedib-fluid&quot;&gt;
-    &lt;div class=&quot;span4 iedib-formulacio&quot;&gt;
-      &lt;p&gt;Escriviu en aquesta columna l&#39;enunciat del problema.&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;span8 iedib-resolucio&quot;&gt;
-      &lt;div class=&quot;iedib-central&quot;&gt;
-        &lt;p&gt;Escriviu en aquesta altra columna la resolució del problema.&lt;/p&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;!--end: Capsa exemple 2 columnes--&gt;
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-                </code></pre>
-                    <button data-key="capsa-exemple-cols" style="position:absolute;right:10px;top:4px;"
-                        class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
-                    </div>
-                    <div>
-                
-                </div>
-            </div>
-            <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-s3mh5hjb1v" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-s3mh5hjb1v_0"
-                            data-toggle="collapse" data-parent="#acc-s3mh5hjb1v" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-s3mh5hjb1v_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="capsa-exemple-cols_lang">Idioma </label>
-            <select class="form-control" id="capsa-exemple-cols_lang"><option value="ca" selected>Català</option><option value="es" >Castellà</option><option value="en" >English</option><option value="fr" >Francès</option><option value="de" >Alemany</option></select>
-            </div>
-         <button class="btn btn-primary" data-key="capsa-exemple-cols"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
-        </div>
-
-        <p><br></p>
-
-         
-            
-             
-            
-
-            
-        
-
-        
-        <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
-        <div style="margin-left:35px;">
-            <p>
-                Utilitzau aquesta capsa per mostrar un exemple amb l'enunciat i la resolució en dues columnes  diferents.
-
-            </p>
-        </div> 
-        
-
-    <p><br>
-    <p>
-    <p><br>
-    <p>
-</div>
-<!--fi:divsnippet-->
-    
-        <p>
-    <hr><br>
-<p>
 <a name="section-capsa-exemple-rows"></a>
-<!--ini:div-snippet-->
+<!--ini:div-widget-->
 <div style="position:relative;">
-    <h4 class="iedib-subsub" title="capsa-exemple-rows" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="capsa-exemple-rows" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
         
-                Capsa Exemple 2 Files
+                Capsa exemple dues files
                     &nbsp;&nbsp;
                     
+                            <i class="fas fa-thumbs-down"></i>&nbsp;&nbsp;
                             
                             
-    </h4>
+                            
+    </h3>
     <p><br></p> 
 
         <div
             style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
             <em>Àmbit d'aplicació</em>: Tots<br>
-                <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2.1.0
+                <em>Recomanació d'ús</em>: 0/3<br>
+                    <em>Versió</em>: 2023.01.07
         </div>
 
         <!--begin:tabmenu-->
@@ -642,8 +105,8 @@
                 <div class="tab-pane  active  iedib-tabpane" id="tab-capsa-exemple-rows-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
                     
                     <p><br></p>
-<!--begin: Capsa exemple 2 files -->
 <div class="iedib-capsa iedib-capsa-gran iedib-exemple-border" data-lang="ca">
+  <!--begin: Capsa exemple 2 files -->
   <div class="iedib-lateral iedib-exemple">
     <p class="iedib-titolLateral">EXEMPLE<span class="iedib-exemple-logo"></span></p>
   </div>
@@ -653,28 +116,27 @@
   <div class="iedib-resolucio-rows">
 
     <!--begin: accordion answer-->
-    <div id="cosdmu7jjljg" class="accordion iedib-accordion">
+    <div id="c43hlubencj8" class="accordion iedib-accordion">
       <div class="accordion-group">
-        <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_cosdmu7jjljg_0" data-toggle="collapse" data-parent="#cosdmu7jjljg"><span class="icon icon-plus-sign"></span> <span>&nbsp;</span><span>Solució</span></a></div>
-        <div id="collapse_cosdmu7jjljg_0" class="accordion-body collapse">
+        <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_c43hlubencj8_0" data-toggle="collapse" data-parent="#c43hlubencj8"><span class="icon icon-plus-sign"></span> <span>&nbsp;</span><span>Solució</span></a></div>
+        <div id="collapse_c43hlubencj8_0" class="accordion-body collapse">
           <div class="accordion-inner">
             <p>Desenvolupament de la solució de l'exemple ...</p>
           </div>
         </div>
       </div>
-    </div>
-    <!--end: accordion-answer-->
+    </div><!--end: accordion-answer-->
   </div>
+  <!--end: Capsa exemple 2 files-->
 </div>
-<!--end: Capsa exemple 2 files-->
 <p><br></p>
                     
                 </div>
                 <div class="tab-pane iedib-tabpane" id="tab-capsa-exemple-rows-1">
                     <div style="position:relative;max-height: 400px;overflow: auto;">
                     <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-capsa-exemple-rows-12" style="min-height: 100px;">&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;!--begin: Capsa exemple 2 files --&gt;
 &lt;div class=&quot;iedib-capsa iedib-capsa-gran iedib-exemple-border&quot; data-lang=&quot;ca&quot;&gt;
+  &lt;!--begin: Capsa exemple 2 files --&gt;
   &lt;div class=&quot;iedib-lateral iedib-exemple&quot;&gt;
     &lt;p class=&quot;iedib-titolLateral&quot;&gt;EXEMPLE&lt;span class=&quot;iedib-exemple-logo&quot;&gt;&lt;/span&gt;&lt;/p&gt;
   &lt;/div&gt;
@@ -684,20 +146,19 @@
   &lt;div class=&quot;iedib-resolucio-rows&quot;&gt;
 
     &lt;!--begin: accordion answer--&gt;
-    &lt;div id=&quot;cosdmu7jjljg&quot; class=&quot;accordion iedib-accordion&quot;&gt;
+    &lt;div id=&quot;c43hlubencj8&quot; class=&quot;accordion iedib-accordion&quot;&gt;
       &lt;div class=&quot;accordion-group&quot;&gt;
-        &lt;div class=&quot;accordion-heading&quot;&gt;&lt;a class=&quot;accordion-toggle&quot; href=&quot;#collapse_cosdmu7jjljg_0&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#cosdmu7jjljg&quot;&gt;&lt;span class=&quot;icon icon-plus-sign&quot;&gt;&lt;/span&gt; &lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;span&gt;Solució&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
-        &lt;div id=&quot;collapse_cosdmu7jjljg_0&quot; class=&quot;accordion-body collapse&quot;&gt;
+        &lt;div class=&quot;accordion-heading&quot;&gt;&lt;a class=&quot;accordion-toggle&quot; href=&quot;#collapse_c43hlubencj8_0&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#c43hlubencj8&quot;&gt;&lt;span class=&quot;icon icon-plus-sign&quot;&gt;&lt;/span&gt; &lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;span&gt;Solució&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
+        &lt;div id=&quot;collapse_c43hlubencj8_0&quot; class=&quot;accordion-body collapse&quot;&gt;
           &lt;div class=&quot;accordion-inner&quot;&gt;
             &lt;p&gt;Desenvolupament de la solució de l&#39;exemple ...&lt;/p&gt;
           &lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;!--end: accordion-answer--&gt;
+    &lt;/div&gt;&lt;!--end: accordion-answer--&gt;
   &lt;/div&gt;
+  &lt;!--end: Capsa exemple 2 files--&gt;
 &lt;/div&gt;
-&lt;!--end: Capsa exemple 2 files--&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
                 </code></pre>
                     <button data-key="capsa-exemple-rows" style="position:absolute;right:10px;top:4px;"
@@ -708,35 +169,6 @@
                 </div>
             </div>
             <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-4tf8548kle" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-4tf8548kle_0"
-                            data-toggle="collapse" data-parent="#acc-4tf8548kle" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-4tf8548kle_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="capsa-exemple-rows_lang">Idioma </label>
-            <select class="form-control" id="capsa-exemple-rows_lang"><option value="ca" selected>Català</option><option value="es" >Castellà</option><option value="en" >English</option><option value="fr" >Francès</option><option value="de" >Alemany</option></select>
-            </div><div class="form-check" style="margin-bottom:10px;">
-            <input type="checkbox" class="form-check-input" value="1" checked id="capsa-exemple-rows_inclouDesplegable" title="inclouDesplegable">
-            <label class="form-check-label" for="capsa-exemple-rows_inclouDesplegable">
-                Inclou desplegable per a la resolució  
-            </label>
-          </div>
-            <div class="form-group">
-            <label for="capsa-exemple-rows_clau">Identificador autogenerat </label>
-            <input type="text" class="form-control" id="capsa-exemple-rows_clau" aria-describedby="[object Object]" value="cosdmu7jjljg" title="clau">
-            </div>
-         <button class="btn btn-primary" data-key="capsa-exemple-rows"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
         </div>
 
         <p><br></p>
@@ -764,29 +196,31 @@
     <p><br>
     <p>
 </div>
-<!--fi:divsnippet-->
+<!--fi:divwidget-->
     
         <p>
     <hr><br>
 <p>
 <a name="section-capsa-exemple-simple"></a>
-<!--ini:div-snippet-->
+<!--ini:div-widget-->
 <div style="position:relative;">
-    <h4 class="iedib-subsub" title="capsa-exemple-simple" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="capsa-exemple-simple" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
         
-                Capsa Exemple Simple
+                Capsa exemple simple
                     &nbsp;&nbsp;
                     
+                        <i class="fas fa-thumbs-up"></i>&nbsp;&nbsp;
+                        
                             
                             
-    </h4>
+    </h3>
     <p><br></p> 
 
         <div
             style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
             <em>Àmbit d'aplicació</em>: Tots<br>
-                <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2.1.0
+                <em>Recomanació d'ús</em>: 3/3<br>
+                    <em>Versió</em>: 2023.01.07
         </div>
 
         <!--begin:tabmenu-->
@@ -805,66 +239,58 @@
                 <div class="tab-pane  active  iedib-tabpane" id="tab-capsa-exemple-simple-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
                     
                     <p><br></p>
-<!--begin: Capsa exemple gran -->
 <div class="iedib-capsa iedib-capsa-gran iedib-exemple-border" data-lang="ca">
+  <!--begin: Capsa exemple gran -->
   <div class="iedib-lateral iedib-exemple">
     <p class="iedib-titolLateral">EXEMPLE<span class="iedib-exemple-logo"></span></p>
   </div>
   <div class="iedib-central">
     <div class="iedib-iq">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      </p>
     </div>
     <!--begin: accordion answer-->
-    <div id="ck6jbj4o7a2o" class="accordion iedib-accordion">
+    <div id="citdessm1t8o" class="accordion iedib-accordion">
       <div class="accordion-group">
-        <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_ck6jbj4o7a2o_0" data-toggle="collapse" data-parent="#ck6jbj4o7a2o"><span class="icon icon-plus-sign"></span> <span>&nbsp;</span><span>Solució</span></a></div>
-        <div id="collapse_ck6jbj4o7a2o_0" class="accordion-body collapse">
+        <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_citdessm1t8o_0" data-toggle="collapse" data-parent="#citdessm1t8o"><span class="icon icon-plus-sign"></span> <span>&nbsp;</span><span>Solució</span></a></div>
+        <div id="collapse_citdessm1t8o_0" class="accordion-body collapse">
           <div class="accordion-inner">
             <p>Desenvolupament de la solució de l'exemple ...</p>
           </div>
         </div>
       </div>
-    </div>
-    <!--end: accordion-answer--> <br>
-  </div>
+    </div><!--end: accordion-answer--> <br>
+  </div> <!--end: Capsa exemple gran-->
 </div>
-<!--end: Capsa exemple gran-->
 <p><br></p>
                     
                 </div>
                 <div class="tab-pane iedib-tabpane" id="tab-capsa-exemple-simple-1">
                     <div style="position:relative;max-height: 400px;overflow: auto;">
                     <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-capsa-exemple-simple-12" style="min-height: 100px;">&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;!--begin: Capsa exemple gran --&gt;
 &lt;div class=&quot;iedib-capsa iedib-capsa-gran iedib-exemple-border&quot; data-lang=&quot;ca&quot;&gt;
+  &lt;!--begin: Capsa exemple gran --&gt;
   &lt;div class=&quot;iedib-lateral iedib-exemple&quot;&gt;
     &lt;p class=&quot;iedib-titolLateral&quot;&gt;EXEMPLE&lt;span class=&quot;iedib-exemple-logo&quot;&gt;&lt;/span&gt;&lt;/p&gt;
   &lt;/div&gt;
   &lt;div class=&quot;iedib-central&quot;&gt;
     &lt;div class=&quot;iedib-iq&quot;&gt;
-      &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+      &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      &lt;/p&gt;
     &lt;/div&gt;
     &lt;!--begin: accordion answer--&gt;
-    &lt;div id=&quot;ck6jbj4o7a2o&quot; class=&quot;accordion iedib-accordion&quot;&gt;
+    &lt;div id=&quot;citdessm1t8o&quot; class=&quot;accordion iedib-accordion&quot;&gt;
       &lt;div class=&quot;accordion-group&quot;&gt;
-        &lt;div class=&quot;accordion-heading&quot;&gt;&lt;a class=&quot;accordion-toggle&quot; href=&quot;#collapse_ck6jbj4o7a2o_0&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#ck6jbj4o7a2o&quot;&gt;&lt;span class=&quot;icon icon-plus-sign&quot;&gt;&lt;/span&gt; &lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;span&gt;Solució&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
-        &lt;div id=&quot;collapse_ck6jbj4o7a2o_0&quot; class=&quot;accordion-body collapse&quot;&gt;
+        &lt;div class=&quot;accordion-heading&quot;&gt;&lt;a class=&quot;accordion-toggle&quot; href=&quot;#collapse_citdessm1t8o_0&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#citdessm1t8o&quot;&gt;&lt;span class=&quot;icon icon-plus-sign&quot;&gt;&lt;/span&gt; &lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;span&gt;Solució&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
+        &lt;div id=&quot;collapse_citdessm1t8o_0&quot; class=&quot;accordion-body collapse&quot;&gt;
           &lt;div class=&quot;accordion-inner&quot;&gt;
             &lt;p&gt;Desenvolupament de la solució de l&#39;exemple ...&lt;/p&gt;
           &lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;!--end: accordion-answer--&gt; &lt;br&gt;
-  &lt;/div&gt;
+    &lt;/div&gt;&lt;!--end: accordion-answer--&gt; &lt;br&gt;
+  &lt;/div&gt; &lt;!--end: Capsa exemple gran--&gt;
 &lt;/div&gt;
-&lt;!--end: Capsa exemple gran--&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
                 </code></pre>
                     <button data-key="capsa-exemple-simple" style="position:absolute;right:10px;top:4px;"
@@ -872,60 +298,9 @@
                     </div>
                     <div>
                 
-                <div class="alert alert-warning">
-                    <p>Dependències JS necessàries (col·locar a final del codi HTML):</p>
-                    <ul>
-                    
-                    <li>&lt;script src="https://iedib.net/assets/sd/narracio.min.js"&gt;&lt;/script&gt;</li>
-                    
-                    </ul>
-                </div>
-                
                 </div>
             </div>
             <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-ill0ttrepro" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-ill0ttrepro_0"
-                            data-toggle="collapse" data-parent="#acc-ill0ttrepro" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-ill0ttrepro_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="capsa-exemple-simple_lang">Idioma </label>
-            <select class="form-control" id="capsa-exemple-simple_lang"><option value="ca" selected>Català</option><option value="es" >Castellà</option><option value="en" >English</option><option value="fr" >Francès</option><option value="de" >Alemany</option></select>
-            </div>
-            <div class="form-group">
-            <label for="capsa-exemple-simple_mida">Mida de la capsa </label>
-            <select class="form-control" id="capsa-exemple-simple_mida"><option value="gran" selected>gran</option><option value="mitjana" >mitjana</option><option value="petita" >petita</option></select>
-            </div><div class="form-check" style="margin-bottom:10px;">
-            <input type="checkbox" class="form-check-input" value="1" checked id="capsa-exemple-simple_inclouDesplegable" title="inclouDesplegable">
-            <label class="form-check-label" for="capsa-exemple-simple_inclouDesplegable">
-                Inclou desplegable per a la resolució?  
-            </label>
-          </div><div class="form-check" style="margin-bottom:10px;">
-            <input type="checkbox" class="form-check-input" value="0"  id="capsa-exemple-simple_solucioNarrada" title="solucioNarrada">
-            <label class="form-check-label" for="capsa-exemple-simple_solucioNarrada">
-                Inclou una solució narrada en audio?  
-            </label>
-          </div>
-            <div class="form-group">
-            <label for="capsa-exemple-simple_urlAudio">URL del fitxer d'audio (.mp3) <a href="javascript:void(0)" data-toggle="popover" data-trigger="hover" data-content="Per exemple, cal que enregistreu prèviament l'audio en .mp3 i el pugeu i compartiu al vostre Google Drive. Si disposau de més d'un format d'àudio, separau les URL amb coma."><i class="fas fa-question-circle text-info"></i></a></label>
-            <input type="text" class="form-control" id="capsa-exemple-simple_urlAudio" aria-describedby="[object Object]" value="https://drive.google.com/file/d/1DDUzcFrOlzWb3CBdFPJ1NCNXClvPbm5B/preview" title="urlAudio">
-            </div>
-            <div class="form-group">
-            <label for="capsa-exemple-simple_clau">Identificador autogenerat </label>
-            <input type="text" class="form-control" id="capsa-exemple-simple_clau" aria-describedby="[object Object]" value="ck6jbj4o7a2o" title="clau">
-            </div>
-         <button class="btn btn-primary" data-key="capsa-exemple-simple"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
         </div>
 
         <p><br></p>
@@ -954,6 +329,7 @@
                 Utilitzau aquesta capsa per mostrar un exemple amb l'enunciat i la resolució en el mateix contenidor. Triau una mida
 per a la capsa. Es recomana incloure el desplegable per a la resolució.
 
+
             </p>
         </div> 
         
@@ -963,82 +339,76 @@ per a la capsa. Es recomana incloure el desplegable per a la resolució.
     <p><br>
     <p>
 </div>
-<!--fi:divsnippet-->
+<!--fi:divwidget-->
     
         <p>
     <hr><br>
 <p>
-<a name="section-capsa-important"></a>
-<!--ini:div-snippet-->
+<a name="section-capsa-generica"></a>
+<!--ini:div-widget-->
 <div style="position:relative;">
-    <h4 class="iedib-subsub" title="capsa-important" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="capsa-generica" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
         
-                Capsa Important
+                Capsa multi-propòsit
                     &nbsp;&nbsp;
                     
                             
                             
-    </h4>
+    </h3>
     <p><br></p> 
 
         <div
             style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
             <em>Àmbit d'aplicació</em>: Tots<br>
                 <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2.1.0
+                    <em>Versió</em>: 2023.01.07
         </div>
 
         <!--begin:tabmenu-->
-        <div class="tabbable iedib-tabmenu" id="tabmenu-capsa-important" style="position:relative; margin-left:0; padding: 10px; width:99%; background: whitesmoke;">
+        <div class="tabbable iedib-tabmenu" id="tabmenu-capsa-generica" style="position:relative; margin-left:0; padding: 10px; width:99%; background: whitesmoke;">
             
             
             <ul class="nav nav-tabs">
                 <li class="active">
-                    <a href="#tab-capsa-important-0" data-toggle="tab"><span>&nbsp;</span><span>Es mostra
+                    <a href="#tab-capsa-generica-0" data-toggle="tab"><span>&nbsp;</span><span>Es mostra
                             com...</span></a></li>
-                <li><a href="#tab-capsa-important-1" data-toggle="tab"><span>&nbsp;</span><span>Codi HTML</span></a></li>
+                <li><a href="#tab-capsa-generica-1" data-toggle="tab"><span>&nbsp;</span><span>Codi HTML</span></a></li>
             </ul>
 
             
             <div class="tab-content" style="background:white;">
-                <div class="tab-pane  active  iedib-tabpane" id="tab-capsa-important-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
+                <div class="tab-pane  active  iedib-tabpane" id="tab-capsa-generica-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
                     
-                    <p><br></p>
-<!--begin: Capsa important gran -->
-<div class="iedib-capsa iedib-capsa-gran iedib-important-border" data-lang="ca">
-  <div class="iedib-lateral iedib-important">
-    <p class="iedib-titolLateral">IMPORTANT<span class="iedib-important-logo"></span></p>
+                    <p><br></p><!--begin: Capsa alerta gran -->
+<div class="iedib-capsa iedib-capsa-gran iedib-alerta-border" data-lang="ca">
+  <div class="iedib-lateral iedib-alerta">
+    <p class="iedib-titolLateral">ALERTA<span class="iedib-alerta-logo"></span></p>
   </div>
   <div class="iedib-central">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    </p>
   </div>
 </div>
-<!--end: Capsa important gran-->
+<!--end: Capsa alerta gran-->
 <p><br></p>
                     
                 </div>
-                <div class="tab-pane iedib-tabpane" id="tab-capsa-important-1">
+                <div class="tab-pane iedib-tabpane" id="tab-capsa-generica-1">
                     <div style="position:relative;max-height: 400px;overflow: auto;">
-                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-capsa-important-12" style="min-height: 100px;">&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;!--begin: Capsa important gran --&gt;
-&lt;div class=&quot;iedib-capsa iedib-capsa-gran iedib-important-border&quot; data-lang=&quot;ca&quot;&gt;
-  &lt;div class=&quot;iedib-lateral iedib-important&quot;&gt;
-    &lt;p class=&quot;iedib-titolLateral&quot;&gt;IMPORTANT&lt;span class=&quot;iedib-important-logo&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-capsa-generica-12" style="min-height: 100px;">&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;!--begin: Capsa alerta gran --&gt;
+&lt;div class=&quot;iedib-capsa iedib-capsa-gran iedib-alerta-border&quot; data-lang=&quot;ca&quot;&gt;
+  &lt;div class=&quot;iedib-lateral iedib-alerta&quot;&gt;
+    &lt;p class=&quot;iedib-titolLateral&quot;&gt;ALERTA&lt;span class=&quot;iedib-alerta-logo&quot;&gt;&lt;/span&gt;&lt;/p&gt;
   &lt;/div&gt;
   &lt;div class=&quot;iedib-central&quot;&gt;
-    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    &lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;!--end: Capsa important gran--&gt;
+&lt;!--end: Capsa alerta gran--&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
                 </code></pre>
-                    <button data-key="capsa-important" style="position:absolute;right:10px;top:4px;"
+                    <button data-key="capsa-generica" style="position:absolute;right:10px;top:4px;"
                         class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
                     </div>
                     <div>
@@ -1046,30 +416,6 @@ per a la capsa. Es recomana incloure el desplegable per a la resolució.
                 </div>
             </div>
             <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-pjvn5mt9hlg" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-pjvn5mt9hlg_0"
-                            data-toggle="collapse" data-parent="#acc-pjvn5mt9hlg" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-pjvn5mt9hlg_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="capsa-important_mida">Mida de la capsa </label>
-            <select class="form-control" id="capsa-important_mida"><option value="gran" selected>gran</option><option value="mitjana" >mitjana</option><option value="petita" >petita</option></select>
-            </div>
-            <div class="form-group">
-            <label for="capsa-important_lang">Idioma </label>
-            <select class="form-control" id="capsa-important_lang"><option value="ca" selected>Català</option><option value="es" >Castellà</option><option value="en" >English</option><option value="fr" >Francès</option><option value="de" >Alemany</option></select>
-            </div>
-         <button class="btn btn-primary" data-key="capsa-important"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
         </div>
 
         <p><br></p>
@@ -1079,9 +425,7 @@ per a la capsa. Es recomana incloure el desplegable per a la resolució.
                 <p style="color:green"><b><i class="fas fa-check-circle"></i> S'aconsella...</b></p> 
                 <div class="alert alert-success" style="width:90%;margin-left:30px;"><ul>
                 
-                    <li>Subratllar un aspecte molt important del tema.</li>
-                
-                    <li>Remarcar un concepte o fórmula rellevant per a les tasques o exàmens.</li>
+                    <li>Intentar que tingui una extensió curta.</li>
                 
              </ul></div>
             
@@ -1092,9 +436,20 @@ per a la capsa. Es recomana incloure el desplegable per a la resolució.
                 
                     <li>Si remarcau massa parts de la pàgina, el remarcat deixa de tenir efecte. </li>
                 
+                    <li>No s'ha emprar com un dels panells per mostrar dos procediments un bé i l'altre malament. Per això hi ha l'snippet correcte/incorrecte. </li>
+                
                 </ul></div>
             
 
+            
+                <p style="color: rgb(62, 3, 62)"><b><i class="fas fa-lightbulb"></i> Tingues en compte...</b></p>
+                <div class="alert alert-info" style="width:90%;margin-left:30px; color: rgb(62, 3, 62)"><ul>
+                
+                    <li>No useu massa capses en una pàgina per evitar trencar la fluïdesa del text principal. </li>
+                
+                    <li>La capsa Introducció ha d'aparèixer al principi de la pàgina. </li>
+                
+                </ul></div>
             
         
 
@@ -1102,7 +457,7 @@ per a la capsa. Es recomana incloure el desplegable per a la resolució.
         <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
         <div style="margin-left:35px;">
             <p>
-                Aquesta capsa serveix per remarcar un concepte important dins del llibre.  Triau una mida per a la capsa.
+                <b>Alerta</b>: Serveix per informar d'una errada o situació greu a tenir en compte. <br> <b>Ampliació</b>: Marcau que el material és d'ampliació per als alumnes.<br> <b>Consell</b>: Donau un consell als alumnes.<br> <b>Important</b>: Remarcar que és un contingut rellevant que cal estudiar.<br> <b>Introducció</b>: Serveix per introduir un lliurament o una secció d'ell.<br> Triau una mida i idioma per a la capsa. 
 
             </p>
         </div> 
@@ -1113,82 +468,72 @@ per a la capsa. Es recomana incloure el desplegable per a la resolució.
     <p><br>
     <p>
 </div>
-<!--fi:divsnippet-->
+<!--fi:divwidget-->
     
         <p>
     <hr><br>
 <p>
-<a name="section-capsa-introduccio"></a>
-<!--ini:div-snippet-->
+<a name="section-capsa-solucio"></a>
+<!--ini:div-widget-->
 <div style="position:relative;">
-    <h4 class="iedib-subsub" title="capsa-introduccio" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="capsa-solucio" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
         
-                Capsa Introducció
+                Capsa solució
                     &nbsp;&nbsp;
                     
                             
                             
-    </h4>
+    </h3>
     <p><br></p> 
 
         <div
             style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
-            <em>Àmbit d'aplicació</em>: Tots<br>
+            <em>Àmbit d'aplicació</em>: Pàgines, Tasques<br>
                 <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2.1.0
+                    <em>Versió</em>: 2022.12.10
         </div>
 
         <!--begin:tabmenu-->
-        <div class="tabbable iedib-tabmenu" id="tabmenu-capsa-introduccio" style="position:relative; margin-left:0; padding: 10px; width:99%; background: whitesmoke;">
+        <div class="tabbable iedib-tabmenu" id="tabmenu-capsa-solucio" style="position:relative; margin-left:0; padding: 10px; width:99%; background: whitesmoke;">
             
             
             <ul class="nav nav-tabs">
                 <li class="active">
-                    <a href="#tab-capsa-introduccio-0" data-toggle="tab"><span>&nbsp;</span><span>Es mostra
+                    <a href="#tab-capsa-solucio-0" data-toggle="tab"><span>&nbsp;</span><span>Es mostra
                             com...</span></a></li>
-                <li><a href="#tab-capsa-introduccio-1" data-toggle="tab"><span>&nbsp;</span><span>Codi HTML</span></a></li>
+                <li><a href="#tab-capsa-solucio-1" data-toggle="tab"><span>&nbsp;</span><span>Codi HTML</span></a></li>
             </ul>
 
             
             <div class="tab-content" style="background:white;">
-                <div class="tab-pane  active  iedib-tabpane" id="tab-capsa-introduccio-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
+                <div class="tab-pane  active  iedib-tabpane" id="tab-capsa-solucio-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
                     
                     <p><br></p>
-<!--begin: Capsa introducció -->
-<div class="iedib-capsa iedib-capsa-gran iedib-introduccio-border" data-lang="ca">
-  <div class="iedib-lateral iedib-introduccio">
-    <p class="iedib-titolLateral">INTRODUCCIÓ<span class="iedib-introduccio-logo"></span></p>
-  </div>
+<!--begin: Capsa solució -->
+<div class="iedib-capsa iedib-solucio">
   <div class="iedib-central">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    </p>
   </div>
 </div>
-<!--end: Capsa introduccio gran-->
+<!--end: Capsa solució-->
 <p><br></p>
                     
                 </div>
-                <div class="tab-pane iedib-tabpane" id="tab-capsa-introduccio-1">
+                <div class="tab-pane iedib-tabpane" id="tab-capsa-solucio-1">
                     <div style="position:relative;max-height: 400px;overflow: auto;">
-                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-capsa-introduccio-12" style="min-height: 100px;">&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;!--begin: Capsa introducció --&gt;
-&lt;div class=&quot;iedib-capsa iedib-capsa-gran iedib-introduccio-border&quot; data-lang=&quot;ca&quot;&gt;
-  &lt;div class=&quot;iedib-lateral iedib-introduccio&quot;&gt;
-    &lt;p class=&quot;iedib-titolLateral&quot;&gt;INTRODUCCIÓ&lt;span class=&quot;iedib-introduccio-logo&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-  &lt;/div&gt;
+                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-capsa-solucio-12" style="min-height: 100px;">&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;!--begin: Capsa solució --&gt;
+&lt;div class=&quot;iedib-capsa iedib-solucio&quot;&gt;
   &lt;div class=&quot;iedib-central&quot;&gt;
-    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    &lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;!--end: Capsa introduccio gran--&gt;
+&lt;!--end: Capsa solució--&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
                 </code></pre>
-                    <button data-key="capsa-introduccio" style="position:absolute;right:10px;top:4px;"
+                    <button data-key="capsa-solucio" style="position:absolute;right:10px;top:4px;"
                         class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
                     </div>
                     <div>
@@ -1196,30 +541,178 @@ per a la capsa. Es recomana incloure el desplegable per a la resolució.
                 </div>
             </div>
             <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-t695aun5qpg" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-t695aun5qpg_0"
-                            data-toggle="collapse" data-parent="#acc-t695aun5qpg" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-t695aun5qpg_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="capsa-introduccio_mida">Mida de la capsa </label>
-            <select class="form-control" id="capsa-introduccio_mida"><option value="gran" selected>gran</option><option value="mitjana" >mitjana</option><option value="petita" >petita</option></select>
-            </div>
-            <div class="form-group">
-            <label for="capsa-introduccio_lang">Idioma </label>
-            <select class="form-control" id="capsa-introduccio_lang"><option value="ca" selected>Català</option><option value="es" >Castellà</option><option value="en" >English</option><option value="fr" >Francès</option><option value="de" > Alemany</option></select>
-            </div>
-         <button class="btn btn-primary" data-key="capsa-introduccio"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
+        </div>
+
+        <p><br></p>
+
+         
+            
+             
+            
+
+            
+        
+
+        
+        <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
+        <div style="margin-left:35px;">
+            <p>
+                Aquesta capsa per escriure la solució d'un problema d'una tasca avaluable.
+
+            </p>
+        </div> 
+        
+
+    <p><br>
+    <p>
+    <p><br>
+    <p>
+</div>
+<!--fi:divwidget-->
+    
+        <p>
+    <hr><br>
+<p>
+<a name="section-capsa-cloze"></a>
+<!--ini:div-widget-->
+<div style="position:relative;">
+    <h3 title="capsa-cloze" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
+        
+                Ressalta elements &#39;cloze&#39;
+                    &nbsp;&nbsp;
+                    
+                            
+                            
+    </h3>
+    <p><br></p> 
+
+        <div
+            style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
+            <em>Àmbit d'aplicació</em>: Qüestionaris<br>
+                <em>Recomanació d'ús</em>: 2/3<br>
+                    <em>Versió</em>: 2022.12.10
+        </div>
+
+        <!--begin:tabmenu-->
+        <div class="tabbable iedib-tabmenu" id="tabmenu-capsa-cloze" style="position:relative; margin-left:0; padding: 10px; width:99%; background: whitesmoke;">
+            
+            
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#tab-capsa-cloze-0" data-toggle="tab"><span>&nbsp;</span><span>Es mostra
+                            com...</span></a></li>
+                <li><a href="#tab-capsa-cloze-1" data-toggle="tab"><span>&nbsp;</span><span>Codi HTML</span></a></li>
+            </ul>
+
+            
+            <div class="tab-content" style="background:white;">
+                <div class="tab-pane  active  iedib-tabpane" id="tab-capsa-cloze-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
+                    
+                    <p><br></p>
+<div class="cloze-styling">
+  <p><br></p>
+</div>
+<p><br></p>
+                    
+                </div>
+                <div class="tab-pane iedib-tabpane" id="tab-capsa-cloze-1">
+                    <div style="position:relative;max-height: 400px;overflow: auto;">
+                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-capsa-cloze-12" style="min-height: 100px;">&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;div class=&quot;cloze-styling&quot;&gt;
+  &lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+                </code></pre>
+                    <button data-key="capsa-cloze" style="position:absolute;right:10px;top:4px;"
+                        class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
                     </div>
+                    <div>
+                
                 </div>
             </div>
-            <!--end: accordion-->
+            <!--end:tabmenu-->
+        </div>
+
+        <p><br></p>
+
+         
+            
+             
+            
+
+            
+        
+
+        
+        <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
+        <div style="margin-left:35px;">
+            <p>
+                Resalta els elements de tipus cloze d'una pregunta de qüestionari aplicant la classe 'cloze-styling'. Seleccionau l'element que volgueu ressaltar i aplicau aquest snippet.
+
+            </p>
+        </div> 
+        
+
+    <p><br>
+    <p>
+    <p><br>
+    <p>
+</div>
+<!--fi:divwidget-->
+    
+        <p>
+    <hr><br>
+<p>
+<a name="section-retol-inline"></a>
+<!--ini:div-widget-->
+<div style="position:relative;">
+    <h3 title="retol-inline" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
+        
+                Rètol en línia
+                    &nbsp;&nbsp;
+                    
+                            
+                            
+    </h3>
+    <p><br></p> 
+
+        <div
+            style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
+            <em>Àmbit d'aplicació</em>: Tots<br>
+                <em>Recomanació d'ús</em>: 2/3<br>
+                    <em>Versió</em>: 2025.05.07
+        </div>
+
+        <!--begin:tabmenu-->
+        <div class="tabbable iedib-tabmenu" id="tabmenu-retol-inline" style="position:relative; margin-left:0; padding: 10px; width:99%; background: whitesmoke;">
+            
+            
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#tab-retol-inline-0" data-toggle="tab"><span>&nbsp;</span><span>Es mostra
+                            com...</span></a></li>
+                <li><a href="#tab-retol-inline-1" data-toggle="tab"><span>&nbsp;</span><span>Codi HTML</span></a></li>
+            </ul>
+
+            
+            <div class="tab-content" style="background:white;">
+                <div class="tab-pane  active  iedib-tabpane" id="tab-retol-inline-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
+                    
+                    &nbsp; <span class="iedib-ret iedib-ret-alerta">contingut a ressaltar</span> &nbsp;
+                    
+                </div>
+                <div class="tab-pane iedib-tabpane" id="tab-retol-inline-1">
+                    <div style="position:relative;max-height: 400px;overflow: auto;">
+                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-retol-inline-12" style="min-height: 100px;">&amp;nbsp; &lt;span class=&quot;iedib-ret iedib-ret-alerta&quot;&gt;contingut a ressaltar&lt;/span&gt; &amp;nbsp;
+                </code></pre>
+                    <button data-key="retol-inline" style="position:absolute;right:10px;top:4px;"
+                        class="btn btn-sm btn-secondary"><i class="fas fa-copy"></i> Copiar</button>
+                    </div>
+                    <div>
+                
+                </div>
+            </div>
+            <!--end:tabmenu-->
         </div>
 
         <p><br></p>
@@ -1233,7 +726,9 @@ per a la capsa. Es recomana incloure el desplegable per a la resolució.
                 <p style="color: rgb(62, 3, 62)"><b><i class="fas fa-lightbulb"></i> Tingues en compte...</b></p>
                 <div class="alert alert-info" style="width:90%;margin-left:30px; color: rgb(62, 3, 62)"><ul>
                 
-                    <li>Aquesta capsa ha d'aparèixer al principi de la pàgina. </li>
+                    <li>Sempre que sigui possible cal emprar les capses corresponents. </li>
+                
+                    <li>Únicament emprar el rètol en línia quan el contingut sigui molt curt i la capsa quedi massa buida. </li>
                 
                 </ul></div>
             
@@ -1243,7 +738,7 @@ per a la capsa. Es recomana incloure el desplegable per a la resolució.
         <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
         <div style="margin-left:35px;">
             <p>
-                Aquesta capsa serveix per introduir un lliurament o una part d'ell.  Podeu triar una mida per a la capsa.
+                Permet anotar una part d'un paràgraf com alerta, ampliació, consell o important.  Emprau <b>només</b> quan les capses corresponents siguin massa grans pel contingut que vulgueu ressaltar.<br> <b>Alerta</b>: Serveix per informar d'una errada o situació greu a tenir en compte. <br> <b>Ampliació</b>: Marcau que el material és d'ampliació per als alumnes.<br> <b>Consell</b>: Donau un consell als alumnes.<br> <b>Important</b>: Remarcar que és un contingut rellevant que cal estudiar.
 
             </p>
         </div> 
@@ -1254,29 +749,29 @@ per a la capsa. Es recomana incloure el desplegable per a la resolució.
     <p><br>
     <p>
 </div>
-<!--fi:divsnippet-->
+<!--fi:divwidget-->
     
         <p>
     <hr><br>
 <p>
 <a name="section-tasca-exercici"></a>
-<!--ini:div-snippet-->
+<!--ini:div-widget-->
 <div style="position:relative;">
-    <h4 class="iedib-subsub" title="tasca-exercici" style="background: darkslategray; color: white; padding: 5px;"> <i class="fas fa-dot-circle"></i>&nbsp;
+    <h3 title="tasca-exercici" style="background: darkslategray; color: white; padding: 5px; font-size: 1.2rem;"> <i class="fas fa-dot-circle"></i>&nbsp;
         
                 Tasca-Exercici
                     &nbsp;&nbsp;
                     
                             
                             
-    </h4>
+    </h3>
     <p><br></p> 
 
         <div
             style="font-size:small; position: absolute; right: 20px; top: 5px;padding:4px;border:1px dashed grey; background:white; z-index:100;  box-shadow: 4px 4px darkslategrey;">
-            <em>Àmbit d'aplicació</em>: Tots<br>
+            <em>Àmbit d'aplicació</em>: Llibres<br>
                 <em>Recomanació d'ús</em>: 2/3<br>
-                    <em>Versió</em>: 2021.3.30
+                    <em>Versió</em>: 2024.11.02
         </div>
 
         <!--begin:tabmenu-->
@@ -1296,10 +791,13 @@ per a la capsa. Es recomana incloure el desplegable per a la resolució.
                     
                     <p><br></p>
 <!-- begin tasca-execici -->
-<div class="iedib-capsa iedib-tasca-exercici" data-lang="ca">
-  <div class="iedib-tasca iedib-proposat iedib-central"><span class="iedib-tasca-logo"></span>
+<div class="iedib-capsa iedib-tasca-exercici" data-lang="ca" data-proposat="epr">
+  <div class="iedib-tasca iedib-proposat iedib-central">
+    <span class="iedib-tasca-logo"></span>
     <h4>EXERCICIS:</h4>
     <div class="iedib-inspoint">
+
+
       <ol>
         <li>
           <p>Exercici 1</p>
@@ -1320,10 +818,13 @@ per a la capsa. Es recomana incloure el desplegable per a la resolució.
                     <div style="position:relative;max-height: 400px;overflow: auto;">
                     <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-tasca-exercici-12" style="min-height: 100px;">&lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;!-- begin tasca-execici --&gt;
-&lt;div class=&quot;iedib-capsa iedib-tasca-exercici&quot; data-lang=&quot;ca&quot;&gt;
-  &lt;div class=&quot;iedib-tasca iedib-proposat iedib-central&quot;&gt;&lt;span class=&quot;iedib-tasca-logo&quot;&gt;&lt;/span&gt;
+&lt;div class=&quot;iedib-capsa iedib-tasca-exercici&quot; data-lang=&quot;ca&quot; data-proposat=&quot;epr&quot;&gt;
+  &lt;div class=&quot;iedib-tasca iedib-proposat iedib-central&quot;&gt;
+    &lt;span class=&quot;iedib-tasca-logo&quot;&gt;&lt;/span&gt;
     &lt;h4&gt;EXERCICIS:&lt;/h4&gt;
     &lt;div class=&quot;iedib-inspoint&quot;&gt;
+
+
       &lt;ol&gt;
         &lt;li&gt;
           &lt;p&gt;Exercici 1&lt;/p&gt;
@@ -1347,43 +848,6 @@ per a la capsa. Es recomana incloure el desplegable per a la resolució.
                 </div>
             </div>
             <!--end:tabmenu-->
-            <!--begin:accordion-->
-            <div id="acc-st9sv5khddo" class="accordion iedib-accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_acc-st9sv5khddo_0"
-                            data-toggle="collapse" data-parent="#acc-st9sv5khddo" style="background: whitesmoke;">
-                            <span class="icon icon-plus-sign"></span> <span>&nbsp;</span> <i
-                                class="fas fa-sliders-h"></i> Paràmetres </a></div>
-                    <div id="collapse_acc-st9sv5khddo_0" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                             
-            <div class="form-group">
-            <label for="tasca-exercici_lang">Idioma </label>
-            <select class="form-control" id="tasca-exercici_lang"><option value="ca" selected>Català</option><option value="es" >Castellà</option><option value="en" >English</option><option value="fr" >Francès</option><option value="de" >Alemany</option></select>
-            </div>
-            <div class="form-group">
-            <label for="tasca-exercici_tipus">Tipus d'activitat </label>
-            <select class="form-control" id="tasca-exercici_tipus"><option value="epr" selected>Exercicis proposats</option><option value="tava" >Tasca avaluable</option><option value="tapr" >Tasca d'aprenentatge</option></select>
-            </div>
-            <div class="form-group">
-            <label for="tasca-exercici_enumera">Enumera els exercicis des de num. </label>
-            <input type="numeric" class="form-control" id="tasca-exercici_enumera" aria-describedby="[object Object]" value="1" min=1 title="enumera">
-            </div><div class="form-check" style="margin-bottom:10px;">
-            <input type="checkbox" class="form-check-input" value="0"  id="tasca-exercici_fancy" title="fancy">
-            <label class="form-check-label" for="tasca-exercici_fancy">
-                Estil d'enumerat embellit  
-            </label>
-          </div>
-            <div class="form-group">
-            <label for="tasca-exercici__contingut">Contingut per defecte (només exercicis) </label>
-            <textarea class="form-control" id="tasca-exercici__contingut" title="_contingut"></textarea>
-            </div>
-         <button class="btn btn-primary" data-key="tasca-exercici"><i class="fas fa-sync-alt" title="Actualita els canvis"></i> Genera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end: accordion-->
         </div>
 
         <p><br></p>
@@ -1395,7 +859,7 @@ per a la capsa. Es recomana incloure el desplegable per a la resolució.
                 <p style="color:#a50b0b"><b><i class="fas fa-times-circle"></i> Cal evitar...</b></p>
                 <div class="alert alert-danger" style="width:90%;margin-left:30px;"><ul>
                 
-                    <li>No empreu les opcions tasca avaluable o tasca d'aprenentatge per incloure una activitat que no estigui al Grid. </li>
+                    <li>No empreu les opcions tasca avaluable o tasca d'aprenentatge per incloure una activitat que no estigui al <i>Grid</i>. </li>
                 
                 </ul></div>
             
@@ -1406,7 +870,7 @@ per a la capsa. Es recomana incloure el desplegable per a la resolució.
                 
                     <li>Col·loqueu aquest snippet sempre a peu de secció. </li>
                 
-                    <li>Hi pot haver més d'un exercici dins d'un snippet exercicis. No cal repetir la capçalera per cadascún. </li>
+                    <li>Hi pot haver més d'un exercici dins d'un snippet exercicis. No cal repetir la capçalera per a cadascún. </li>
                 
                 </ul></div>
             
@@ -1416,7 +880,7 @@ per a la capsa. Es recomana incloure el desplegable per a la resolució.
         <p style="color:#5252ec"><i class="fas fa-book"></i> <b>Instruccions de l'snippet...</b></p>
         <div style="margin-left:35px;">
             <p>
-                Aquesta snippet ha d'anar obligatòriament a peu de pàgina.  Triau si voleu referènciar una <b>tasca avaluable</b>, <b>tasca d'aprenentatge</b> que teniu publicada al grid o bé,  voleu incloure <b>exercicis proposats</b> (textual, h5p, etc.). En aquest darrer cas, podeu especificar un contingut per defecte.
+                Aquesta snippet ha d'anar obligatòriament a peu de pàgina.  Triau si voleu referènciar una <b>tasca avaluable</b>, <b>tasca d'aprenentatge</b> que teniu publicada al grid o bé,  voleu incloure <b>exercicis proposats</b> (textual, h5p, etc.). En aquest darrer cas, podeu especificar un contingut per defecte. 
 
             </p>
         </div> 
@@ -1427,292 +891,76 @@ per a la capsa. Es recomana incloure el desplegable per a la resolució.
     <p><br>
     <p>
 </div>
-<!--fi:divsnippet-->
+<!--fi:divwidget-->
     
  
 
     <p><br></p>
     <p><br></p>
-    <p><small>Versió revisada 23.06.2022</small></p>
+    <p><small>Versió revisada 07/05/2025</small></p>
 
-    
-    <script src="https://piworld.es/iedib/node_modules/handlebars/dist/handlebars.min.js"></script>
-    <script src="https://piworld.es/iedib/node_modules/js-beautify/js/lib/beautify-html.js"></script>
-      
     <!--load_all_snippets-->
-    <script src="https://piworld.es/iedib/snippets/sd/all.min.js"></script> 
+    <script src="https://ibsuite.es/iedib/snippets/sd/all.min.js"></script> 
     <script>
-        
-        var mapSnippets = {"capsa-alerta":{"name":"Capsa Alerta","key":"capsa-alerta","instructions":"Aquesta capsa serveix per informar d'una errada o situació greu a tenir en compte.  Triau una mida per a la capsa.\n","defaults":{"mida":"gran","$lang":"ca","$id":"rqe94fj70j9"},"body":"<p><br></p><!--begin: Capsa alerta {{mida}} -->\n<div class=\"iedib-capsa iedib-capsa-{{mida}} iedib-alerta-border\" data-lang=\"{{$lang}}\">\n  <div class=\"iedib-lateral iedib-alerta\">\n    <p class=\"iedib-titolLateral\">{{I18n \"msg\"}}<span class=\"iedib-alerta-logo\"></span></p>\n  </div>\n  <div class=\"iedib-central\">\n   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna\n   aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint\n   occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n  </div>\n</div>\n<!--end: Capsa alerta {{mida}}--> <p><br></p>\n","version":"2.1.0","misc":{"scope":"*","category":"capses","insertquery":".iedib-central","stars":2,"I18n":{"msg":{"ca":"ALERTA","es":"ALERTA","en":"WATCH OUT","fr":"ATTENTION","de":"ACHTUNG"}},"parameters":[{"name":"mida","title":"Mida de la capsa","type":"select","options":["gran","mitjana","petita"]},{"name":"$lang","title":"Idioma","type":"select","options":[{"v":"ca","l":"Català"},{"v":"es","l":"Castellà"},{"v":"en","l":"English"},{"v":"fr","l":"Francès"},{"v":"de","l":"Alemany"}]}]},"generated":"Sun Jun 27 2021 10:35:57 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"capses","parent":"","pro":["Que tingui una extensió curta, menys de 4 línies.","Avisar a l'alumnat d'una errada greu.","S'empri per indicar una acció que tindrà conseqüències crítiques."],"con":["No s'ha emprar com un dels panells per mostrar dos procediments un bé i l'altre malament. Per això hi ha l'snippet correcte/incorrecte.","No s'ha d'utilitzar per remarcar un contingut 'important'. A aquest efecte, existeix el component <a href=\"#section-capsa-important\">Capsa Important</a>."],"hint":[],"html":"<p><br></p>\n<!--begin: Capsa alerta gran -->\n<div class=\"iedib-capsa iedib-capsa-gran iedib-alerta-border\" data-lang=\"ca\">\n  <div class=\"iedib-lateral iedib-alerta\">\n    <p class=\"iedib-titolLateral\">ALERTA<span class=\"iedib-alerta-logo\"></span></p>\n  </div>\n  <div class=\"iedib-central\">\n    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna\n      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint\n      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n  </div>\n</div>\n<!--end: Capsa alerta gran-->\n<p><br></p>"},"capsa-ampliacio":{"name":"Capsa Ampliació","key":"capsa-ampliacio","instructions":"Utilitzau aquesta capsa per proporcionar material d'ampliació als alumnes. Triau una mida per a la capsa.","defaults":{"mida":"gran","$lang":"ca","$id":"r634cn9t4lo8"},"body":"<p><br></p> <!--begin: Capsa ampliacio {{mida}} --> <div class=\"iedib-capsa iedib-capsa-{{mida}} iedib-ampliacio-border\" data-lang=\"{{$lang}}\"> <div class=\"iedib-lateral iedib-ampliacio\"> <p class=\"iedib-titolLateral\">{{I18n 'msg'}}<span class=\"iedib-ampliacio-logo\"></span></p> </div> <div class=\"iedib-central\"> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> </div> </div> <!--end: Capsa ampliacio {{mida}}-->  <p><br></p>","version":"2.1.0","misc":{"scope":"*","category":"capses","insertquery":".iedib-central","stars":2,"I18n":{"msg":{"ca":"AMPLIACIÓ","es":"AMPLIACIÓN","en":"EXTENSION","fr":"EXTENSION","de":"ERWEITERUNG"}},"parameters":[{"name":"mida","title":"Mida de la capsa","type":"select","options":["gran","mitjana","petita"]},{"name":"$lang","title":"Idioma","type":"select","options":[{"v":"ca","l":"Català"},{"v":"es","l":"Castellà"},{"v":"en","l":"English"},{"v":"fr","l":"Francès"},{"v":"de","l":"Alemany"}]}]},"generated":"Sat Jun 11 2022 16:28:16 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"capses","parent":"","html":"<p><br></p>\n<!--begin: Capsa ampliacio gran -->\n<div class=\"iedib-capsa iedib-capsa-gran iedib-ampliacio-border\" data-lang=\"ca\">\n  <div class=\"iedib-lateral iedib-ampliacio\">\n    <p class=\"iedib-titolLateral\">AMPLIACIÓ<span class=\"iedib-ampliacio-logo\"></span></p>\n  </div>\n  <div class=\"iedib-central\">\n    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n  </div>\n</div>\n<!--end: Capsa ampliacio gran-->\n<p><br></p>"},"capsa-consell":{"name":"Capsa Consell","key":"capsa-consell","instructions":"Aquesta capsa serveix per donar un consell a l'alumnat. Triau una mida per a la capsa.","defaults":{"mida":"gran","$lang":"ca","$id":"rikq598hgr6"},"body":"<p><br></p>  <!--begin: Capsa consell {{mida}} --> <div class=\"iedib-capsa iedib-capsa-{{mida}} iedib-consell-border\" data-lang=\"{{$lang}}\"> <div class=\"iedib-lateral iedib-consell\"> <p class=\"iedib-titolLateral\">{{I18n 'msg'}}<span class=\"iedib-important-logo\"></span></p> </div> <div class=\"iedib-central\"> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> </div> </div> <!--end: Capsa consell {{mida}}--> <p><br></p>","version":"2021.3.30","misc":{"scope":"*","category":"capses","insertquery":".iedib-central","stars":2,"I18n":{"msg":{"ca":"CONSELL","es":"CONSEJO","en":"ADVICE","fr":"CONSEIL","de":"TIPP"}},"parameters":[{"name":"mida","title":"Mida de la capsa","type":"select","options":["gran","mitjana","petita"]},{"name":"$lang","title":"Idioma","type":"select","options":[{"v":"ca","l":"Català"},{"v":"es","l":"Castellà"},{"v":"en","l":"English"},{"v":"fr","l":"Francès"},{"v":"de","l":"Alemany"}]}]},"generated":"Sat Jun 11 2022 16:28:16 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"capses","date":"2021-03-29T22:00:00.000Z","parent":"","html":"<p><br></p>\n<!--begin: Capsa consell gran -->\n<div class=\"iedib-capsa iedib-capsa-gran iedib-consell-border\" data-lang=\"ca\">\n  <div class=\"iedib-lateral iedib-consell\">\n    <p class=\"iedib-titolLateral\">CONSELL<span class=\"iedib-important-logo\"></span></p>\n  </div>\n  <div class=\"iedib-central\">\n    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n  </div>\n</div>\n<!--end: Capsa consell gran-->\n<p><br></p>"},"capsa-exemple-cols":{"name":"Capsa Exemple 2 Columnes","key":"capsa-exemple-cols","instructions":"Utilitzau aquesta capsa per mostrar un exemple amb l'enunciat i la resolució en dues columnes  diferents.\n","defaults":{"$lang":"ca","$id":"rgfjpcbepim8"},"body":"<p><br></p>\n<!--begin: Capsa exemple 2 columnes -->\n<div class=\"iedib-capsa iedib-capsa-gran iedib-exemple-border\" data-lang=\"{{$lang}}\">\n<div class=\"iedib-lateral iedib-exemple\">\n<p class=\"iedib-titolLateral\">{{I18n 'msg'}}<span class=\"iedib-exemple-logo\"></span></p>\n</div>\n<div class=\"row-fluid iedib-fluid\">\n    <div class=\"span4 iedib-formulacio\">\n       <p>Escriviu en aquesta columna l'enunciat del problema.</p>\n    </div>\n<div class=\"span8 iedib-resolucio\">\n    <div class=\"iedib-central\">\n       <p>Escriviu en aquesta altra columna la resolució del problema.</p>\n    </div>\n</div>\n</div>\n</div>\n<!--end: Capsa exemple 2 columnes-->\n<p><br></p>\n","version":"2.1.0","misc":{"stars":0,"scope":"*","category":"capses","I18n":{"msg":{"ca":"EXEMPLE","es":"EJEMPLO","en":"EXAMPLE","fr":"EXEMPLE","de":"BEISPIEL"}},"parameters":[{"name":"$lang","title":"Idioma","type":"select","options":[{"v":"ca","l":"Català"},{"v":"es","l":"Castellà"},{"v":"en","l":"English"},{"v":"fr","l":"Francès"},{"v":"de","l":"Alemany"}]}]},"generated":"Sun Jun 27 2021 10:35:57 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"capses","parent":"","html":"<p><br></p>\n<!--begin: Capsa exemple 2 columnes -->\n<div class=\"iedib-capsa iedib-capsa-gran iedib-exemple-border\" data-lang=\"ca\">\n  <div class=\"iedib-lateral iedib-exemple\">\n    <p class=\"iedib-titolLateral\">EXEMPLE<span class=\"iedib-exemple-logo\"></span></p>\n  </div>\n  <div class=\"row-fluid iedib-fluid\">\n    <div class=\"span4 iedib-formulacio\">\n      <p>Escriviu en aquesta columna l'enunciat del problema.</p>\n    </div>\n    <div class=\"span8 iedib-resolucio\">\n      <div class=\"iedib-central\">\n        <p>Escriviu en aquesta altra columna la resolució del problema.</p>\n      </div>\n    </div>\n  </div>\n</div>\n<!--end: Capsa exemple 2 columnes-->\n<p><br></p>"},"capsa-exemple-rows":{"name":"Capsa Exemple 2 Files","key":"capsa-exemple-rows","instructions":"Utilitzau aquesta capsa per mostrar un exemple amb l'enunciat i la resolució en dues files diferents. Decidiu si la segona fila conté un desplegable.\n","defaults":{"$lang":"ca","inclouDesplegable":1,"clau":"cosdmu7jjljg","$id":"rl37ov5saem"},"body":"<p><br></p>\n<!--begin: Capsa exemple 2 files -->\n<div class=\"iedib-capsa iedib-capsa-gran iedib-exemple-border\" data-lang=\"{{$lang}}\">\n<div class=\"iedib-lateral iedib-exemple\">\n<p class=\"iedib-titolLateral\">{{I18n 'msg'}}<span class=\"iedib-exemple-logo\"></span></p>\n</div>\n<div class=\"iedib-formulacio-rows\">\n   <p>Escriviu en aquesta secció l'enunciat del problema.</p>\n</div>\n<div class=\"iedib-resolucio-rows\">\n{{#ifCond inclouDesplegable 'eq' '0'}}<p>Escriviu en aquesta altra secció la resolució del problema.</p>{{/ifCond}} \n{{#ifCond inclouDesplegable 'eq' 1}}<!--begin: accordion answer-->\n<div id=\"{{clau}}\" class=\"accordion iedib-accordion\">\n<div class=\"accordion-group\">\n<div class=\"accordion-heading\"><a class=\"accordion-toggle\" href=\"#collapse_{{clau}}_0\" data-toggle=\"collapse\"\ndata-parent=\"#{{clau}}\"><span class=\"icon icon-plus-sign\"></span> <span>&nbsp;</span><span>{{I18n 'sol'}}</span></a></div>\n<div id=\"collapse_{{clau}}_0\" class=\"accordion-body collapse\">\n<div class=\"accordion-inner\">\n   <p>Desenvolupament de la solució de l'exemple ...</p>\n</div>\n</div>\n</div>\n</div><!--end: accordion-answer-->{{/ifCond}}\n</div>\n</div>\n<!--end: Capsa exemple 2 files--> \n<p><br></p>\n","version":"2.1.0","misc":{"stars":0,"scope":"*","category":"capses","I18n":{"msg":{"ca":"EXEMPLE","es":"EJEMPLO","en":"EXAMPLE","fr":"EXEMPLE","de":"BEISPIEL"},"sol":{"ca":"Solució","es":"Solución","en":"Answer","fr":"Solution","de":"Lösung"}},"parameters":[{"name":"$lang","title":"Idioma","type":"select","options":[{"v":"ca","l":"Català"},{"v":"es","l":"Castellà"},{"v":"en","l":"English"},{"v":"fr","l":"Francès"},{"v":"de","l":"Alemany"}]},{"name":"inclouDesplegable","title":"Inclou desplegable per a la resolució","type":"checkbox"},{"name":"clau","title":"Identificador autogenerat","type":"textfield","hidden":true}]},"generated":"Thu Jun 16 2022 09:57:31 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"capses","parent":"","html":"<p><br></p>\n<!--begin: Capsa exemple 2 files -->\n<div class=\"iedib-capsa iedib-capsa-gran iedib-exemple-border\" data-lang=\"ca\">\n  <div class=\"iedib-lateral iedib-exemple\">\n    <p class=\"iedib-titolLateral\">EXEMPLE<span class=\"iedib-exemple-logo\"></span></p>\n  </div>\n  <div class=\"iedib-formulacio-rows\">\n    <p>Escriviu en aquesta secció l'enunciat del problema.</p>\n  </div>\n  <div class=\"iedib-resolucio-rows\">\n\n    <!--begin: accordion answer-->\n    <div id=\"cosdmu7jjljg\" class=\"accordion iedib-accordion\">\n      <div class=\"accordion-group\">\n        <div class=\"accordion-heading\"><a class=\"accordion-toggle\" href=\"#collapse_cosdmu7jjljg_0\" data-toggle=\"collapse\" data-parent=\"#cosdmu7jjljg\"><span class=\"icon icon-plus-sign\"></span> <span>&nbsp;</span><span>Solució</span></a></div>\n        <div id=\"collapse_cosdmu7jjljg_0\" class=\"accordion-body collapse\">\n          <div class=\"accordion-inner\">\n            <p>Desenvolupament de la solució de l'exemple ...</p>\n          </div>\n        </div>\n      </div>\n    </div>\n    <!--end: accordion-answer-->\n  </div>\n</div>\n<!--end: Capsa exemple 2 files-->\n<p><br></p>"},"capsa-exemple-simple":{"name":"Capsa Exemple Simple","key":"capsa-exemple-simple","instructions":"Utilitzau aquesta capsa per mostrar un exemple amb l'enunciat i la resolució en el mateix contenidor. Triau una mida\nper a la capsa. Es recomana incloure el desplegable per a la resolució.\n","defaults":{"$lang":"ca","mida":"gran","inclouDesplegable":1,"solucioNarrada":0,"urlAudio":"https://drive.google.com/file/d/1DDUzcFrOlzWb3CBdFPJ1NCNXClvPbm5B/preview","clau":"ck6jbj4o7a2o","$id":"r9ttqenjseno"},"body":"<p><br></p> <!--begin: Capsa exemple {{mida}} --> <div class=\"iedib-capsa iedib-capsa-{{mida}} iedib-exemple-border\" data-lang=\"{{$lang}}\"> <div class=\"iedib-lateral iedib-exemple\"> <p class=\"iedib-titolLateral\">{{I18n 'msg'}}<span class=\"iedib-exemple-logo\"></span></p> </div> <div class=\"iedib-central\"> <div class=\"iedib-iq\">\n  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna\n  aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint\n  occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n</div> {{#ifCond inclouDesplegable 'eq' 1}}<!--begin: accordion answer-->  <div id=\"{{clau}}\" class=\"accordion iedib-accordion\" {{#if solucioNarrada}}role=\"snptd_narracio\" data-audible=\"{{urlAudio}}\"{{/if}}> <div class=\"accordion-group\"> <div class=\"accordion-heading\"><a class=\"accordion-toggle\" href=\"#collapse_{{clau}}_0\" data-toggle=\"collapse\" data-parent=\"#{{clau}}\"><span class=\"icon icon-plus-sign\"></span> <span>&nbsp;</span><span>{{I18n 'sol'}}</span></a></div> <div id=\"collapse_{{clau}}_0\" class=\"accordion-body collapse\"> <div class=\"accordion-inner\"> <p>Desenvolupament de la solució de l'exemple ...</p> </div> </div> </div> </div><!--end: accordion-answer-->{{/ifCond}} <br></div> </div> <!--end: Capsa exemple {{mida}}--> <p><br></p>\n","version":"2.1.0","misc":{"requires":{"solucioNarrada==1":"/sd/narracio.min.js"},"stars":3,"scope":"*","category":"capses","insertquery":".iedib-iq","I18n":{"msg":{"ca":"EXEMPLE","es":"EJEMPLO","en":"EXAMPLE","fr":"EXEMPLE","de":"BEISPIEL"},"sol":{"ca":"Solució","es":"Solución","en":"Answer","fr":"Solution","de":"Lösung"}},"parameters":[{"name":"$lang","title":"Idioma","type":"select","options":[{"v":"ca","l":"Català"},{"v":"es","l":"Castellà"},{"v":"en","l":"English"},{"v":"fr","l":"Francès"},{"v":"de","l":"Alemany"}]},{"name":"mida","title":"Mida de la capsa","type":"select","options":["gran","mitjana","petita"]},{"name":"inclouDesplegable","title":"Inclou desplegable per a la resolució?","type":"checkbox"},{"name":"solucioNarrada","title":"Inclou una solució narrada en audio?","type":"checkbox","when":"{{inclouDesplegable}}==1","for":"4,7,14,31"},{"name":"urlAudio","title":"URL del fitxer d'audio (.mp3)","tip":"Per exemple, cal que enregistreu prèviament l'audio en .mp3 i el pugeu i compartiu al vostre Google Drive. Si disposau de més d'un format d'àudio, separau les URL amb coma.","type":"textfield","when":"{{solucioNarrada}}==1 && {{inclouDesplegable}}==1","transform":"serveGDrive"},{"name":"clau","title":"Identificador autogenerat","type":"textfield","hidden":true}]},"generated":"Mon Jun 20 2022 12:47:17 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"capses","parent":"","pro":["Sempre que sigui possible emprau <b>aquest</b> snippet per mostrar un exemple.","Si l'exemple conté una formulació + resolució, posau la resolució dins d'un <b>desplegable</b>."],"con":[],"hint":[],"html":"<p><br></p>\n<!--begin: Capsa exemple gran -->\n<div class=\"iedib-capsa iedib-capsa-gran iedib-exemple-border\" data-lang=\"ca\">\n  <div class=\"iedib-lateral iedib-exemple\">\n    <p class=\"iedib-titolLateral\">EXEMPLE<span class=\"iedib-exemple-logo\"></span></p>\n  </div>\n  <div class=\"iedib-central\">\n    <div class=\"iedib-iq\">\n      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna\n        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint\n        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n    </div>\n    <!--begin: accordion answer-->\n    <div id=\"ck6jbj4o7a2o\" class=\"accordion iedib-accordion\">\n      <div class=\"accordion-group\">\n        <div class=\"accordion-heading\"><a class=\"accordion-toggle\" href=\"#collapse_ck6jbj4o7a2o_0\" data-toggle=\"collapse\" data-parent=\"#ck6jbj4o7a2o\"><span class=\"icon icon-plus-sign\"></span> <span>&nbsp;</span><span>Solució</span></a></div>\n        <div id=\"collapse_ck6jbj4o7a2o_0\" class=\"accordion-body collapse\">\n          <div class=\"accordion-inner\">\n            <p>Desenvolupament de la solució de l'exemple ...</p>\n          </div>\n        </div>\n      </div>\n    </div>\n    <!--end: accordion-answer--> <br>\n  </div>\n</div>\n<!--end: Capsa exemple gran-->\n<p><br></p>"},"capsa-important":{"name":"Capsa Important","key":"capsa-important","instructions":"Aquesta capsa serveix per remarcar un concepte important dins del llibre.  Triau una mida per a la capsa.\n","defaults":{"mida":"gran","$lang":"ca","$id":"r6h0uk08qhp"},"body":"<p><br></p> \n<!--begin: Capsa important {{mida}} -->\n<div class=\"iedib-capsa iedib-capsa-{{mida}} iedib-important-border\" data-lang=\"{{$lang}}\">\n<div class=\"iedib-lateral iedib-important\">\n<p class=\"iedib-titolLateral\">{{I18n 'msg'}}<span class=\"iedib-important-logo\"></span></p>\n</div>\n<div class=\"iedib-central\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna\naliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint\noccaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n</div>\n</div>\n<!--end: Capsa important {{mida}}--> \n<p><br></p>\n","version":"2.1.0","misc":{"scope":"*","category":"capses","insertquery":".iedib-central","stars":3,"I18n":{"msg":{"ca":"IMPORTANT","es":"IMPORTANTE","en":"IMPORTANT","fr":"IMPORTANT","de":"WICHTIG"}},"parameters":[{"name":"mida","title":"Mida de la capsa","type":"select","options":["gran","mitjana","petita"]},{"name":"$lang","title":"Idioma","type":"select","options":[{"v":"ca","l":"Català"},{"v":"es","l":"Castellà"},{"v":"en","l":"English"},{"v":"fr","l":"Francès"},{"v":"de","l":"Alemany"}]}]},"generated":"Sun Jun 27 2021 10:35:57 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"capses","parent":"","pro":["Subratllar un aspecte molt important del tema.","Remarcar un concepte o fórmula rellevant per a les tasques o exàmens."],"con":["Si remarcau massa parts de la pàgina, el remarcat deixa de tenir efecte."],"hint":[],"html":"<p><br></p>\n<!--begin: Capsa important gran -->\n<div class=\"iedib-capsa iedib-capsa-gran iedib-important-border\" data-lang=\"ca\">\n  <div class=\"iedib-lateral iedib-important\">\n    <p class=\"iedib-titolLateral\">IMPORTANT<span class=\"iedib-important-logo\"></span></p>\n  </div>\n  <div class=\"iedib-central\">\n    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna\n      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint\n      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n  </div>\n</div>\n<!--end: Capsa important gran-->\n<p><br></p>"},"capsa-introduccio":{"name":"Capsa Introducció","key":"capsa-introduccio","instructions":"Aquesta capsa serveix per introduir un lliurament o una part d'ell.  Podeu triar una mida per a la capsa.\n","defaults":{"mida":"gran","$lang":"ca","$id":"rj0fudga20jg"},"body":"<p><br></p> <!--begin: Capsa introducció -->\n<div class=\"iedib-capsa iedib-capsa-{{mida}} iedib-introduccio-border\" data-lang=\"{{$lang}}\">\n<div class=\"iedib-lateral iedib-introduccio\">\n<p class=\"iedib-titolLateral\">{{I18n 'msg'}}<span class=\"iedib-introduccio-logo\"></span></p>\n</div>\n<div class=\"iedib-central\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna\naliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint\noccaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n</div>\n</div>\n<!--end: Capsa introduccio {{mida}}--> <p><br></p>\n","version":"2.1.0","misc":{"scope":"*","category":"capses","insertquery":".iedib-central","stars":2,"I18n":{"msg":{"ca":"INTRODUCCIÓ","es":"INTRODUCIÓN","en":"INTRODUCTION","fr":"INTRODUCTION","de":"EINFÜHRUNG"}},"parameters":[{"name":"mida","title":"Mida de la capsa","type":"select","options":["gran","mitjana","petita"]},{"name":"$lang","title":"Idioma","type":"select","options":[{"v":"ca","l":"Català"},{"v":"es","l":"Castellà"},{"v":"en","l":"English"},{"v":"fr","l":"Francès"},{"v":"de","l":" Alemany"}]}]},"generated":"Sat Jun 11 2022 16:28:16 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"capses","parent":"","pro":[],"con":[],"hint":["Aquesta capsa ha d'aparèixer al principi de la pàgina."],"html":"<p><br></p>\n<!--begin: Capsa introducció -->\n<div class=\"iedib-capsa iedib-capsa-gran iedib-introduccio-border\" data-lang=\"ca\">\n  <div class=\"iedib-lateral iedib-introduccio\">\n    <p class=\"iedib-titolLateral\">INTRODUCCIÓ<span class=\"iedib-introduccio-logo\"></span></p>\n  </div>\n  <div class=\"iedib-central\">\n    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna\n      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint\n      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n  </div>\n</div>\n<!--end: Capsa introduccio gran-->\n<p><br></p>"},"tasca-exercici":{"name":"Tasca-Exercici","key":"tasca-exercici","instructions":"Aquesta snippet ha d'anar obligatòriament a peu de pàgina.  Triau si voleu referènciar una <b>tasca avaluable</b>, <b>tasca d'aprenentatge</b> que teniu publicada al grid o bé,  voleu incloure <b>exercicis proposats</b> (textual, h5p, etc.). En aquest darrer cas, podeu especificar un contingut per defecte.\n","defaults":{"$lang":"ca","tipus":"epr","enumera":1,"fancy":0,"_contingut":"","$id":"rom4jiq09ch8"},"body":"<p><br></p>\n<!-- begin tasca-execici -->\n<div class=\"iedib-capsa iedib-tasca-exercici\" data-lang=\"{{$lang}}\">\n<div class=\"iedib-tasca {{#ifCond tipus 'eq' 'epr'}}iedib-proposat{{/ifCond}} iedib-central\"><span\nclass=\"iedib-tasca-logo\"></span>\n<h4>{{#ifCond tipus 'eq' 'tava'}}{{I18n 'msg_ava'}}{{/ifCond}}{{#ifCond tipus 'eq' 'tapr'}}\n{{I18n 'msg_apr'}}{{/ifCond}}{{#ifCond tipus 'eq' 'epr'}}{{I18n 'msg_epr'}}{{/ifCond}}:</h4>\n<div class=\"iedib-inspoint\">\n{{#ifCond tipus 'neq' 'epr'}}<p>Et proposo que realitzis aquesta tasca que trobaràs en les capsa del lliurament # per\npracticar els continguts vists fins ara.</p>{{/ifCond}}{{#ifCond tipus 'eq' 'epr'}}{{#ifCond _contingut 'eq'\n''}}<ol {{#ifCond fancy 'eq' 1}}{{#ifCond enumera 'gt' 1}}style=\"counter-reset: iedibfalist-counter {{#math enumera '-' 1}}{{/math}};\"{{/ifCond}} class=\"iedib-falist\"{{/ifCond}} {{#ifCond enumera 'gt' 1}}start=\"{{enumera}}\"{{/ifCond}}>\n<li><p>Exercici 1</p></li><li><p>Exercici2 <em>E.g. incloure h5p, etc.</em></p></li></ol>{{/ifCond}}\n{{#ifCond _contingut 'neq' ''}} {{{_contingut}}} {{/ifCond}} {{/ifCond}}\n</div>\n</div>\n</div>\n<!-- end tasca-exercici -->\n<p><br></p>\n","version":"2021.3.30","misc":{"category":"capses","stars":2,"scope":"L","insertquery":".iedib-tasca>div.iedib-inspoint","I18n":{"msg_ava":{"ca":"TASCA AVALUABLE","es":"TAREA EVALUABLE","en":"ASSESSED TASK","fr":"TÂCHE ÉVALUABLE","de":"BEWERTUNGSAKTIVITÄT"},"msg_apr":{"ca":"TASCA D'APRENENTATGE","es":"TAREA DE APRENDIZAJE","en":"LEARNING ASSIGNMENT","fr":"TÂCHE D'APPRENTISSAGE","de":"LERNAKTIVITÄT"},"msg_epr":{"ca":"EXERCICIS","es":"EJERCICIOS","en":"ACTIVITIES","fr":"EXERCICES","de":"ÜBUNGEN"}},"parameters":[{"name":"$lang","title":"Idioma","type":"select","options":[{"v":"ca","l":"Català"},{"v":"es","l":"Castellà"},{"v":"en","l":"English"},{"v":"fr","l":"Francès"},{"v":"de","l":"Alemany"}]},{"name":"tipus","title":"Tipus d'activitat","type":"select","options":[{"v":"epr","l":"Exercicis proposats"},{"v":"tava","l":"Tasca avaluable"},{"v":"tapr","l":"Tasca d'aprenentatge"}]},{"name":"enumera","title":"Enumera els exercicis des de num.","type":"numeric","min":1,"when":"{{tipus}}=='epr'"},{"name":"fancy","title":"Estil d'enumerat embellit","type":"checkbox","when":"{{tipus}}=='epr'"},{"name":"_contingut","title":"Contingut per defecte (només exercicis)","type":"textarea","when":"{{tipus}}=='epr' && {{SNPT_MODE}}!='selection'"}]},"generated":"Sun Jun 27 2021 11:33:46 GMT+0200 (Hora d’estiu del Centre d’Europa)","category":"capses","date":"2021-03-29T22:00:00.000Z","parent":"","pro":[],"con":["No empreu les opcions tasca avaluable o tasca d'aprenentatge per incloure una activitat que no estigui al Grid."],"hint":["Col·loqueu aquest snippet sempre a peu de secció.","Hi pot haver més d'un exercici dins d'un snippet exercicis. No cal repetir la capçalera per cadascún."],"html":"<p><br></p>\n<!-- begin tasca-execici -->\n<div class=\"iedib-capsa iedib-tasca-exercici\" data-lang=\"ca\">\n  <div class=\"iedib-tasca iedib-proposat iedib-central\"><span class=\"iedib-tasca-logo\"></span>\n    <h4>EXERCICIS:</h4>\n    <div class=\"iedib-inspoint\">\n      <ol>\n        <li>\n          <p>Exercici 1</p>\n        </li>\n        <li>\n          <p>Exercici2 <em>E.g. incloure h5p, etc.</em></p>\n        </li>\n      </ol>\n\n    </div>\n  </div>\n</div>\n<!-- end tasca-exercici -->\n<p><br></p>"}};
-        var compiledCache = {};
-
-function copyToClipboard(text) {
-  // must use a temporary form element for the selection and copy
-  var target = document.getElementById("snpclipboard");
-  if(!target) {
-    target = document.createElement("textarea");
-    target.style.position = "absolute";
-    target.style.left = "-9999px";
-    target.style.top = "0";
-    target.id = 'snpclipboard';
-    document.body.appendChild(target);
-  }
-  target.textContent = text;
-  // select the content 
-  var currentFocus = document.activeElement;
-  var sx = window.scrollX;
-  var sy = window.scrollY;
-  target.focus();
-  target.setSelectionRange(0, target.value.length);
-  // copy the selection
-  var succeed;
-  try {
-        succeed = document.execCommand("copy");
-  } catch(e) {
-      succeed = false;
-  } 
-  // restore original focus
-  if (currentFocus && typeof currentFocus.focus === "function") {
-    currentFocus.focus();
-  }
-  window.scrollTo(sx, sy);
-  return succeed;
-}
-// Register helpers to Handlebars 
-Handlebars.registerHelper('times', function(n, block) {
-    var accum = '';
-    for(var i = 0; i < n; ++i) {
-        block.data.index = i;
-        block.data.first = i === 0;
-        block.data.last = i === (n - 1);
-        accum += block.fn(this);
-    }
-    return accum;
-});
-Handlebars.registerHelper('ifCond', function(a, condition, b, opts) {
-    var bool;
-    if (condition == "==" || condition == "eq"){
-        bool = (a==b);
-    } else if (condition == "<" || condition == "lt"){
-        bool = (a<b);
-    } else if (condition == ">" || condition == "gt"){
-        bool = (a>b);
-    } else if (condition == "<=" || condition == "leq"){
-        bool = (a<=b);
-    } else if (condition == ">=" || condition == "geq"){
-        bool = (a>=b);
-    } else {
-        bool = (a!=b);
-    }
-    if (bool) {
-        return opts.fn(this);
-    } else {
-        return opts.inverse(this);
-    }
-});
-Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
-lvalue = parseFloat(lvalue);
-rvalue = parseFloat(rvalue);
-    
-return {
-    "+": lvalue + rvalue,
-    "-": lvalue - rvalue,
-    "*": lvalue * rvalue,
-    "/": lvalue / rvalue,
-    "%": lvalue % rvalue
-}[operator];
-}); 
-
-var I18n = {
-    locale: "ca",
-    resources: {}
-}; 
-
-Handlebars.registerHelper('I18n', function (arg, opts) {
-    var locale = opts.locale || I18n.locale;
-    var translations = I18n.resources[arg] || {};
-    return translations[locale] || arg;
-}); 
-
-/** Set of transformer utilities */
-var Transformers = {
-    "toUpperCase": function(txt) {
-        return (txt+"").toUpperCase();
-    },
-    "toLowerCase": function(txt) {
-        return (txt+"").toLowerCase();
-    },
-    "trim": function(txt) {
-        return (txt+"").trim();
-    },
-    "ytId": function(txt) {
-        // Finds the youtubeId in a text
-        var rx = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/|shorts\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
-        var r = (txt || '').match(rx);
-        if(r && r.length) {
-            return r[1];
-        }
-        return txt;
-    },
-    "vimeoId": function(txt) {
-        var regExp = /^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/;
-        var match = (txt||"").match(regExp);
-        if(match && match[5]) {
-            return match[5];
-        }
-        return txt;
-    },
-    "serveGDrive": function(txt) {
-        //Expecting https://drive.google.com/file/d/1DDUzcFrOlzWb3CBdFPJ1NCNXClvPbm5B/preview
-        var res = (txt+"").match(/https:\/\/drive.google.com\/file\/d\/([a-zA-Z0-9_]+)\//)
-        if(res && res.length) {
-            var driveId = res[1];
-            return "https://docs.google.com/uc?export=open&id="+driveId;
-        }
-        return txt;
-    },
-    "removeHTML": function(txt) {
-        return (txt || '').replace(/<[^>]*>?/gm, '');
-    },
-    "escapeHTML": function(txt) {
-        return  (txt || '').replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    },
-    "encodeHTML": function(txt) {
-        return this.encodeURIComponent(txt || "");
-    },
-    "escapeQuotes": function(txt) {
-        return  (txt || '').replace(/"/gm, "'");
-    }
-};
-
-function compilaSnippet(snippetKey) { 
-    var template = compiledCache[snippetKey];
-    if(!template) { 
-        var snippet = mapSnippets[snippetKey];
-        var body = snippet["body"];
-        // TODO hi ha un problema amb inner references {{../foo}}
-        body = body.replace(/\{\{..\//g, "{{");     
-        template = Handlebars.compile(body);
-        compiledCache[snippetKey] = template;
-    }
-    return template;
-}
-function paramId(snippetKey, paramKey) {
-    var key = snippetKey + '_' + paramKey.replace("$","")
-    return key.replace(/ /g, '')
-}
-function updateSnippetParameters(snippetKey) {
-    var snip = mapSnippets[snippetKey]; 
-    var values = JSON.parse(JSON.stringify(snip['defaults']));
-    var plist = snip['misc']['parameters'];
-    for(var i=0, len=plist.length; i < len; i++) {
-        var param = plist[i];
-        var pname = param.name;
-        //find the control
-        var cid = paramId(snippetKey, pname);
-        var $control = $('#' + cid); 
-        if($control.length) {
-            if(param.type=='checkbox') {
-                values[pname] = $control.prop('checked')?1:0;
-            } else {
-                values[pname] = $control.val();
+        var mapSnippets  = {"capsa-exemple-rows":{"html":"<p><br></p>\n<div class=\"iedib-capsa iedib-capsa-gran iedib-exemple-border\" data-lang=\"ca\">\n<!--begin: Capsa exemple 2 files -->\n<div class=\"iedib-lateral iedib-exemple\">\n<p class=\"iedib-titolLateral\">EXEMPLE<span class=\"iedib-exemple-logo\"></span></p>\n</div>\n<div class=\"iedib-formulacio-rows\">\n   <p>Escriviu en aquesta secció l'enunciat del problema.</p>\n</div>\n<div class=\"iedib-resolucio-rows\">\n \n<!--begin: accordion answer-->\n<div id=\"c43hlubencj8\" class=\"accordion iedib-accordion\">\n  <div class=\"accordion-group\">\n    <div class=\"accordion-heading\"><a class=\"accordion-toggle\" href=\"#collapse_c43hlubencj8_0\" data-toggle=\"collapse\"\n     data-parent=\"#c43hlubencj8\"><span class=\"icon icon-plus-sign\"></span> <span>&nbsp;</span><span>Solució</span></a></div>\n        <div id=\"collapse_c43hlubencj8_0\" class=\"accordion-body collapse\">\n          <div class=\"accordion-inner\">\n             <p>Desenvolupament de la solució de l'exemple ...</p>\n          </div>\n        </div>\n    </div>\n  </div><!--end: accordion-answer-->\n</div>\n<!--end: Capsa exemple 2 files--> \n</div>\n<p><br></p>\n"},"capsa-exemple-simple":{"html":"<p><br></p> <div class=\"iedib-capsa iedib-capsa-gran iedib-exemple-border\" data-lang=\"ca\">\n  <!--begin: Capsa exemple gran -->\n  <div class=\"iedib-lateral iedib-exemple\">\n     <p class=\"iedib-titolLateral\">EXEMPLE<span class=\"iedib-exemple-logo\"></span></p>\n  </div>\n  <div class=\"iedib-central\">\n  <div class=\"iedib-iq\">\n    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n</p>\n  </div>\n  <!--begin: accordion answer--> \n  <div id=\"citdessm1t8o\" class=\"accordion iedib-accordion\">\n  <div class=\"accordion-group\">\n    <div class=\"accordion-heading\"><a class=\"accordion-toggle\" href=\"#collapse_citdessm1t8o_0\" data-toggle=\"collapse\"\n    data-parent=\"#citdessm1t8o\"><span class=\"icon icon-plus-sign\"></span> <span>&nbsp;</span><span>Solució</span></a></div>\n      <div id=\"collapse_citdessm1t8o_0\" class=\"accordion-body collapse\">\n        <div class=\"accordion-inner\">\n        <p>Desenvolupament de la solució de l'exemple ...</p>\n        </div>\n      </div>\n</div> </div><!--end: accordion-answer--> <br></div> <!--end: Capsa exemple gran--> </div> <p><br></p>\n"},"capsa-generica":{"html":"<p><br></p><!--begin: Capsa alerta gran -->\n<div class=\"iedib-capsa iedib-capsa-gran iedib-alerta-border\" data-lang=\"ca\">\n  <div class=\"iedib-lateral iedib-alerta\">\n    <p class=\"iedib-titolLateral\">ALERTA<span class=\"iedib-alerta-logo\"></span></p>\n  </div>\n  <div class=\"iedib-central\">\n    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n</p>\n  </div>\n</div>\n<!--end: Capsa alerta gran--> <p><br></p>  \n"},"capsa-solucio":{"html":"<p><br></p> \n<!--begin: Capsa solució -->\n<div class=\"iedib-capsa iedib-solucio\">\n<div class=\"iedib-central\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n</p>\n</div>\n</div>\n<!--end: Capsa solució--> \n<p><br></p>\n"},"capsa-cloze":{"html":"<p><br></p>  \n<div class=\"cloze-styling\">\n<p><br></p>\n</div> \n<p><br></p>\n"},"retol-inline":{"html":"&nbsp; <span class=\"iedib-ret iedib-ret-alerta\">contingut a ressaltar</span> &nbsp;"},"tasca-exercici":{"html":"<p><br></p>\n<!-- begin tasca-execici -->\n<div class=\"iedib-capsa iedib-tasca-exercici\" data-lang=\"ca\" data-proposat=\"epr\">\n<div class=\"iedib-tasca iedib-proposat iedib-central\">\n<span class=\"iedib-tasca-logo\"></span>\n<h4>EXERCICIS:</h4>\n<div class=\"iedib-inspoint\">\n\n  \n    <ol  >\n    <li><p>Exercici 1</p></li><li><p>Exercici2 <em>E.g. incloure h5p, etc.</em></p></li></ol>\n   \n</div>\n</div>\n</div>\n<!-- end tasca-exercici -->\n<p><br></p>\n"}};
+        function copyToClipboard(text) {
+            // must use a temporary form element for the selection and copy
+            var target = document.getElementById("snpclipboard");
+            if(!target) {
+                target = document.createElement("textarea");
+                target.style.position = "absolute";
+                target.style.left = "-9999px";
+                target.style.top = "0";
+                target.id = 'snpclipboard';
+                document.body.appendChild(target);
             }
-        } else {
-            console.error("Cannot retrieve value from control " +cid);
+            target.textContent = text;
+            // select the content 
+            var currentFocus = document.activeElement;
+            var sx = window.scrollX;
+            var sy = window.scrollY;
+            target.focus();
+            target.setSelectionRange(0, target.value.length);
+            // copy the selection
+            var succeed;
+            try {
+                succeed = document.execCommand("copy");
+            } catch(e) {
+                succeed = false;
+            } 
+            // restore original focus
+            if (currentFocus && typeof currentFocus.focus === "function") {
+                currentFocus.focus();
+            }
+            window.scrollTo(sx, sy);
+            return succeed;
         }
-        // Apply transform functions 
-        if(param['transform']) {
-                var thevalue2 = values[pname];
-                var parts = param['transform'].split('|');
-                for(var j=0, lenj=parts.length; j<lenj; j++) {
-                    var prts = parts[j].trim();
-                    var transfunc = Transformers[prts];
-                    if(transfunc) {
-                        thevalue2 = transfunc(thevalue2);
-                    }
+        // Bind copy actions
+        document.querySelectorAll(".btn.btn-sm.btn-secondary").forEach((elem) => {
+            elem.addEventListener("click", function(evt){
+                var key = elem.dataset.key;  
+                console.log(elem, key )
+                if(copyToClipboard(mapSnippets[key]?.['html'] || "")){
+                    // Show tooltip - copied!
+                    console.log("Contents copied to clipboard!");
+                    $(elem).tooltip({
+                        title: "Copiat al portaretalls!"
+                    });
+                    
+                } else {
+                    console.error("Cannot copy to clipboard");
+                    $(elem).tooltip({
+                        title: "No s'ha pogut copiar :-("
+                    });
                 }
-                values[pname] = thevalue2;
-        }
-    }  
-    I18n.resources = snip['misc']['I18n'] || {};
-    I18n.locale = values['$lang'] || 'ca';
-    return values;
-}
-function compileSnippet(snippetKey, values) {
-    var template = compiledCache[snippetKey];
-    if(!template) {
-        template = compilaSnippet(snippetKey);
-        if(!template) {
-            console.error("Cannot compile ", snippetKey);
-            return;
-        }
-    } 
-    values['$id'] = "c"+Math.random().toString(32).substring(2);
-    var ll = Object.keys(values);
-    for(var i=0, leni=ll.length; i<leni; i++) {
-        var kk = ll[i];
-        if (values[kk] && (values[kk]+'').trim()=='$RND') {
-            values[kk] = "c"+Math.random().toString(32).substring(2); 
-        }  
-    }
-    return template(values);
-}
-$(function(){
-    $(".btn.btn-sm.btn-secondary").click(function(evt){
-        var self = $(this);
-        var key = self.data("key");  
-        if(copyToClipboard(mapSnippets[key]['html']||"")){
-            // Show tooltip - copied!
-            console.log("Contents copied to clipboard!");
-            self.tooltip({
-                title: "Copiat al portaretalls!"
+                $(elem).tooltip('enable');
+                $(elem).tooltip('show');
+                window.setTimeout(function(){
+                    $(elem).tooltip('hide');
+                    $(elem).tooltip('disable');
+                }, 1500);            
             });
-            
-        } else {
-            console.error("Cannot copy to clipboard");
-            self.tooltip({
-                title: "No s'ha pogut copiar :-("
-            });
-        }
-        self.tooltip('enable');
-        self.tooltip('show');
-        window.setTimeout(function(){
-            self.tooltip('hide');
-            self.tooltip('disable');
-        }, 1500);
-        
-    });
-    $(".btn.btn-primary[data-key]").click(function(evt){
-        var key = $(this).data("key");  
-        var parameters = updateSnippetParameters(key);
-        var html = compileSnippet(key, parameters);
-        $("#tab-"+key+"-0").html(html); 
-        var codeblock =$("#tab-"+key+"-12").get(0);
-        html = html_beautify(html);
-        //desa el nou codi
-        mapSnippets[key]['html'] = html;
-        //TODO: update to latest version
-        var newcode = hljs.highlight(html, {language: "html", ignoreIllegals: true }); 
-        codeblock.innerHTML = newcode.value;
-
-
-       //TODO: Update dynamic instances in page
-       if(window.IB && window.IB.sd) {
-        var valors = Object.values(IB.sd);
-        for(var sdIndx = 0, sdLen= valors.length; sdIndx<sdLen; sdIndx++) {
-          var sdObj = valors[sdIndx];  
-          sdObj.unbind && sdObj.unbind();
-          sdObj.bind && sdObj.bind();
-        
-        }
-        }
-    });
-}); 
-     
+        });
     </script>
     
 </body>

@@ -2,7 +2,7 @@
     "key": "retol-inline",
     "name": "Rètol en línia",
     "category": "capses",
-    "instructions": "Permet anotar una part d'un paràgraf com important, alerta, ampliació o consell.  Emprau <b>només</b> quan les capses corresponents siguin massa grans pel contingut que vulgueu ressaltar.  \n",
+    "instructions": "Permet anotar una part d'un paràgraf com alerta, ampliació, consell o important.  Emprau <b>només</b> quan les capses corresponents siguin massa grans pel contingut que vulgueu ressaltar.<br> <b>Alerta</b>: Serveix per informar d'una errada o situació greu a tenir en compte. <br> <b>Ampliació</b>: Marcau que el material és d'ampliació per als alumnes.<br> <b>Consell</b>: Donau un consell als alumnes.<br> <b>Important</b>: Remarcar que és un contingut rellevant que cal estudiar.\n",
     "template": "&nbsp; <span class=\"iedib-ret iedib-ret-{{severity}}\">{{_txt}}</span> &nbsp;",
     "insertquery": ".iedib-ret",
     "selectors": ".iedib-ret",
@@ -19,16 +19,16 @@
                     "l": "Alerta"
                 },
                 {
-                    "v": "important",
-                    "l": "Important"
-                },
-                {
                     "v": "ampliacio",
                     "l": "Ampliació"
                 },
                 {
                     "v": "consell",
                     "l": "Consell"
+                },
+                {
+                    "v": "important",
+                    "l": "Important"
                 }
             ],
             "bind": "classRegex('iedib-ret-(.*)')"
@@ -43,5 +43,5 @@
     ],
     "stars": 2,
     "author": "Josep Mulet Pol <pep.mulet@gmail.com>",
-    "version": "2021.06.21"
+    "version": "2025.05.07"
 }
