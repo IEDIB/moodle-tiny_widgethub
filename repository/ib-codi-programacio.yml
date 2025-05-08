@@ -50,7 +50,6 @@ parameters:
       - markdown
       - objectivec
       - php
-      - pgsql
       - powershell
       - prolog
       - python
@@ -68,10 +67,8 @@ parameters:
     bind:
       get: |
           function(e) {
-            var ce = e.find('code');
-            var lc = ce.attr('class')
-              ?.split(/\s+/).find(className => className.startsWith('language-'));
-            var lc = '';
+            var cls = e.find('code').attr('class');
+            var lc = cls?.split(/\s+/).find(cn => cn.startsWith('language-')) || '';
             if (lc) {
               lc = lc.substring('language-'.length);
             }
@@ -81,7 +78,7 @@ parameters:
           function(e, v) {
             var ce = e.find('code');
             var lc = ce.attr('class')
-              ?.split(/\s+/).find(className => className.startsWith('language-'));
+              ?.split(/\s+/).find(cn => cn.startsWith('language-'));
             ce.removeClass(lc)
             if (v) {
               ce.addClass('language-'+v);

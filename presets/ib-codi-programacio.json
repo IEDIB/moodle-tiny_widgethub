@@ -52,7 +52,6 @@
                 "markdown",
                 "objectivec",
                 "php",
-                "pgsql",
                 "powershell",
                 "prolog",
                 "python",
@@ -69,8 +68,8 @@
             "hint": "Deixau en blanc perquè es detecti automàticament.",
             "title": "Estableix llenguatge",
             "bind": {
-                "get": "function(e) {\n  var ce = e.find('code');\n  var lc = ce.attr('class')\n    ?.split(/\\s+/).find(className => className.startsWith('language-'));\n  var lc = '';\n  if (lc) {\n    lc = lc.substring('language-'.length);\n  }\n  return lc;\n}\n",
-                "set": "function(e, v) {\n  var ce = e.find('code');\n  var lc = ce.attr('class')\n    ?.split(/\\s+/).find(className => className.startsWith('language-'));\n  ce.removeClass(lc)\n  if (v) {\n    ce.addClass('language-'+v);\n  }\n}\n"
+                "get": "function(e) {\n  var cls = e.find('code').attr('class');\n  var lc = cls?.split(/\\s+/).find(cn => cn.startsWith('language-')) || '';\n  if (lc) {\n    lc = lc.substring('language-'.length);\n  }\n  return lc;\n}\n",
+                "set": "function(e, v) {\n  var ce = e.find('code');\n  var lc = ce.attr('class')\n    ?.split(/\\s+/).find(cn => cn.startsWith('language-'));\n  ce.removeClass(lc)\n  if (v) {\n    ce.addClass('language-'+v);\n  }\n}\n"
             }
         },
         {
