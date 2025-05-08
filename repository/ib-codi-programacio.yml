@@ -5,7 +5,9 @@ instructions: |
 template: >
   <p><br></p>
   <pre class="{{#notranslate}}notranslate {{/notranslate}}iedib-code {{#franges_de_fons}}iedib-code-stripped{{/franges_de_fons}}">
-  <code{{^syntax}} class="nohighlight"{{/syntax}}{{#syntax}}{{^lnum}} class="nohljsln"{{/lnum}}{{/syntax}}>{{codi}}</code>
+  <code{{^syntax}} class="nohighlight"{{/syntax}}{{#syntax}}{{^lnum}} class="nohljsln"{{/lnum}}{{/syntax}}>
+  {{codi}}
+  </code>
   </pre>
   <p><br></p>
 selectors: pre.iedib-code

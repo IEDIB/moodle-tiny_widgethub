@@ -2,7 +2,7 @@
     "key": "codi-programacio",
     "name": "Codi de programació",
     "instructions": "Utilitzeu aquest snippet per incloure un bloc de codi de programació.\n",
-    "template": "<p><br></p> <pre class=\"{{#notranslate}}notranslate {{/notranslate}}iedib-code {{#franges_de_fons}}iedib-code-stripped{{/franges_de_fons}}\"> <code{{^syntax}} class=\"nohighlight\"{{/syntax}}{{#syntax}}{{^lnum}} class=\"nohljsln\"{{/lnum}}{{/syntax}}>{{codi}}</code> </pre> <p><br></p>\n",
+    "template": "<p><br></p> <pre class=\"{{#notranslate}}notranslate {{/notranslate}}iedib-code {{#franges_de_fons}}iedib-code-stripped{{/franges_de_fons}}\"> <code{{^syntax}} class=\"nohighlight\"{{/syntax}}{{#syntax}}{{^lnum}} class=\"nohljsln\"{{/lnum}}{{/syntax}}> {{codi}} </code> </pre> <p><br></p>\n",
     "selectors": "pre.iedib-code",
     "parameters": [
         {
