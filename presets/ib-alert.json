@@ -29,8 +29,8 @@
             "title": "Tancable",
             "value": true,
             "bind": {
-                "get": "(e) => e.find(\"button.btn-close.close\").length > 0",
-                "set": "(e, v) => {\n    if (v && !e.find(\"button.btn-close.close\")[0]) {\n      var btn = '<button type=\"button\" class=\"btn-close close\" data-dismiss=\"alert\" data-bs-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>';\n      e.prepend(btn);\n      e.addClass('alert-dismissible');\n    } else {\n      e.removeClass('alert-dismissible');\n      e.find(\"button.btn-close.close\").remove();\n    }\n}\n"
+                "get": "function(e) { return e.find(\"button.btn-close.close\").length > 0; }",
+                "set": "function(e, v) {\n    if (v && !e.find(\"button.btn-close.close\")[0]) {\n      var btn = '<button type=\"button\" class=\"btn-close close\" data-dismiss=\"alert\" data-bs-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>';\n      e.prepend(btn);\n      e.addClass('alert-dismissible');\n    } else {\n      e.removeClass('alert-dismissible');\n      e.find(\"button.btn-close.close\").remove();\n    }\n}\n"
             }
         }
     ],

@@ -1327,6 +1327,9 @@ code.hljs {
 
 div.hljs-language {
   text-align: right;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
 }
 div.hljs-language > span {
   background: #358ccb;

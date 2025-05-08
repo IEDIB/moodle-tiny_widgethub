@@ -40,9 +40,9 @@ parameters:
       - {l: 'None', v: ''}
       - {l: 'Fade', v: 'fade'}
     bind:
-      get: (e) => e.find('div.tab-pane').hasClass('fade') ? 'fade':''
+      get: function(e) { e.find('div.tab-pane').hasClass('fade') ? 'fade':''; }
       set: |
-        (e, v) => {
+        function(e, v) {
           if(v) {
             e.find('div.tab-pane').addClass('fade');
           } else {

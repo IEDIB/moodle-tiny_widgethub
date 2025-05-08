@@ -38,7 +38,7 @@ parameters:
       - {l: '92%', v: 11}
     bind:
       get: |
-        (e) => {
+        function(e) {
             var className = e.find('div.row > div').first().attr('class');
             console.log(className);
             var match = new RegExp(/col-sm-(\d+)/).exec(className) || [];
@@ -46,7 +46,7 @@ parameters:
             return parseInt(match[1] || '6');
         }
       set: |
-        (e, v) => {
+        function(e, v) {
             var col1 = e.find('div.row > div').first();
             var col2 = col1.next();
             var regex = new RegExp(/col-sm-(\d+)/g);
