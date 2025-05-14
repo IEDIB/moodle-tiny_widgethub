@@ -5,6 +5,7 @@ instructions: |
   Crea un grup de desplegables. El nombre de desplegables es defineix en camp 'nombre'. Assegureu-vos que el títol de
   cada desplegable sigui clicable. Recordeu a col·lapsar els desplegables abans de desar. No modifiqueu l'identificador
   generat aleatòriament ja que ha d'ésser diferent per a cada desplegable que creeu en la pàgina.
+  <a class="d-block m-1" href="https://iedib.net/avirtual/mod/book/view.php?id=37192&chapterid=41216&snpt=bootstrap$desplegable2" target="_blank"><i class="fas fa fa-book"></i> Més informació...</a>
 template: >
   <p><br></p> 
   <!--ini desplegable-->
@@ -25,7 +26,7 @@ template: >
 selectors: div.accordion.iedib-accordion
 parameters: 
   - name: nombre
-    value: 3
+    value: 1
     title: Nombre de desplegables
     type: numeric
     min: 1
@@ -39,4 +40,4 @@ contextmenu:
   - predicate: div.accordion-group
     actions: moveup movedown insertafter | remove
 author: Josep Mulet Pol <pep.mulet@gmail.com>
-version: 2021.03.31
+version: 2025.05.06

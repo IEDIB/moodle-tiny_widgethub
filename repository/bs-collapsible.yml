@@ -43,9 +43,9 @@ parameters:
     tooltip: When this options is checked, several cards can be expanded simultaneously
     value: false
     bind:
-      get: (e) => e.find('div.collapse[data-parent],div.collapse[data-bs-parent]').length === 0
+      get: function(e) { return e.find('div.collapse[data-parent],div.collapse[data-bs-parent]').length === 0; }
       set: |
-        (e, v) => {
+        function(e, v) {
           var $elements = e.find('div.collapse');
           if(v) {
             $elements.removeAttr('data-parent data-bs-parent');

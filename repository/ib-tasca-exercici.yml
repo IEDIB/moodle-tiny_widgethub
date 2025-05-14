@@ -7,6 +7,7 @@ instructions: >
   <b>tasca d'aprenentatge</b> que teniu publicada al grid o bé, 
   voleu incloure <b>exercicis proposats</b> (textual, h5p,
   etc.). En aquest darrer cas, podeu especificar un contingut per defecte.
+  <a class="d-block m-1" href="https://iedib.net/avirtual/mod/book/view.php?id=37192&chapterid=41216&snpt=capses$tasca-exercici" target="_blank"><i class="fas fa fa-book"></i> Més informació...</a>
 template: |
   <p><br></p>
   <!-- begin tasca-execici -->

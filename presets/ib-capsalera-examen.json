@@ -25,8 +25,8 @@
             "title": "Nom de la matèria"
         }
     ],
-    "scope": "page-mod-page-mod",
+    "scope": "^page-mod-(page|book)",
     "stars": 1,
     "author": "Josep Mulet Pol <pep.mulet@gmail.com>",
-    "version": "2023.01.07"
+    "version": "2025.05.06"
 }

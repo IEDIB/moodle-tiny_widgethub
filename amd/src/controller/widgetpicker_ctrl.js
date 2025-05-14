@@ -26,7 +26,7 @@
  */
 import {get_string} from 'core/str';
 import {getWidgetParamsFactory} from '../controller/widgetparams_ctrl';
-import {getEditorOptions} from '../options';
+import {getEditorOptions, getGlobalConfig} from '../options';
 import {getModalSrv} from '../service/modal_service';
 import {getTemplateSrv} from '../service/template_service';
 import {getUserStorage} from '../service/userstorage_service';
@@ -92,14 +92,14 @@ export class WidgetPickerCtrl {
         let numshown = 0;
         const selectmode = this.isSelectMode();
         /** @type {JQuery<HTMLDivElement>} */
-        const allbtns = bodyForm.find(".btn-group");
+        const allbtns = bodyForm.find(".tiny_widgethub-btn-group");
         allbtns.each((i, el) => {
             // Is supported in select mode?
             let visible = !selectmode || (selectmode && el.dataset.selectable === "true");
             const el2 = el.querySelector('button');
             // Does fullfill the search criteria?
             visible &&= el2 !== null && (searchtext.trim() === '' || searchComp(el2.textContent ?? '', searchtext) ||
-                searchComp(el2.title ?? '', searchtext));
+                searchComp(el2?.dataset?.title ?? '', searchtext));
             setVisibility(el, visible);
             if (visible) {
                 numshown++;
@@ -124,7 +124,7 @@ export class WidgetPickerCtrl {
         /** @type {JQuery<HTMLElement>} */
         const allcatgs = this.modal.body.find(".tiny_widgethub-category");
         allcatgs.each((_, el) => {
-            const count = el.querySelectorAll(".btn-group:not(.d-none)").length;
+            const count = el.querySelectorAll(".tiny_widgethub-btn-group:not(.d-none)").length;
             setVisibility(el, count > 0);
         });
     }
@@ -134,7 +134,7 @@ export class WidgetPickerCtrl {
      */
     async onMouseEnterButton(evt) {
         const widgetTable = this.editorOptions.widgetDict;
-        const key = evt.target?.closest('.btn-group')?.dataset?.key ?? '';
+        const key = evt.target?.closest('.tiny_widgethub-btn-group')?.dataset?.key ?? '';
         const widget = widgetTable[key];
         if (!widget || widget.isFilter()) {
             // Filters do not offer preview
@@ -179,15 +179,15 @@ export class WidgetPickerCtrl {
             console.error("Problem setting scrollspy", ex);
         }
 
-        // Confiure preview panel events
-        const mouseEnterDebounced = debounce(this.onMouseEnterButton.bind(this), 1000);
-
-        const onMouseOut = () => {
-            mouseEnterDebounced.clear();
-            this.modal.body.find("div.tiny_widgethub-preview")
-                .html('')
-                .css("display", "none");
-        };
+               // Confiure preview panel events
+        /**
+         * @type {any}
+         */
+        let timerEnter = null;
+        /**
+         * @type {any}
+         */
+        let timerOut = null;
 
         // Event listeners.
         // Click on clear text
@@ -204,18 +204,50 @@ export class WidgetPickerCtrl {
         });
         // Click on any widget button (bubbles)
         this.modal.body.find('div.tiny_widgethub-categorycontainer, div.tiny_widgethub-recent').on('click',
-            /** @param {Event} event */
+            /** @param {JQuery.ClickEvent} event */
             (event) => {
-                mouseEnterDebounced.clear();
+                if (timerEnter) {
+                    clearTimeout(timerEnter);
+                    timerEnter = null;
+                }
                 this.modal.body.find("div.tiny_widgethub-preview")
                     .css("display", "none");
                 this.handlePickModalClick(event);
             });
 
+
+        const funEnter = (/** @type {any} */ evt) => {
+            clearTimeout(timerOut);
+            timerOut = null;
+            timerEnter = setTimeout(() => {
+                this.onMouseEnterButton(evt);
+            }, 500);
+        };
+
+        const funOut = (/** @type {any} */ evt) => {
+            const movedFrom = evt.target;
+            const movedTo = evt.relatedTarget;
+            if (movedFrom.classList.contains("tiny_widgethub-btn") && movedTo.classList.contains("tiny_widgethub-btn")) {
+                const key1 = movedFrom?.parentElement?.dataset?.key;
+                const key2 = movedTo?.parentElement?.dataset?.key;
+                if (key1 != null && key1 == key2) {
+                    // Still on the same row
+                    return;
+                }
+            }
+            clearTimeout(timerEnter);
+            timerEnter = null;
+            timerOut = setTimeout(() => {
+                this.modal.body.find("div.tiny_widgethub-preview")
+                .html('')
+                .css("display", "none");
+            }, 500);
+        };
+
         // Preview panel
-        this.modal.body.find(".btn-group")
-            .on("mouseenter", mouseEnterDebounced)
-            .on("mouseout", onMouseOut.bind(this));
+        this.modal.body.find(".tiny_widgethub-btn-group > button")
+            .on("mouseenter", funEnter)
+            .on("mouseout", funOut);
 
         // Store current scroll
         const scrollPane = this.modal.body.find('.tiny_widgethub-categorycontainer');
@@ -251,6 +283,8 @@ export class WidgetPickerCtrl {
             this.modal.header.find("span.tiny_widgethub-blink").addClass("d-none");
         }
 
+        // TODO: Opened issue: Closing a tiny dialog -- afects the main bootstap dialog
+        this.modal.modal?.removeClass("hide");
         this.modal.show();
 
         setTimeout(() => {
@@ -262,11 +296,6 @@ export class WidgetPickerCtrl {
             }
             this.modal.body.find("input").trigger('focus');
         }, 200);
-    }
-
-
-    show() {
-        this.modal?.show();
     }
 
     /**
@@ -287,6 +316,7 @@ export class WidgetPickerCtrl {
      * @property {number} widgetindex
      * @property {string} widgetkey
      * @property {string} widgetname
+     * @property {string} widgetorder
      * @property {string} widgettitle
      * @property {string} iconname
      * @property {boolean} disabled
@@ -297,6 +327,7 @@ export class WidgetPickerCtrl {
     /**
      * @typedef {Object} Category
      * @property {string} name
+     * @property {string} order
      * @property {boolean} hidden
      * @property {string} color
      * @property {Button[]} buttons
@@ -310,6 +341,17 @@ export class WidgetPickerCtrl {
      * @returns {TemplateContext} data
      */
     getPickTemplateContext() {
+        /** @type {Record<string, string>} */
+        const categoryOrderMap = {};
+        getGlobalConfig(this.editor, 'category.order', '')
+            .split(',')
+            .forEach(item => {
+                const itemOrder = item.split(':');
+                if (itemOrder.length === 2) {
+                    categoryOrderMap[itemOrder[0].trim().toLocaleUpperCase()] = itemOrder[1].trim();
+                }
+            });
+
         const snptDict = this.editorOptions.widgetDict;
         const allButtons = Object.values(snptDict);
         // Parse filters that are autoset by the user.
@@ -321,7 +363,7 @@ export class WidgetPickerCtrl {
         const categories = {};
         allButtons.forEach(btn => {
             const isFilter = btn.isFilter();
-            const catName = (btn.category ?? 'MISC').toUpperCase();
+            const catName = (btn.category ?? 'MISC').toLocaleUpperCase();
             let found = categories[catName];
             if (!found) {
                 const color = hashCode(catName) % 360;
@@ -331,6 +373,7 @@ export class WidgetPickerCtrl {
                 }
                 found = {
                     name: catName,
+                    order: categoryOrderMap[catName] ?? catName,
                     hidden: false,
                     color: color + ', ' + sat,
                     buttons: []
@@ -343,6 +386,7 @@ export class WidgetPickerCtrl {
                 widgetindex: btn.id,
                 widgetkey: btn.key,
                 widgetname: btn.name,
+                widgetorder: btn.prop('order') ?? btn.name ?? btn.key ?? '',
                 widgettitle: btn.name + " " + catName,
                 iconname: "fa fas fa-eye",
                 disabled: !btn.isUsableInScope(),
@@ -352,17 +396,11 @@ export class WidgetPickerCtrl {
             });
         });
         const categoriesList = Object.values(categories);
-        categoriesList.sort((a, b) => {
-            if (a.name < b.name) {
-                return -1;
-            }
-            if (a.name > b.name) {
-                return 1;
-            }
-            return 0;
-        });
+        // TODO: Be able to override positions
+        categoriesList.sort((a, b) => (a.order + '').localeCompare((b.order + '')));
         categoriesList.forEach(cat => {
-            cat.buttons.sort();
+            // Sort buttons by the order, not by the name
+            cat.buttons.sort((a, b) => (a.widgetorder + '').localeCompare((b.widgetorder + '')));
             cat.hidden = cat.buttons.filter(btn => !btn.hidden).length == 0;
         });
 
@@ -406,7 +444,7 @@ export class WidgetPickerCtrl {
     /**
      * Handle a click within the Modal.
      *
-     * @param {Event} event The click event
+     * @param {JQuery.ClickEvent} event The click event
      */
     async handlePickModalClick(event) {
         /** @type {any} */
@@ -428,12 +466,12 @@ export class WidgetPickerCtrl {
             return;
         }
         /** @type {HTMLElement | undefined} */
-        const button = target.closest('button.btn');
+        const button = target.closest('button.tiny_widgethub-btn');
         // Check if it is a toggle button to autoset a filter
         if (button?.dataset?.auto) {
             const isSet = button.dataset.auto !== "true";
             button.dataset.auto = isSet + '';
-            toggleClass(button, 'btn-primary', 'btn-outline-primary');
+            toggleClass(button, 'tiny_widgethub-btn-primary', 'tiny_widgethub-btn-outline-primary');
             const key = widget.key;
             // Persist option
             const autoFilters = new Set(this.storage.getFromLocal('startup.filters', '').split(''));

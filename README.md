@@ -48,6 +48,8 @@ The options available are:
 
   - *enable.contextmenu.level*: Enable (`1`) or disable (`0`) context menus used by the plugin.
 
+  - *category.order=misc:a1,idiomes:z1*: Overrides the default alphabetical category ordering. Provide a comma-separated string using the format `categoryName:sortingName`. The `sortingName` is used to determine the sort order among the listed categories. Categories not included in this list will maintain their default alphabetical order.
+
 Feel free to share your widgets either by email `pep.mulet(at)gmail.com` or creating a pull request.
 
 The capability 'tiny/widgethub:viewplugin' allows to set the plugin visibility for any role. Keep in mind that, by default, the role student is prevented from using the plugin.

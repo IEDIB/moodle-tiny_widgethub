@@ -1,0 +1,56 @@
+key: bs-alert
+name: Capses 'alert' de Bootstrap
+category: bootstrap
+instructions: > 
+  Permet inserir capses "alert" de Boostrap de diferent tipus. Emprau aquestes capses si desitjau
+  que l'usuari les pugui tancar.
+template: |
+  <p></p>
+  <div class="m-2 alert alert-{{severity}}{{#closable}} alert-dismissible{{/closable}} fade show" role="alert">
+    {{#closable}}
+     <button type="button" class="btn-close close" data-dismiss="alert" data-bs-dismiss="alert" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+     </button>
+    {{/closable}}
+    <div class="alert-content">
+      <p>Lorem ipsum.</p>
+    </div>
+  </div>
+  <p></p>
+selectors: div[role="alert"].alert
+insertquery: div[role="alert"].alert .alert-content
+unwrap: '*'
+parameters:
+  - name: severity
+    title: Tipus d'alerta
+    bind: classRegex('alert-(.*)')
+    value: primary    
+    options:
+      - primary
+      - secondary
+      - success
+      - info
+      - warning
+      - danger
+      - light
+      - dark
+  - name: closable
+    title: Tancable
+    value: true
+    bind:
+      get: function(e) { return e.find("button.btn-close.close").length > 0; }
+      set: |
+        function(e, v) {
+            if (v && !e.find("button.btn-close.close")[0]) {
+              var btn = '<button type="button" class="btn-close close" data-dismiss="alert" data-bs-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+              e.prepend(btn);
+              e.addClass('alert-dismissible');
+            } else {
+              e.removeClass('alert-dismissible');
+              e.find("button.btn-close.close").remove();
+            }
+        }
+autocomplete: severity
+nou: true
+author: Josep Mulet <pep.mulet@gmail.com>
+version: 1.2.1

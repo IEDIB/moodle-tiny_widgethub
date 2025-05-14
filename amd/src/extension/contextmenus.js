@@ -314,6 +314,7 @@ function provider(ctx) {
                         // Open input dialog, set the value and retrieve new value
                         openInputDialog('Comença la numeració a ...', '', startAt1,
                         (/** @type {*} */ api) => {
+                            // TODO: Opened issue: Closing a tiny dialog -- afects the main bootstap dialog
                             api.close();
                             const $target = ctx.path?.targetElement;
                             if (!$target) {

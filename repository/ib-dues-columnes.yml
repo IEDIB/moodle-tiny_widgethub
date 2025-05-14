@@ -3,6 +3,7 @@ name: Dues columnes
 category: bootstrap
 instructions: >
   Formateu continguts en dues columnes responsives (s'adapten a la mida dels dispositius).
+  <a class="d-block m-1" href="https://iedib.net/avirtual/mod/book/view.php?id=37192&chapterid=41216&snpt=bootstrap$two-cols" target="_blank"><i class="fas fa fa-book"></i> Més informació...</a>
 template: |
   {{#var}}amplada_col2=12-amplada_col1{{/var}}
   <p><br></p>

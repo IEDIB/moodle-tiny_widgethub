@@ -4,8 +4,10 @@ instructions: |
   Utilitzeu aquest snippet per incloure un bloc de codi de programació.
 template: >
   <p><br></p>
-  <pre class="{{#notranslate}}notranslate {{/notranslate}}iedib-code {{#franges_de_fons}}iedib-code-stripped{{/franges_de_fons}}">
-  <code{{^syntax}} class="nohighlight"{{/syntax}}{{#syntax}}{{^lnum}} class="nohljsln"{{/lnum}}{{/syntax}}>{{codi}}</code>
+  <pre class="{{#notranslate}} notranslate{{/notranslate}} iedib-code{{#franges_de_fons}} iedib-code-stripped{{/franges_de_fons}}{{^dlang}} nodlang{{/dlang}}">
+  <code class="{{#forcelang}} language-{{forcelang}}{{/forcelang}}{{^syntax}} nohighlight{{/syntax}}{{#syntax}}{{^lnum}} nohljsln{{/lnum}}{{/syntax}}">
+  {{codi}}
+  </code>
   </pre>
   <p><br></p>
 selectors: pre.iedib-code
@@ -26,10 +28,72 @@ parameters:
     value: true
     title: Sintaxi en colors
     bind: notHasClass('nohighlight', 'code')
+  - name: forcelang
+    value: ""
+    options: 
+      - ""
+      - bash
+      - basic
+      - c
+      - csharp
+      - cpp
+      - css
+      - fortran
+      - go
+      - graphql
+      - html
+      - json
+      - java
+      - javascript
+      - kotlin
+      - tex
+      - lisp
+      - markdown
+      - objectivec
+      - php
+      - powershell
+      - prolog
+      - python
+      - ruby
+      - rust
+      - scss
+      - sql
+      - scala
+      - shell
+      - typescript
+      - x86asm
+      - yml
+    hint: Deixau en blanc perquè es detecti automàticament.
+    title: Estableix llenguatge
+    bind:
+      get: |
+          function(e) {
+            var cls = e.find('code').attr('class');
+            var lc = cls?.split(/\s+/).find(cn => cn.startsWith('language-')) || '';
+            if (lc) {
+              lc = lc.substring('language-'.length);
+            }
+            return lc;
+          }
+      set: |
+          function(e, v) {
+            var ce = e.find('code');
+            var lc = ce.attr('class')
+              ?.split(/\s+/).find(cn => cn.startsWith('language-'));
+            ce.removeClass(lc)
+            if (v) {
+              ce.addClass('language-'+v);
+            }
+          }
   - name: lnum
     value: false
     title: Enumera les línies
     bind: notHasClass('nohljsln', 'code')
+    when: "syntax"
+  - name: dlang
+    value: true
+    title: Mostra el nom del llenguatge
+    bind: notHasClass('nodlang')
     when: "syntax"
 requires: "/sd/programacio.min.js | syntax"
 stars: 2

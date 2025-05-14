@@ -5,6 +5,7 @@ instructions: >
   S'incrusta un vídeo de YouTube a la pàgina de forma responsiva. 
   Introduïu la ID del vídeo de youtube i opcionalment un títol. 
   Podeu escapçar una part del vídeo amb els paràmetres inici i fi donats en segons.
+  <a class="d-block m-1" href="https://iedib.net/avirtual/mod/book/view.php?id=37192&chapterid=41216&snpt=video$youtube" target="_blank"><i class="fas fa fa-book"></i> Més informació...</a>
 template: |
   <p><br></p>
   <!--ini youtube-->

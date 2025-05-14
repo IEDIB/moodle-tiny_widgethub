@@ -1,0 +1,36 @@
+{
+    "key": "bs-badge",
+    "name": "Etiqueta / Badge",
+    "category": "bootstrap",
+    "template": "<span class=\"badge badge-{{severity}}{{#pill}} badge-pill{{/pill}}\">Lorem ipsum</span>\n",
+    "selectors": "span.badge",
+    "unwrap": "*",
+    "insertquery": "span.badge",
+    "parameters": [
+        {
+            "name": "severity",
+            "title": "Tipus del badge",
+            "bind": "classRegex('badge-(.*)')",
+            "value": "primary",
+            "options": [
+                "primary",
+                "secondary",
+                "success",
+                "info",
+                "warning",
+                "danger",
+                "light",
+                "dark"
+            ]
+        },
+        {
+            "name": "pill",
+            "title": "Arrodonit",
+            "bind": "hasClass('badge-pill')",
+            "value": false
+        }
+    ],
+    "author": "Josep Mulet <pep.mulet@gmail.com>",
+    "nou": true,
+    "version": "1.1.0"
+}

@@ -1,0 +1,79 @@
+capsa-generica:
+    hint:
+        - No useu massa capses en una pàgina per evitar trencar la fluïdesa del text principal.
+        - La capsa Introducció ha d'aparèixer al principi de la pàgina.
+    pro:
+        - Intentar que tingui una extensió curta.
+    con:
+        - Si remarcau massa parts de la pàgina, el remarcat deixa de tenir efecte.
+        - No s'ha emprar com un dels panells per mostrar dos procediments un bé i l'altre malament. 
+          Per això hi ha l'snippet correcte/incorrecte.
+            
+menu-pestanyes2:
+    hint: 
+        - Pensau que la pestanya que estigui seleccionada al moment de desar la pàgina serà la que es visualitzarà en primera instància.
+    con:
+        - No té massa sentit un menú pestanyes amb una única pestanya.
+        - Evitar més de 4 pestanyes perquè, en dispositius mòbils, les pestanyes es mostren una sobre de l'altra.
+    
+desplegable2: 
+    hint: 
+        - Recordau a col·lapsar els desplegables abans de desar.
+        - "Novetat: El paràmetre 'Independents' permet control·lar el comportament."
+    pro:
+        - Està recomanat l'ús per a escriure la resolució d'un exemple.      
+    con:
+        - Tot el títol del desplegable ha d'ésser clicable. No únicament la fletxeta.
+        - Evitar un ús excessiu de desplegables.
+ 
+two-cols:
+    pro: 
+        - Està recomanat per aconseguir columnes responsives. Per exemple, quan voleu posar dues imatges
+         (una devora l'altre), però, voleu que per amplades de pantalla petites es vegi en una sola columna.     
+
+youtube:
+    hint: 
+        - La id del vídeo només és la part de la URL que segueix a ?v=    Vegeu l'exemple de la imatge <br><img src="videoid.png" style="width:540px"/>
+
+capcalera:
+    con:
+        - Es desconsella l'ús de la capçalera general en els llibres Moodle. En comptes d'això, emprau l'snippet secció de pàgina.
+
+taula-predefinida:
+    con:
+        - La visualització de continguts formatats en taules són problemàtiques en dispositius mòbils. Sempre que sigui possible, emprau alternatives que siguin responsives.
+    hint:
+        - Emprau Chrome DevTools per saber com es visualitzarà en dispositius d'amplada petita.
+
+capsa-exemple-simple:
+    pro:
+        - Sempre que sigui possible emprau <b>aquest</b> snippet per mostrar un exemple.
+        - Si l'exemple conté una formulació + resolució, posau la resolució dins d'un <b>desplegable</b>.
+    
+tasca-exercici:
+    hint:
+        - Col·loqueu aquest snippet sempre a peu de secció.
+        - Hi pot haver més d'un exercici dins d'un snippet exercicis. No cal repetir la capçalera per a cadascún.
+    con:
+        - No empreu les opcions tasca avaluable o tasca d'aprenentatge per incloure una activitat que no estigui al <i>Grid</i>.
+
+image-grid:
+    con:
+        - Reviseu com es visualitzen les imatges en dispositius mòbils. Empreu la versió responsiva que proveeix l'snippet imatge.
+    
+poema2cols:
+    hint:
+        - Com alternativa recomanada, emprau l'snippet fragment de text establint una amplada màxima del poema.
+
+retol-inline:
+    hint:
+        - Sempre que sigui possible cal emprar les capses corresponents.
+        - Únicament emprar el rètol en línia quan el contingut sigui molt curt i la capsa quedi massa buida. 
+
+filtre-unjustify:
+    hint:     
+        - El filtre "desjustificador" permet eliminar tots els justificats dels paràgrafs de la pàgina.
+       
+filtre-notranslate:
+    hint:
+        - El filtre "notranslate", evita que les fòrmules LaTeX siguin modificades per al traductor de Google.

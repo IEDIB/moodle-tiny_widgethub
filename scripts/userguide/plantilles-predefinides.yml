@@ -1,0 +1,529 @@
+- plantilla-seccio: 
+  name: Pàgina de secció
+  key: plantilla-seccio
+  instructions: ''
+  defaults: {}
+  body: >
+    <p></p>
+    <p><span style="font-size: 1rem;">Morbi sollicitudin, metus sed mattis volutpat, lacus diam cursus
+      est, eu pulvinar purus erat egestas mauris. Duis a nibh sollicitudin, vulputate leo vel,
+      maximus augue. Nam tellus purus, bibendum a tempor in, feugiat in tortor. Nullam eget justo
+      libero. Vivamus aliquet metus eu nulla commodo efficitur. Phasellus rutrum massa vel quam
+      sagittis luctus. Sed quis tempor eros, at eleifend nibh.</span><br>
+    </p>
+    <p><br></p>
+    <h4 class="iedib-subsub"><span class="iedib-square"></span>&nbsp;Apartat 1&nbsp;</h4>
+    <p><span style="font-size: 1rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+      nulla leo, vestibulum nec egestas sit amet, molestie iaculis lectus. Quisque sodales
+      venenatis ligula quis maximus. Aenean accumsan dui neque, eget rutrum risus tempor sed.
+      Phasellus varius ullamcorper metus, sed iaculis massa dictum sit amet. Aenean nulla dui,
+      porta ac elementum condimentum, placerat eget turpis. Donec pharetra sem tortor, eleifend
+      iaculis tortor volutpat sed. Pellentesque pharetra nulla eget nisl accumsan, in feugiat
+      mauris varius. Nulla sodales purus quis metus elementum, at maximus felis aliquam.</span>
+    </p>
+    <div class="iedib-capsa iedib-capsa-gran iedib-important-border" data-lang="ca">
+      <div class="iedib-lateral iedib-important">
+          <p class="iedib-titolLateral">IMPORTANT <span class="iedib-important-logo"></span></p>
+      </div>
+      <div class="iedib-central">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+            est laborum.
+          </p>
+      </div>
+    </div>
+    <!--end: Capsa important gran-->
+    <p><br></p>
+    <p></p>
+    <div class="iedib-figura iedib-grid-responsive">
+      <div class="row-fluid">
+          <div class="span6">
+            <img src="https://piworld.es/iedib/img/sample1.png" alt="Imatge per defecte"
+                class="img-responsive atto_image_button_middle">
+          </div>
+          <div class="span6">
+            <img src="https://piworld.es/iedib/img/sample2.png" alt="Imatge per defecte"
+                class="img-responsive atto_image_button_middle">
+          </div>
+      </div>
+      <p class="iedib-img-footer"><span class="iedib-caption-counter">Imatge:</span> <span
+          class="iedib-caption-title">Descripció imatges</span></p>
+    </div>
+    <p><br></p>
+    <br>
+    <p></p>
+    <p></p>
+    <p></p>
+    <h4 class="iedib-subsub"><span class="iedib-square"></span>&nbsp;Apartat 2&nbsp;</h4>
+    <p></p>
+    <p>Nunc quis turpis ornare, laoreet urna mollis, vulputate felis. Nunc nec blandit est. Duis sit
+      amet sagittis enim. Ut et ipsum elementum, pulvinar odio sed, tincidunt massa. Aliquam porttitor
+      augue vel orci viverra porta. Mauris tincidunt arcu eu volutpat ullamcorper. Suspendisse varius
+      vehicula sapien et laoreet. Vestibulum tincidunt sed dui non interdum. Fusce at finibus metus.
+      Nulla tincidunt at libero eu malesuada. Integer ullamcorper lectus felis, ac malesuada urna
+      malesuada non.
+    </p>
+    <p>Etiam rhoncus eros fringilla pulvinar auctor. Sed ultricies fermentum lacinia. Aenean varius
+      vulputate sodales. Nunc feugiat posuere urna a rhoncus. Etiam molestie odio et augue venenatis
+      pharetra. Praesent sagittis finibus mi, ac fermentum metus placerat nec. Donec fermentum gravida
+      odio faucibus cursus. Nulla non dui id mauris elementum imperdiet. Duis sagittis feugiat nisl
+      placerat placerat. Sed consequat convallis nisl, ac tempus ligula molestie ut. Curabitur blandit
+      facilisis lorem et dapibus. Donec congue a erat a pellentesque. Nullam placerat neque non dolor
+      tincidunt pellentesque.
+    </p>
+    <div class="iedib-video-container" style="max-width:500px">
+      <div class="iedib-videoWrapper"><br><iframe
+          src="https://www.youtube.com/embed/JikG2CPycAw?enablejsapi=1&amp;rel=0&amp;modestbranding=1&amp;showinfo=0&amp;iv_load_policy=3&amp;start=0"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen=""></iframe>
+      </div>
+      <div class="iedib-caption">
+          <span class="iedib-caption-counter">Vídeo</span><span class="iedib-caption-title">: Títol
+          del vídeo de Youtube</span>
+      </div>
+    </div>
+    <p><br></p>
+    <!--begin: Capsa exemple gran -->
+    <div class="iedib-capsa iedib-capsa-gran iedib-exemple-border" data-lang="ca">
+      <div class="iedib-lateral iedib-exemple">
+          <p class="iedib-titolLateral">EXEMPLE 1<span class="iedib-exemple-logo"></span></p>
+      </div>
+      <div class="iedib-central">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+            est laborum.
+          </p>
+          <!--begin: accordion answer-->
+          <div id="ikb5ns89dk" class="accordion iedib-accordion">
+            <div class="accordion-group">
+                <div class="accordion-heading"><a class="accordion-toggle"
+                  href="#collapse_ikb5ns89dk_0" data-toggle="collapse"
+                  data-parent="#ikb5ns89dk"><span class="icon icon-plus-sign"></span>
+                  <span>&nbsp;</span><span>Solució</span></a>
+                </div>
+                <div id="collapse_ikb5ns89dk_0" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                      <p>Desenvolupament de la solució de l'exemple ...</p>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <!--end: accordion-answer-->
+          <br>
+      </div>
+    </div>
+    <!--end: Capsa exemple gran-->
+    <p></p>
+    <div class="iedib-capsa iedib-capsa-gran iedib-exemple-border" data-lang="ca">
+      <div class="iedib-lateral iedib-exemple">
+          <p class="iedib-titolLateral">EXEMPLE 2<span class="iedib-exemple-logo"></span></p>
+      </div>
+      <div class="iedib-central">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+            est laborum.
+          </p>
+          <!--begin: accordion answer-->
+          <div id="c5om3n6a2a" class="accordion iedib-accordion">
+            <div class="accordion-group">
+                <div class="accordion-heading"><a class="accordion-toggle"
+                  href="#collapse_c5om3n6a2a_0" data-toggle="collapse"
+                  data-parent="#c5om3n6a2a"><span class="icon icon-plus-sign"></span>
+                  <span>&nbsp;</span><span>Solució</span></a>
+                </div>
+                <div id="collapse_c5om3n6a2a_0" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                      <p>Desenvolupament de la solució de l'exemple ...</p>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <!--end: accordion-answer-->
+          <br>
+      </div>
+    </div>
+    <!--end: Capsa exemple gran-->
+    <p></p>
+    <p><br></p>
+    <div class="iedib-capsa iedib-tasca-exercici" data-lang="ca">
+      <!-- begin capsa tasca -->
+      <div class="iedib-tasca iedib-proposat iedib-central">
+          <span class="iedib-tasca-logo"></span>
+          <h4>EXERCICIS:</h4>
+          <p></p>
+          <ol>
+            <li>
+                <p>Exercici 1</p>
+            </li>
+            <li>
+                <p>Exercici2</p>
+                <p><em>E.g. incloure h5p, etc.</em></p>
+            </li>
+          </ol>
+          <p></p>
+      </div>
+      <!-- end capsa tasca -->
+    </div>
+    <p><br></p>
+  version: 2021.04.10
+  misc:
+    scope: 'B'
+    stars: 2
+    parameters: []
+
+- plantilla-funcionament-materia: 
+  name: Funcionament de la matèria
+  key: funcionament-materia
+  instructions: ''
+  defaults: {}
+  body: >
+    <div id="funcionament-de-la-materia">
+      <h2 style="color: #fff;">Com funciona el curs?</h2>
+      <section id="menu-principal">
+          <ul>
+              <li><a href="#el-professor">El professor</a></li>
+              <li><a href="#aula-virtual">L’aula virtual</a></li>
+              <li><a href="#com-estudiar-la-materia">Com estudiar la matèria</a></li>
+              <li><a href="#sistema-de-qualificacio">Sistema de qualificació</a></li>
+              <li><a href="#materials-del-curs">Materials del curs</a></li>
+              <li><a href="#calendari-del-curs">Calendari del curs</a></li>
+          </ul>
+      </section>
+      <section id="el-professor">
+          <h3>El professor</h3>
+          <div class="professor-presentacio">
+              <div class="professor-text">
+                  <p>Hola! Sóc en Toni Vilaret i seré el teu professor de l’assignatura de Biologia durant aquest curs.</p>
+                  <p>Si tens qualsevol dubte, em pots contactar per les vies següents:</p>
+              </div>
+              <div class="professor-imatge">
+                  <img src="https://elmeucurs.com/moodle/draftfile.php/5/user/draft/524398897/DSC_0066-e1601622983610.jpg" alt="" width="250" height="250" role="presentation" class="img-responsive atto_image_button_text-bottom">
+              </div>
+          </div>
+
+
+          <div id="panell-botons">
+              <p class="professor-contacte-botons">
+                  <a class="professor-contacte-boto" data-toggle="collapse" href="#professor-forum" role="button" aria-expanded="false" aria-controls="professor-forum">
+                              Fòrum de dubtes
+                          </a>
+                  <a class="professor-contacte-boto collapsed" data-toggle="collapse" href="#professor-correu" role="button" aria-expanded="false" aria-controls="professor-correu">
+                              Correu del campus
+                          </a>
+                  <a class="professor-contacte-boto collapsed" data-toggle="collapse" href="#professor-videoconferencia" role="button" aria-expanded="false" aria-controls="professor-videoconferencia">
+                              Vídeoconferència
+                          </a>
+                  <a class="professor-contacte-boto collapsed" data-toggle="collapse" href="#professor-telefon" role="button" aria-expanded="false" aria-controls="professor-telefon">
+                              Telèfon
+                          </a>
+              </p>
+
+              <div class="collapse" id="professor-forum" data-parent="#panell-botons">
+                  <div class="card card-body">
+                      Content 1 here
+                  </div>
+              </div>
+              <div class="collapse" id="professor-correu" data-parent="#panell-botons" style="">
+                  <div class="card card-body">
+                      Content 2 here
+                  </div>
+              </div>
+              <div class="collapse" id="professor-videoconferencia" data-parent="#panell-botons" style="">
+                  <div class="card card-body">
+                      Prova videoconferència</div>
+              </div>
+              <div class="collapse" id="professor-telefon" data-parent="#panell-botons" style="">
+                  <div class="card card-body">
+                      971170650</div>
+              </div>
+          </div>
+
+
+          <div class="collapse" id="professor-forum" data-parent="#professor-botonera">
+              <div class="card card-body">
+                  Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+              </div>
+          </div>
+          <div class="collapse" id="professor-correu" data-parent="#professor-botonera">
+              <div class="card card-body">
+                  This panel is hidden by default but revealed when the user activates the relevant trigger.
+              </div>
+          </div>
+          <div class="collapse" id="professor-videoconferencia" data-parent="#professor-botonera">
+              <div class="card card-body">
+                  he collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+              </div>
+          </div>
+          <div class="collapse" id="professor-telefon" data-parent="#professor-botonera">
+              <div class="card card-body">
+                  Shidden by default but revealed when the user activates the relevant trigger.
+              </div>
+          </div>
+
+          <div class="professor-seu">
+              <p>I si necessites contactar-me en persona, pots venir directament a la <a href="https://www.google.com/maps/place/IEDIB+(Institut+d'ensenyaments+a+dist%C3%A0ncia+de+les+Illes+Balears)/@39.575908,2.63982,16z/data=!4m5!3m4!1s0x0:0xc6e1fb9a08efeae7!8m2!3d39.5758987!4d2.6398256?hl=ca">seu de l’IEDIB</a>.</p>
+          </div>
+      </section>
+
+      <section id="aula-virtual">
+          <h3>L'aula virtual</h3>
+          <div class="aula-virtual-copy">
+              <p>L’aula vitual és on té lloc l’aprenentatge. A banda dels <strong>continguts i activitats</strong> del curs, hi trobaràs totes les <strong>novetats</strong> així com espais on et podràs <strong>comunicar</strong> amb els companys i el professor.</p>
+          </div>
+          <div class="aula-virtual-imatge"></div>
+          <div class="aula-virtual-text">
+              <p>Hi trobaràs, a banda dels materials i continguts del curs:</p>
+          </div>
+          <ul class="aula-virtual-llista">
+              <li><strong>Tauler d'avisos i notícies</strong>: és un fòrum on el professor compartirà amb vosaltres qualsevol informació adient per al curs: recordar una data d'examen, plaços d'entrega d'una tasca...</li>
+              <li><strong>Fòrum de dubtes</strong>: us permetrà plantejar qualsevol dubte, aclariment o explicació que necessiteu, que serà resolt pel professor amb la col·laboració dels companys.</li>
+              <li>Espais on contactar amb els companys i el professorat, com ara el <strong>fòrum de presentació</strong> o l’accés a la <strong>videoconferència</strong>.</li>
+          </ul>
+      </section>
+
+      <section id="com-estudiar-la-materia">
+          <h3>Com estudiar la matèria</h3>
+          <div class="com-estudiar-la-materia-copy">El seguiment de la matèria es basarà en la realització de les activitats en línia. Hi ha tres tipus d’activitats online: les d’aprenentatge, les avaluables (que computaran per a la nota final) i les d’ampliació.</div>
+          <div class="com-estudiar-la-materia-imatge"></div>
+          <div class="com-estudiar-la-materia-text">
+              <p>Les <strong>activitats d’aprenentatge</strong> afiançaran i concretaran el teu aprenentatge funcional.</p>
+              <p>Les <strong>activitats avaluables</strong> tenen el mateix propòsit que les d’aprenentatge, però són avaluables. Poden ser:</p>
+              <ul class="com-estudiar-la-materia-llista">
+                  <li><strong>Microtasques</strong>: activitats, ja siguin de cerca de información, definicions, problemes, etcétera.</li>
+                  <li><strong>Qüestionaris</strong>: tindran un temps determinat per a la seva realització, que començarà a comptar des del moment en què s'obri el qüestionari. Per tant, és recomanable que s'hagin fet les activitats anteriors i haver estudiat
+                      bé el tema.</li>
+              </ul>
+              <p>Les <strong>activitats d’ampliació</strong> et permetran aprofundir en els continguts ja treballats.</p>
+              <p>Les <strong>pràctiques presencials</strong> en els <a href="#">centres col·laboradors</a> et permetran aplicar els coneixements que vas adquirint a la realitat del dia a dia en l’àmbit laboral.
+              </p>
+              <p>L’<strong>examen final</strong> es composarà de preguntes similars als exercicis plantejats al llarg del curs.</p>
+          </div>
+
+          <div id="com-estudiar-la-materia-amplia">
+              <a class="com-estudiar-la-materia-boto" data-toggle="collapse" href="#com-estudiar-la-materia-info" role="button" aria-expanded="false" aria-controls="#com-estudiar-la-materia-info">
+                      Amplia la informació
+                  </a>
+              <div class="collapse" id="com-estudiar-la-materia-info">
+                  <div class="card card-body">
+                      Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section id="sistema-de-qualificacio">
+          <h3>Sistema de qualificació</h3>
+          <div class="sistema-de-qualificacio-text">
+              <p>Les úniques activitats que compten per a la nota de curs són les <strong>activitats avaluables</strong>.</p>
+              <p>Per aprovar la matèria la nota mitjana ponderada de les activitats online avaluables i els exàmens a final (nota de curs) ha d'ésser <strong>5 o superior</strong>. </p>
+              <p>Les <strong>preguntes incorrectes</strong> dels qüestionaris avaluables de múltiple opció descompten un <strong>33%</strong> del valor de la pregunta.</p>
+              <p>Les activitats online han de ser de <strong>producció pròpia</strong>. En cas de detectar plagi a les activitats online es podria penalitzar totalment (valor de l’activitat igual a zero) o parcialment.</p>
+              <p>Les preguntes de l’examen seran semblants als exercicis plantejats a cada quinzena de treball. </p>
+          </div>
+
+          <h4>Convocatòria ordinària (maig)</h4>
+          <div class="sistema-de-qualificacio-text">
+              <p>El percentatge en el pes total de la nota de cada una de les parts és el següent:</p>
+          </div>
+
+          <div class="sistema-de-qualificacio-grafic">
+              <div class="grafic-part-estatica">
+                  <div class="grafic-examens" id="getter-valor-examens">
+                      <div class="text-examens">Examens</div>
+                      <div class="valor-examens" id="valor-examens">50%</div>
+                  </div>
+                  <div class="grafic-activitats" id="getter-valor-activitats">
+                      <div class="text-activitats">Activitats en línia</div>
+                      <div class="valor-activitats" id="valor-activitats">50%</div>
+                  </div>
+              </div>
+              <div class="grafic-claudator"></div>
+              <div class="grafic-part-dinamica">
+                  <div class="grafic-part-dinamica-blank"></div>
+                  <div class="grafic-part-dinamica-container">
+                      <div class="grafic-examens-1-dinamic" id="getter-valor-primera-avaluacio">
+                          <div class="text-examens-1-dinamic">Exàmen 1ª avaluació</div>
+                          <div class="valor-examens-1-dinamic" id="valor-primera-avaluacio">50%</div>
+                      </div>
+                      <div class="grafic-examens-2-dinamic" id="getter-valor-segona-avaluacio">
+                          <div class="text-examens-2-dinamic">Exàmen 2ª avaluació</div>
+                          <div class="valor-examens-2-dinamic" id="valor-segona-avaluacio">50%</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="sistema-de-qualificacio-text">
+              <p>Si un alumne no aprova l’examen de la 1ª avaluació o no es presenta, el recuperarà amb un 5 si aprova el de la 2ª avaluació.</p>
+              <p>L’examen de la 2ª avaluació serà global, això significa que entraran preguntes dels continguts de tot el curs.</p>
+          </div>
+
+          <h4>Convocatòria extraordinària (juny)</h4>
+          <div class="sistema-de-qualificacio-text">
+              <p>El percentatge en el pes total de la nota de cada una de les parts és el següent:</p>
+          </div>
+
+          <div class="sistema-de-qualificacio-grafic">
+              <div class="grafic-part-estatica">
+                  <div class="grafic-examens" id="getter-valor-extraordinaria-examens">
+                      <div class="text-examens">Examens</div>
+                      <div class="valor-examens" id="valor-extraordinaria-examens">50%</div>
+                  </div>
+                  <div class="grafic-activitats" id="getter-valor-extraordinaria-activitats">
+                      <div class="text-activitats">Activitats en línia</div>
+                      <div class="valor-activitats" id="valor-extraordinaria-activitats">50%</div>
+                  </div>
+              </div>
+          </div>
+
+
+          <div id="sistema-de-qualificacio-amplia">
+              <a class="sistema-de-qualificacio-boto" data-toggle="collapse" href="#sistema-de-qualificacio-info" role="button" aria-expanded="false" aria-controls="#sistema-de-qualificacio-info">
+                      Amplia la informació
+                  </a>
+              <div class="collapse" id="sistema-de-qualificacio-info">
+                  <div class="card card-body">
+                      Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                  </div>
+              </div>
+          </div>
+
+      </section>
+
+      <section id="materials-del-curs">
+          <h3>Materials del curs</h3>
+          <div class="materials-del-curs-container">
+              <div class="materials-del-curs-content">
+                  <p>Trobaràs els apunts de l’assignatura al llibre digital, que trobaràs dins de cada lliurament a l’<a href=""><strong>aula virtual</strong></a>.</p>
+                  <p>Si ho desitges, pots imprimir el llibre des del menú que trobaràs a la cantonada superior dreta.</p>
+                  <div id="materials-del-curs-amplia">
+                      <a class="materials-del-curs-boto collapsed" data-toggle="collapse" href="#materials-del-curs-info" role="button" aria-expanded="false" aria-controls="#materials-del-curs-info">
+                              Mostra'm com fer-ho</a>
+                      <div class="collapse" id="materials-del-curs-info" style="">
+                          <div class="card card-body"><a href="https://www.youtube.com/watch?v=b_xTN7Fh66s">Vídeo</a></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="materials-del-curs-imatge"></div>
+          </div>
+
+          <div class="materials-del-curs-text">
+              <p>La resta de materials (tasques, qüestionaris, activitats d’ampliació...) els trobaràs també a l’aula virtual.</p>
+          </div>
+      </section>
+
+      <section id="calendari-del-curs">
+          <h3>Calendari del curs</h3>
+          <div class="lliuraments">
+              <div class="franja-trimestre">
+                  <div class="retol-trimestre">1<span>r</span> trimestre</div>
+                  <div class="icona-calendari"></div>
+              </div>
+              <div class="card-lliurament">
+                  <div class="lliurament-info">
+                      <h5 class="lliurament-num">Lliurament 1</h5>
+                      <p class="lliurament-contingut">Molècules inorgàniques i glúcids. Bioelements, aigua, sals minerals i glúcids.</p>
+                  </div>
+                  <div class="lliurament-data">
+                      De l’1 d’octubre al 25 d’octubre
+                  </div>
+              </div>
+              <div class="card-lliurament">
+                  <div class="lliurament-info">
+                      <h5 class="lliurament-num">Lliurament 2</h5>
+                      <p class="lliurament-contingut">Lípids i àcids nucleics, proteïnes i enzims. Funció, composició, estructura i classificació.</p>
+                  </div>
+                  <div class="lliurament-data">
+                      Del 26 d’octubre al 12 de novembre
+                  </div>
+              </div>
+              <div class="card-lliurament">
+                  <div class="lliurament-info">
+                      <h5 class="lliurament-num">Lliurament 3</h5>
+                      <p class="lliurament-contingut">La cèl·lula eucariota, tipus cel·lulars, estructures, orgànuls cel·lulars i funcions cel·lulars.</p>
+                  </div>
+                  <div class="lliurament-data">
+                      Del 13 de novembre al 30 de novembre
+                  </div>
+              </div>
+              <div class="card-lliurament">
+                  <div class="lliurament-info">
+                      <h5 class="lliurament-num">Lliurament 4</h5>
+                      <p class="lliurament-contingut">Metabolisme, anabolisme i catabolisme. La respiració, la fermentació, la fotosíntesi i quimiosíntesi.</p>
+                  </div>
+                  <div class="lliurament-data">
+                      De l’1 de desembre al 20 de desembre
+                  </div>
+              </div>
+              <div class="franja-trimestre">
+                  <div class="retol-trimestre">2<span>n</span> trimestre</div>
+              </div>
+              <div class="card-lliurament">
+                  <div class="lliurament-info">
+                      <h5 class="lliurament-num">Lliurament 5</h5>
+                      <p class="lliurament-contingut">La mitosi. Biologia mol·lecular. La replicació, la transcripció i la traducció. Mutacions genètiques.</p>
+                  </div>
+                  <div class="lliurament-data">
+                      De l’1 de febrer al 21 de febrer
+                  </div>
+              </div>
+              <div class="card-lliurament">
+                  <div class="lliurament-info">
+                      <h5 class="lliurament-num">Lliurament 6</h5>
+                      <p class="lliurament-contingut">Mitosi i meiosi. Les lleis de Mendel. Problemes de genètica.</p>
+                  </div>
+                  <div class="lliurament-data">
+                      Del 22 de febrer al 14 de març
+                  </div>
+              </div>
+              <div class="card-lliurament">
+                  <div class="lliurament-info">
+                      <h5 class="lliurament-num">Lliurament 7</h5>
+                      <p class="lliurament-contingut">Microorganismes. Característiques. Tipus de microorganismes.</p>
+                  </div>
+                  <div class="lliurament-data">
+                      Del 15 de març al 31 de març
+                  </div>
+              </div>
+              <div class="card-lliurament">
+                  <div class="lliurament-info">
+                      <h5 class="lliurament-num">Lliurament 8</h5>
+                      <p class="lliurament-contingut">El sistema immunitari. Mecanismes d’acció. Autoimmunitat i immunodeficiència. Tipus d’immunitat.</p>
+                  </div>
+                  <div class="lliurament-data">
+                      De l’1 d’abril al 30 d’abril
+                  </div>
+              </div>
+              <div class="lliuraments-text"><sup>*</sup>Els lliuraments es van obrint a mesura que avança el curs.</div>
+          </div>
+
+          <div class="examens">
+              <div class="card-examen ordinaria">
+                  <span>Examen final</span>
+                  <h5>Convocatòria ordinària</h5>
+                  <div class="card-examen-icona"></div>
+                  <div class="card-examen-data">Maig 2022</div>
+              </div>
+              <div class="card-examen extraordinaria">
+                  <span>Examen final</span>
+                  <h5>Convocatòria ordinària</h5>
+                  <div class="card-examen-icona"></div>
+                  <div class="card-examen-data">Maig 2022</div>
+              </div>
+          </div>
+      </section>
+      <br></div> 
+  version: 2021.04.10
+  misc:
+    scope: '*'
+    stars: 3
+    parameters: []

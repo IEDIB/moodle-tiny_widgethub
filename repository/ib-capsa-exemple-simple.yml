@@ -4,6 +4,7 @@ category: capses
 instructions: |
   Utilitzau aquesta capsa per mostrar un exemple amb l'enunciat i la resolució en el mateix contenidor. Triau una mida
   per a la capsa. Es recomana incloure el desplegable per a la resolució.
+  <a class="d-block m-1" href="https://iedib.net/avirtual/mod/book/view.php?id=37192&chapterid=41216&snpt=capses$capsa-exemple-simple" target="_blank"><i class="fas fa fa-book"></i> Més informació...</a>
 template: >
   <p><br></p>
   <div class="iedib-capsa iedib-capsa-{{mida}} iedib-exemple-border" data-lang="{{_lang}}">

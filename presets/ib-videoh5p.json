@@ -17,8 +17,7 @@
             "title": "Títol descriptiu."
         }
     ],
-    "scope": "^page-mod-(book|page|assign|quizz)-",
-    "stars": 3,
+    "nou": true,
     "author": "Josep Mulet Pol <pep.mulet@gmail.com>",
     "version": "2024.11.03"
 }

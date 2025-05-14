@@ -4,6 +4,7 @@ category: bootstrap
 instructions: >
   Crea un menú de pestanyes. És important que escriviu una ID aleatòria que sigui diferent
   per a cada menú creat en la pàgina. Podeu definir el nombre de pestanyes (<b>com a mínim 2</b>).
+  <a class="d-block m-1" href="https://iedib.net/avirtual/mod/book/view.php?id=37192&chapterid=41216&snpt=bootstrap$menu-pestanyes2" target="_blank"><i class="fas fa fa-book"></i> Més informació...</a>
 template: |
   <p><br></p> 
   <!--ini menu pestanyes-->

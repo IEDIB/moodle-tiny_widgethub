@@ -318,6 +318,7 @@ export function applyPartials(widget, partials) {
  * @property {number} id
  * @property {string} key
  * @property {string} name
+ * @property {string} [order] - Optional to redefine position by name
  * @property {string} category
  * @property {string} [scope] - Regex for idenfying allowed body ids
  * @property {string} [instructions]
@@ -488,8 +489,7 @@ export class Widget {
         if (!scope || !widgetScopes || widgetScopes === "*") {
             return true;
         }
-        const regex = new RegExp(widgetScopes);
-        return (regex.exec(scope) ?? null) !== null;
+        return new RegExp(widgetScopes).test(scope);
     }
     /**
      * @returns {boolean}
