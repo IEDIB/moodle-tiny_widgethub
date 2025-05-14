@@ -44,6 +44,7 @@ The type `Parameter` consists of these fields
 | **Key**               | **Type**                              | **Description**                                                                                           |
 |------------------------|---------------------------------------|----------------------------------------------------------------------------------------------------------|
 | **`name`**           | `string`                              | The name of the parameter used in the template {{name}} or <%= name %>. If the name starts with `_` then it is saved in localStorage and restablished on future usage.                          |
+| **`[order]`**           | `string`                              | (Optional) If present, the name used to sort the widget alphabetically otherwise the `name` property is used      |
 | **`title`**           | `string`                             | A human-readable name for the parameter.                                                                 |
 | **`[tooltip]`**       | `string`                             | (Optional) Additional information about the parameter.                                                   |
 | **`[tip]`**       | `string`                             | (Optional) Simply a shortcut for `tooltip`                                               |

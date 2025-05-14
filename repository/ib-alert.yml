@@ -1,5 +1,5 @@
 key: bs-alert
-name: Alert container
+name: Capses 'alert' de Bootstrap
 category: bootstrap
 instructions: > 
   Permet inserir capses "alert" de Boostrap de diferent tipus. Emprau aquestes capses si desitjau

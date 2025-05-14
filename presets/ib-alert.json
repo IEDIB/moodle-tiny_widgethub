@@ -1,6 +1,6 @@
 {
     "key": "bs-alert",
-    "name": "Alert container",
+    "name": "Capses 'alert' de Bootstrap",
     "category": "bootstrap",
     "instructions": "Permet inserir capses \"alert\" de Boostrap de diferent tipus. Emprau aquestes capses si desitjau que l'usuari les pugui tancar.\n",
     "template": "<p></p>\n<div class=\"m-2 alert alert-{{severity}}{{#closable}} alert-dismissible{{/closable}} fade show\" role=\"alert\">\n  {{#closable}}\n   <button type=\"button\" class=\"btn-close close\" data-dismiss=\"alert\" data-bs-dismiss=\"alert\" aria-label=\"Close\">\n     <span aria-hidden=\"true\">&times;</span>\n   </button>\n  {{/closable}}\n  <div class=\"alert-content\">\n    <p>Lorem ipsum.</p>\n  </div>\n</div>\n<p></p>\n",

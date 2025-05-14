@@ -41,6 +41,7 @@ parameters:
       - fortran
       - go
       - graphql
+      - html
       - json
       - java
       - javascript

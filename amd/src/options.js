@@ -318,6 +318,7 @@ export function applyPartials(widget, partials) {
  * @property {number} id
  * @property {string} key
  * @property {string} name
+ * @property {string} [order] - Optional to redefine position by name
  * @property {string} category
  * @property {string} [scope] - Regex for idenfying allowed body ids
  * @property {string} [instructions]
