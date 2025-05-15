@@ -61,13 +61,13 @@
                     "l": "Francès (Canadà)"
                 }
             ],
-            "bind": "attrRegex('href=\"#speak_(.*)\"')"
+            "bind": "attrRegex('href=#speak_(.*)')"
         },
         {
             "name": "globus",
             "value": false,
             "title": "Inclou globus?",
-            "bind": "hasAttrBS('toggle=\"popover\"')"
+            "bind": "hasAttrBS('toggle=popover')"
         },
         {
             "name": "title",

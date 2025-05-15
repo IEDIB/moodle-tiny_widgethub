@@ -751,6 +751,7 @@ const bindingFactory = function($e) {
             const attrName = parts[0].trim();
             let attrValue = '';
             if (parts.length > 1) {
+                // TODO: Remove leading/trailing " o '
                 attrValue = parts[1].trim();
             }
             return {

@@ -34,11 +34,11 @@ parameters:
       - {v: 'de-DE', l: 'Alemany (Alemanya)'} 
       - {v: 'fr-FR', l: 'Francès (França)'}
       - {v: 'fr-CA', l: 'Francès (Canadà)'}
-    bind: attrRegex('href="#speak_(.*)"')
+    bind: attrRegex('href=#speak_(.*)')
   - name: globus
     value: false
     title: Inclou globus?
-    bind: hasAttrBS('toggle="popover"')
+    bind: hasAttrBS('toggle=popover')
   - name: title
     value: ''
     title: Títol globus

@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import {subscribe} from "../extension";
-import { getGlobalConfig } from "../options";
+import {getGlobalConfig} from "../options";
 
 /**
  * @param {HTMLElement} body
