@@ -228,11 +228,11 @@ function initializer(editor) {
                 scriptInitBS.innerHTML = `
                 $(document).ready(function() {
                     $('body').tooltip({
-                        selector: '[data-toggle="tooltip"]',
+                        selector: '[data-toggle="tooltip"],[data-bs-toggle="tooltip"]',
                         trigger: 'hover'
                     });
                     $('body').popover({
-                        selector: '[data-toggle="popover"]',
+                        selector: '[data-toggle="popover"],[data-bs-toggle="popover"]',
                         trigger: 'hover'
                     });
                 });`;

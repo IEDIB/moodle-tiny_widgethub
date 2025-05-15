@@ -278,9 +278,10 @@ function alphaWalker(editor, query, attr, ishash, prefix, changesWorker) {
 function changesWorker(ele) {
     const newId = ele.getAttribute("id");
     /** @type {NodeListOf<HTMLElement>} */
-    const allAs = ele.querySelectorAll('a.accordion-toggle[data-toggle="collapse"]');
+    const allAs = ele.querySelectorAll('a.accordion-toggle[data-toggle="collapse"],a.accordion-toggle[data-bs-toggle="collapse"]');
     allAs.forEach((asel) => {
         asel.setAttribute("data-parent", '#' + newId);
+        asel.setAttribute("data-bs-parent", '#' + newId);
     });
 }
 /**

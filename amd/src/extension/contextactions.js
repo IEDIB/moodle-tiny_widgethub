@@ -250,11 +250,13 @@ export function setAccordionBehavior() {
     }
     if (isDependentBehavior) {
         // Behavior individual
-        $target.find("div.accordion-body").removeAttr("data-parent");
+        $target.find("div.accordion-body").removeAttr("data-parent data-bs-parent");
     } else {
         // Behavior accordion
         const acid = $target.attr("id");
-        $target.find("div.accordion-body").attr("data-parent", "#" + acid);
+        $target.find("div.accordion-body")
+            .attr("data-parent", "#" + acid)
+            .attr("data-bs-parent", "#" + acid);
     }
 }
 

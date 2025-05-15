@@ -3,7 +3,7 @@
     "name": "Reprodueix en veu alta",
     "category": "idiomes",
     "instructions": "Reprodueix en veu alta una paraula o una frase en l'idioma triat en el menú desplegable. Opcionalment es pot afegir una anotació tipus globus que es mostra en fer click. <span class=\"iedib-ret iedib-ret-alerta\">El funcionament en dispositius mòbils està en forma experimental.  Les veus disponibles depenen del sistema operatiu que s'empra.</span>\n",
-    "template": "<a href=\"#speak_{{voice}}\" {{#globus}}data-toggle=\"popover\" data-trigger=\"click\" data-content=\"{{txtglobus}}\" data-html=\"true\" {{#if}}[title!='']title=\"{{title}}\"{{/if}} data-placement=\"auto\"{{/globus}}><span class=\"iedib-inspoint\">{{words}}</span></a>",
+    "template": "<a href=\"#speak_{{voice}}\" {{#globus}}data-toggle=\"popover\" data-bs-toggle=\"popover\" data-trigger=\"click\" data-bs-trigger=\"click\"\ndata-content=\"{{txtglobus}}\" data-bs-content=\"{{txtglobus}}\" data-html=\"true\" data-bs-html=\"true\" \n{{#if}}[title!='']title=\"{{title}}\"{{/if}} \ndata-placement=\"auto\" data-bs-placement=\"auto\"{{/globus}}><span class=\"iedib-inspoint\">{{words}}</span></a>\n",
     "insertquery": ".iedib-inspoint",
     "selectors": "a[href^=\"#speak_\"]",
     "unwrap": ".iedib-inspoint",
@@ -18,7 +18,7 @@
             "name": "voice",
             "value": "en-GB",
             "title": "Idioma de reproducció",
-            "tip": "WordReference funciona per a una sola paraula en anglès.  Permet triar entre les diverses variants.",
+            "tip": "WordReference funciona per a una sola paraula en anglès. Permet triar entre les diverses variants.",
             "options": [
                 {
                     "v": "ca-ES",
@@ -67,14 +67,14 @@
             "name": "globus",
             "value": false,
             "title": "Inclou globus?",
-            "bind": "hasAttr('data-toggle=\"popover\"')"
+            "bind": "hasAttrBS('toggle=\"popover\"')"
         },
         {
             "name": "title",
             "value": "",
             "title": "Títol globus",
             "when": "globus",
-            "bind": "attr('data-title')"
+            "bind": "attr('title')"
         },
         {
             "name": "txtglobus",
@@ -84,11 +84,11 @@
             "when": "globus",
             "transform": "escapeQuotes",
             "tip": "Si es vol, el contingut del globus pot contenir codi HTML bàsic.",
-            "bind": "attr('data-content')"
+            "bind": "attrBS('content')"
         }
     ],
     "requires": "/sd/speak.min.js",
     "stars": 2,
     "author": "Josep Mulet Pol <pep.mulet@gmail.com>",
-    "version": "2022.09.28"
+    "version": "2025.05.15"
 }

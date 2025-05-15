@@ -346,7 +346,9 @@ function provider(ctx) {
             }
             // Is Accordion behavior?
             const isDependentBehavior =
-            ($target.find("div.accordion-body").attr("data-parent") ?? null) !== null;
+            (
+                ($target.find("div.accordion-body").attr("data-parent") ||
+                 $target.find("div.accordion-body").attr("data-bs-parent")) ?? null) !== null;
 
             return [false, true].map(opt => ({
                 type: 'menuitem',
