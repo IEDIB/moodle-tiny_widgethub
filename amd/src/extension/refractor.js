@@ -133,14 +133,14 @@ function bs5Refractor(editor) {
  * @param {import("../plugin").TinyMCE} editor
  */
 function refractoring(editor) {
-    const refractoringActive = getGlobalConfig(editor, 'oninit.refractoring', '1');
-    if (refractoringActive !== '1') {
-        console.info('Skipping refractoring');
-        return;
+    let changes;
+    if (getGlobalConfig(editor, 'oninit.refractor.ids', '1') === '1') {
+        changes = idFixingRefractor(editor);
     }
-    const changes1 = idFixingRefractor(editor);
-    const changes2 = bs5Refractor(editor);
-    if (changes1 || changes2) {
+    if (getGlobalConfig(editor, 'oninit.refractor.bs5', '1') === '1') {
+        changes = bs5Refractor(editor) && changes;
+    }
+    if (changes) {
         editor.notificationManager.open({
             text: "S'han optimitzat alguns snippets. Per favor, desau els canvis en sortir.",
             type: 'warning',
