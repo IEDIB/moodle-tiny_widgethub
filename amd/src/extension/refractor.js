@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import {subscribe} from "../extension";
+import { getGlobalConfig } from "../options";
 
 /**
  * @param {HTMLElement} body
@@ -132,6 +133,11 @@ function bs5Refractor(editor) {
  * @param {import("../plugin").TinyMCE} editor
  */
 function refractoring(editor) {
+    const refractoringActive = getGlobalConfig(editor, 'oninit.refractoring', '1');
+    if (refractoringActive !== '1') {
+        console.info('Skipping refractoring');
+        return;
+    }
     const changes1 = idFixingRefractor(editor);
     const changes2 = bs5Refractor(editor);
     if (changes1 || changes2) {
