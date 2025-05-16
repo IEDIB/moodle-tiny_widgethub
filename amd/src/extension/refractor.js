@@ -133,7 +133,7 @@ function bs5Refractor(editor) {
  * @param {import("../plugin").TinyMCE} editor
  */
 function refractoring(editor) {
-    let changes;
+    let changes = false;
     if (getGlobalConfig(editor, 'oninit.refractor.ids', '1') === '1') {
         changes = idFixingRefractor(editor);
     }

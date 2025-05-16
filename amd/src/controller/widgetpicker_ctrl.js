@@ -396,7 +396,6 @@ export class WidgetPickerCtrl {
             });
         });
         const categoriesList = Object.values(categories);
-        // TODO: Be able to override positions
         categoriesList.sort((a, b) => (a.order + '').localeCompare((b.order + '')));
         categoriesList.forEach(cat => {
             // Sort buttons by the order, not by the name
