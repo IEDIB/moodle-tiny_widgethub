@@ -66,7 +66,7 @@ class settingsutil {
             'tiny_widgethub_cfg',
             get_string('cfg', 'tiny_widgethub'),
             "imgBaseUrl=https://iedib.net/assets\nenable.contextmenu.level=1\ncategory.order=obsolet:z1\n" .
-            "\noninit.refractor.ids=1\noninit.refractor.bs5=1\ndisable.plugin.pages=",
+            "oninit.refractor.ids=1\noninit.refractor.bs5=1\ndisable.plugin.pages=",
             PARAM_RAW
         );
         return $items;
