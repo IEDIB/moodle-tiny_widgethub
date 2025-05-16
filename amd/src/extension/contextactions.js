@@ -250,11 +250,13 @@ export function setAccordionBehavior() {
     }
     if (isDependentBehavior) {
         // Behavior individual
-        $target.find("div.accordion-body").removeAttr("data-parent");
+        $target.find("div.accordion-body").removeAttr("data-parent data-bs-parent");
     } else {
         // Behavior accordion
         const acid = $target.attr("id");
-        $target.find("div.accordion-body").attr("data-parent", "#" + acid);
+        $target.find("div.accordion-body")
+            .attr("data-parent", "#" + acid)
+            .attr("data-bs-parent", "#" + acid);
     }
 }
 
@@ -270,6 +272,28 @@ export function convert2BootstrapTable() {
            .addClass("table table-striped iedib-bstable");
     $target.find("td,th").removeAttr("style");
     $target.find("thead > tr > th").attr("role", "col");
+}
+
+/**
+ * @this {{ctx: import("../contextinit").ItemMenuContext}}
+ */
+export function convertDropdownToList() {
+    const $target = this.ctx.path?.elem;
+    if (!$target) {
+        return;
+    }
+    // Convert into a list
+    const listSubstitute = this.ctx.jQuery("<ul></ul>");
+    $target.find("a.accordion-toggle").each((i, a) => {
+          const $e = $target.find(a.getAttribute("href") || "");
+          $e.detach();
+          $e.removeClass();
+          const theLi = this.ctx.jQuery("<li></li>");
+          theLi.append(a.innerHTML);
+          theLi.append($e);
+          listSubstitute.append(theLi);
+    });
+    $target.replaceWith(listSubstitute);
 }
 
 /**

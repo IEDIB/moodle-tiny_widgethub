@@ -39,6 +39,7 @@ const {component, pluginName} = Common;
 // Import extensions to the plugin
 import './extension/dependencies';
 import './extension/contextmenus';
+import './extension/refractor';
 
 // Setup the plugin.
 // eslint-disable-next-line no-async-promise-executor

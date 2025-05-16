@@ -3,7 +3,7 @@
     "name": "Presentació diapositives",
     "category": "bootstrap",
     "instructions": "Crea un pas de diapositives. Heu de definir el nombre de diapositives (<b>com a mínim 2</b>). El temps de transició 0, indica que es deshabilita el pas automàtic per complet. Marcau la casella si desitjau que les diapositives apareguin en la impressió.\n",
-    "template": "<p><br></p> \n<!--ini presentació diapositives-->\n<div role=\"snptd_presentacio\" data-durades=\"{{durades}}\" {{#if}}[start>1]data-start=\"{{start}}\"{{/if}} data-autostart=\"{{autostart}}\" data-loop=\"{{loop}}\" data-transition=\"{{transition}}\" class=\"align-{{valign}} tabbable{{^imprimible}} d-print-none{{/imprimible}}{{#dark}} theme-dark{{/dark}}\" {{#full}}style=\"max-width:100%;\"{{/full}}>\n<ul class=\"nav nav-tabs\">\n{{#each}}[pestanyes]<li {{#if}}[i==1]class=\"active\"{{/if}}><a href=\"#{{ID}}_{{i}}\"\ndata-toggle=\"tab\"><span>&nbsp;</span><span>{{i}}.</span></a>{{/each}}</li> \n</ul>\n<div class=\"tab-content\">\n{{#each}}[pestanyes]<div class=\"tab-pane {{#if}}[i==1]active{{/if}} iedib-tabpane\" id=\"{{ID}}_{{i}}\">\n<p>Editeu el contingut de la diapositiva núm. {{i}})</p>\n<p><br></p>\n</div>{{/each}}\n</div> \n</div>\n<!--fi presentació diapositives-->\n<p><br></p>\n",
+    "template": "<p><br></p> \n<!--ini presentació diapositives-->\n<div role=\"snptd_presentacio\" data-durades=\"{{durades}}\" {{#if}}[start>1]data-start=\"{{start}}\"{{/if}} data-autostart=\"{{autostart}}\" data-loop=\"{{loop}}\" data-transition=\"{{transition}}\" class=\"align-{{valign}} tabbable{{^imprimible}} d-print-none{{/imprimible}}{{#dark}} theme-dark{{/dark}}\" {{#full}}style=\"max-width:100%;\"{{/full}}>\n<ul class=\"nav nav-tabs\">\n{{#each}}[pestanyes]<li {{#if}}[i==1]class=\"active\"{{/if}}><a href=\"#{{ID}}_{{i}}\"\ndata-toggle=\"tab\" data-bs-toggle=\"tab\"><span>&nbsp;</span><span>{{i}}.</span></a>{{/each}}</li> \n</ul>\n<div class=\"tab-content\">\n{{#each}}[pestanyes]<div class=\"tab-pane {{#if}}[i==1]active{{/if}} iedib-tabpane\" id=\"{{ID}}_{{i}}\">\n<p>Editeu el contingut de la diapositiva núm. {{i}})</p>\n<p><br></p>\n</div>{{/each}}\n</div> \n</div>\n<!--fi presentació diapositives-->\n<p><br></p>\n",
     "selectors": "div[role=\"snptd_presentacio\"], div[data-snptd=\"presentacio\"]",
     "unwrap": "div.tab-content > div.tab-pane > *",
     "parameters": [
@@ -114,5 +114,5 @@
         }
     ],
     "author": "Josep Mulet Pol <pep.mulet@gmail.com>",
-    "version": "2022.09.28"
+    "version": "2025.05.15"
 }

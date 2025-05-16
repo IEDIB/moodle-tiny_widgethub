@@ -20,7 +20,7 @@ template: |
   <p><br></p>
 parameters:
   - name: youtubeId
-    value: JikG2CPycAw
+    value: Z3HSw-K-ZgI
     title: URL o Id del vídeo
     tip: Podeu aferrar la URL completa o l'ID del vídeo de YouTube
     transform: ytId
@@ -43,4 +43,4 @@ parameters:
 scope: ^page-mod-(book|page|assign|quizz)-
 stars: 3
 author: Josep Mulet Pol <pep.mulet@gmail.com>
-version: 2023.01.07
+version: 2025.05.16

@@ -3,9 +3,7 @@
     "name": "Capçalera general",
     "instructions": "Insereix una capçalera general amb fons blau. Per crear seccions en llibres és recomana emprar l'snippet `sub-subsecció`.",
     "template": "<p><br></p> <div class=\"iedib-titol-general\">\n  <span class=\"iedib-titol-general-text\">{{titol}}</span>\n</div> <p><br></p>",
-    "selectors": "iedib-titol-general",
     "insertquery": ".iedib-titol-general-text",
-    "unwrap": ".iedib-titol-general",
     "parameters": [
         {
             "name": "titol",
@@ -16,5 +14,5 @@
     ],
     "scope": "^page-mod-(page|quizz|assign)-mod$",
     "author": "Josep Mulet Pol <pep.mulet@gmail.com>",
-    "version": "2023.01.07"
+    "version": "2025.05.16"
 }

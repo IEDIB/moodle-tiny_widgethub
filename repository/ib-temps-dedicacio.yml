@@ -5,7 +5,8 @@ instructions: >
   Emprau preferentment múltiples de 15 per als minuts. 
 template: >-
   <div class="iedib-rwrap"> <!--ini: temps-dedicació-->
-  <div role="snptd_dedicacio" class="iedib-time" data-toggle="tooltip" data-placement="bottom" title="{{titol}}">
+  <div role="snptd_dedicacio" class="iedib-time" data-toggle="tooltip" data-bs-toggle="tooltip" data-placement="bottom" data-bs-placement="bottom"
+  title="{{titol}}">
     <i class="fad fa-stopwatch" aria-hidden="true"></i>
     <span>
       {{#hours}} {{hours}} h {{/hours}}
@@ -33,4 +34,4 @@ parameters:
 for: "4,31"
 stars: 2
 author: Josep Mulet Pol <pep.mulet@gmail.com>
-version: 2022.06.11
+version: 2025.05.15

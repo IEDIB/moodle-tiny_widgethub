@@ -104,8 +104,8 @@ export class WidgetParamsCtrl {
          // @ts-ignore
          modal.body.popover({
             container: "body",
-            selector: "[data-toggle=popover][data-trigger=hover]",
-            trigger: "hover"
+            selector: "[data-toggle=popover][data-trigger=hover], [data-bs-toggle=popover][data-bs-trigger=hover]",
+            trigger: "hover",
          });
       } catch (ex) {
          // console.error(ex);

@@ -2,7 +2,7 @@
     "key": "dedication-time",
     "name": "Temps de dedicació",
     "instructions": "Aquest snippet serveix per recomanar un temps de dedicació mínim a un recurs.  Emprau preferentment múltiples de 15 per als minuts. \n",
-    "template": "<div class=\"iedib-rwrap\"> <!--ini: temps-dedicació--> <div role=\"snptd_dedicacio\" class=\"iedib-time\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"{{titol}}\">\n  <i class=\"fad fa-stopwatch\" aria-hidden=\"true\"></i>\n  <span>\n    {{#hours}} {{hours}} h {{/hours}}\n    {{#minutes}} {{minutes}} min {{/minutes}}\n  </span>\n</div> <!--end: temps-dedicació--> </div>  <p><br></p>",
+    "template": "<div class=\"iedib-rwrap\"> <!--ini: temps-dedicació--> <div role=\"snptd_dedicacio\" class=\"iedib-time\" data-toggle=\"tooltip\" data-bs-toggle=\"tooltip\" data-placement=\"bottom\" data-bs-placement=\"bottom\" title=\"{{titol}}\">\n  <i class=\"fad fa-stopwatch\" aria-hidden=\"true\"></i>\n  <span>\n    {{#hours}} {{hours}} h {{/hours}}\n    {{#minutes}} {{minutes}} min {{/minutes}}\n  </span>\n</div> <!--end: temps-dedicació--> </div>  <p><br></p>",
     "parameters": [
         {
             "name": "hours",
@@ -29,5 +29,5 @@
     "for": "4,31",
     "stars": 2,
     "author": "Josep Mulet Pol <pep.mulet@gmail.com>",
-    "version": "2022.06.11"
+    "version": "2025.05.15"
 }

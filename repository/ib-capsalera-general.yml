@@ -8,9 +8,7 @@ template: >-
     <span class="iedib-titol-general-text">{{titol}}</span>
   </div>
   <p><br></p>
-selectors: iedib-titol-general
 insertquery: .iedib-titol-general-text
-unwrap: .iedib-titol-general
 parameters: 
   - name: titol
     value: Escriviu un títol
@@ -18,4 +16,4 @@ parameters:
     when: "!SELECT_MODE"
 scope: ^page-mod-(page|quizz|assign)-mod$
 author: Josep Mulet Pol <pep.mulet@gmail.com>
-version: 2023.01.07
+version: 2025.05.16

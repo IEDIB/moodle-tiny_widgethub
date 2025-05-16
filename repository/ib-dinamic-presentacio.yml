@@ -11,7 +11,7 @@ template: |
   <div role="snptd_presentacio" data-durades="{{durades}}" {{#if}}[start>1]data-start="{{start}}"{{/if}} data-autostart="{{autostart}}" data-loop="{{loop}}" data-transition="{{transition}}" class="align-{{valign}} tabbable{{^imprimible}} d-print-none{{/imprimible}}{{#dark}} theme-dark{{/dark}}" {{#full}}style="max-width:100%;"{{/full}}>
   <ul class="nav nav-tabs">
   {{#each}}[pestanyes]<li {{#if}}[i==1]class="active"{{/if}}><a href="#{{ID}}_{{i}}"
-  data-toggle="tab"><span>&nbsp;</span><span>{{i}}.</span></a>{{/each}}</li> 
+  data-toggle="tab" data-bs-toggle="tab"><span>&nbsp;</span><span>{{i}}.</span></a>{{/each}}</li> 
   </ul>
   <div class="tab-content">
   {{#each}}[pestanyes]<div class="tab-pane {{#if}}[i==1]active{{/if}} iedib-tabpane" id="{{ID}}_{{i}}">
@@ -88,4 +88,4 @@ contextmenu:
   - predicate: ul.nav-tabs > li
     actions: moveleft moveright insertafter | remove
 author: Josep Mulet Pol <pep.mulet@gmail.com>
-version: 2022.09.28
+version: 2025.05.15

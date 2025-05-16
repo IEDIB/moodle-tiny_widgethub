@@ -12,9 +12,9 @@ template: >
   <div id="{{ID}}" class="accordion iedib-accordion">
   {{#each}}[nombre]<div class="accordion-group">
   <div class="accordion-heading"><a class="accordion-toggle" href="#collapse_{{ID}}_{{i}}"
-  data-toggle="collapse" {{#independents}}data-parent="#{{ID}}"{{/independents}}><span class="icon
+  data-toggle="collapse" data-bs-toggle="collapse" {{#independents}}data-parent="#{{ID}}" data-bs-parent="#{{ID}}"{{/independents}}><span class="icon
   icon-plus-sign"></span> <span>&nbsp;</span><span>Desplegable{{i}}&nbsp;</span></a></div>
-  <div id="collapse_{{ID}}_{{i}}" class="accordion-body collapse" {{^independents}}data-parent="#{{ID}}"{{/independents}}>
+  <div id="collapse_{{ID}}_{{i}}" class="accordion-body collapse" {{^independents}}data-parent="#{{ID}}" data-bs-parent="#{{ID}}"{{/independents}}>
   <div class="accordion-inner">
   <p>Més informació sobre l'apartat {{i}}...</p>
   </div>
@@ -40,4 +40,4 @@ contextmenu:
   - predicate: div.accordion-group
     actions: moveup movedown insertafter | remove
 author: Josep Mulet Pol <pep.mulet@gmail.com>
-version: 2025.05.06
+version: 2025.05.15

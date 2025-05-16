@@ -346,7 +346,9 @@ function provider(ctx) {
             }
             // Is Accordion behavior?
             const isDependentBehavior =
-            ($target.find("div.accordion-body").attr("data-parent") ?? null) !== null;
+            (
+                ($target.find("div.accordion-body").attr("data-parent") ||
+                 $target.find("div.accordion-body").attr("data-bs-parent")) ?? null) !== null;
 
             return [false, true].map(opt => ({
                 type: 'menuitem',
@@ -478,6 +480,16 @@ function provider(ctx) {
         }
     };
 
+     /**
+     * @type {UserDefinedItem}
+     */
+     const convertDropdownToList = {
+        name: 'convertDropdownToList',
+        condition: 'desplegable2',
+        title: 'Convertir a llista',
+        onAction: Action.convertDropdownToList.bind({ctx}),
+    };
+
     return [
         // Image actions
         imageEffectsNestedMenu,
@@ -494,6 +506,7 @@ function provider(ctx) {
         accordionIndependentBehaviorNestedMenu,
         numberedListNestedMenu,
         twoColumnsNestedMenu,
+        convertDropdownToList,
 
         // Tables
         tablesMaxWidthMenu,
