@@ -480,6 +480,16 @@ function provider(ctx) {
         }
     };
 
+     /**
+     * @type {UserDefinedItem}
+     */
+     const convertDropdownToList = {
+        name: 'convertDropdownToList',
+        condition: 'desplegable2',
+        title: 'Convertir a llista',
+        onAction: Action.convertDropdownToList.bind({ctx}),
+    };
+
     return [
         // Image actions
         imageEffectsNestedMenu,
@@ -496,6 +506,7 @@ function provider(ctx) {
         accordionIndependentBehaviorNestedMenu,
         numberedListNestedMenu,
         twoColumnsNestedMenu,
+        convertDropdownToList,
 
         // Tables
         tablesMaxWidthMenu,

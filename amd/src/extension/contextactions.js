@@ -277,6 +277,28 @@ export function convert2BootstrapTable() {
 /**
  * @this {{ctx: import("../contextinit").ItemMenuContext}}
  */
+export function convertDropdownToList() {
+    const $target = this.ctx.path?.elem;
+    if (!$target) {
+        return;
+    }
+    // Convert into a list
+    const listSubstitute = this.ctx.jQuery("<ul></ul>");
+    $target.find("a.accordion-toggle").each((i, a) => {
+          const $e = $target.find(a.getAttribute("href") || "");
+          $e.detach();
+          $e.removeClass();
+          const theLi = this.ctx.jQuery("<li></li>");
+          theLi.append(a.innerHTML);
+          theLi.append($e);
+          listSubstitute.append(theLi);
+    });
+    $target.replaceWith(listSubstitute);
+}
+
+/**
+ * @this {{ctx: import("../contextinit").ItemMenuContext}}
+ */
 export function convert2PrefefinedTable() {
     const $target = this.ctx.path?.elem;
     if (!$target) {
