@@ -25,7 +25,7 @@ import * as coreStr from "core/str";
 /**
  * Tiny WidgetHub plugin.
  *
- * @module      tiny_widgethub/plugin
+ * @module      tiny_ibwidgethub/plugin
  * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -80,14 +80,14 @@ export class WidgetParamsCtrl {
       });
       this.formCtrl.attachPickers(modal.body);
       modal.footer.show();
-      modal.footer.find("button.tiny_widgethub-btn-secondary").on("click", async() => {
+      modal.footer.find("button.tiny_ibwidgethub-btn-secondary").on("click", async() => {
          // Go back to main menú
          modal.destroy();
          if (this.parentCtrl) {
             await this.parentCtrl.handleAction();
          }
       });
-      modal.footer.find("button.tiny_widgethub-btn-primary").on("click", async() => {
+      modal.footer.find("button.tiny_ibwidgethub-btn-primary").on("click", async() => {
          // Go back to main menú
          const ctxFromDialogue = this.formCtrl.extractFormParameters(this.widget, modal.body.find("form"), true);
          modal.hide();

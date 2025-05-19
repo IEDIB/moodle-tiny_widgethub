@@ -68,7 +68,7 @@ author: Your name <your.email@domain.com>
 version: 1.0.0 
 ````
 
-To use it, you have to register this widget into your Moodle instance. Go to administration settings and search 'widget'. The search result will be under the URL /admin/category.php?category=tiny_widgethub
+To use it, you have to register this widget into your Moodle instance. Go to administration settings and search 'widget'. The search result will be under the URL /admin/category.php?category=tiny_ibwidgethub
 
 Click on the link <img src="../img/create_new_widget.png" height="25" style="height:25px; vertical-align: bottom;">
 

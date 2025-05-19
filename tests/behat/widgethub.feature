@@ -1,5 +1,5 @@
-@editor  @tiny @editor_tiny  @tiny_widgethub
-Feature: Tiny widgethub
+@editor  @tiny @editor_tiny  @tiny_ibwidgethub
+Feature: Tiny ibwidgethub
   Open the widgethub dialog in TinyMCE editor
   Background:
     Given the following "courses" exist:
@@ -15,7 +15,7 @@ Feature: Tiny widgethub
         | activity | name      | intro     | introformat | course | contentformat | idnumber |
         | page     | PageName1 | PageDesc1 | 1           | C1     | 1             | 1        |
   @javascript @external
-  Scenario: View the widgethub dialog searchs yields no widgets in TinyMCE editor
+  Scenario: View the ibwidgethub dialog searchs yields no widgets in TinyMCE editor
     Given I log in as "admin"
     When I open my profile in edit mode
     And I set the field "Description" to "Hello tiny!"

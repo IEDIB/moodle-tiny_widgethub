@@ -19,7 +19,7 @@
  * Tiny WidgetHub plugin.
  * An adaptation of the EJS templating engine as AMD module.
  *
- * @module      tiny_widgethub/plugin
+ * @module      tiny_ibwidgethub/plugin
  * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

@@ -25,7 +25,7 @@ import {get_strings} from 'core/str';
 /**
  * Tiny WidgetHub plugin.
  *
- * @module      tiny_widgethub/plugin
+ * @module      tiny_ibwidgethub/plugin
  * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -261,7 +261,7 @@ export async function initContextActions(editor) {
     defineIcons(editor);
 
     // Get translations
-    const component = 'tiny_widgethub';
+    const component = 'tiny_ibwidgethub';
     const [
         strProperties, strUnwrap, strMoveUp, strMoveDown, strMoveAfter, strMoveBefore,
         strInsert, strRemove, strPrintable
@@ -403,7 +403,7 @@ export async function initContextActions(editor) {
             }
     });
 
-    editor.ui.registry.addContextMenu('tiny_widgethub', {
+    editor.ui.registry.addContextMenu('tiny_ibwidgethub', {
         /** @param {HTMLElement} element */
         update: (element) => {
             // Look for a context

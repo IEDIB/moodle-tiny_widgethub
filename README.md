@@ -64,7 +64,7 @@ The options available are:
 
 Feel free to share your widgets either by email `pep.mulet(at)gmail.com` or creating a pull request.
 
-The capability 'tiny/widgethub:viewplugin' allows to set the plugin visibility for any role. Keep in mind that, by default, the role student is prevented from using the plugin.
+The capability 'tiny/ibwidgethub:viewplugin' allows to set the plugin visibility for any role. Keep in mind that, by default, the role student is prevented from using the plugin.
 
  
  

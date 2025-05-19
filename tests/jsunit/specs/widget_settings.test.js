@@ -42,9 +42,9 @@ const settingsModule = require('../src/widget_settings').default;
 function createBody(id, partials) {
     document.body.innerHTML = `
     <form>
-    <textarea id="id_s_tiny_widgethub_defyml_${id}"></textarea>
-    <textarea id="id_s_tiny_widgethub_def_${id}"></textarea>
-    <input id="id_s_tiny_widgethub_partials_${id}" value='${JSON.stringify(partials ?? {})}' type="hidden">
+    <textarea id="id_s_tiny_ibwidgethub_defyml_${id}"></textarea>
+    <textarea id="id_s_tiny_ibwidgethub_def_${id}"></textarea>
+    <input id="id_s_tiny_ibwidgethub_partials_${id}" value='${JSON.stringify(partials ?? {})}' type="hidden">
     </form>
     `;
 }
@@ -68,9 +68,9 @@ describe('widget_settings', () => {
        };
        createBody(id, partials);
        const {$ymlArea, $jsonArea, $partialInput} = settingsModule.getAreas(id);
-       expect($ymlArea.attr('id')).toBe(`id_s_tiny_widgethub_defyml_${id}`);
-       expect($jsonArea.attr('id')).toBe(`id_s_tiny_widgethub_def_${id}`);
-       expect($partialInput.attr('id')).toBe(`id_s_tiny_widgethub_partials_${id}`);
+       expect($ymlArea.attr('id')).toBe(`id_s_tiny_ibwidgethub_defyml_${id}`);
+       expect($jsonArea.attr('id')).toBe(`id_s_tiny_ibwidgethub_def_${id}`);
+       expect($partialInput.attr('id')).toBe(`id_s_tiny_ibwidgethub_partials_${id}`);
        expect($partialInput.val()).toBe(JSON.stringify(partials));
     });
 
@@ -118,7 +118,7 @@ describe('widget_settings', () => {
         expect(mockGetValue).toHaveBeenCalled();
         // Check if the preview panel is visible and contains text
         /** @type {HTMLDivElement | null} */
-        const previewpanel = document.body.querySelector(`#tiny_widgethub_pp_${id}`);
+        const previewpanel = document.body.querySelector(`#tiny_ibwidgethub_pp_${id}`);
         expect(previewpanel).toBeTruthy();
         expect(previewpanel?.classList?.contains('d-none')).toBe(false);
         expect(previewpanel?.innerHTML).toBeTruthy();
@@ -175,7 +175,7 @@ describe('widget_settings', () => {
         expect(mockGetValue).toHaveBeenCalled();
         // Check if the preview panel is visible and contains text
         /** @type {HTMLDivElement | null} */
-        const previewpanel = document.body.querySelector(`#tiny_widgethub_pp_${id}`);
+        const previewpanel = document.body.querySelector(`#tiny_ibwidgethub_pp_${id}`);
         expect(previewpanel).toBeTruthy();
         expect(previewpanel?.classList?.contains('d-none')).toBe(false);
         expect(previewpanel?.innerHTML).toContain('Widget2');

@@ -20,7 +20,7 @@
 /**
  * Tiny WidgetHub plugin.
  *
- * @module      tiny_widgethub/plugin
+ * @module      tiny_ibwidgethub/plugin
  * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -242,8 +242,8 @@ export function applyWidgetFilterFactory(editor, coreStr) {
      */
     return async(widgetTemplate, silent, mergevars) => {
         const translations = await coreStr.get_strings([
-            {key: 'filterres', component: 'tiny_widgethub'},
-            {key: 'nochanges', component: 'tiny_widgethub'}
+            {key: 'filterres', component: 'tiny_ibwidgethub'},
+            {key: 'nochanges', component: 'tiny_ibwidgethub'}
         ]);
         // Es tracta d'un filtre, no d'un widget i s'ha de tractar de forma diferent
         const userWidgetFilter = createFilterFunction(widgetTemplate);
