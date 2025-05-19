@@ -79,7 +79,7 @@ class plugininfo extends plugin implements
      */
     public static function get_available_buttons(): array {
         return [
-            'tiny_ibwidgethub/widgethub',
+            'tiny_ibwidgethub/ibwidgethub',
         ];
     }
     /**
@@ -89,7 +89,7 @@ class plugininfo extends plugin implements
      */
     public static function get_available_menuitems(): array {
         return [
-            'tiny_ibwidgethub/widgethub',
+            'tiny_ibwidgethub/ibwidgethub',
         ];
     }
 
@@ -328,7 +328,7 @@ class plugininfo extends plugin implements
         $dirs = [];
 
         // Search in the presets folder.
-        $snippetpresetsdir = $CFG->dirroot . '/lib/editor/tiny/plugins/widgethub/presets';
+        $snippetpresetsdir = $CFG->dirroot . '/lib/editor/tiny/plugins/ibwidgethub/presets';
         if (file_exists($snippetpresetsdir)) {
             $dirs[] = new \DirectoryIterator($snippetpresetsdir);
         }
