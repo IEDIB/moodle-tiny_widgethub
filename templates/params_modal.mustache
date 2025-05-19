@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template tiny_widgethub/modal
+    @template tiny_ibwidgethub/modal
 
     Modal to manage components within the Tiny Editor.
 
@@ -51,18 +51,18 @@
     {{$body}}
     <div class="tabbable" style="table-layout: fixed; width:99%;">
         <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item"><a href="#{{idtabpane}}_0" class="nav-link active" role="tab" data-toggle="tab" data-bs-toggle="tab"><span>&nbsp; {{#str}} edit, tiny_widgethub {{/str}}</span></a></li>
-            {{^filter}}<li class="nav-item"><a href="#{{idtabpane}}_1" class="nav-link" role="tab" data-toggle="tab" data-bs-toggle="tab"><span>&nbsp; {{#str}} preview, tiny_widgethub {{/str}}</span></a></li>{{/filter}}
+            <li class="nav-item"><a href="#{{idtabpane}}_0" class="nav-link active" role="tab" data-toggle="tab" data-bs-toggle="tab"><span>&nbsp; {{#str}} edit, tiny_ibwidgethub {{/str}}</span></a></li>
+            {{^filter}}<li class="nav-item"><a href="#{{idtabpane}}_1" class="nav-link" role="tab" data-toggle="tab" data-bs-toggle="tab"><span>&nbsp; {{#str}} preview, tiny_ibwidgethub {{/str}}</span></a></li>{{/filter}}
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="{{idtabpane}}_0">
                 {{#instructions}}
                 <div style="background: whitesmoke; position:relative; padding: 15px;">
-                    <div class="tiny_widgethub-instructionstext" style="max-height:120px; overflow: hidden auto;">{{{instructions}}}</div>
+                    <div class="tiny_ibwidgethub-instructionstext" style="max-height:120px; overflow: hidden auto;overscroll-behavior-y: contain;">{{{instructions}}}</div>
                 </div>
                 {{/instructions}}
                 <hr style="margin:15px;">
-                <div style="max-height:350px;overflow:hidden auto;border-bottom:1px solid lightgray;">
+                <div style="max-height:350px;overflow:hidden auto;overscroll-behavior-y: contain;border-bottom:1px solid lightgray;">
                 <form>
                 {{#controls}}
                     {{{.}}}
@@ -78,11 +78,11 @@
     </div>
     {{/body}}
     {{$footer}}
-        <button class="tiny_widgethub-btn tiny_widgethub-btn-secondary">
+        <button class="tiny_ibwidgethub-btn tiny_ibwidgethub-btn-secondary">
             <span class="twh-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
             </span>
         </button>
-        <button class="tiny_widgethub-btn tiny_widgethub-btn-primary">{{#str}} accept, tiny_widgethub {{/str}}</button>
+        <button class="tiny_ibwidgethub-btn tiny_ibwidgethub-btn-primary">{{#str}} accept, tiny_ibwidgethub {{/str}}</button>
     {{/footer}}
 {{/ core/modal }}

@@ -17,7 +17,7 @@
 /**
  * Tiny WidgetHub plugin.
  *
- * @module      tiny_widgethub/plugin
+ * @module      tiny_ibwidgethub/plugin
  * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -29,8 +29,8 @@ import ModalEvents from 'core/modal_events';
 
 // @ts-ignore
 class IBPickerModal extends Modal {
-    static TYPE = 'tiny_widgethub/picker_modal';
-    static TEMPLATE = 'tiny_widgethub/picker_modal';
+    static TYPE = 'tiny_ibwidgethub/picker_modal';
+    static TEMPLATE = 'tiny_ibwidgethub/picker_modal';
 
     registerEventListeners() {
         // Call the parent registration.
@@ -43,8 +43,8 @@ ModalRegistry.register(IBPickerModal.TYPE, IBPickerModal, IBPickerModal.TEMPLATE
 
 // @ts-ignore
 class IBParamsModal extends Modal {
-    static TYPE = 'tiny_widgethub/params_modal';
-    static TEMPLATE = 'tiny_widgethub/params_modal';
+    static TYPE = 'tiny_ibwidgethub/params_modal';
+    static TEMPLATE = 'tiny_ibwidgethub/params_modal';
 
     registerEventListeners() {
         // Call the parent registration.
@@ -56,8 +56,8 @@ ModalRegistry.register(IBParamsModal.TYPE, IBParamsModal, IBParamsModal.TEMPLATE
 
 // @ts-ignore
 class IBContextModal extends Modal {
-    static TYPE = 'tiny_widgethub/context_modal';
-    static TEMPLATE = 'tiny_widgethub/context_modal';
+    static TYPE = 'tiny_ibwidgethub/context_modal';
+    static TEMPLATE = 'tiny_ibwidgethub/context_modal';
 
     registerEventListeners() {
         // Call the parent registration.

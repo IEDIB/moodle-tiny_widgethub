@@ -17,7 +17,7 @@
 /**
  * Tiny WidgetHub plugin version details.
  *
- * @package     tiny_widgethub
+ * @package     tiny_ibwidgethub
  * @copyright   2024 Josep Mulet <pep.mulet@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -25,7 +25,7 @@
 /**
  * Install the plugin.
  */
-function xmldb_tiny_widgethub_install() {
-    $presets = \tiny_widgethub\plugininfo::fetch_presets();
-    \tiny_widgethub\plugininfo::save_update_presets($presets);
+function xmldb_tiny_ibwidgethub_install() {
+    $presets = \tiny_ibwidgethub\plugininfo::fetch_presets();
+    \tiny_ibwidgethub\plugininfo::save_update_presets($presets);
 }

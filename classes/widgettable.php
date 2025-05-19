@@ -17,12 +17,12 @@
 /**
  * Tiny WidgetHub plugin.
  *
- * @package     tiny_widgethub
+ * @package     tiny_ibwidgethub
  * @copyright   2024 Josep Mulet <pep.mulet@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace tiny_widgethub;
+namespace tiny_ibwidgethub;
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -90,12 +90,12 @@ class widgettable extends \admin_setting {
      * @return string Returns an HTML string
      */
     public function output_html($data, $query = '') {
-        $tinycategory = 'tiny_widgethub';
+        $tinycategory = 'tiny_ibwidgethub';
         $conf = get_config($tinycategory);
         $listwidgetconfig = self::get_list_widgets_config($conf);
 
         $table = new \html_table();
-        $table->id = 'tiny_widgethub_widgetlist';
+        $table->id = 'tiny_ibwidgethub_widgetlist';
         $table->head = [
             get_string('key', $tinycategory),
             get_string('name', $tinycategory),
@@ -124,7 +124,7 @@ class widgettable extends \admin_setting {
         $row = new \html_table_row();
         $newurl = new \moodle_url(
             '/admin/settings.php',
-            ['section' => 'tiny_widgethub_spage_0']
+            ['section' => 'tiny_ibwidgethub_spage_0']
         );
         $newlinktext = \html_writer::tag('i', '', ['class' => 'fa fa-plus-circle'])
             . ' ' . get_string('createwidget', $tinycategory);
@@ -166,7 +166,7 @@ class widgettable extends \admin_setting {
             $cfg->name = $tindex['name'];
             $cfg->url = new \moodle_url(
                 '/admin/settings.php',
-                ['section' => 'tiny_widgethub_spage_' . $id]
+                ['section' => 'tiny_ibwidgethub_spage_' . $id]
             );
             $ret[] = $cfg;
         }

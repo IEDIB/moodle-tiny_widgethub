@@ -23,12 +23,12 @@
  * and admin setting pages for the plugin. These settings include CSS options,
  * editor configurations, and individual widget-specific settings.
  *
- * @package     tiny_widgethub
+ * @package     tiny_ibwidgethub
  * @copyright   2024 Josep Mulet <pep.mulet@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace tiny_widgethub;
+namespace tiny_ibwidgethub;
 
 /**
  * Summary of settingsutil
@@ -47,24 +47,24 @@ class settingsutil {
         $items = [];
         // Decide whether to share page css into the editor's iframe.
         $items[] = new \admin_setting_configcheckbox(
-            'tiny_widgethub/sharecss',
-            'tiny_widgethub_sharecss',
-            get_string('sharecss', 'tiny_widgethub'),
+            'tiny_ibwidgethub/sharecss',
+            'tiny_ibwidgethub_sharecss',
+            get_string('sharecss', 'tiny_ibwidgethub'),
             1
         );
         // Define additional CSS to include in the editor's iframe.
         $items[] = new \admin_setting_configtextarea(
-            'tiny_widgethub/additionalcss',
-            'tiny_widgethub_additionalcss',
-            get_string('additionalcss', 'tiny_widgethub'),
+            'tiny_ibwidgethub/additionalcss',
+            'tiny_ibwidgethub_additionalcss',
+            get_string('additionalcss', 'tiny_ibwidgethub'),
             '',
             PARAM_RAW
         );
         // Define additional settings in key=value syntax per line.
         $items[] = new \admin_setting_configtextarea(
-            'tiny_widgethub/cfg',
-            'tiny_widgethub_cfg',
-            get_string('cfg', 'tiny_widgethub'),
+            'tiny_ibwidgethub/cfg',
+            'tiny_ibwidgethub_cfg',
+            get_string('cfg', 'tiny_ibwidgethub'),
             "imgBaseUrl=https://iedib.net/assets\nenable.contextmenu.level=1\ncategory.order=obsolet:z1\n" .
             "oninit.refractor.ids=1\noninit.refractor.bs5=1\ndisable.plugin.pages=",
             PARAM_RAW
@@ -108,30 +108,30 @@ class settingsutil {
      */
     private static function create_page_for_widget($widget, $usedkeys, $partials) {
         $windx = $widget->id;
-        $title = get_string('createwidget', 'tiny_widgethub');
+        $title = get_string('createwidget', 'tiny_ibwidgethub');
         if (!empty($widget->key) && $widget->key == 'partials') {
-            $title = get_string('edit', 'tiny_widgethub') . ' partials';
+            $title = get_string('edit', 'tiny_ibwidgethub') . ' partials';
         } else if (!empty($widget->key) && !empty($widget->name)) {
-            $title = get_string('edit', 'tiny_widgethub') . ' ' . $widget->name;
+            $title = get_string('edit', 'tiny_ibwidgethub') . ' ' . $widget->name;
         }
         // Page Settings for every widget.
-        $settingspage = new \admin_settingpage('tiny_widgethub_spage_' . $windx,
+        $settingspage = new \admin_settingpage('tiny_ibwidgethub_spage_' . $windx,
             $title, 'moodle/site:config', true);
 
         if ($windx > 0) {
             $settingspage->add(
                 new \admin_setting_heading(
-                    'tiny_widgethub/heading_' . $windx,
-                    get_string('widget', 'tiny_widgethub') . ' ' . $windx,
+                    'tiny_ibwidgethub/heading_' . $windx,
+                    get_string('widget', 'tiny_ibwidgethub') . ' ' . $windx,
                     ''
                 )
             );
         }
         $settingspage->add(
             new ymlsetting(
-                'tiny_widgethub/def_' . $windx,
-                get_string('def', 'tiny_widgethub'),
-                get_string('def_desc', 'tiny_widgethub'),
+                'tiny_ibwidgethub/def_' . $windx,
+                get_string('def', 'tiny_ibwidgethub'),
+                get_string('def_desc', 'tiny_ibwidgethub'),
                 $windx,
                 $usedkeys,
                 $partials

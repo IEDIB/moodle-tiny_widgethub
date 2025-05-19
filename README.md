@@ -28,6 +28,13 @@ Later, at any time, the component can be reconfigured using context menus provid
 - [Examples: Learn how to customize and create widgets.](docs/examples.md)
 - [Yaml API reference.](docs/api.md)
 
+## Migration from Moodle 4x to Moodle 5.0
+
+> [!IMPORTANT]
+> To ensure Bootstrap components that rely on JavaScript function correctly in both Moodle 4.x and Moodle 5.0, we recommend using both `data-xxx` and `data-bs-xxx` attributes in your widget templates. While this makes the templates slightly more verbose, it eliminates the need for custom JavaScript to handle attribute differences.
+
+For widgets already present on a page, you can automatically add the missing `data-bs-xxx` attributes. Refer to the `oninit.refractor.bs5` configuration option below for details.
+
 ## Configuration
 
 Administrators can manage widget definitions by customizing existing ones, creating new ones, or removing unwanted widgets. To access these options, simply type `widget` in the search field of the administrator area.
@@ -50,9 +57,14 @@ The options available are:
 
   - *category.order=misc:a1,idiomes:z1*: Overrides the default alphabetical category ordering. Provide a comma-separated string using the format `categoryName:sortingName`. The `sortingName` is used to determine the sort order among the listed categories. Categories not included in this list will maintain their default alphabetical order.
 
+  - *oninit.refractor.ids=1* - Enable (`1`) or disable (`0`) automatic refracting of bad id identifiers affecting tabmenus and dropdowns when the editor opens (default: 1).
+ 
+  - *oninit.refractor.bs5=1* - Enable (`1`) or disable (`0`) automatic refractoring of Bootstrap 5 `data-bs-xxx` attributes when the editor opens (default: 1).
+
+
 Feel free to share your widgets either by email `pep.mulet(at)gmail.com` or creating a pull request.
 
-The capability 'tiny/widgethub:viewplugin' allows to set the plugin visibility for any role. Keep in mind that, by default, the role student is prevented from using the plugin.
+The capability 'tiny/ibwidgethub:viewplugin' allows to set the plugin visibility for any role. Keep in mind that, by default, the role student is prevented from using the plugin.
 
  
  

@@ -68,7 +68,7 @@ author: Your name <your.email@domain.com>
 version: 1.0.0 
 ````
 
-To use it, you have to register this widget into your Moodle instance. Go to administration settings and search 'widget'. The search result will be under the URL /admin/category.php?category=tiny_widgethub
+To use it, you have to register this widget into your Moodle instance. Go to administration settings and search 'widget'. The search result will be under the URL /admin/category.php?category=tiny_ibwidgethub
 
 Click on the link <img src="../img/create_new_widget.png" height="25" style="height:25px; vertical-align: bottom;">
 
@@ -330,7 +330,18 @@ Selector: span.badge
 Binding: hasAttr('data-animate=true', 'boolean') is true
 ````
 
-- `hasAttr(attrName: string, query?: string): boolean` - Negated version of the previous function
+- `hasAttrBS(attrName: string, query?: string, bootstrapVersion?: string): boolean`
+Checks for the presence of a data attribute on an element, accounting for Bootstrap's change in attribute naming conventions between versions 4 and 5. This function looks for both `data-{attrName}` and `data-bs-{attrName}`.
+
+  `attrName`: The base name of the data attribute (e.g., "toggle", "target"). Do not include the `data-` or `data-bs-` prefix.
+  `query`: (Optional) A CSS selector string to specify the element to check. If not provided, the function might operate on a default element (clarify which one if applicable, e.g., the component's root element).
+
+    - If `bootstrapVersion` is "4" (or not specified, assuming 4 as default), `data-{attrName}` is checked first, and if found, its presence is returned. If not found, `data-bs-{attrName}` is checked.
+    - If `bootstrapVersion` is "5", `data-bs-{attrName}` is checked first, and if found, its presence is returned. If not found, `data-{attrName}` is checked.
+  
+   Returns `true` if either attribute is found, `false` otherwise.
+
+- `notHasAttr(attrName: string, query?: string): boolean` - Negated version of the previous function
 
 - `attr(attrName: string, castTo?: string, query?: string): string | boolean | number` - Returns the value of an attribute named attrName
 
@@ -339,6 +350,17 @@ HTML: <p><span class="badge" data-type="info">Content</span></p>
 Selector: span.badge 
 Binding: attr('data-type') is info
 ````
+
+- `attrBS(attrName: string, castTo?: string, query?: string, versionBootstrap?: string): string | boolean | number` - 
+An adapted binding function that handles both `data-{attrName}` and `data-bs-{attrName}` attributes. The `attrName` parameter refers only to the attribute's core name (e.g., "toggle", "target"), excluding the `data-` or `data-bs-` prefixes.
+
+  - When reading an attribute's value:
+      - If `versionBootstrap` is "4" (or undefined), it first checks for `data-{attrName}`. If found, its value is returned. Otherwise, it checks for and returns the value of `data-bs-{attrName}`.
+      - If `versionBootstrap` is "5", it first checks for `data-bs-{attrName}`. If found, its value is returned. Otherwise, it checks for and returns the value of `data-{attrName}`.
+      - Returns the attribute's value as a `string` or `undefined` if neither attribute is found.
+  - When setting an attribute's value:
+      - The function sets the value for the attribute that takes precedence based on the `versionBootstrap` logic described above.
+      - Returns `void`.
 
 -  `attrRegex(attrExpr: string, castTo?: string, query?: string): string | boolean | number` - attrExpr has the form attrName=attrValueRegex. Therefore this function extracts a part of the value of an atributed named attrName.
 

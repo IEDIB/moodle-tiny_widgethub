@@ -7,7 +7,7 @@
 // @ts-ignore
 const requirejs = (deps, cb) => {
     // @ts-ignore
-    const resolves = deps.map(d => d.replace("tiny_widgethub", "../src")).map(d => require(d)).map(n => n.default ?? n);
+    const resolves = deps.map(d => d.replace("tiny_ibwidgethub", "../src")).map(d => require(d)).map(n => n.default ?? n);
     cb(...resolves);
 };
 // @ts-ignore
@@ -35,7 +35,7 @@ module.exports = function applyMocks(jest) {
     }, { virtual: true }); 
     jest.mock("core/str", () => {
         const fs = require('fs');
-        const fileContent = fs.readFileSync("../../lang/en/tiny_widgethub.php", {encoding: "utf8"});
+        const fileContent = fs.readFileSync("../../lang/en/tiny_ibwidgethub.php", {encoding: "utf8"});
         const regex = /\$string\[\s*'(.*)'\s*\]\s*=\s*'\s*(.*)\s*'\s*;\s*/gm;
         const map = new Map();
         let m;

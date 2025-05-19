@@ -21,12 +21,12 @@
  * in the Tiny WidgetHub plugin. This includes defining widgets, handling configuration
  * updates, and rendering HTML for the settings UI.
  *
- * @package     tiny_widgethub
+ * @package     tiny_ibwidgethub
  * @copyright   2024 Josep Mulet <pep.mulet@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace tiny_widgethub;
+namespace tiny_ibwidgethub;
 
 defined('MOODLE_INTERNAL') || die();
 require_once($CFG->libdir . '/adminlib.php');
@@ -118,21 +118,21 @@ class ymlsetting extends \admin_setting {
         // Return empty or error message.
         if ($this->windex > 0 && (!isset($data) || $data == '')) {
             // Get rid of the widget at the current index.
-            unset_config('def_' . $this->windex, 'tiny_widgethub');
+            unset_config('def_' . $this->windex, 'tiny_ibwidgethub');
             // Update index.
             plugininfo::update_widget_index(0);
-            redirect(new \moodle_url('/admin/category.php', ['category' => 'tiny_widgethub']));
+            redirect(new \moodle_url('/admin/category.php', ['category' => 'tiny_ibwidgethub']));
             return '';
         }
         $json = json_decode($data);
         if (!isset($json)) {
             return 'Invalid widget definition';
         }
-        set_config('def_' . $this->windex, $data, 'tiny_widgethub');
+        set_config('def_' . $this->windex, $data, 'tiny_ibwidgethub');
         // Update index.
         plugininfo::update_widget_index($this->windex);
         // Redirect to the category page.
-        redirect(new \moodle_url('/admin/category.php', ['category' => 'tiny_widgethub']));
+        redirect(new \moodle_url('/admin/category.php', ['category' => 'tiny_ibwidgethub']));
         return '';
     }
 
@@ -149,21 +149,21 @@ class ymlsetting extends \admin_setting {
         // Add javascript handler for setting pages.
         // Avoid passing too much data through amd call by using hidden input elements.
         $PAGE->requires->js_call_amd(
-            'tiny_widgethub/widget_settings',
+            'tiny_ibwidgethub/widget_settings',
             'init',
             [['id' => $this->windex, 'keys' => $this->usedkeys]]
         );
 
-        $json = get_config('tiny_widgethub', 'def_' . $this->windex);
+        $json = get_config('tiny_ibwidgethub', 'def_' . $this->windex);
         $divyml = \html_writer::start_tag('div', [
-            'id' => 'id_s_tiny_widgethub_defyml_' . $this->windex,
-            'name' => 's_tiny_widgethub_defyml_' . $this->windex,
+            'id' => 'id_s_tiny_ibwidgethub_defyml_' . $this->windex,
+            'name' => 's_tiny_ibwidgethub_defyml_' . $this->windex,
             ])
             . \html_writer::end_tag('div');
 
         $textareajson = \html_writer::start_tag('textarea', [
-                'id' => 'id_s_tiny_widgethub_def_' . $this->windex,
-                'name' => 's_tiny_widgethub_def_' . $this->windex,
+                'id' => 'id_s_tiny_ibwidgethub_def_' . $this->windex,
+                'name' => 's_tiny_ibwidgethub_def_' . $this->windex,
                 'class' => 'form-control', 'rows' => '8',
                 'spellcheck' => 'false', 'style' => 'display:none',
                 ])
@@ -171,7 +171,7 @@ class ymlsetting extends \admin_setting {
                 . \html_writer::end_tag('textarea');
 
         $partialsinput = \html_writer::empty_tag('input', [
-            'id' => 'id_s_tiny_widgethub_partials_' . $this->windex,
+            'id' => 'id_s_tiny_ibwidgethub_partials_' . $this->windex,
             'type' => 'hidden',
             'value' => json_encode($this->partials),
         ]);

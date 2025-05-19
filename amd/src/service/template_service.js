@@ -17,7 +17,7 @@
 /**
  * Tiny WidgetHub plugin.
  *
- * @module      tiny_widgethub/plugin
+ * @module      tiny_ibwidgethub/plugin
  * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -241,7 +241,7 @@ const ejsLoader = () => {
     }
     return new Promise((resolve, reject) => {
         // @ts-ignore
-        window.require(['tiny_widgethub/libs/ejs-lazy'], (ejsModule) => {
+        window.require(['tiny_ibwidgethub/libs/ejs-lazy'], (ejsModule) => {
             _ejs = ejsModule;
             if (_ejs) {
                 resolve(_ejs);

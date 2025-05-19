@@ -19,7 +19,7 @@ import {getEditorOptions} from '../options';
 /**
  * Tiny WidgetHub plugin.
  *
- * @module      tiny_widgethub/plugin
+ * @module      tiny_ibwidgethub/plugin
  * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

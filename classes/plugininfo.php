@@ -17,12 +17,12 @@
 /**
  * Tiny WidgetHub plugin.
  *
- * @package     tiny_widgethub
+ * @package     tiny_ibwidgethub
  * @copyright   2024 Josep Mulet <pep.mulet@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace tiny_widgethub;
+namespace tiny_ibwidgethub;
 
 use context;
 use editor_tiny\plugin;
@@ -37,7 +37,7 @@ use editor_tiny\plugin_with_menuitems;
  * @param string $searchkey
  * @return mixed
  */
-function tiny_widgethub_searchbykey($array, $searchkey) {
+function tiny_ibwidgethub_searchbykey($array, $searchkey) {
     foreach ($array as $index => $value) {
         if ($value['key'] === $searchkey) {
             return $index;
@@ -52,7 +52,7 @@ function tiny_widgethub_searchbykey($array, $searchkey) {
  * @param string $configstr
  * @return string[]
  */
-function tiny_widgethub_parseconfig($configstr) {
+function tiny_ibwidgethub_parseconfig($configstr) {
     $config = [];
     $lines = explode("\n", trim($configstr)); // Split into lines.
     foreach ($lines as $line) {
@@ -79,7 +79,7 @@ class plugininfo extends plugin implements
      */
     public static function get_available_buttons(): array {
         return [
-            'tiny_widgethub/widgethub',
+            'tiny_ibwidgethub/ibwidgethub',
         ];
     }
     /**
@@ -89,7 +89,7 @@ class plugininfo extends plugin implements
      */
     public static function get_available_menuitems(): array {
         return [
-            'tiny_widgethub/widgethub',
+            'tiny_ibwidgethub/ibwidgethub',
         ];
     }
 
@@ -115,11 +115,11 @@ class plugininfo extends plugin implements
         global $USER, $COURSE;
 
         // Obtain the configuration options for the plugin from the config table.
-        $conf = get_config('tiny_widgethub');
+        $conf = get_config('tiny_ibwidgethub');
 
         // Decide if to enable the plugin.
         $showplugin = true;
-        if (!has_capability('tiny/widgethub:viewplugin', $context)) {
+        if (!has_capability('tiny/ibwidgethub:viewplugin', $context)) {
             $showplugin = false;
         }
 
@@ -138,7 +138,7 @@ class plugininfo extends plugin implements
             $params['sharecss'] = $conf->sharecss;
             $params['additionalcss'] = $conf->additionalcss;
             // Syntax key=value per line.
-            $params['cfg'] = tiny_widgethub_parseconfig($conf->cfg ?? '');
+            $params['cfg'] = tiny_ibwidgethub_parseconfig($conf->cfg ?? '');
         }
         return $params;
     }
@@ -170,7 +170,7 @@ class plugininfo extends plugin implements
         unset($widgetindex[0]); // Remove the temporal entry.
         if ($nerrs > 0) {
             // Store the ammended index.
-            set_config('index', json_encode($widgetindex), 'tiny_widgethub');
+            set_config('index', json_encode($widgetindex), 'tiny_ibwidgethub');
         }
         return $widgetindex;
     }
@@ -180,7 +180,7 @@ class plugininfo extends plugin implements
      * @param int $id
      */
     public static function update_widget_index($id) {
-        $conf = get_config('tiny_widgethub');
+        $conf = get_config('tiny_ibwidgethub');
         $widgetindex = self::get_widget_index($conf);
         $widget = null;
         if (isset($conf->{'def_' . $id})) {
@@ -192,7 +192,7 @@ class plugininfo extends plugin implements
         } else if (empty($widget->key) && empty($widget->name)) {
             // Remove the widget from the index and also the definition.
             unset($widgetindex[strval($id)]);
-            unset_config('def_' . $id, 'tiny_widgethub');
+            unset_config('def_' . $id, 'tiny_ibwidgethub');
         } else if ($id == 0) {
             // Add the temporal entry to a definitive widget index.
             $tmpwidget = json_decode($conf->def_0);
@@ -203,9 +203,9 @@ class plugininfo extends plugin implements
                     'key' => $tmpwidget->key,
                     'name' => $tmpwidget->name,
                 ];
-                set_config('def_' . $id, $conf->def_0, 'tiny_widgethub');
+                set_config('def_' . $id, $conf->def_0, 'tiny_ibwidgethub');
                 // Remove the temporal widget.
-                unset_config('def_0', 'tiny_widgethub');
+                unset_config('def_0', 'tiny_ibwidgethub');
             }
         } else {
             // Update its key and name.
@@ -214,7 +214,7 @@ class plugininfo extends plugin implements
                 'name' => isset($widget->name) ? $widget->name : $widget->key,
             ];
         }
-        set_config('index', json_encode($widgetindex), 'tiny_widgethub');
+        set_config('index', json_encode($widgetindex), 'tiny_ibwidgethub');
     }
 
     /**
@@ -283,7 +283,7 @@ class plugininfo extends plugin implements
         }
         $seq++;
         $conf->seq = $seq;
-        set_config('seq', $seq, 'tiny_widgethub');
+        set_config('seq', $seq, 'tiny_ibwidgethub');
         return $seq;
     }
 
@@ -292,9 +292,9 @@ class plugininfo extends plugin implements
      * @return void
      */
     public static function remove_configuration_settings() {
-        $settings = get_config('tiny_widgethub');
+        $settings = get_config('tiny_ibwidgethub');
         foreach ($settings as $fieldkey => $fieldname) {
-            unset_config($fieldkey, 'tiny_widgethub');
+            unset_config($fieldkey, 'tiny_ibwidgethub');
         }
     }
 
@@ -328,7 +328,7 @@ class plugininfo extends plugin implements
         $dirs = [];
 
         // Search in the presets folder.
-        $snippetpresetsdir = $CFG->dirroot . '/lib/editor/tiny/plugins/widgethub/presets';
+        $snippetpresetsdir = $CFG->dirroot . '/lib/editor/tiny/plugins/ibwidgethub/presets';
         if (file_exists($snippetpresetsdir)) {
             $dirs[] = new \DirectoryIterator($snippetpresetsdir);
         }
@@ -356,13 +356,13 @@ class plugininfo extends plugin implements
      */
     public static function save_update_presets($presets) {
         // Obtain the configuration options for the plugin from the config table.
-        $conf = get_config('tiny_widgethub');
+        $conf = get_config('tiny_ibwidgethub');
         // Obtain the index.
         $widgetindex = self::get_widget_index($conf);
 
         foreach ($presets as $preset) {
             // Check if the $preset key is in the $index.
-            $id = tiny_widgethub_searchbykey($widgetindex, $preset['key']);
+            $id = tiny_ibwidgethub_searchbykey($widgetindex, $preset['key']);
             $mustupdate = true;
 
             if ($id == null) {
@@ -380,7 +380,7 @@ class plugininfo extends plugin implements
             }
             if ($mustupdate) {
                 // Save the definition.
-                set_config('def_' . $id, json_encode($preset) , 'tiny_widgethub');
+                set_config('def_' . $id, json_encode($preset) , 'tiny_ibwidgethub');
                 // Update the index object.
                 $widgetindex[$id] = [
                     'key' => $preset['key'],
@@ -390,6 +390,6 @@ class plugininfo extends plugin implements
         }
 
         // Save the index.
-        set_config('index', json_encode($widgetindex), 'tiny_widgethub');
+        set_config('index', json_encode($widgetindex), 'tiny_ibwidgethub');
     }
 }

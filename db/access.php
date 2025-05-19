@@ -17,7 +17,7 @@
 /**
  * Tiny WidgetHub plugin version details.
  *
- * @package     tiny_widgethub
+ * @package     tiny_ibwidgethub
  * @copyright   2024 Josep Mulet <pep.mulet@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $capabilities = [
-    'tiny/widgethub:viewplugin' => [
+    'tiny/ibwidgethub:viewplugin' => [
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => [
@@ -36,7 +36,7 @@ $capabilities = [
             'manager' => CAP_ALLOW,
         ],
     ],
-    'tiny/widgethub:use' => [
+    'tiny/ibwidgethub:use' => [
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => [

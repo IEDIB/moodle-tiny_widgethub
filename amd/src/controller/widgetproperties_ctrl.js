@@ -17,7 +17,7 @@
 /**
  * Tiny WidgetHub plugin.
  *
- * @module      tiny_widgethub/plugin
+ * @module      tiny_ibwidgethub/plugin
  * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -116,10 +116,10 @@ export class WidgetPropertiesCtrl {
         this.formCtrl.applyFieldWatchers(this.modal.body, paramValues, widget, false);
 
         // Bind accept action to modal
-        this.modal.footer.find("button.tiny_widgethub-btn-secondary").on("click", () => {
+        this.modal.footer.find("button.tiny_ibwidgethub-btn-secondary").on("click", () => {
             this.modal?.destroy();
         });
-        this.modal.footer.find("button.tiny_widgethub-btn-primary").on("click", () => {
+        this.modal.footer.find("button.tiny_ibwidgethub-btn-primary").on("click", () => {
             const form = this.modal?.body?.find("form");
             let updatedValues = paramValues;
             if (form) {

@@ -17,7 +17,7 @@
 /**
  * Tiny WidgetHub plugin version details.
  *
- * @package     tiny_widgethub
+ * @package     tiny_ibwidgethub
  * @copyright   2024 Josep Mulet <pep.mulet@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -25,12 +25,12 @@
 defined('MOODLE_INTERNAL') || die();
 
 if ($hassiteconfig) {
-    $tinycategory = 'tiny_widgethub';
-    $settings = new admin_settingpage('tiny_widgethub_settings', get_string('pluginname', $tinycategory));
+    $tinycategory = 'tiny_ibwidgethub';
+    $settings = new admin_settingpage('tiny_ibwidgethub_settings', get_string('pluginname', $tinycategory));
 
     if ($ADMIN->fulltree) {
         // Configure component preview.
-        $conf = get_config('tiny_widgethub');
+        $conf = get_config('tiny_ibwidgethub');
 
         // Create a category.
         $ADMIN->add('editortiny', new admin_category($tinycategory, get_string('pluginname', $tinycategory)));
@@ -39,14 +39,14 @@ if ($hassiteconfig) {
         $mainsettings = new admin_settingpage($tinycategory . '_settings', get_string('pluginname', $tinycategory));
 
         // Add basic items to page.
-        $mainitems = \tiny_widgethub\settingsutil::create_spage_items();
+        $mainitems = \tiny_ibwidgethub\settingsutil::create_spage_items();
         foreach ($mainitems as $mainitem) {
             $mainsettings->add($mainitem);
         }
 
         // Add table of widgets to page.
-        $widgettableitem = new \tiny_widgethub\widgettable(
-            'tiny_widgethub/widgettable',
+        $widgettableitem = new \tiny_ibwidgethub\widgettable(
+            'tiny_ibwidgethub/widgettable',
             get_string('widgets', $tinycategory),
             ''
         );
@@ -56,12 +56,12 @@ if ($hassiteconfig) {
         $ADMIN->add($tinycategory, $mainsettings);
 
         // Add setting pages for every widget to category (hidden from nav).
-        $widgetindex = \tiny_widgethub\plugininfo::get_widget_index($conf);
-        $widgetlist = \tiny_widgethub\plugininfo::get_widget_list($conf, $widgetindex);
+        $widgetindex = \tiny_ibwidgethub\plugininfo::get_widget_index($conf);
+        $widgetlist = \tiny_ibwidgethub\plugininfo::get_widget_list($conf, $widgetindex);
         $usedkeys = array_column($widgetindex, 'key');
-        $partials = \tiny_widgethub\plugininfo::get_partials($conf, $widgetindex);
+        $partials = \tiny_ibwidgethub\plugininfo::get_partials($conf, $widgetindex);
 
-        $spages = \tiny_widgethub\settingsutil::create_widget_setting_pages($widgetlist, $usedkeys, $partials);
+        $spages = \tiny_ibwidgethub\settingsutil::create_widget_setting_pages($widgetlist, $usedkeys, $partials);
 
         foreach ($spages as $page) {
             $ADMIN->add($tinycategory, $page);

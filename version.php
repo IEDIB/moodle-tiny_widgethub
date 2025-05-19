@@ -17,15 +17,15 @@
 /**
  * Tiny WidgetHub plugin version details.
  *
- * @package     tiny_widgethub
+ * @package     tiny_ibwidgethub
  * @copyright   2024 Josep Mulet <pep.mulet@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'tiny_widgethub';
-$plugin->release = '1.3.1';
+$plugin->component = 'tiny_ibwidgethub';
+$plugin->release = '1.3.2';
 $plugin->requires = 2022112800;
 $plugin->maturity = MATURITY_STABLE;
-$plugin->version = 2025051601;
+$plugin->version = 2025051902;

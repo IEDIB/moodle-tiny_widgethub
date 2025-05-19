@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
 // This file is part of Moodle - http://moodle.org/
@@ -18,7 +19,7 @@
 /**
  * Tiny WidgetHub plugin.
  *
- * @module      tiny_widgethub/plugin
+ * @module      tiny_ibwidgethub/plugin
  * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -60,11 +61,11 @@ export default {
      */
     getAreas: function(id) {
         /** @type {*} */
-        const $ymlArea = jQuery(`#id_s_tiny_widgethub_defyml_${id}`);
+        const $ymlArea = jQuery(`#id_s_tiny_ibwidgethub_defyml_${id}`);
         /** @type {*} */
-        const $jsonArea = jQuery(`#id_s_tiny_widgethub_def_${id}`);
+        const $jsonArea = jQuery(`#id_s_tiny_ibwidgethub_def_${id}`);
         /** @type {*} */
-        const $partialInput = jQuery(`#id_s_tiny_widgethub_partials_${id}`);
+        const $partialInput = jQuery(`#id_s_tiny_ibwidgethub_partials_${id}`);
         return {
             $ymlArea, $jsonArea, $partialInput
         };
@@ -118,32 +119,32 @@ export default {
             try {
                 jsonObj = load(yml, null) ?? {};
             } catch (ex) {
-                validation.msg = await get_string('erryaml', 'tiny_widgethub') + ':: ' + ex;
+                validation.msg = await get_string('erryaml', 'tiny_ibwidgethub') + ':: ' + ex;
                 return validation;
             }
             validation.json = JSON.stringify(jsonObj, null, 0);
 
             // Check if the structure is correct
             if (!jsonObj?.key) {
-                validation.msg = await get_string('errproprequired', 'tiny_widgethub', "'key'") + ' ';
+                validation.msg = await get_string('errproprequired', 'tiny_ibwidgethub', "'key'") + ' ';
             } else if (jsonObj.key === 'partials') {
                 return validation;
             } else if (jsonObj.key !== 'partials') {
                 if (!jsonObj.name) {
-                    validation.msg += await get_string('errproprequired', 'tiny_widgethub', "'name'") + ' ';
+                    validation.msg += await get_string('errproprequired', 'tiny_ibwidgethub', "'name'") + ' ';
                 } else if (!(jsonObj.template || jsonObj.filter)) {
-                    validation.msg += await get_string('errproprequired', 'tiny_widgethub', "'template' | 'filter'") + ' ';
+                    validation.msg += await get_string('errproprequired', 'tiny_ibwidgethub', "'template' | 'filter'") + ' ';
                 } else if (jsonObj.template && jsonObj.filter) {
-                    validation.msg += await get_string('errpropincompatible', 'tiny_widgethub', "'template' & 'filter'") + ' ';
+                    validation.msg += await get_string('errpropincompatible', 'tiny_ibwidgethub', "'template' & 'filter'") + ' ';
                 } else if (!jsonObj.author || !jsonObj.version) {
-                    validation.msg += await get_string('errproprequired', 'tiny_widgethub', "'author' & 'version'") + ' ';
+                    validation.msg += await get_string('errproprequired', 'tiny_ibwidgethub', "'author' & 'version'") + ' ';
                 }
             }
             // Check for duplicated keys (TODO: also check for key renaming when id > 0)
             if (opts.id === 0 && jsonObj?.key) {
                 const keys = opts.keys || [];
                 if (keys.includes(jsonObj.key)) {
-                    validation.msg += await get_string('errkeyinuse', 'tiny_widgethub', jsonObj.key) + ' ';
+                    validation.msg += await get_string('errkeyinuse', 'tiny_ibwidgethub', jsonObj.key) + ' ';
                 }
             }
             // Handle partials in parameters
@@ -159,7 +160,7 @@ export default {
             const html = await templateSrv.render(jsonObj?.template || '', ctx, translations, engine);
             validation.html = html;
         } catch (ex) {
-            validation.msg = await get_string('errpreview', 'tiny_widgethub') + ':: ' + ex;
+            validation.msg = await get_string('errpreview', 'tiny_ibwidgethub') + ':: ' + ex;
         }
         return validation;
     },
@@ -171,10 +172,10 @@ export default {
      */
     init: async function(opts) {
         const i18n = await getStrings([
-            {key: 'confirmdelete', component: 'tiny_widgethub'},
-            {key: 'delete', component: 'tiny_widgethub'},
-            {key: 'preview', component: 'tiny_widgethub'},
-            {key: 'savechanges', component: 'tiny_widgethub'}
+            {key: 'confirmdelete', component: 'tiny_ibwidgethub'},
+            {key: 'delete', component: 'tiny_ibwidgethub'},
+            {key: 'preview', component: 'tiny_ibwidgethub'},
+            {key: 'savechanges', component: 'tiny_ibwidgethub'}
         ]);
         const [confirmdeleteStr, deleteStr, previewStr, savechangesStr] = i18n;
 
@@ -199,7 +200,7 @@ export default {
         const $saveBtn = $formButtons.find("button");
 
         // Create a preview panel
-        const $previewPanel = jQuery(`<div id="tiny_widgethub_pp_${opts.id}" class="tiny_widgethub-previewpanel d-none"></div>`);
+        const $previewPanel = jQuery(`<div id="tiny_ibwidgethub_pp_${opts.id}" class="tiny_ibwidgethub-previewpanel d-none"></div>`);
         $target.append($previewPanel);
 
         const $previewBtn = jQuery(`<button type="button" class="btn btn-secondary m-1">
