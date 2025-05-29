@@ -500,6 +500,11 @@ function provider(ctx) {
         // Get last value from localStorage or white
         const storageSrv = getUserStorage(editor);
         const iniValue = storageSrv.getFromLocal('pickercolor', '#FFFFFF');
+        /** @type {HTMLElement | null | undefined} */
+        let container;
+        /** @type {(e: any) => void | null | undefined} */
+        let handleClick;
+
         editor.windowManager.open({
             title: 'Tria un color',
             body: {
@@ -507,7 +512,16 @@ function provider(ctx) {
                 items: [
                 {
                     type: 'htmlpanel',
-                    html: `<input type="color" id="tiny_ibwidgethub_colorinput" value="${iniValue}" style="width:100%; height:50px;" />`
+                    html: `<input type="color" id="tiny_ibwidgethub_colorinput" value="${iniValue}" style="width:100%; height:50px;" />
+                    <div id="tiny_ibwidgethub_preset-colors" style="margin: 8px;">
+                        <button type="button" data-color="#BFEDD2" style="background:#BFEDD2; width:24px; height:24px; border:none; margin-right:4px;"></button>
+                        <button type="button" data-color="#FBEEB8" style="background:#FBEEB8; width:24px; height:24px; border:none; margin-right:4px;"></button>
+                        <button type="button" data-color="#F8CAC6" style="background:#F8CAC6; width:24px; height:24px; border:none; margin-right:4px"></button>
+                        <button type="button" data-color="#ECCAFA" style="background:#ECCAFA; width:24px; height:24px; border:none; margin-right:4px;"></button>
+                        <button type="button" data-color="#C2E0F4" style="background:#C2E0F4; width:24px; height:24px; border:none; margin-right:4px;"></button>
+                        <button type="button" data-color="#ECF0F1" style="background:#ECF0F1; width:24px; height:24px; border:none; margin-right:4px"></button>
+                        <button type="button" data-color="#CED4D9" style="background:#CED4D9; width:24px; height:24px; border:none;"></button>
+                    </div>`
                 }
                 ]
             },
@@ -530,8 +544,30 @@ function provider(ctx) {
                    storageSrv.setToLocal('pickercolor', control.value, true);
                 }
                 api.close();
+                if (container && handleClick) {
+                    container.removeEventListener('click', handleClick);
+                }
             }
         });
+
+        // Afegeix el codi fora del `open`, amb `setTimeout` perquè el DOM estigui preparat
+        setTimeout(() => {
+            container = document.getElementById('tiny_ibwidgethub_preset-colors');
+            if (container) {
+                handleClick = (/** @type {*} */ e) => {
+                     const target = e.target.closest('button');
+                     if (target) {
+                        const color = target.dataset.color;
+                        /** @type{any} */
+                        const input = document.getElementById('tiny_ibwidgethub_colorinput');
+                        if (input) {
+                             input.value = color;
+                        }
+                     }
+                };
+                container.addEventListener('click', handleClick);
+            }
+        }, 300);
     }
 
     /**
@@ -539,7 +575,10 @@ function provider(ctx) {
      */
     const tablesCellColorNestedMenu = {
         name: 'tablesCellColorNestedMenu',
-        condition: 'taula-predefinida,taula-bs',
+        condition: () => {
+            const target = ctx.path?.selectedElement?.closest("table");
+            return target?.[0] !== undefined;
+        },
         title: 'Cel·la',
         subMenuItems: () => {
             const $cell = ctx.path?.selectedElement?.closest('td, th');
@@ -580,7 +619,10 @@ function provider(ctx) {
      */
     const tablesRowColorNestedMenu = {
         name: 'tablesRowColorNestedMenu',
-        condition: 'taula-predefinida,taula-bs',
+        condition: () => {
+            const target = ctx.path?.selectedElement?.closest("table");
+            return target?.[0] !== undefined;
+        },
         title: 'Fila',
         subMenuItems: () => {
             const $row = ctx.path?.selectedElement?.closest('tr');
