@@ -17,7 +17,7 @@ template: |
     </div>
   </div>
   <p></p>
-selectors: div[role="alert"].alert
+selectors: div[role="alert"].alert:not(.iedib-capsa)
 insertquery: div[role="alert"].alert .alert-content
 unwrap: '*'
 parameters:
@@ -51,6 +51,7 @@ parameters:
             }
         }
 autocomplete: severity
+for: "4,31"
 nou: true
 author: Josep Mulet <pep.mulet@gmail.com>
-version: 1.3.0
+version: 1.4.0

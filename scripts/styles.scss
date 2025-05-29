@@ -601,6 +601,11 @@ a.accordion-toggle[aria-expanded="true"]:before {
   margin-left: 4px;
   margin-top: 10px;
 }
+.iedib-capsa.alert {
+  padding: initial!important;
+  margin-bottom: initial!important;
+  padding-right: 1.90625rem!important;
+} 
 
 .iedib-capsa-gran, .iedib-capsa-mitjana {
   width: 98%;

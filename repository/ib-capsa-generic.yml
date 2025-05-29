@@ -11,7 +11,12 @@ instructions: >
   <a class="d-block m-1" href="https://iedib.net/avirtual/mod/book/view.php?id=37192&chapterid=41216&snpt=capses$capsa-generica" target="_blank"><i class="fas fa fa-book"></i> Més informació...</a>
 template: |
   <p><br></p><!--begin: Capsa {{severity}} {{mida}} -->
-  <div class="iedib-capsa iedib-capsa-{{mida}} iedib-{{severity}}-border" data-lang="{{_lang}}">
+  <div class="iedib-capsa iedib-capsa-{{mida}} iedib-{{severity}}-border{{#closable}} alert alert-dismissible fade show{{/closable}}" data-lang="{{_lang}}"{{#closable}} role="alert"{{/closable}}>
+    {{#closable}}
+      <button type="button" class="close" data-dismiss="alert" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    {{/closable}}
     <div class="iedib-lateral iedib-{{severity}}">
       <p class="iedib-titolLateral">{{#I18n}}msg_{{severity}}{{/I18n}}<span class="iedib-{{severity}}-logo"></span></p>
     </div>
@@ -42,6 +47,24 @@ parameters:
       - {v: mitjana, l: Mitjana}
       - {v: petita, l: Petita} 
   - __LANG__
+  - name: closable
+    title: Tancable
+    value: false
+    bind:
+      get: function(e) { return e.find("button.close").length > 0; }
+      set: |
+        function(e, v) {
+            if (v && !e.find("button.close")[0]) {
+              var btn = '<button type="button" class="close" data-dismiss="alert" data-bs-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+              e.prepend(btn);
+              e.addClass('alert alert-dismissible fade show');
+              e.attr('role', 'alert');
+            } else if (!v) {
+              e.removeClass('alert alert-dismissible fade show');
+              e.find("button.close").remove();
+              e.removeAttr('role');
+            }
+        }
 I18n:
   msg_alerta:
     ca: ALERTA
@@ -77,4 +100,4 @@ stars: 2
 contextmenu:
   - actions: printable
 author: Josep Mulet Pol <pep.mulet@gmail.com>
-version: 2023.01.07
+version: 2025.05.29
