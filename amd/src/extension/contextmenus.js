@@ -22,6 +22,7 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 import {registerMenuItemProvider} from "../extension";
+import { getUserStorage } from "../service/userstorage_service";
 import {convertInt, findVariableByName} from "../util";
 import * as Action from './contextactions';
 
@@ -490,6 +491,128 @@ function provider(ctx) {
         onAction: Action.convertDropdownToList.bind({ctx}),
     };
 
+    /**
+     *
+     * @param {import("../plugin").TinyMCE} editor
+     * @param {(color: string) => void} cbAccept
+     */
+     function colorPicker(editor, cbAccept) {
+        // Get last value from localStorage or white
+        const storageSrv = getUserStorage(editor);
+        const iniValue = storageSrv.getFromLocal('pickercolor', '#FFFFFF');
+        editor.windowManager.open({
+            title: 'Tria un color',
+            body: {
+                type: 'panel',
+                items: [
+                {
+                    type: 'htmlpanel',
+                    html: `<input type="color" id="tiny_ibwidgethub_colorinput" value="${iniValue}" style="width:100%; height:50px;" />`
+                }
+                ]
+            },
+            buttons: [
+                {
+                type: 'cancel',
+                text: 'Cancel·la'
+                },
+                {
+                type: 'submit',
+                text: 'Aplica',
+                primary: true
+                }
+            ],
+            onSubmit: (/** @type{*} **/ api) => {
+                /** @type {any} */
+                const control = document.getElementById('tiny_ibwidgethub_colorinput');
+                if (control?.value) {
+                   cbAccept?.(control.value);
+                   storageSrv.setToLocal('pickercolor', control.value, true);
+                }
+                api.close();
+            }
+        });
+    }
+
+    /**
+     * @type {UserDefinedItem}
+     */
+    const tablesCellColorNestedMenu = {
+        name: 'tablesCellColorNestedMenu',
+        condition: 'taula-predefinida,taula-bs',
+        title: 'Cel·la',
+        subMenuItems: () => {
+            const $cell = ctx.path?.selectedElement?.closest('td, th');
+            if (!$cell) {
+                return '';
+            }
+            const menus = [
+                {
+                    type: 'menuitem',
+                    text: 'Triar fons',
+                    onAction: () => {
+                        colorPicker(ctx.editor,
+                            (/** @type {string} */ color) => {
+                                $cell.css('background-color', color);
+                            }
+                        );
+                    }
+                }
+            ];
+
+            if ($cell[0].style.backgroundColor) {
+                menus.push({
+                    type: 'menuitem',
+                    text: 'Eliminar fons',
+                    onAction: () => {
+                        $cell.css('background-color', '');
+                    }
+                });
+            }
+
+            return menus;
+        }
+    };
+
+
+    /**
+     * @type {UserDefinedItem}
+     */
+    const tablesRowColorNestedMenu = {
+        name: 'tablesRowColorNestedMenu',
+        condition: 'taula-predefinida,taula-bs',
+        title: 'Fila',
+        subMenuItems: () => {
+            const $row = ctx.path?.selectedElement?.closest('tr');
+            if (!$row) {
+                return '';
+            }
+            const menus = [
+                {
+                    type: 'menuitem',
+                    text: 'Triar fons',
+                     onAction: () => {
+                        colorPicker(ctx.editor,
+                            (/** @type {string} */ color) => {
+                                $row.css('background-color', color);
+                            }
+                        );
+                    }
+                }
+            ];
+            if ($row[0].style.backgroundColor) {
+                menus.push({
+                    type: 'menuitem',
+                    text: 'Eliminar fons',
+                    onAction: () => {
+                        $row.css('background-color', '');
+                    }
+                });
+            }
+            return menus;
+        }
+    };
+
     return [
         // Image actions
         imageEffectsNestedMenu,
@@ -514,7 +637,9 @@ function provider(ctx) {
         convertToPredefinedTableMenu,
         responsivenessNestedMenu,
         tablesHeaderNestedMenu,
-        tablesFooterNestedMenu
+        tablesFooterNestedMenu,
+        tablesCellColorNestedMenu,
+        tablesRowColorNestedMenu,
     ];
 }
 
