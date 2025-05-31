@@ -53,3 +53,38 @@ a[data-toggle="popover"], a[data-bs-toggle="popover"] {
     color: #0f6cbf!important;
     cursor: pointer!important;
 }
+pre.iedib-code, pre.iedib-code code {
+    position: relative;
+}
+pre.iedib-code.display-lang::after {
+    content: 'LANG';
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: gray;
+    color: white;
+    font-family: monospace;
+    font-size: 0.8rem;
+    padding: 2px;
+    border-radius: 5px;
+}
+pre.iedib-code.display-lang::after {
+    content: 'LANG';
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: gray;
+    color: white;
+    font-family: monospace;
+    font-size: 0.8rem;
+    padding: 2px;
+    border-radius: 5px;
+}
+pre.iedib-code code:not(.nohljsln)::before {
+    content: '1';
+    position: absolute;
+    left: -8px;
+    top: -2px;
+    color: gray;
+    font-family: monospace;
+}
