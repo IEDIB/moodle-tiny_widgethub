@@ -51,7 +51,7 @@ parameters:
             }
         }
 autocomplete: severity
-for: "4,31"
+forids: "4,31"
 nou: true
 author: Josep Mulet <pep.mulet@gmail.com>
 version: 1.4.0
