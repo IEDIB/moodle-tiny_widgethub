@@ -1014,14 +1014,14 @@ div.iedib-tasca > h4:first-of-type {
 h4.iedib-subsub {
   position: relative;
   padding-left: 16px;
-  font-size: 1.32rem;
+  font-size: 1.40625rem;
   font-style: italic;
   font-weight: bold;
 }
 
 @media(max-width: 1200px) {
   h4.iedib-subsub {
-     font-size: calc(0.87625rem + 0.6075vw);
+     font-size: calc(0.950625rem + 0.6075vw);
   }
 }
 
