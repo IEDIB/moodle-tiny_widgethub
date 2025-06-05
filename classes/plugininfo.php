@@ -128,10 +128,21 @@ class plugininfo extends plugin implements
         ];
 
         if ($showplugin) {
+            // Obtain the configuration options for the plugin from the config table.
+            $roles = get_user_roles($context, $USER->id);
+            // Extract role shortnames.
+            $userroles = array_map(function($role) {
+                return $role->shortname;
+            }, $roles);
+
             $widgetindex = self::get_widget_index($conf);
             $widgetlist = self::get_widget_list($conf, $widgetindex);
 
-            $params['userid'] = $USER->id;
+            $params['user'] = [
+                'id' => $USER->id,
+                'username' => $USER->username,
+                'roles' => array_values($userroles),
+            ];
             $params['courseid'] = $COURSE->id;
             $params['widgetlist'] = $widgetlist;
             // Configuration.
