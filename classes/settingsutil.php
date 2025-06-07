@@ -66,7 +66,8 @@ class settingsutil {
             'tiny_ibwidgethub_cfg',
             get_string('cfg', 'tiny_ibwidgethub'),
             "imgBaseUrl=https://iedib.net/assets\nenable.contextmenu.level=1\ncategory.order=obsolet:z1\n" .
-            "oninit.refractor.ids=1\noninit.refractor.bs5=1\ndisable.plugin.pages=",
+            "oninit.refractor.ids=1\noninit.refractor.bs5=1\n" .
+            "disable.plugin.pages.regex=^page-mod-(quiz-comment|assign-grader)$",
             PARAM_RAW
         );
         return $items;

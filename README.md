@@ -51,7 +51,9 @@ The options available are:
 
 - **cfg**: This allows additional configuration using the syntax `property=value`, with one configuration per line:  
   
-  - *disable.plugin.pages*: A comma-separated list of body IDs for which the plugin will not be loaded.  
+  - *disable.plugin.pages*: A **comma-separated** list of body IDs for which the plugin will not be loaded.  
+
+  - *disable.plugin.pages.regex*: A **regular expression** that matches those body IDs for which the plugin will not be loaded.  
 
   - *enable.contextmenu.level*: Enable (`1`) or disable (`0`) context menus used by the plugin.
 
