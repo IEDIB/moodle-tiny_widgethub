@@ -1,0 +1,28 @@
+{
+    "key": "ib-card",
+    "name": "Targeta",
+    "category": "bootstrap",
+    "instructions": "Emprau la targeta juntament amb grup de targetes per mostrar aplicacions pràctiques\nd'una situació d'aprenentatge.\n",
+    "template": "<p><br></p> <div class=\"card ib-card m-1\" style=\"width:{{width}}px;\">\n  <img src=\"{{imgTop}}\" class=\"card-img-top\">\n  <div class=\"card-body\">\n    <h5 class=\"card-title\">Títol targeta</h5>\n    <p class=\"card-text\">Text del contingut de la targeta.</p>\n  </div>\n</div> <p><br></p>\n",
+    "selectors": "div.card.ib-card",
+    "parameters": [
+        {
+            "name": "imgTop",
+            "title": "Imatge",
+            "bind": "attr('src', 'img.card-img-top')",
+            "type": "image",
+            "value": "https://picsum.photos/300/100"
+        },
+        {
+            "name": "width",
+            "title": "Amplada",
+            "bind": "styleRegex('width:(.*)px')",
+            "value": 300,
+            "type": "numeric",
+            "min": 100
+        }
+    ],
+    "author": "Josep Mulet <pep.mulet@gmail.com>",
+    "nou": true,
+    "version": "1.0.0"
+}

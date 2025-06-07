@@ -1,0 +1,34 @@
+{
+    "key": "ib-card-group",
+    "name": "Grup de targetes",
+    "category": "bootstrap",
+    "instructions": "Emprau la targeta juntament amb grup de targetes per mostrar aplicacions pràctiques\nd'una situació d'aprenentatge.\n",
+    "engine": "ejs",
+    "template": "<p><br></p> <div class=\"card-group ib-card-group\">\n  <% for(var i=1; i <= num; i++) { %>\n  <div class=\"card ib-card m-1\" style=\"width:{{width}}px;\">\n    <img src=\"https://picsum.photos/300/100\" class=\"card-img-top\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">Títol targeta <%= i %></h5>\n      <p class=\"card-text\">Text del contingut de la targeta <%= i %>.</p>\n    </div>\n  </div>\n  <% } %>\n</div> <p><br></p>\n",
+    "selectors": "div.card-group.ib-card-group",
+    "parameters": [
+        {
+            "name": "num",
+            "title": "Nombre de targetes",
+            "type": "numeric",
+            "value": 2,
+            "min": 1
+        },
+        {
+            "name": "width",
+            "title": "Amplada",
+            "type": "numeric",
+            "value": 300,
+            "min": 100
+        }
+    ],
+    "contextmenu": [
+        {
+            "predicate": "div.card.ib-card",
+            "actions": "moveleft moveright insertafter | remove"
+        }
+    ],
+    "author": "Josep Mulet <pep.mulet@gmail.com>",
+    "nou": true,
+    "version": "1.0.0"
+}

@@ -30,8 +30,8 @@ parameters:
     bind: notHasClass('nohighlight', 'code')
   - name: forcelang
     value: ""
-    options: 
-      - ""
+    type: autocomplete
+    options:
       - bash
       - basic
       - c

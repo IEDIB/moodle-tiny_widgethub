@@ -1,0 +1,39 @@
+key: ib-card-group
+name: Grup de targetes
+category: bootstrap
+instructions: |
+  Emprau la targeta juntament amb grup de targetes per mostrar aplicacions pràctiques
+  d'una situació d'aprenentatge.
+engine: ejs
+template: >
+  <p><br></p>
+  <div class="card-group ib-card-group">
+    <% for(var i=1; i <= num; i++) { %>
+    <div class="card ib-card m-1" style="width:{{width}}px;">
+      <img src="https://picsum.photos/300/100" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">Títol targeta <%= i %></h5>
+        <p class="card-text">Text del contingut de la targeta <%= i %>.</p>
+      </div>
+    </div>
+    <% } %>
+  </div>
+  <p><br></p>
+selectors: div.card-group.ib-card-group
+parameters:
+  - name: num
+    title: Nombre de targetes
+    type: numeric
+    value: 2
+    min: 1
+  - name: width
+    title: Amplada
+    type: numeric
+    value: 300
+    min: 100
+contextmenu:
+  - predicate: div.card.ib-card
+    actions: moveleft moveright insertafter | remove 
+author: Josep Mulet <pep.mulet@gmail.com>
+nou: true
+version: 1.0.0
