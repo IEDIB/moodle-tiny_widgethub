@@ -53,6 +53,9 @@ a[data-toggle="popover"], a[data-bs-toggle="popover"] {
     color: #0f6cbf!important;
     cursor: pointer!important;
 }
+.iedib-code {
+    min-height: 100px;
+}
 pre.iedib-code, pre.iedib-code code {
     position: relative;
 }

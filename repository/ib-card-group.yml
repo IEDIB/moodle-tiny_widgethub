@@ -1,5 +1,5 @@
 key: ib-card-group
-name: Grup de targetes
+name: Conjunt de targetes
 category: bootstrap
 instructions: |
   Emprau la targeta juntament amb grup de targetes per mostrar aplicacions pràctiques
@@ -7,19 +7,24 @@ instructions: |
 engine: ejs
 template: >
   <p><br></p>
-  <div class="card-group ib-card-group">
+  <div class="container ib-card-group">
+  <div class="row justify-content-center">
     <% for(var i=1; i <= num; i++) { %>
-    <div class="card ib-card m-1" style="width:{{width}}px;">
+    <div class="col-auto m-1">
+    <div class="card ib-card m-1" style="width:<%=width%>px;">
       <img src="https://picsum.photos/300/100" class="card-img-top">
       <div class="card-body">
         <h5 class="card-title">Títol targeta <%= i %></h5>
         <p class="card-text">Text del contingut de la targeta <%= i %>.</p>
       </div>
     </div>
+    </div>
     <% } %>
   </div>
+  </div>
   <p><br></p>
-selectors: div.card-group.ib-card-group
+selectors: div.ib-card-group
+unpack: .card-body>*
 parameters:
   - name: num
     title: Nombre de targetes
@@ -32,7 +37,7 @@ parameters:
     value: 300
     min: 100
 contextmenu:
-  - predicate: div.card.ib-card
+  - predicate: div.row.col-auto
     actions: moveleft moveright insertafter | remove 
 author: Josep Mulet <pep.mulet@gmail.com>
 nou: true

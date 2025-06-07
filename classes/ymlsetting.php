@@ -130,7 +130,10 @@ class ymlsetting extends \admin_setting {
         }
         set_config('def_' . $this->windex, $data, 'tiny_ibwidgethub');
         // Update index.
-        plugininfo::update_widget_index($this->windex);
+        $newid = plugininfo::update_widget_index($this->windex);
+        if ($newid > 0) {
+            redirect(new \moodle_url('/admin/settings.php', ['section' => 'tiny_ibwidgethub_spage_' . $newid]));
+        }
         return '';
     }
 

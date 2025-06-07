@@ -34,6 +34,7 @@
             "value": "",
             "type": "autocomplete",
             "options": [
+                "",
                 "bash",
                 "basic",
                 "c",
