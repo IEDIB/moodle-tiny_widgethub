@@ -1653,7 +1653,56 @@ table.iedib-bstable {
   margin: auto;
 }
 
-div.ib-card img.card-img-top {
+/* Targetes */
+.ib-card {
+  perspective: 1000px;
+  position: relative;
+}
+
+.ib-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid lightgray;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  background-color: #fff;
+  transition: transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+.ib-card.ib-card-flip .ib-card-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.ib-card.ib-card-flip:hover .ib-card-inner {
+  transform: rotateY(180deg);
+}
+
+.ib-card-front,
+.ib-card-back {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+}
+
+.ib-card-back {
+  transform: rotateY(180deg);
+}
+
+.ib-card img.card-img-top {
   height: 100px;
   object-fit: cover;
+}
+
+.ib-card-front .card-body,
+.ib-card-back .card-body {
+  height: 100%;
+  overflow: auto;
+  padding: 1rem;
 }

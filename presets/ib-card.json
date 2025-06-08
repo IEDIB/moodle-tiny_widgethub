@@ -2,24 +2,136 @@
     "key": "ib-card",
     "name": "Targeta",
     "category": "bootstrap",
-    "instructions": "Emprau la targeta juntament amb grup de targetes per mostrar aplicacions pràctiques\nd'una situació d'aprenentatge.\n",
-    "template": "<p><br></p> <div class=\"card ib-card m-1\" style=\"width:{{width}}px;\">\n  <img src=\"{{imgTop}}\" class=\"card-img-top\">\n  <div class=\"card-body\">\n    <h5 class=\"card-title\">Títol targeta</h5>\n    <p class=\"card-text\">Text del contingut de la targeta.</p>\n  </div>\n</div> <p><br></p>\n",
-    "selectors": "div.card.ib-card",
+    "instructions": "Emprau la targeta juntament amb grup de targetes per mostrar aplicacions pràctiques\nd'una situació d'aprenentatge. Emprau el <b>menú contextual</b> per canviar la imatge.\n",
+    "template": "<p><br></p> <div class=\"ib-card m-1{{#flip}} ib-card-flip{{/flip}}\" style=\"width:{{width}}px;\"> <div class=\"ib-card-inner\" style=\"height:{{height}}px\">\n  <div class=\"ib-card-front {{bgFront}}\" data-face=\"front\">\n    {{#header}}<div class=\"card-header\">Capçalera de targeta</div>{{/header}}\n    {{#hasImg}}<img src=\"{{imgTop}}\" class=\"card-img-top\" alt=\"Imatge targeta\">{{/hasImg}}\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">Títol targeta</h5>\n      <p class=\"card-text\">Text del contingut de la targeta.</p>\n    </div>\n    {{#footer}}<div class=\"card-footer\">Peu de targeta</div>{{/footer}}\n  </div>\n  {{#flip}}\n  <div class=\"ib-card-back {{bgBack}}\" data-face=\"back\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">Títol revers targeta</h5>\n      <p class=\"card-text\">Text del revers de la targeta.</p>\n    </div>\n  </div>\n  {{/flip}}\n</div> </div> <p><br></p>\n",
+    "selectors": "div.ib-card",
     "parameters": [
+        {
+            "name": "width",
+            "title": "Amplada en px",
+            "bind": "styleRegex('width:(.*)px')",
+            "value": 250,
+            "type": "numeric",
+            "min": 100
+        },
+        {
+            "name": "height",
+            "title": "Altura en px",
+            "bind": "styleRegex('height:(.*)px', '.ib-card-inner')",
+            "value": 350,
+            "type": "numeric",
+            "min": 100
+        },
+        {
+            "name": "hasImg",
+            "title": "Té imatge",
+            "type": "checkbox",
+            "value": true,
+            "bind": {
+                "get": "function(e) {return e.find('.ib-card-front img.card-img-top').length > 0;}\n",
+                "set": "function(e, v) {\n  if (v) {\n    if (e.find('.ib-card-front img.card-img-top').length) {\n      return;\n    }\n    var img = '<img src=\"https://picsum.photos/300/100\" class=\"card-img-top\" alt=\"Imatge targeta\">';\n    var header = e.find('.ib-card-front .card-header');\n    if (header.length) {\n      header.after(img);\n    } else {\n      e.find('.ib-card-front').prepend(img);\n    }\n  } else {\n    e.find('.ib-card-front img.card-img-top').remove();\n  }\n}\n"
+            }
+        },
         {
             "name": "imgTop",
             "title": "Imatge",
             "bind": "attr('src', 'img.card-img-top')",
             "type": "image",
+            "when": "hasImg",
             "value": "https://picsum.photos/300/100"
         },
         {
-            "name": "width",
-            "title": "Amplada",
-            "bind": "styleRegex('width:(.*)px')",
-            "value": 300,
-            "type": "numeric",
-            "min": 100
+            "name": "header",
+            "title": "Té capçalera",
+            "type": "checkbox",
+            "value": false,
+            "bind": {
+                "get": "function(e) {return e.find('.ib-card-front div.card-header').length > 0;}\n",
+                "set": "function(e, v) {\n  if (v) {\n    if(e.find('.ib-card-front div.card-header').length) {\n      return;\n    }\n    e.find('.ib-card-front').prepend('<div class=\"card-header\">Capçalera de targeta</div>');\n  } else {\n    e.find('.ib-card-front div.card-header').remove();\n  }\n}\n"
+            }
+        },
+        {
+            "name": "footer",
+            "title": "Té peu",
+            "type": "checkbox",
+            "value": false,
+            "bind": {
+                "get": "function(e) {return e.find('.ib-card-front div.card-footer').length > 0;}\n",
+                "set": "function(e, v) {\n  if (v) {\n    if (e.find('.ib-card-front div.card-footer').length > 0) {\n      return;\n    }\n    e.find('.ib-card-front').append('<div class=\"card-footer\">Peu de targeta</div>');\n  } else {\n    e.find('.ib-card-front div.card-footer').remove();\n  }\n}\n"
+            }
+        },
+        {
+            "name": "bgFront",
+            "title": "Color de fons (davant)",
+            "value": "bg-white text-dark",
+            "options": [
+                {
+                    "l": "Cap",
+                    "v": "bg-white text-dark"
+                },
+                {
+                    "l": "Gris fluix",
+                    "v": "bg-light text-dark"
+                },
+                {
+                    "l": "Gris",
+                    "v": "bg-secondary text-white"
+                },
+                {
+                    "l": "Blau",
+                    "v": "bg-primary text-white"
+                },
+                {
+                    "l": "Cian",
+                    "v": "bg-info text-dark"
+                },
+                {
+                    "l": "Oscur",
+                    "v": "bg-dark text-white"
+                }
+            ]
+        },
+        {
+            "name": "flip",
+            "title": "Es pot girar",
+            "type": "checkbox",
+            "value": false,
+            "bind": {
+                "get": "function(e) {return e.hasClass('ib-card-flip');} \n",
+                "set": "function(e, v) {\n  if(v) {\n    if (e.hasClass('ib-card-flip')) {\n      return;\n    }\n    e.addClass('ib-card-flip');\n    const html = '<div class=\"card ib-card-back\" data-face=\"back\"><div class=\"card-body\"><h5 class=\"card-title\">Títol revers targeta</h5><p class=\"card-text\">Text del revers de la targeta.</p></div></div>';\n    e.find('.ib-card-front').after(html);\n  } else {\n    e.removeClass('ib-card-flip');\n    e.find('.ib-card-back').remove();\n  }\n}\n"
+            }
+        },
+        {
+            "name": "bgBack",
+            "title": "Color de fons (revers)",
+            "value": "bg-light text-dark",
+            "when": "flip",
+            "options": [
+                {
+                    "l": "Cap",
+                    "v": "bg-white text-dark"
+                },
+                {
+                    "l": "Gris fluix",
+                    "v": "bg-light text-dark"
+                },
+                {
+                    "l": "Gris",
+                    "v": "bg-secondary text-white"
+                },
+                {
+                    "l": "Blau",
+                    "v": "bg-primary text-white"
+                },
+                {
+                    "l": "Cian",
+                    "v": "bg-info text-dark"
+                },
+                {
+                    "l": "Oscur",
+                    "v": "bg-dark text-white"
+                }
+            ]
         }
     ],
     "author": "Josep Mulet <pep.mulet@gmail.com>",

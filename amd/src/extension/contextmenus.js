@@ -126,8 +126,13 @@ function provider(ctx) {
            // selectedElement right clicked must be a tag img
            const key = ctx.path?.widget?.key;
            const elem = ctx.path?.selectedElement;
-           const isImg = (key !== undefined && key !== 'imatge' && key !== 'grid-imatge' &&
-            elem?.prop('tagName') === 'IMG');
+           const isImg = (
+                key !== undefined &&
+                key !== 'imatge' &&
+                key !== 'grid-imatge' &&
+                elem?.prop('tagName') === 'IMG' &&
+                // Do not take into account images in ib-card
+                !elem?.hasClass('card-img-top'));
            if (ctx.path && isImg && elem?.[0]) {
                 ctx.path.targetElement = elem;
            }

@@ -3,30 +3,153 @@ name: Targeta
 category: bootstrap
 instructions: |
   Emprau la targeta juntament amb grup de targetes per mostrar aplicacions pràctiques
-  d'una situació d'aprenentatge.
+  d'una situació d'aprenentatge. Emprau el <b>menú contextual</b> per canviar la imatge.
 template: >
   <p><br></p>
-  <div class="card ib-card m-1" style="width:{{width}}px;">
-    <img src="{{imgTop}}" class="card-img-top">
-    <div class="card-body">
-      <h5 class="card-title">Títol targeta</h5>
-      <p class="card-text">Text del contingut de la targeta.</p>
+  <div class="ib-card m-1{{#flip}} ib-card-flip{{/flip}}" style="width:{{width}}px;">
+  <div class="ib-card-inner" style="height:{{height}}px">
+    <div class="ib-card-front {{bgFront}}" data-face="front">
+      {{#header}}<div class="card-header">Capçalera de targeta</div>{{/header}}
+      {{#hasImg}}<img src="{{imgTop}}" class="card-img-top" alt="Imatge targeta">{{/hasImg}}
+      <div class="card-body">
+        <h5 class="card-title">Títol targeta</h5>
+        <p class="card-text">Text del contingut de la targeta.</p>
+      </div>
+      {{#footer}}<div class="card-footer">Peu de targeta</div>{{/footer}}
     </div>
+    {{#flip}}
+    <div class="ib-card-back {{bgBack}}" data-face="back">
+      <div class="card-body">
+        <h5 class="card-title">Títol revers targeta</h5>
+        <p class="card-text">Text del revers de la targeta.</p>
+      </div>
+    </div>
+    {{/flip}}
+  </div>
   </div>
   <p><br></p>
-selectors: div.card.ib-card
+selectors: div.ib-card
 parameters:
+  - name: width
+    title: Amplada en px
+    bind: styleRegex('width:(.*)px')
+    value: 250
+    type: numeric
+    min: 100
+  - name: height
+    title: Altura en px
+    bind: styleRegex('height:(.*)px', '.ib-card-inner')
+    value: 350
+    type: numeric
+    min: 100
+  - name: hasImg
+    title: Té imatge
+    type: checkbox
+    value: true
+    bind:
+      get: |
+        function(e) {return e.find('.ib-card-front img.card-img-top').length > 0;}
+      set: |
+        function(e, v) {
+          if (v) {
+            if (e.find('.ib-card-front img.card-img-top').length) {
+              return;
+            }
+            var img = '<img src="https://picsum.photos/300/100" class="card-img-top" alt="Imatge targeta">';
+            var header = e.find('.ib-card-front .card-header');
+            if (header.length) {
+              header.after(img);
+            } else {
+              e.find('.ib-card-front').prepend(img);
+            }
+          } else {
+            e.find('.ib-card-front img.card-img-top').remove();
+          }
+        }
   - name: imgTop
     title: Imatge
     bind: attr('src', 'img.card-img-top')
     type: image
+    when: hasImg
     value: https://picsum.photos/300/100
-  - name: width
-    title: Amplada
-    bind: styleRegex('width:(.*)px')
-    value: 300
-    type: numeric
-    min: 100
+  - name: header
+    title: Té capçalera
+    type: checkbox
+    value: false
+    bind:
+      get: |
+        function(e) {return e.find('.ib-card-front div.card-header').length > 0;}
+      set: |
+        function(e, v) {
+          if (v) {
+            if(e.find('.ib-card-front div.card-header').length) {
+              return;
+            }
+            e.find('.ib-card-front').prepend('<div class="card-header">Capçalera de targeta</div>');
+          } else {
+            e.find('.ib-card-front div.card-header').remove();
+          }
+        }
+  - name: footer
+    title: Té peu
+    type: checkbox
+    value: false
+    bind:
+      get: |
+        function(e) {return e.find('.ib-card-front div.card-footer').length > 0;}
+      set: |
+        function(e, v) {
+          if (v) {
+            if (e.find('.ib-card-front div.card-footer').length > 0) {
+              return;
+            }
+            e.find('.ib-card-front').append('<div class="card-footer">Peu de targeta</div>');
+          } else {
+            e.find('.ib-card-front div.card-footer').remove();
+          }
+        }
+  - name: bgFront
+    title: Color de fons (davant)
+    value: bg-white text-dark
+    options:
+      - {l: Cap, v: bg-white text-dark}
+      - {l: Gris fluix, v: bg-light text-dark}
+      - {l: Gris, v: bg-secondary text-white}
+      - {l: Blau, v: bg-primary text-white}
+      - {l: Cian, v: bg-info text-dark}
+      - {l: Oscur, v: bg-dark text-white}
+  - name: flip
+    title: Es pot girar
+    type: checkbox
+    value: false
+    bind:
+      get: |
+        function(e) {return e.hasClass('ib-card-flip');} 
+      set: |
+        function(e, v) {
+          if(v) {
+            if (e.hasClass('ib-card-flip')) {
+              return;
+            }
+            e.addClass('ib-card-flip');
+            const html = '<div class="card ib-card-back" data-face="back"><div class="card-body"><h5 class="card-title">Títol revers targeta</h5><p class="card-text">Text del revers de la targeta.</p></div></div>';
+            e.find('.ib-card-front').after(html);
+          } else {
+            e.removeClass('ib-card-flip');
+            e.find('.ib-card-back').remove();
+          }
+        }
+  - name: bgBack
+    title: Color de fons (revers)
+    value: bg-light text-dark
+    when: flip
+    options:
+      - {l: Cap, v: bg-white text-dark}
+      - {l: Gris fluix, v: bg-light text-dark}
+      - {l: Gris, v: bg-secondary text-white}
+      - {l: Blau, v: bg-primary text-white}
+      - {l: Cian, v: bg-info text-dark}
+      - {l: Oscur, v: bg-dark text-white}
 author: Josep Mulet <pep.mulet@gmail.com>
 nou: true
 version: 1.0.0

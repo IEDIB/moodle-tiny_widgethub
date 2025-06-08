@@ -10,15 +10,27 @@ template: >
   <div class="container ib-card-group">
   <div class="row justify-content-center">
     <% for(var i=1; i <= num; i++) { %>
-    <div class="col-auto m-1">
-    <div class="card ib-card m-1" style="width:<%=width%>px;">
-      <img src="https://picsum.photos/300/100" class="card-img-top">
-      <div class="card-body">
-        <h5 class="card-title">Títol targeta <%= i %></h5>
-        <p class="card-text">Text del contingut de la targeta <%= i %>.</p>
+      <div class="col-auto ib-card m-1<%=flip ? ' ib-card-flip' : ''%>" style="width:<%=width%>px;">
+      <div class="ib-card-inner" style="height:<%=height%>px">
+        <div class="ib-card-front <%=bgFront%>" data-face="front">
+          <% if(header){ %><div class="card-header">Capçalera de targeta <%=i%></div><% } %>
+          <% if(hasImg){ %><img src="https://picsum.photos/300/100" class="card-img-top" alt="Imatge targeta"><% } %>
+          <div class="card-body">
+            <h5 class="card-title">Títol targeta <%=i%></h5>
+            <p class="card-text">Text del contingut de la targeta <%=i%>.</p>
+          </div>
+          <% if(footer){ %><div class="card-footer">Peu de targeta <%=i%></div><% } %>
+        </div>
+        <% if(flip){ %>
+        <div class="ib-card-back <%=bgBack%>" data-face="back">
+          <div class="card-body">
+            <h5 class="card-title">Títol revers targeta <%=i%></h5>
+            <p class="card-text">Text del revers de la targeta <%=i%>.</p>
+          </div>
+        </div>
+        <% } %>
       </div>
-    </div>
-    </div>
+      </div>
     <% } %>
   </div>
   </div>
@@ -32,10 +44,54 @@ parameters:
     value: 2
     min: 1
   - name: width
-    title: Amplada
+    title: Amplada en px
+    bind: styleRegex('width:(.*)px')
+    value: 250
     type: numeric
-    value: 300
     min: 100
+  - name: height
+    title: Altura en px
+    bind: styleRegex('height:(.*)px', '.ib-card-inner')
+    value: 350
+    type: numeric
+    min: 100
+  - name: hasImg
+    title: Té imatge
+    type: checkbox
+    value: true
+  - name: header
+    title: Té capçalera
+    type: checkbox
+    value: false
+  - name: footer
+    title: Té peu
+    type: checkbox
+    value: false
+  - name: bgFront
+    title: Color de fons (davant)
+    value: bg-white text-dark
+    options:
+      - {l: Cap, v: bg-white text-dark}
+      - {l: Gris fluix, v: bg-light text-dark}
+      - {l: Gris, v: bg-secondary text-white}
+      - {l: Blau, v: bg-primary text-white}
+      - {l: Cian, v: bg-info text-dark}
+      - {l: Oscur, v: bg-dark text-white}
+  - name: flip
+    title: Es pot girar
+    type: checkbox
+    value: false
+  - name: bgBack
+    title: Color de fons (revers)
+    value: bg-light text-dark
+    when: flip
+    options:
+      - {l: Cap, v: bg-white text-dark}
+      - {l: Gris fluix, v: bg-light text-dark}
+      - {l: Gris, v: bg-secondary text-white}
+      - {l: Blau, v: bg-primary text-white}
+      - {l: Cian, v: bg-info text-dark}
+      - {l: Oscur, v: bg-dark text-white}
 contextmenu:
   - predicate: div.row.col-auto
     actions: moveleft moveright insertafter | remove 
