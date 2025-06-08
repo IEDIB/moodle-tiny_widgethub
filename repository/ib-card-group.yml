@@ -45,13 +45,11 @@ parameters:
     min: 1
   - name: width
     title: Amplada en px
-    bind: styleRegex('width:(.*)px')
     value: 250
     type: numeric
     min: 100
   - name: height
     title: Altura en px
-    bind: styleRegex('height:(.*)px', '.ib-card-inner')
     value: 350
     type: numeric
     min: 100
