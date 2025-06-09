@@ -35,8 +35,13 @@
         }
     ],
     "autocomplete": "severity",
-    "forids": "4,31",
+    "forids": "31",
+    "contextmenu": [
+        {
+            "actions": "printable"
+        }
+    ],
     "nou": true,
     "author": "Josep Mulet <pep.mulet@gmail.com>",
-    "version": "1.4.0"
+    "version": "1.4.1"
 }

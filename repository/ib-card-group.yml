@@ -15,7 +15,7 @@ template: >
         <div class="ib-card-front <%=bgFront%>" data-face="front">
           <% if(header){ %><div class="card-header">Capçalera de targeta <%=i%></div><% } %>
           <% if(hasImg){ %><img src="https://picsum.photos/300/100" class="card-img-top" alt="Imatge targeta"><% } %>
-          <div class="card-body">
+          <div class="card-body" style="height: calc(<%=height%>px - 100px);">
             <h5 class="card-title">Títol targeta <%=i%></h5>
             <p class="card-text">Text del contingut de la targeta <%=i%>.</p>
           </div>
@@ -90,9 +90,6 @@ parameters:
       - {l: Blau, v: bg-primary text-white}
       - {l: Cian, v: bg-info text-dark}
       - {l: Oscur, v: bg-dark text-white}
-contextmenu:
-  - predicate: div.row.col-auto
-    actions: moveleft moveright insertafter | remove 
 author: Josep Mulet <pep.mulet@gmail.com>
 nou: true
-version: 1.0.0
+version: 1.2.0

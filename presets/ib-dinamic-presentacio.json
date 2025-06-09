@@ -110,7 +110,7 @@
     "contextmenu": [
         {
             "predicate": "ul.nav-tabs > li",
-            "actions": "moveleft moveright insertafter | remove"
+            "actions": "printable | moveleft moveright insertafter | remove"
         }
     ],
     "author": "Josep Mulet Pol <pep.mulet@gmail.com>",

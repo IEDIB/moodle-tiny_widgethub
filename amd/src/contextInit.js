@@ -307,7 +307,7 @@ export async function initContextActions(editor) {
     });
 
     /**
-     * Defines a generic action
+     * Defines a generic action.
      * @param {string} name
      */
     function genericAction(name) {
@@ -321,13 +321,13 @@ export async function initContextActions(editor) {
             const action = predefinedActions[name];
             if (action) {
                 action(ctx.path);
-                // Call any subscriber
+                // Call any subscriber.
                 getListeners('ctxAction').forEach(listener => listener(editor, ctx.path?.widget));
             }
         };
     }
 
-    // Generic button action for unwrapping those widgets that support this feature
+    // Generic button action for unwrapping those widgets that support this feature.
     editor.ui.registry.addButton('widgethub_unwrap_btn', {
         icon: ICONS.arrowUpFromBracket,
         tooltip: strUnwrap,
@@ -382,7 +382,7 @@ export async function initContextActions(editor) {
         }
     });
 
-    // Let extensions to register additional menuItem and nestedMenuItem
+    // Let extensions to register additional menuItem and nestedMenuItem.
     /** @type {import('./extension/contextmenus').UserDefinedItem[]} */
     const widgetsWithExtensions = getMenuItemProviders().flatMap(provider => provider(ctx));
     widgetsWithExtensions.forEach(menuItem => {
@@ -391,14 +391,14 @@ export async function initContextActions(editor) {
                 editor.ui.registry.addNestedMenuItem(`widgethub_${menuItem.name}`, {
                     icon: menuItem.icon,
                     text: menuItem.title,
-                    getSubmenuItems: menuItem.subMenuItems
+                    getSubmenuItems: menuItem.subMenuItems,
                 });
             } else if (menuItem.onAction) {
                 // It is a simple menu item.
                 editor.ui.registry.addMenuItem(`widgethub_${menuItem.name}`, {
                     icon: menuItem.icon,
                     text: menuItem.title,
-                    onAction: menuItem.onAction
+                    onAction: menuItem.onAction,
                 });
             }
     });

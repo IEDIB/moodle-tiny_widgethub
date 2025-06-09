@@ -38,7 +38,7 @@ export class UserStorageSrv {
         this.localStorage = iStorage.localStorage;
         /** @type {Storage} */
         this.sessionStorage = iStorage.sessionStorage;
-        /** @type {string} */
+        /** @type {string | number} */
         this.userId = editorOptions.userInfo.id;
         /** @type {number} */
         this.courseId = editorOptions.courseId;

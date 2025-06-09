@@ -6,12 +6,12 @@ instructions: |
   d'una situació d'aprenentatge. Emprau el <b>menú contextual</b> per canviar la imatge.
 template: >
   <p><br></p>
-  <div class="ib-card m-1{{#flip}} ib-card-flip{{/flip}}" style="width:{{width}}px;">
+  <div class="ib-card m-auto{{#flip}} ib-card-flip{{/flip}}" style="width:{{width}}px;">
   <div class="ib-card-inner" style="height:{{height}}px">
     <div class="ib-card-front {{bgFront}}" data-face="front">
       {{#header}}<div class="card-header">Capçalera de targeta</div>{{/header}}
       {{#hasImg}}<img src="{{imgTop}}" class="card-img-top" alt="Imatge targeta">{{/hasImg}}
-      <div class="card-body">
+      <div class="card-body" style="height: calc({{height}}px - 100px);">
         <h5 class="card-title">Títol targeta</h5>
         <p class="card-text">Text del contingut de la targeta.</p>
       </div>
@@ -29,6 +29,7 @@ template: >
   </div>
   <p><br></p>
 selectors: div.ib-card
+bubble: ib-card-group
 parameters:
   - name: width
     title: Amplada en px
@@ -38,10 +39,19 @@ parameters:
     min: 100
   - name: height
     title: Altura en px
-    bind: styleRegex('height:(.*)px', '.ib-card-inner')
     value: 350
     type: numeric
     min: 100
+    bind:
+      get: |
+        function(e) {
+          return parseInt(e.find('.ib-card-inner').css('height') ?? '350');
+        }
+      set: |
+        function(e, v) {
+          e.find('.ib-card-inner').css('height', v);
+          e.find('.ib-card-front .card-body').css('height', 'calc(' + v + 'px - 100px)');
+        }
   - name: hasImg
     title: Té imatge
     type: checkbox
@@ -150,6 +160,8 @@ parameters:
       - {l: Blau, v: bg-primary text-white}
       - {l: Cian, v: bg-info text-dark}
       - {l: Oscur, v: bg-dark text-white}
+contextmenu:
+  - actions: printable
 author: Josep Mulet <pep.mulet@gmail.com>
 nou: true
 version: 1.0.0
