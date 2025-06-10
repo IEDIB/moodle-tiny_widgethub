@@ -1706,3 +1706,25 @@ table.iedib-bstable {
   overflow: auto;
   padding: 1rem;
 }
+.ib-card .card-header {
+  padding: .75rem 1rem;
+  background-color: whitesmoke;
+  border-radius: 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, .125);
+  transform: translate(0, -12px) scale(0.97);
+  position: relative!important;
+}
+
+.ib-video-group {
+    background-color: #5f6971;
+    background-image: url(https://ibsuite.es/iedib/img/ib_video_group.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    padding: 1rem;
+    border-top: 10px solid #fff3;
+    margin: 0;
+}
+.ib-video-group > h4 {
+  color: white;
+}

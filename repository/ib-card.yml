@@ -9,8 +9,8 @@ template: >
   <div class="ib-card m-auto{{#flip}} ib-card-flip{{/flip}}" style="width:{{width}}px;">
   <div class="ib-card-inner" style="height:{{height}}px">
     <div class="ib-card-front {{bgFront}}" data-face="front">
-      {{#header}}<div class="card-header">Capçalera de targeta</div>{{/header}}
       {{#hasImg}}<img src="{{imgTop}}" class="card-img-top" alt="Imatge targeta">{{/hasImg}}
+      {{#header}}<div class="card-header">Capçalera de targeta</div>{{/header}}
       <div class="card-body" style="height: calc({{height}}px - 100px);">
         <h5 class="card-title">Títol targeta</h5>
         <p class="card-text">Text del contingut de la targeta.</p>
@@ -66,12 +66,7 @@ parameters:
               return;
             }
             var img = '<img src="https://picsum.photos/300/100" class="card-img-top" alt="Imatge targeta">';
-            var header = e.find('.ib-card-front .card-header');
-            if (header.length) {
-              header.after(img);
-            } else {
-              e.find('.ib-card-front').prepend(img);
-            }
+            e.find('.ib-card-front').prepend(img);
           } else {
             e.find('.ib-card-front img.card-img-top').remove();
           }
@@ -95,7 +90,13 @@ parameters:
             if(e.find('.ib-card-front div.card-header').length) {
               return;
             }
-            e.find('.ib-card-front').prepend('<div class="card-header">Capçalera de targeta</div>');
+            var imgtop = e.find('.ib-card-front img.card-img-top');
+            var header = '<div class="card-header">Capçalera de targeta</div>';
+            if (imgtop.length) {
+              imgtop.after(header);
+            } else {
+              e.find('.ib-card-front').prepend(header);
+            }
           } else {
             e.find('.ib-card-front div.card-header').remove();
           }

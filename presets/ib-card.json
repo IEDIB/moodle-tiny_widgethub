@@ -3,7 +3,7 @@
     "name": "Targeta",
     "category": "bootstrap",
     "instructions": "Emprau la targeta juntament amb grup de targetes per mostrar aplicacions pràctiques\nd'una situació d'aprenentatge. Emprau el <b>menú contextual</b> per canviar la imatge.\n",
-    "template": "<p><br></p> <div class=\"ib-card m-auto{{#flip}} ib-card-flip{{/flip}}\" style=\"width:{{width}}px;\"> <div class=\"ib-card-inner\" style=\"height:{{height}}px\">\n  <div class=\"ib-card-front {{bgFront}}\" data-face=\"front\">\n    {{#header}}<div class=\"card-header\">Capçalera de targeta</div>{{/header}}\n    {{#hasImg}}<img src=\"{{imgTop}}\" class=\"card-img-top\" alt=\"Imatge targeta\">{{/hasImg}}\n    <div class=\"card-body\" style=\"height: calc({{height}}px - 100px);\">\n      <h5 class=\"card-title\">Títol targeta</h5>\n      <p class=\"card-text\">Text del contingut de la targeta.</p>\n    </div>\n    {{#footer}}<div class=\"card-footer\">Peu de targeta</div>{{/footer}}\n  </div>\n  {{#flip}}\n  <div class=\"ib-card-back {{bgBack}}\" data-face=\"back\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">Títol revers targeta</h5>\n      <p class=\"card-text\">Text del revers de la targeta.</p>\n    </div>\n  </div>\n  {{/flip}}\n</div> </div> <p><br></p>\n",
+    "template": "<p><br></p> <div class=\"ib-card m-auto{{#flip}} ib-card-flip{{/flip}}\" style=\"width:{{width}}px;\"> <div class=\"ib-card-inner\" style=\"height:{{height}}px\">\n  <div class=\"ib-card-front {{bgFront}}\" data-face=\"front\">\n    {{#hasImg}}<img src=\"{{imgTop}}\" class=\"card-img-top\" alt=\"Imatge targeta\">{{/hasImg}}\n    {{#header}}<div class=\"card-header\">Capçalera de targeta</div>{{/header}}\n    <div class=\"card-body\" style=\"height: calc({{height}}px - 100px);\">\n      <h5 class=\"card-title\">Títol targeta</h5>\n      <p class=\"card-text\">Text del contingut de la targeta.</p>\n    </div>\n    {{#footer}}<div class=\"card-footer\">Peu de targeta</div>{{/footer}}\n  </div>\n  {{#flip}}\n  <div class=\"ib-card-back {{bgBack}}\" data-face=\"back\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">Títol revers targeta</h5>\n      <p class=\"card-text\">Text del revers de la targeta.</p>\n    </div>\n  </div>\n  {{/flip}}\n</div> </div> <p><br></p>\n",
     "selectors": "div.ib-card",
     "bubble": "ib-card-group",
     "parameters": [
@@ -33,7 +33,7 @@
             "value": true,
             "bind": {
                 "get": "function(e) {return e.find('.ib-card-front img.card-img-top').length > 0;}\n",
-                "set": "function(e, v) {\n  if (v) {\n    if (e.find('.ib-card-front img.card-img-top').length) {\n      return;\n    }\n    var img = '<img src=\"https://picsum.photos/300/100\" class=\"card-img-top\" alt=\"Imatge targeta\">';\n    var header = e.find('.ib-card-front .card-header');\n    if (header.length) {\n      header.after(img);\n    } else {\n      e.find('.ib-card-front').prepend(img);\n    }\n  } else {\n    e.find('.ib-card-front img.card-img-top').remove();\n  }\n}\n"
+                "set": "function(e, v) {\n  if (v) {\n    if (e.find('.ib-card-front img.card-img-top').length) {\n      return;\n    }\n    var img = '<img src=\"https://picsum.photos/300/100\" class=\"card-img-top\" alt=\"Imatge targeta\">';\n    e.find('.ib-card-front').prepend(img);\n  } else {\n    e.find('.ib-card-front img.card-img-top').remove();\n  }\n}\n"
             }
         },
         {
@@ -51,7 +51,7 @@
             "value": false,
             "bind": {
                 "get": "function(e) {return e.find('.ib-card-front div.card-header').length > 0;}\n",
-                "set": "function(e, v) {\n  if (v) {\n    if(e.find('.ib-card-front div.card-header').length) {\n      return;\n    }\n    e.find('.ib-card-front').prepend('<div class=\"card-header\">Capçalera de targeta</div>');\n  } else {\n    e.find('.ib-card-front div.card-header').remove();\n  }\n}\n"
+                "set": "function(e, v) {\n  if (v) {\n    if(e.find('.ib-card-front div.card-header').length) {\n      return;\n    }\n    var imgtop = e.find('.ib-card-front img.card-img-top');\n    var header = '<div class=\"card-header\">Capçalera de targeta</div>';\n    if (imgtop.length) {\n      imgtop.after(header);\n    } else {\n      e.find('.ib-card-front').prepend(header);\n    }\n  } else {\n    e.find('.ib-card-front div.card-header').remove();\n  }\n}\n"
             }
         },
         {
