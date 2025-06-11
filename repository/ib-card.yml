@@ -1,17 +1,20 @@
 key: ib-card
 name: Targeta
 category: bootstrap
-instructions: |
-  Emprau la targeta juntament amb grup de targetes per mostrar aplicacions pràctiques
-  d'una situació d'aprenentatge. Emprau el <b>menú contextual</b> per canviar la imatge.
+instructions: >
+  Emprau la targeta juntament amb grup de targetes per mostrar aplicacions
+  pràctiques
+
+  d'una situació d'aprenentatge. Emprau el <b>menú contextual</b> per canviar la
+  imatge.
 template: >
-  <p><br></p>
-  <div class="ib-card m-auto{{#flip}} ib-card-flip{{/flip}}" style="width:{{width}}px;">
-  <div class="ib-card-inner" style="height:{{height}}px">
-    <div class="ib-card-front {{bgFront}}" data-face="front">
+  <p><br></p> <div class="ib-card m-auto{{#flip}} ib-card-flip{{/flip}}"
+  style="width:{{width}}px;"> <div class="ib-card-inner"
+  {{#if}}[flip||(!flip&&forceHeight)] style="height:{{height}}px;"{{/if}}>
+    <div class="ib-card-front {{bgFront}}" data-face="front" {{#if}}[!flip&&!forceHeight] style="position:relative;"{{/if}}>
       {{#hasImg}}<img src="{{imgTop}}" class="card-img-top" alt="Imatge targeta">{{/hasImg}}
       {{#header}}<div class="card-header">Capçalera de targeta</div>{{/header}}
-      <div class="card-body" style="height: calc({{height}}px - 100px);">
+      <div class="card-body" {{#if}}[flip||(!flip&&forceHeight)] style="height: calc({{height}}px - 100px);"{{/if}}>
         <h5 class="card-title">Títol targeta</h5>
         <p class="card-text">Text del contingut de la targeta.</p>
       </div>
@@ -25,11 +28,9 @@ template: >
       </div>
     </div>
     {{/flip}}
-  </div>
-  </div>
-  <p><br></p>
+  </div> </div> <p><br></p>
 selectors: div.ib-card
-bubble: ib-card-group
+bubbles: ib-card-group
 parameters:
   - name: width
     title: Amplada en px
@@ -37,28 +38,51 @@ parameters:
     value: 250
     type: numeric
     min: 100
+  - name: forceHeight
+    title: Forçar una altura fixada
+    value: false
+    type: checkbox
+    when: '!flip'
+    bind:
+      get: |
+        function(e) {
+          var cardInner = e.find('.ib-card-inner')[0];
+          return cardInner && cardInner.style.height !== '';
+        }
   - name: height
     title: Altura en px
     value: 350
     type: numeric
     min: 100
+    when: forceHeight || flip
     bind:
       get: |
         function(e) {
           return parseInt(e.find('.ib-card-inner').css('height') ?? '350');
         }
       set: |
-        function(e, v) {
-          e.find('.ib-card-inner').css('height', v);
-          e.find('.ib-card-front .card-body').css('height', 'calc(' + v + 'px - 100px)');
+        function(e, v, vm, u) {
+          var fh = vm['forceHeight'] || vm['flip'];
+          var cih = '';
+          var cfh = '';
+          if (fh) {
+            cih = v + 'px';
+            cfh = 'calc(' + v + 'px - 100px)';
+            u.css(e, '.ib-card-front', 'position', '');
+          } else {
+            u.css(e, '.ib-card-front', 'position', 'relative');
+          }
+          u.css(e, '.ib-card-inner', 'height', cih);
+          u.css(e, '.ib-card-front .card-body', 'height', cfh);
         }
   - name: hasImg
     title: Té imatge
     type: checkbox
     value: true
     bind:
-      get: |
-        function(e) {return e.find('.ib-card-front img.card-img-top').length > 0;}
+      get: >
+        function(e) {return e.find('.ib-card-front img.card-img-top').length >
+        0;}
       set: |
         function(e, v) {
           if (v) {
@@ -82,8 +106,9 @@ parameters:
     type: checkbox
     value: false
     bind:
-      get: |
-        function(e) {return e.find('.ib-card-front div.card-header').length > 0;}
+      get: >
+        function(e) {return e.find('.ib-card-front div.card-header').length >
+        0;}
       set: |
         function(e, v) {
           if (v) {
@@ -106,8 +131,9 @@ parameters:
     type: checkbox
     value: false
     bind:
-      get: |
-        function(e) {return e.find('.ib-card-front div.card-footer').length > 0;}
+      get: >
+        function(e) {return e.find('.ib-card-front div.card-footer').length >
+        0;}
       set: |
         function(e, v) {
           if (v) {
@@ -123,12 +149,18 @@ parameters:
     title: Color de fons (davant)
     value: bg-white text-dark
     options:
-      - {l: Cap, v: bg-white text-dark}
-      - {l: Gris fluix, v: bg-light text-dark}
-      - {l: Gris, v: bg-secondary text-white}
-      - {l: Blau, v: bg-primary text-white}
-      - {l: Cian, v: bg-info text-dark}
-      - {l: Oscur, v: bg-dark text-white}
+      - l: Cap
+        v: bg-white text-dark
+      - l: Gris fluix
+        v: bg-light text-dark
+      - l: Gris
+        v: bg-secondary text-white
+      - l: Blau
+        v: bg-primary text-white
+      - l: Cian
+        v: bg-info text-dark
+      - l: Oscur
+        v: bg-dark text-white
   - name: flip
     title: Es pot girar
     type: checkbox
@@ -155,14 +187,20 @@ parameters:
     value: bg-light text-dark
     when: flip
     options:
-      - {l: Cap, v: bg-white text-dark}
-      - {l: Gris fluix, v: bg-light text-dark}
-      - {l: Gris, v: bg-secondary text-white}
-      - {l: Blau, v: bg-primary text-white}
-      - {l: Cian, v: bg-info text-dark}
-      - {l: Oscur, v: bg-dark text-white}
+      - l: Cap
+        v: bg-white text-dark
+      - l: Gris fluix
+        v: bg-light text-dark
+      - l: Gris
+        v: bg-secondary text-white
+      - l: Blau
+        v: bg-primary text-white
+      - l: Cian
+        v: bg-info text-dark
+      - l: Oscur
+        v: bg-dark text-white
 contextmenu:
   - actions: printable
 author: Josep Mulet <pep.mulet@gmail.com>
 nou: true
-version: 1.0.0
+version: 1.1.0

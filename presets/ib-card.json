@@ -3,9 +3,9 @@
     "name": "Targeta",
     "category": "bootstrap",
     "instructions": "Emprau la targeta juntament amb grup de targetes per mostrar aplicacions pràctiques\nd'una situació d'aprenentatge. Emprau el <b>menú contextual</b> per canviar la imatge.\n",
-    "template": "<p><br></p> <div class=\"ib-card m-auto{{#flip}} ib-card-flip{{/flip}}\" style=\"width:{{width}}px;\"> <div class=\"ib-card-inner\" style=\"height:{{height}}px\">\n  <div class=\"ib-card-front {{bgFront}}\" data-face=\"front\">\n    {{#hasImg}}<img src=\"{{imgTop}}\" class=\"card-img-top\" alt=\"Imatge targeta\">{{/hasImg}}\n    {{#header}}<div class=\"card-header\">Capçalera de targeta</div>{{/header}}\n    <div class=\"card-body\" style=\"height: calc({{height}}px - 100px);\">\n      <h5 class=\"card-title\">Títol targeta</h5>\n      <p class=\"card-text\">Text del contingut de la targeta.</p>\n    </div>\n    {{#footer}}<div class=\"card-footer\">Peu de targeta</div>{{/footer}}\n  </div>\n  {{#flip}}\n  <div class=\"ib-card-back {{bgBack}}\" data-face=\"back\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">Títol revers targeta</h5>\n      <p class=\"card-text\">Text del revers de la targeta.</p>\n    </div>\n  </div>\n  {{/flip}}\n</div> </div> <p><br></p>\n",
+    "template": "<p><br></p> <div class=\"ib-card m-auto{{#flip}} ib-card-flip{{/flip}}\" style=\"width:{{width}}px;\"> <div class=\"ib-card-inner\" {{#if}}[flip||(!flip&&forceHeight)] style=\"height:{{height}}px;\"{{/if}}>\n  <div class=\"ib-card-front {{bgFront}}\" data-face=\"front\" {{#if}}[!flip&&!forceHeight] style=\"position:relative;\"{{/if}}>\n    {{#hasImg}}<img src=\"{{imgTop}}\" class=\"card-img-top\" alt=\"Imatge targeta\">{{/hasImg}}\n    {{#header}}<div class=\"card-header\">Capçalera de targeta</div>{{/header}}\n    <div class=\"card-body\" {{#if}}[flip||(!flip&&forceHeight)] style=\"height: calc({{height}}px - 100px);\"{{/if}}>\n      <h5 class=\"card-title\">Títol targeta</h5>\n      <p class=\"card-text\">Text del contingut de la targeta.</p>\n    </div>\n    {{#footer}}<div class=\"card-footer\">Peu de targeta</div>{{/footer}}\n  </div>\n  {{#flip}}\n  <div class=\"ib-card-back {{bgBack}}\" data-face=\"back\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">Títol revers targeta</h5>\n      <p class=\"card-text\">Text del revers de la targeta.</p>\n    </div>\n  </div>\n  {{/flip}}\n</div> </div> <p><br></p>\n",
     "selectors": "div.ib-card",
-    "bubble": "ib-card-group",
+    "bubbles": "ib-card-group",
     "parameters": [
         {
             "name": "width",
@@ -16,14 +16,25 @@
             "min": 100
         },
         {
+            "name": "forceHeight",
+            "title": "Forçar una altura fixada",
+            "value": false,
+            "type": "checkbox",
+            "when": "!flip",
+            "bind": {
+                "get": "function(e) {\n  var cardInner = e.find('.ib-card-inner')[0];\n  return cardInner && cardInner.style.height !== '';\n}\n"
+            }
+        },
+        {
             "name": "height",
             "title": "Altura en px",
             "value": 350,
             "type": "numeric",
             "min": 100,
+            "when": "forceHeight || flip",
             "bind": {
                 "get": "function(e) {\n  return parseInt(e.find('.ib-card-inner').css('height') ?? '350');\n}\n",
-                "set": "function(e, v) {\n  e.find('.ib-card-inner').css('height', v);\n  e.find('.ib-card-front .card-body').css('height', 'calc(' + v + 'px - 100px)');\n}\n"
+                "set": "function(e, v, vm) {\n  var fh = vm['forceHeight'] || vm['flip'];\n  var cih = '';\n  var cfh = '';\n  if (fh) {\n    cih = v + 'px';\n    cfh = 'calc(' + v + 'px - 100px)';\n    e.find('.ib-card-front').css('position', '');\n  } else {\n    e.find('.ib-card-front').css('position', 'relative');\n  }\n  e.find('.ib-card-inner').css('height', cih);\n  e.find('.ib-card-front .card-body').css('height', cfh);\n}\n"
             }
         },
         {
