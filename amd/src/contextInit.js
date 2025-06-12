@@ -115,24 +115,24 @@ const matchesCondition = function(condition, key) {
  */
 const predefinedActionsFactory = function(editor, domSrv) {
     /** @type {Record<string, Function>} */
-    return ({
+    const factory = {
         /**
          * Unwraps or destroys the contents of a widget
-         * @param {PathResult} context
+         * @param {PathResult} path
          */
-        unwrap: (context) => {
-            if (!context?.elem || !context?.widget?.unwrap) {
+        unwrap: (path) => {
+            if (!path?.elem || !path?.widget?.unwrap) {
                 return;
             }
             /** @type {JQuery<HTMLElement> | string} */
-            let toUnpack = context.elem.find(context.widget.unwrap);
+            let toUnpack = path.elem.find(path.widget.unwrap);
             if (!toUnpack[0]) {
                 // Create a text element
-                toUnpack = context.elem.text();
+                toUnpack = path.elem.text();
             }
-            context.elem.replaceWith(toUnpack);
+            path.elem.replaceWith(toUnpack);
             // Call any subscribers
-            getListeners('widgetRemoved').forEach(listener => listener(editor, context.widget));
+            getListeners('widgetRemoved').forEach(listener => listener(editor, path.widget));
         },
         /**
          * Moves the selected element above in the parent container
@@ -140,11 +140,11 @@ const predefinedActionsFactory = function(editor, domSrv) {
          * Only on tabbed widgets!
          * If $e or any of its descendants references another element in
          * the widget, then it also must be moved before its sibling
-         * @param {PathResult} context
+         * @param {PathResult} path
          */
-        movebefore: (context) => {
-            const $e = context?.targetElement;
-            const $root = context?.elem;
+        movebefore: (path) => {
+            const $e = path?.targetElement;
+            const $root = path?.elem;
             if (!$e || !$root) {
                 return;
             }
@@ -167,11 +167,11 @@ const predefinedActionsFactory = function(editor, domSrv) {
          * Only on tabbed widgets!
          * If $e or any of its descendants references another element in
          * the widget, then it also must be moved after its sibling
-         * @param {PathResult} context
+         * @param {PathResult} path
          */
-        moveafter: (context) => {
-            const $e = context?.targetElement;
-            const $root = context?.elem;
+        moveafter: (path) => {
+            const $e = path?.targetElement;
+            const $root = path?.elem;
             if (!$e || !$root) {
                 return;
             }
@@ -190,11 +190,11 @@ const predefinedActionsFactory = function(editor, domSrv) {
         },
         /**
          * Inserts a clone of the selected element after it
-         * @param {PathResult} context
+         * @param {PathResult} path
          */
-        insertafter: (context) => {
-            const $e = context?.targetElement;
-            const $root = context?.elem;
+        insertafter: (path) => {
+            const $e = path?.targetElement;
+            const $root = path?.elem;
             if (!$e || !$root) {
                 return;
             }
@@ -205,11 +205,11 @@ const predefinedActionsFactory = function(editor, domSrv) {
         },
         /**
          * Removes the selected element
-         * @param {PathResult} context
+         * @param {PathResult} path
          */
-        remove: (context) => {
-            const $e = context?.targetElement;
-            const $root = context?.elem;
+        remove: (path) => {
+            const $e = path?.targetElement;
+            const $root = path?.elem;
             if (!$e || !$root) {
                 return;
             }
@@ -225,20 +225,23 @@ const predefinedActionsFactory = function(editor, domSrv) {
         },
         /**
          * Toggles a snippet as printable or not
-         * @param {PathResult} context
+         * @param {PathResult} path
          */
-        printable: (context) => {
-            const elem = context?.elem;
+        printable: (path) => {
+            const elem = path?.elem;
             if (!elem) {
                 return;
             }
             elem.toggleClass('d-print-none');
         }
-    });
+    };
+    factory.moveup = factory.movebefore;
+    factory.movedown = factory.moveafter;
+    return factory;
 };
 
 /**
- * @typedef {{editor: import('./plugin').TinyMCE, path?: PathResult, jQuery: JQueryStatic}} ItemMenuContext
+ * @typedef {{editor: import('./plugin').TinyMCE, path?: PathResult, jQuery: JQueryStatic, actionPaths: Record<string, PathResult>}} ItemMenuContext
  */
 
 /**
@@ -253,6 +256,7 @@ export async function initContextActions(editor) {
      * @type {ItemMenuContext}
      */
     const ctx = {
+        actionPaths: {},
         editor: editor,
         jQuery
     };
@@ -312,17 +316,20 @@ export async function initContextActions(editor) {
      */
     function genericAction(name) {
         return function() {
-            if (!ctx.path?.widget) {
-                ctx.path = domSrv.findWidgetOnEventPath(widgetList, editor.selection.getNode());
-                if (!ctx.path?.widget) {
+            let path = ctx.actionPaths[name];
+            if (!path) {
+                path = domSrv.findWidgetOnEventPath(widgetList, editor.selection.getNode());
+                if (!path.widget) {
                     return;
                 }
             }
             const action = predefinedActions[name];
             if (action) {
-                action(ctx.path);
+                // Make sure that generic actions use the right path object.
+                // Define one path per action.
+                action(path);
                 // Call any subscriber.
-                getListeners('ctxAction').forEach(listener => listener(editor, ctx.path?.widget));
+                getListeners('ctxAction').forEach(listener => listener(editor, path.widget));
             }
         };
     }
@@ -341,12 +348,12 @@ export async function initContextActions(editor) {
     editor.ui.registry.addMenuItem('widgethub_moveup_item', {
         icon: ICONS.arrowUp,
         text: strMoveUp,
-        onAction: genericAction('movebefore')
+        onAction: genericAction('moveup')
     });
     editor.ui.registry.addMenuItem('widgethub_movedown_item', {
         icon: ICONS.arrowDown,
         text: strMoveDown,
-        onAction: genericAction('moveafter')
+        onAction: genericAction('movedown')
     });
     editor.ui.registry.addMenuItem('widgethub_moveleft_item', {
         icon: ICONS.arrowLeft,
@@ -387,25 +394,27 @@ export async function initContextActions(editor) {
     const widgetsWithExtensions = getMenuItemProviders().flatMap(provider => provider(ctx));
     widgetsWithExtensions.forEach(menuItem => {
         if (menuItem.subMenuItems) {
-                // It is a nested menu.
-                editor.ui.registry.addNestedMenuItem(`widgethub_${menuItem.name}`, {
-                    icon: menuItem.icon,
-                    text: menuItem.title,
-                    getSubmenuItems: menuItem.subMenuItems,
-                });
-            } else if (menuItem.onAction) {
-                // It is a simple menu item.
-                editor.ui.registry.addMenuItem(`widgethub_${menuItem.name}`, {
-                    icon: menuItem.icon,
-                    text: menuItem.title,
-                    onAction: menuItem.onAction,
-                });
-            }
+            // It is a nested menu.
+            editor.ui.registry.addNestedMenuItem(`widgethub_${menuItem.name}`, {
+                icon: menuItem.icon,
+                text: menuItem.title,
+                getSubmenuItems: menuItem.subMenuItems,
+            });
+        } else if (menuItem.onAction) {
+            // It is a simple menu item.
+            editor.ui.registry.addMenuItem(`widgethub_${menuItem.name}`, {
+                icon: menuItem.icon,
+                text: menuItem.title,
+                onAction: menuItem.onAction,
+            });
+        }
     });
 
     editor.ui.registry.addContextMenu('tiny_ibwidgethub', {
         /** @param {HTMLElement} element */
         update: (element) => {
+            // Get rid of previous paths
+            ctx.actionPaths = {};
             // Look for a context
             ctx.path = domSrv.findWidgetOnEventPath(widgetList, element);
             if (!ctx.path?.widget || ctx.path.widget.prop("contexttoolbar")) {
@@ -413,14 +422,31 @@ export async function initContextActions(editor) {
                 return '';
             }
             const widget = ctx.path.widget;
+            /** @type {string[]} */
             let menuItems = [];
             if (hasBindings(widget)) {
                 menuItems.push('modal');
             }
-            // Now look for contextmenu property in widget definition
-            /** @type {{predicate: string, actions: string}[] | undefined} */
-            let contextmenu = widget.prop("contextmenu");
-            if (contextmenu) {
+            // Does this widget bubble?
+            /** @type {PathResult | null} */
+            let parentPath = null;
+            if (widget.prop('bubbles')) {
+                const parentElem = ctx.path?.elem?.[0]?.parentElement;
+                if (parentElem) {
+                    const p = domSrv.findWidgetOnEventPath(widgetList, parentElem);
+                    if (p && p.widget?.key === widget.prop('bubbles')) {
+                        parentPath = p;
+                    }
+                }
+            }
+
+            const populateMenuItems = function(/** @type {PathResult} **/ path) {
+                // Now look for contextmenu property in widget definition
+                /** @type {{predicate: string, actions: string}[] | undefined} */
+                let contextmenu = path.widget?.prop('contextmenu');
+                if (!contextmenu) {
+                    return;
+                }
                 if (!Array.isArray(contextmenu)) {
                     contextmenu = [contextmenu];
                 }
@@ -430,7 +456,7 @@ export async function initContextActions(editor) {
                     let targetElem = null;
                     // If predicate is unset then use the widget root elem
                     if (!cm.predicate) {
-                        targetElem = ctx.path?.elem?.[0] ?? null;
+                        targetElem = path?.elem?.[0] ?? null;
                     } else if (element.matches(cm.predicate)) {
                         targetElem = element;
                     } else {
@@ -439,12 +465,26 @@ export async function initContextActions(editor) {
                     if (!targetElem) {
                         return;
                     }
-                    if (ctx.path) {
-                        ctx.path.targetElement = jQuery(targetElem);
-                    }
-                    menuItems.push(...cm.actions.split(' ').map(e => e.trim()));
+                    const newActionsToAdd = cm.actions.split(' ')
+                        .map(e => e.trim())
+                        // Never duplicate actions from different sources.
+                        .filter(e => e === '|' || !menuItems.includes(e));
+                    menuItems.push(...newActionsToAdd);
+
+                    // Register the new paths of every action
+                    newActionsToAdd.filter(e => e !== '|').forEach((/** @type {string} */ e) => {
+                        path.targetElement = jQuery(targetElem);
+                        ctx.actionPaths[e] = {...path};
+                    });
                 });
+            };
+
+            if (parentPath) {
+                // Give precedence to the parent menus.
+                populateMenuItems(parentPath);
             }
+            populateMenuItems(ctx.path);
+
             menuItems = menuItems.map(e => e === '|' ? '|' : `widgethub_${e}_item`);
             // Check if the current widget has any action registered by extensions
             const actionNames = widgetsWithExtensions

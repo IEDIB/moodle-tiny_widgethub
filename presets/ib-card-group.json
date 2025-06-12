@@ -117,6 +117,12 @@
             ]
         }
     ],
+    "contextmenu": [
+        {
+            "predicate": "div.ib-card",
+            "actions": "moveup movedown insertafter | remove"
+        }
+    ],
     "author": "Josep Mulet <pep.mulet@gmail.com>",
     "nou": true,
     "version": "1.2.0"

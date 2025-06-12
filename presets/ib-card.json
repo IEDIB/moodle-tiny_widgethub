@@ -34,7 +34,7 @@
             "when": "forceHeight || flip",
             "bind": {
                 "get": "function(e) {\n  return parseInt(e.find('.ib-card-inner').css('height') ?? '350');\n}\n",
-                "set": "function(e, v, vm) {\n  var fh = vm['forceHeight'] || vm['flip'];\n  var cih = '';\n  var cfh = '';\n  if (fh) {\n    cih = v + 'px';\n    cfh = 'calc(' + v + 'px - 100px)';\n    e.find('.ib-card-front').css('position', '');\n  } else {\n    e.find('.ib-card-front').css('position', 'relative');\n  }\n  e.find('.ib-card-inner').css('height', cih);\n  e.find('.ib-card-front .card-body').css('height', cfh);\n}\n"
+                "set": "function(e, v, vm, u) {\n  var fh = vm['forceHeight'] || vm['flip'];\n  var cih = '';\n  var cfh = '';\n  if (fh) {\n    cih = v + 'px';\n    cfh = 'calc(' + v + 'px - 100px)';\n    u.css(e, '.ib-card-front', 'position', '');\n  } else {\n    u.css(e, '.ib-card-front', 'position', 'relative');\n  }\n  u.css(e, '.ib-card-inner', 'height', cih);\n  u.css(e, '.ib-card-front .card-body', 'height', cfh);\n}\n"
             }
         },
         {
@@ -156,5 +156,5 @@
     ],
     "author": "Josep Mulet <pep.mulet@gmail.com>",
     "nou": true,
-    "version": "1.0.0"
+    "version": "1.1.0"
 }

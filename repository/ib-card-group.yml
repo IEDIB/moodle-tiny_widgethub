@@ -90,6 +90,10 @@ parameters:
       - {l: Blau, v: bg-primary text-white}
       - {l: Cian, v: bg-info text-dark}
       - {l: Oscur, v: bg-dark text-white}
+contextmenu:
+  - predicate: div.ib-card
+    actions: moveup movedown insertafter | remove
+  - actions: printable
 author: Josep Mulet <pep.mulet@gmail.com>
 nou: true
 version: 1.2.0

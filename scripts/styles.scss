@@ -1534,75 +1534,6 @@ ol.iedib-falist>li::before {
   }
 }
 
-/*
-   * Make acordions and tabpanes printables
-*/
-@media print {
-  * {
-    -moz-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-    -webkit-print-color-adjust: exact !important;
-  }
-
-  @page {
-    size: A4;
-  }
-
-  div[role="main"] {
-    background-color: white;
-    max-width: 90%;
-    font-size: 110%;
-    margin: auto;
-  }
-
-  #page-content {
-    background-color: white;
-  }
-
-  .accordion-body.collapse {
-    display: block !important;
-  }
-
-  .iedib-tabmenu>ul>li>a {
-    color: #222;
-  }
-
-  .iedib-tabmenu {
-    display: flex;
-  }
-
-  .tab-content>.tab-pane.iedib-tabpane {
-    display: block !important;
-  }
-
-  .tab-content>.tab-pane.iedib-tabpane::after {
-    content: '\002014\002014\002014';
-    display: block;
-    text-align: center;
-  }
-
-  /* Accesibilitat als links impressos*/
-  a.iedib-plink:after {
-    content: " <"attr(href) "> " !important;
-    font-style: italic !important;
-    font-size: 0.9em !important;
-  }
-
-  /* videos h5p */
-  .iedib-video-container>iframe {
-    display: none;
-  }
-
-  .iedib-video-container>iframe::after {
-    content: " <"attr(src) "> " !important;
-    display: block;
-  }
-
-  div.accordion-inner .iedib-capsa {
-     break-inside: auto; 
-  }
-
-}
 
 /************** Added a posteriori */
 .iedib-rwrap {
@@ -1727,4 +1658,94 @@ table.iedib-bstable {
 }
 .ib-video-group > h4 {
   color: white;
+}
+
+/** Media print **/
+/*
+   * Make acordions and tabpanes printables
+*/
+@media print {
+  * {
+    -moz-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  @page {
+    size: A4;
+  }
+
+  div[role="main"] {
+    background-color: white;
+    max-width: 90%;
+    font-size: 110%;
+    margin: auto;
+  }
+
+  #page-content {
+    background-color: white;
+  }
+
+  .accordion-body.collapse {
+    display: block !important;
+  }
+
+  .iedib-tabmenu>ul>li>a {
+    color: #222;
+  }
+
+  .iedib-tabmenu {
+    display: flex;
+  }
+
+  .tab-content>.tab-pane.iedib-tabpane {
+    display: block !important;
+  }
+
+  .tab-content>.tab-pane.iedib-tabpane::after {
+    content: '\002014\002014\002014';
+    display: block;
+    text-align: center;
+  }
+
+  /* Accesibilitat als links impressos*/
+  a.iedib-plink:after {
+    content: " <"attr(href) "> " !important;
+    font-style: italic !important;
+    font-size: 0.9em !important;
+  }
+
+  /* videos h5p */
+  .iedib-video-container>iframe {
+    display: none;
+  }
+
+  .iedib-video-container>iframe::after {
+    content: " <"attr(src) "> " !important;
+    display: block;
+  }
+
+  div.accordion-inner .iedib-capsa {
+     break-inside: auto; 
+  }
+
+  .ib-card,
+  .ib-card * {
+    transform: none !important;
+    transition: none !important;
+    backface-visibility: visible !important;
+  }
+
+  .ib-card-inner {
+    transform-style: flat !important;
+  }
+
+  .ib-card-back {
+    display: none !important;
+  }
+
+  .ib-card-front {
+    display: block !important;
+    position: relative !important;
+  }
 }
