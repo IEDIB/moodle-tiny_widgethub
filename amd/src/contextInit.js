@@ -358,12 +358,12 @@ export async function initContextActions(editor) {
         text: strMoveDown,
         onAction: genericAction('movedown')
     });
-    editor.ui.registry.addMenuItem('widgethub_moveleft_item', {
+    editor.ui.registry.addMenuItem('widgethub_movebefore_item', {
         icon: ICONS.arrowLeft,
         text: strMoveBefore,
         onAction: genericAction('movebefore')
     });
-    editor.ui.registry.addMenuItem('widgethub_moveright_item', {
+    editor.ui.registry.addMenuItem('widgethub_moveafter_item', {
         icon: ICONS.arrowRight,
         text: strMoveAfter,
         onAction: genericAction('moveafter')
