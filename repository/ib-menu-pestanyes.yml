@@ -33,7 +33,7 @@ parameters:
   - __ID__
 contextmenu:
   - predicate: div.tabbable.iedib-tabmenu>ul.nav.nav-tabs>li
-    actions: moveleft moveright insertafter | remove  
+    actions: movebefore moveafter insertafter | remove  
 stars: 2
 author: Josep Mulet Pol <pep.mulet@gmail.com>
 version: 2025.05.15

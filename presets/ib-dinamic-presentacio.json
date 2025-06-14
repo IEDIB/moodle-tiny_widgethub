@@ -110,7 +110,7 @@
     "contextmenu": [
         {
             "predicate": "ul.nav-tabs > li",
-            "actions": "moveleft moveright insertafter | remove"
+            "actions": "movebefore moveafter insertafter | remove"
         },
         {
             "actions": "printable"

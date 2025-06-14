@@ -470,6 +470,16 @@ export async function initContextActions(editor) {
                     }
                     const newActionsToAdd = cm.actions.split(' ')
                         .map(e => e.trim())
+                        // moveleft/right should be mapped into movebefore/moveafter
+                        .map(action => {
+                            if (action === 'moveleft') {
+                                return 'movebefore';
+                            }
+                            if (action === 'moveright') {
+                                return 'moveafter';
+                            }
+                            return action;
+                        })
                         // Never duplicate actions from different sources.
                         .filter(e => e === '|' || !menuItems.includes(e));
                     menuItems.push(...newActionsToAdd);
