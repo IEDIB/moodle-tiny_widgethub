@@ -126,7 +126,7 @@ pre.iedib-code code:not(.nohljsln)::before {
 [role="snptd_presentacio"] {
     position: relative;
 }
-[role="snptd_presentacio"]::after {
+[role="snptd_presentacio"]::before {
     content: "";
     width: 22px;
     height: 22px;
