@@ -237,6 +237,9 @@ const predefinedActionsFactory = function(editor, domSrv) {
     };
     factory.moveup = factory.movebefore;
     factory.movedown = factory.moveafter;
+    // Alias.
+    factory.moveleft = factory.movebefore;
+    factory.moveright = factory.moveafter;
     return factory;
 };
 
