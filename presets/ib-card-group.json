@@ -121,6 +121,9 @@
         {
             "predicate": "div.ib-card",
             "actions": "moveup movedown insertafter | remove"
+        },
+        {
+            "actions": "printable"
         }
     ],
     "author": "Josep Mulet <pep.mulet@gmail.com>",

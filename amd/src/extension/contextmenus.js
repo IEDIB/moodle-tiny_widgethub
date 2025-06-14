@@ -22,7 +22,7 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 import {registerMenuItemProvider} from "../extension";
-import { getUserStorage } from "../service/userstorage_service";
+import {getUserStorage} from "../service/userstorage_service";
 import {convertInt, findVariableByName} from "../util";
 import * as Action from './contextactions';
 
@@ -420,8 +420,8 @@ function provider(ctx) {
     };
 
      /**
-     * @type {UserDefinedItem}
-     */
+      * @type {UserDefinedItem}
+      */
      const responsivenessNestedMenu = {
         name: 'responsivenessNestedMenu',
         condition: 'taula-bs',
@@ -487,8 +487,8 @@ function provider(ctx) {
     };
 
      /**
-     * @type {UserDefinedItem}
-     */
+      * @type {UserDefinedItem}
+      */
      const convertDropdownToList = {
         name: 'convertDropdownToList',
         condition: 'desplegable2',

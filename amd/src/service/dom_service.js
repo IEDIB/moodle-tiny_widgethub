@@ -21,6 +21,7 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 import jquery from "jquery";
+import { genID } from "../util";
 
 export class DomSrv {
     /**
@@ -43,8 +44,7 @@ export class DomSrv {
         if (oldId) {
             let newId = idMap[oldId];
             if (!newId) {
-                const ext = Math.random().toString(32).substring(2, 5);
-                newId = oldId + ext;
+                newId = genID();
                 idMap[oldId] = newId;
             }
             $e.prop('id', newId);
@@ -62,14 +62,13 @@ export class DomSrv {
                         const oldId = attr.substring(1);
                         let newId = idMap[oldId];
                         if (!newId) {
-                            const ext = Math.random().toString(32).substring(2, 5);
-                            newId = oldId + ext;
+                            newId = genID();
                             idMap[oldId] = newId;
                         }
                         $e.attr(dataX, "#" + newId);
                     } else {
                         // (TODO: Deep cloning here?) Must clone the reference as well
-                        const newId = 'd' + Math.random().toString(32).substring(2);
+                        const newId = genID('d');
                         const clonedRef = rootRef.clone().prop("id", newId);
                         $e.prop(dataX, "#" + newId);
                         if (dataX === 'data-bs-target') {

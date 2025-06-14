@@ -1,0 +1,45 @@
+key: mosaab-icon
+name: Icona
+category: Misc
+instructions: >-
+  Sempre que sigui possible, és preferible que empreu emojis.
+  Visitau <a href="https://mosaab1.github.io/fontawesome/"
+  target="_blank"> Font Awesome page</a> per localitzar el nom de la icona que desitjau.
+template: >
+  &nbsp;<i class="fa fa-solid fa-{{iconName}} fa-{{animation}} fa-{{iconSize}}x"
+  style="color: {{iconColor}};"></i>&nbsp;
+selectors: i.fa.fa-solid
+parameters:
+  - name: iconName
+    title: Nom de la icona
+    tip: Empra l'enllaç en la descripcció per localitzar el nom d'icona.
+    value: font-awesome
+  - name: animation
+    title: Animació
+    value: none
+    options:
+      - none
+      - beat
+      - beat-fade
+      - bounce
+      - fade
+      - shake
+      - spin
+      - spin-reverse
+      - spin-pulse
+    bind:
+  - name: iconColor
+    title: Color de la icona
+    type: color
+    value: '#000000'
+    bind: styleRegex('color')
+  - name: iconSize
+    title: Mida de la icona
+    tip: Tria un nombre entre 1 i 10.
+    type: numeric
+    min: 1
+    max: 10
+    value: 2
+    bind: classRegex('fa-(.*)x')
+author: Mossaab Mohamed Ali <mosab@mussaab.com>
+version: 1.0.0
