@@ -20,7 +20,7 @@
     "contextmenu": [
         {
             "predicate": "div.tabbable.iedib-tabmenu>ul.nav.nav-tabs>li",
-            "actions": "moveleft moveright insertafter | remove"
+            "actions": "movebefore moveafter insertafter | remove"
         }
     ],
     "stars": 2,

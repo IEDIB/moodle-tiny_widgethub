@@ -86,7 +86,7 @@ requires: /sd/presentacio.min.js
 stars: 2
 contextmenu:
   - predicate: ul.nav-tabs > li
-    actions: moveleft moveright insertafter | remove
+    actions: movebefore moveafter insertafter | remove
   - actions: printable
 author: Josep Mulet Pol <pep.mulet@gmail.com>
 version: 1.2.0

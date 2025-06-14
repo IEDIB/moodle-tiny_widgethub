@@ -123,6 +123,9 @@ pre.iedib-code code:not(.nohljsln)::before {
   font-family: sans-serif;
   pointer-events: none;
 }
+[role="snptd_presentacio"] {
+    position: relative;
+}
 [role="snptd_presentacio"]::after {
     content: "";
     width: 22px;
