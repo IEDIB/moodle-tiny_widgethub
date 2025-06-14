@@ -514,11 +514,6 @@ export class Widget {
         }
 
         const isAllowed = matchMode === 'OR' ? results.some(Boolean) : results.every(Boolean);
-
-        if (!isAllowed) {
-            console.warn(`Widget ${this._widget.key} not allowed for user ${userInfo.id}`);
-        }
-
         return isAllowed;
     }
 

@@ -123,3 +123,14 @@ pre.iedib-code code:not(.nohljsln)::before {
   font-family: sans-serif;
   pointer-events: none;
 }
+[role="snptd_presentacio"]::after {
+    content: "";
+    width: 22px;
+    height: 22px;
+    background: lightblue;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%231c2f52' d='M80 64c-8.8 0-16 7.2-16 16v208c0 8.8 7.2 16 16 16h160v41.4l-58.3 58.3c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L256 379.3l51.7 51.7c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L272 345.4V304h160c8.8 0 16-7.2 16-16V80c0-8.8-7.2-16-16-16H80zm48 64h256v128H128V128z'/%3E%3C/svg%3E");
+    background-size: cover;
+    top: 0 !important;
+    right: 25px !important;
+    position: absolute;
+}
