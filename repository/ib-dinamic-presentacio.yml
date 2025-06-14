@@ -87,5 +87,6 @@ stars: 2
 contextmenu:
   - predicate: ul.nav-tabs > li
     actions: moveleft moveright insertafter | remove
+  - actions: printable
 author: Josep Mulet Pol <pep.mulet@gmail.com>
-version: 2025.05.15
+version: 1.2.0

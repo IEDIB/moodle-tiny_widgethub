@@ -131,6 +131,11 @@ export function cleanUnusedRequires(editor) {
     let changes = 0;
     allScripts.forEach((scriptElem) => {
         const src = (scriptElem.src || '').trim();
+        if (!src) {
+            scriptElem.remove();
+            changes++;
+            return;
+        }
         let found = null;
         if (src.endsWith('sd/zoom.min.js') || src.endsWith('sd/lightbox.min.js')) {
             // No longer supported; always remove them

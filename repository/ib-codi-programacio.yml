@@ -4,8 +4,8 @@ instructions: |
   Utilitzeu aquest snippet per incloure un bloc de codi de programació.
 template: >
   <p><br></p>
-  <pre class="{{#notranslate}} notranslate{{/notranslate}} iedib-code{{#franges_de_fons}} iedib-code-stripped{{/franges_de_fons}}{{^dlang}} nodlang{{/dlang}}">
-  <code class="{{#forcelang}} language-{{forcelang}}{{/forcelang}}{{^syntax}} nohighlight{{/syntax}}{{#syntax}}{{^lnum}} nohljsln{{/lnum}}{{/syntax}}">
+  <pre class="iedib-code{{#notranslate}} notranslate{{/notranslate}}{{#franges_de_fons}} iedib-code-stripped{{/franges_de_fons}}{{#dlang}} display-lang{{/dlang}}">
+  <code class="{{#forcelang}}language-{{forcelang}}{{/forcelang}}{{^syntax}} nohighlight{{/syntax}}{{#syntax}}{{^lnum}} nohljsln{{/lnum}}{{/syntax}}">
   {{codi}}
   </code>
   </pre>
@@ -30,8 +30,9 @@ parameters:
     bind: notHasClass('nohighlight', 'code')
   - name: forcelang
     value: ""
-    options: 
-      - ""
+    type: autocomplete
+    options:
+      - "" 
       - bash
       - basic
       - c
@@ -93,9 +94,9 @@ parameters:
   - name: dlang
     value: true
     title: Mostra el nom del llenguatge
-    bind: notHasClass('nodlang')
+    bind: hasClass('display-lang')
     when: "syntax"
 requires: "/sd/programacio.min.js | syntax"
 stars: 2
 author: Josep Mulet Pol <pep.mulet@gmail.com>
-version: 2023.01.07
+version: 2025.05.29

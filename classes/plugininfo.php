@@ -128,10 +128,21 @@ class plugininfo extends plugin implements
         ];
 
         if ($showplugin) {
+            // Obtain the configuration options for the plugin from the config table.
+            $roles = get_user_roles($context, $USER->id);
+            // Extract role shortnames.
+            $userroles = array_map(function($role) {
+                return $role->shortname;
+            }, $roles);
+
             $widgetindex = self::get_widget_index($conf);
             $widgetlist = self::get_widget_list($conf, $widgetindex);
 
-            $params['userid'] = $USER->id;
+            $params['user'] = [
+                'id' => $USER->id,
+                'username' => $USER->username,
+                'roles' => array_values($userroles),
+            ];
             $params['courseid'] = $COURSE->id;
             $params['widgetlist'] = $widgetlist;
             // Configuration.
@@ -176,10 +187,12 @@ class plugininfo extends plugin implements
     }
 
     /**
-     * The entry id has changed, update the index
+     * The entry id has changed, update the index.
      * @param int $id
+     * @return int - The new id if any new widget is created, other otherwise.
      */
     public static function update_widget_index($id) {
+        $newid = 0;
         $conf = get_config('tiny_ibwidgethub');
         $widgetindex = self::get_widget_index($conf);
         $widget = null;
@@ -198,6 +211,7 @@ class plugininfo extends plugin implements
             $tmpwidget = json_decode($conf->def_0);
             if (!empty($tmpwidget)) {
                 $id = self::update_seq($conf);
+                $newid = $id;
                 // Add the widget to the index.
                 $widgetindex[strval($id)] = [
                     'key' => $tmpwidget->key,
@@ -215,6 +229,7 @@ class plugininfo extends plugin implements
             ];
         }
         set_config('index', json_encode($widgetindex), 'tiny_ibwidgethub');
+        return $newid;
     }
 
     /**

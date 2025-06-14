@@ -386,3 +386,4 @@ export function toggleBootstapTableResponsiveness() {
         $div.append($target);
     }
 }
+

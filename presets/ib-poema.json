@@ -14,7 +14,7 @@
             "bind": "styleRegex('width:(.*)px', 'td.iedib-formulacio')"
         }
     ],
-    "for": "7,14",
+    "forids": "7,14",
     "scope": "^page-mod-book-edit$",
     "stars": 0,
     "author": "Josep Mulet Pol <pep.mulet@gmail.com>",

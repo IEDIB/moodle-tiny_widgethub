@@ -14,3 +14,8 @@ Administrators can override categories and widgets sorting by providing a custom
 
 == 1.3.1 ==
 Prepare widget definitions and UI to be compatible with boostrap 5 on Moodle 5
+Avoid using operator &&= for improved compatibility with older browsers
+
+== 1.3.2 ==
+New card widgets
+Context dependent actions and bubbles to a parent widget

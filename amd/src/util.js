@@ -26,10 +26,13 @@
  */
 
 /**
+ * @param {string} [prefix]
  * @returns {string} a randomID
  */
-export function genID() {
-    return 'g' + Math.random().toString(32).substring(2);
+export function genID(prefix = 'g') {
+   const timePart = Date.now().toString(32);
+   const randPart = Math.floor(Math.random() * 1e6).toString(32);
+   return `${prefix}-${timePart}${randPart}`;
 }
 
 /**
@@ -895,7 +898,7 @@ const bindingFactory = function($e) {
 /**
  * @typedef {Object} Binding
  * @property {() => unknown} getValue
- * @property {(value: string | boolean | number) => void} setValue
+ * @property {(value: string | boolean | number, valueMap: Object.<string, string | boolean | number>) => void} setValue
  */
 /**
  * @param {string | {get: string, set: string}} definition
@@ -918,7 +921,21 @@ export const createBinding = (definition, elem, castTo) => {
                 }
                 return v;
             },
-            setValue: (v) => evalInContext({elem, v}, `(${definition.set})(elem, v)`)
+            setValue: (v, vm) => {
+                if (definition.set) {
+                    // Utils object
+                    const u = {
+                        // @ts-ignore
+                        css: function(e, query, prop, value) {
+                            const targetElem = e.find(query);
+                            targetElem.css(prop, value);
+                            // In TinyMCE must update the attr data-mce-style
+                            targetElem.attr('data-mce-style', targetElem.attr('style') ?? '');
+                        }
+                    };
+                    evalInContext({elem, v, vm, u}, `(${definition.set})(elem, v, vm, u)`);
+                }
+            }
         };
     }
     return bindFn;

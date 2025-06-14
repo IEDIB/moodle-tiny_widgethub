@@ -6,6 +6,7 @@ Optional keywords are marked with **[ ]**.
 |-----------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------|
 | **`key`**             | `string`                             | A unique identifier for the widget.                                                                      |
 | **`name`**            | `string`                             | The name displayed on the button for selecting the widget.                                                |
+| **`[order]`**           | `string`                              | (Optional) If present, the name used to sort the widget alphabetically otherwise the `name` property is used      |
 | **`category`**        | `string`                             | The category in which the widget appears.                                                                |
 | **`[instructions]`**  | `string`                             | (Optional) Detailed explanation of the widget’s purpose and usage.                                       |
 | **`[selectors]`**     | `string` or `string[]` |  (Optional) Required if the widget uses bindings. Defines the CSS selector that identifies the widget root. If an array is used, the remaining selectors apply to the descendants of the root element. |
@@ -20,7 +21,12 @@ Optional keywords are marked with **[ ]**.
 | **`[autocomplete]`**    | `string`                        | The key of a parameter that will be used to create variants in the autocomplete popup. The autocomplete popoup appears when writting @ followed by at least three letters. It will show those widgets whose name matches with the search.
 | **`[contextmenu]`**   | `ContextMenu`                        | (Optional) Configures a context menu                                                                   |
 | **`[contexttoolbar]`**| `boolean`                            | (Optional) Whether to display a context toolbar instead of a context menu.                               |
-| **`[for]`**          | `string`                             | A comma separated list of user ids that are allowed to use this widget. If the list starts with `-` then the list represents the users that are not allowed to use the widget.                                                 
+| **`[for]`**          | `string`                             | A comma separated list of user **ids** that are allowed to use this widget. If the list starts with `-` then the list represents the users that are not allowed to use the widget.
+| **`[forids]`**          | `string`                             | It is an alias of the `for` property.
+| **`[forusernames]`**          | `string`                             | A comma separated list of **usernames** that are allowed to use this widget. If the list starts with `-` then the list represents the usernames that are not allowed to use the widget.
+| **`[forroles]`**          | `string`                             | A comma separated list of **user roles**, e.g. `editingteacher, student, ...`, which are allowed to use this widget. If the list starts with `-` then the list represents the users roles that are not allowed to use the widget.
+| **`[formatch]`**          | `AND` or `OR`                             | Defaults to `AND` and it represents the boolean operation that is applied when multiple for-rules are specified.   
+| **`[requires]`**          | `string`                             | The URL of the JavaScript file required for this widget to function. The script will be added to the end of the page in a dedicated JavaScript widget area. This feature requires the selectors property to be defined.
 | **`[hidden]`**          | `boolean`                             |   Whether the widget must be shown or not.                                                 
 | **`author`**          | `string`                             | Author in the format: `Your Name <your@email.com>`.                                                      |
 | **`version`**         | `string`                             | Widget version in `major.minor.revision` format.                                                         |
@@ -44,12 +50,11 @@ The type `Parameter` consists of these fields
 | **Key**               | **Type**                              | **Description**                                                                                           |
 |------------------------|---------------------------------------|----------------------------------------------------------------------------------------------------------|
 | **`name`**           | `string`                              | The name of the parameter used in the template {{name}} or <%= name %>. If the name starts with `_` then it is saved in localStorage and restablished on future usage.                          |
-| **`[order]`**           | `string`                              | (Optional) If present, the name used to sort the widget alphabetically otherwise the `name` property is used      |
 | **`title`**           | `string`                             | A human-readable name for the parameter.                                                                 |
 | **`[tooltip]`**       | `string`                             | (Optional) Additional information about the parameter.                                                   |
 | **`[tip]`**       | `string`                             | (Optional) Simply a shortcut for `tooltip`                                               |
 **`[partial]`**       | `string`                             | (Optional) A string with double trailing and leading undercore. This variable must be defined into the `partials` widget.        |
-| **`value`**           | `any`                                | Default value for the parameter.                                                                         |
+| **`value`**           | `any`                                | Default value for the parameter. If he type is 'select', then the value must match one of the options.                                                                        |
 | **`[type]`**          | `'textfield' or 'textarea' or 'numeric' or 'select' or 'checkbox' or 'color'` | (Optional) Input type inferred from `value` or other parameters.                                         |
 | **`options`**         | `string[]` or `{l: string, v: string}[]` | Options for `select` type.                                                                |
 | **`[min]`**           | `number`                             | (Optional) Minimum value for numeric controls only.                                                           |

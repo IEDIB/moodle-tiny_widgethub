@@ -31,7 +31,7 @@ parameters:
     title: Descripció
     tip: Aquest missatge apareix com un tooltip
     type: textarea
-for: "4,31"
+forids: "4,31"
 stars: 2
 author: Josep Mulet Pol <pep.mulet@gmail.com>
 version: 2025.05.15

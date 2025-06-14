@@ -128,7 +128,7 @@ export class WidgetPropertiesCtrl {
             this.modal?.destroy();
             // Apply Param Values To DOM
             Object.keys(bindingsDOM).forEach(key => {
-                bindingsDOM[key].setValue(updatedValues[key]);
+                bindingsDOM[key].setValue(updatedValues[key], updatedValues);
             });
         });
 

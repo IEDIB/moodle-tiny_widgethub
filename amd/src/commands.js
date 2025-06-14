@@ -49,12 +49,53 @@ export const getSetup = async() => {
             return;
         }
         // Check if there is a config option to disable the plugin for the current page.
-        /** @type {string[]} */
-        const disableOnPages = getGlobalConfig(editor, "disable.plugin.pages", "").split(",");
-        if (disableOnPages.includes(Shared.currentScope)) {
-            console.warn('WidgetHub plugin is disabled on this page.');
+        const page = Shared.currentScope;
+        const disableList = getGlobalConfig(editor, "disable.plugin.pages", "")
+            .split(",")
+            .map(p => p.trim())
+            .filter(Boolean);
+
+        if (disableList.includes(page)) {
+            console.warn("WidgetHub plugin is disabled on this page.");
             return;
         }
+
+        const regexPattern = getGlobalConfig(editor, "disable.plugin.pages.regex", "");
+        if (regexPattern) {
+            try {
+                const regex = new RegExp(regexPattern);
+                if (regex.test(page)) {
+                    console.warn("WidgetHub plugin is disabled on this page.");
+                    return;
+                }
+            } catch (/** @type {any} */ ex) {
+                console.error("Please check disable.plugin.pages.regex: Invalid regular expression:", ex.message);
+            }
+        }
+
+        // In case that CodePro is not installed in production, then resort to this mechanism
+        // to control the HTML filtering behaviour of TinyMCE.
+        editor.on('PreInit', () => {
+            const schema = editor.parser?.schema;
+            if (!schema) {
+                return;
+            }
+            // Apply HTML filtering options to the editor parser instance.
+            const customElements = getGlobalConfig(editor, "tiny.custom_elements", "").trim();
+            if (customElements) {
+                schema.addCustomElements(customElements);
+            }
+
+            const validElements = getGlobalConfig(editor, "tiny.valid_elements", "").trim();
+            if (validElements) {
+                schema.addValidElements(validElements);
+            }
+
+            const validChildren = getGlobalConfig(editor, "tiny.valid_children", "").trim();
+            if (validChildren) {
+                schema.addValidChildren(validChildren);
+            }
+        });
 
         // Register the Icon.
         editor.ui.registry.addIcon(Common.icon, buttonImage.html);

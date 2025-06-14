@@ -22,6 +22,7 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 import {registerMenuItemProvider} from "../extension";
+import {getUserStorage} from "../service/userstorage_service";
 import {convertInt, findVariableByName} from "../util";
 import * as Action from './contextactions';
 
@@ -125,8 +126,13 @@ function provider(ctx) {
            // selectedElement right clicked must be a tag img
            const key = ctx.path?.widget?.key;
            const elem = ctx.path?.selectedElement;
-           const isImg = (key !== undefined && key !== 'imatge' && key !== 'grid-imatge' &&
-            elem?.prop('tagName') === 'IMG');
+           const isImg = (
+                key !== undefined &&
+                key !== 'imatge' &&
+                key !== 'grid-imatge' &&
+                elem?.prop('tagName') === 'IMG' &&
+                // Do not take into account images in ib-card
+                !elem?.hasClass('card-img-top'));
            if (ctx.path && isImg && elem?.[0]) {
                 ctx.path.targetElement = elem;
            }
@@ -414,8 +420,8 @@ function provider(ctx) {
     };
 
      /**
-     * @type {UserDefinedItem}
-     */
+      * @type {UserDefinedItem}
+      */
      const responsivenessNestedMenu = {
         name: 'responsivenessNestedMenu',
         condition: 'taula-bs',
@@ -481,13 +487,177 @@ function provider(ctx) {
     };
 
      /**
-     * @type {UserDefinedItem}
-     */
+      * @type {UserDefinedItem}
+      */
      const convertDropdownToList = {
         name: 'convertDropdownToList',
         condition: 'desplegable2',
         title: 'Convertir a llista',
         onAction: Action.convertDropdownToList.bind({ctx}),
+    };
+
+    /**
+     *
+     * @param {import("../plugin").TinyMCE} editor
+     * @param {(color: string) => void} cbAccept
+     */
+     function colorPicker(editor, cbAccept) {
+        // Get last value from localStorage or white
+        const storageSrv = getUserStorage(editor);
+        const iniValue = storageSrv.getFromLocal('pickercolor', '#FFFFFF');
+        /** @type {HTMLElement | null | undefined} */
+        let container;
+        /** @type {(e: any) => void | null | undefined} */
+        let handleClick;
+
+        editor.windowManager.open({
+            title: 'Tria un color',
+            body: {
+                type: 'panel',
+                items: [
+                {
+                    type: 'htmlpanel',
+                    html: `<input type="color" id="tiny_ibwidgethub_colorinput" value="${iniValue}" style="width:100%; height:50px;" />
+                    <div id="tiny_ibwidgethub_preset-colors" style="margin: 8px;">
+                        <button type="button" data-color="#BFEDD2" style="background:#BFEDD2; width:24px; height:24px; border:none; margin-right:4px;"></button>
+                        <button type="button" data-color="#FBEEB8" style="background:#FBEEB8; width:24px; height:24px; border:none; margin-right:4px;"></button>
+                        <button type="button" data-color="#F8CAC6" style="background:#F8CAC6; width:24px; height:24px; border:none; margin-right:4px"></button>
+                        <button type="button" data-color="#ECCAFA" style="background:#ECCAFA; width:24px; height:24px; border:none; margin-right:4px;"></button>
+                        <button type="button" data-color="#C2E0F4" style="background:#C2E0F4; width:24px; height:24px; border:none; margin-right:4px;"></button>
+                        <button type="button" data-color="#ECF0F1" style="background:#ECF0F1; width:24px; height:24px; border:none; margin-right:4px"></button>
+                        <button type="button" data-color="#CED4D9" style="background:#CED4D9; width:24px; height:24px; border:none;"></button>
+                    </div>`
+                }
+                ]
+            },
+            buttons: [
+                {
+                type: 'cancel',
+                text: 'Cancel·la'
+                },
+                {
+                type: 'submit',
+                text: 'Aplica',
+                primary: true
+                }
+            ],
+            onSubmit: (/** @type{*} **/ api) => {
+                /** @type {any} */
+                const control = document.getElementById('tiny_ibwidgethub_colorinput');
+                if (control?.value) {
+                   cbAccept?.(control.value);
+                   storageSrv.setToLocal('pickercolor', control.value, true);
+                }
+                api.close();
+                if (container && handleClick) {
+                    container.removeEventListener('click', handleClick);
+                }
+            }
+        });
+
+        // Afegeix el codi fora del `open`, amb `setTimeout` perquè el DOM estigui preparat
+        setTimeout(() => {
+            container = document.getElementById('tiny_ibwidgethub_preset-colors');
+            if (container) {
+                handleClick = (/** @type {*} */ e) => {
+                     const target = e.target.closest('button');
+                     if (target) {
+                        const color = target.dataset.color;
+                        /** @type{any} */
+                        const input = document.getElementById('tiny_ibwidgethub_colorinput');
+                        if (input) {
+                             input.value = color;
+                        }
+                     }
+                };
+                container.addEventListener('click', handleClick);
+            }
+        }, 300);
+    }
+
+    /**
+     * @type {UserDefinedItem}
+     */
+    const tablesCellColorNestedMenu = {
+        name: 'tablesCellColorNestedMenu',
+        condition: () => {
+            const target = ctx.path?.selectedElement?.closest("table");
+            return target?.[0] !== undefined;
+        },
+        title: 'Cel·la',
+        subMenuItems: () => {
+            const $cell = ctx.path?.selectedElement?.closest('td, th');
+            if (!$cell) {
+                return '';
+            }
+            const menus = [
+                {
+                    type: 'menuitem',
+                    text: 'Triar fons',
+                    onAction: () => {
+                        colorPicker(ctx.editor,
+                            (/** @type {string} */ color) => {
+                                $cell.css('background-color', color);
+                            }
+                        );
+                    }
+                }
+            ];
+
+            if ($cell[0].style.backgroundColor) {
+                menus.push({
+                    type: 'menuitem',
+                    text: 'Eliminar fons',
+                    onAction: () => {
+                        $cell.css('background-color', '');
+                    }
+                });
+            }
+
+            return menus;
+        }
+    };
+
+
+    /**
+     * @type {UserDefinedItem}
+     */
+    const tablesRowColorNestedMenu = {
+        name: 'tablesRowColorNestedMenu',
+        condition: () => {
+            const target = ctx.path?.selectedElement?.closest("table");
+            return target?.[0] !== undefined;
+        },
+        title: 'Fila',
+        subMenuItems: () => {
+            const $row = ctx.path?.selectedElement?.closest('tr');
+            if (!$row) {
+                return '';
+            }
+            const menus = [
+                {
+                    type: 'menuitem',
+                    text: 'Triar fons',
+                     onAction: () => {
+                        colorPicker(ctx.editor,
+                            (/** @type {string} */ color) => {
+                                $row.css('background-color', color);
+                            }
+                        );
+                    }
+                }
+            ];
+            if ($row[0].style.backgroundColor) {
+                menus.push({
+                    type: 'menuitem',
+                    text: 'Eliminar fons',
+                    onAction: () => {
+                        $row.css('background-color', '');
+                    }
+                });
+            }
+            return menus;
+        }
     };
 
     return [
@@ -514,7 +684,9 @@ function provider(ctx) {
         convertToPredefinedTableMenu,
         responsivenessNestedMenu,
         tablesHeaderNestedMenu,
-        tablesFooterNestedMenu
+        tablesFooterNestedMenu,
+        tablesCellColorNestedMenu,
+        tablesRowColorNestedMenu,
     ];
 }
 

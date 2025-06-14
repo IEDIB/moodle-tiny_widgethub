@@ -1,0 +1,132 @@
+{
+    "key": "ib-card-group",
+    "name": "Conjunt de targetes",
+    "category": "bootstrap",
+    "instructions": "Emprau la targeta juntament amb grup de targetes per mostrar aplicacions pràctiques\nd'una situació d'aprenentatge.\n",
+    "engine": "ejs",
+    "template": "<p><br></p> <div class=\"container ib-card-group\"> <div class=\"row justify-content-center\">\n  <% for(var i=1; i <= num; i++) { %>\n    <div class=\"col-auto ib-card m-1<%=flip ? ' ib-card-flip' : ''%>\" style=\"width:<%=width%>px;\">\n    <div class=\"ib-card-inner\" style=\"height:<%=height%>px\">\n      <div class=\"ib-card-front <%=bgFront%>\" data-face=\"front\">\n        <% if(hasImg){ %><img src=\"https://picsum.photos/300/100\" class=\"card-img-top\" alt=\"Imatge targeta\"><% } %>\n        <% if(header){ %><div class=\"card-header\">Capçalera de targeta <%=i%></div><% } %>\n        <div class=\"card-body\" style=\"height: calc(<%=height%>px - 100px);\">\n          <h5 class=\"card-title\">Títol targeta <%=i%></h5>\n          <p class=\"card-text\">Text del contingut de la targeta <%=i%>.</p>\n        </div>\n        <% if(footer){ %><div class=\"card-footer\">Peu de targeta <%=i%></div><% } %>\n      </div>\n      <% if(flip){ %>\n      <div class=\"ib-card-back <%=bgBack%>\" data-face=\"back\">\n        <div class=\"card-body\">\n          <h5 class=\"card-title\">Títol revers targeta <%=i%></h5>\n          <p class=\"card-text\">Text del revers de la targeta <%=i%>.</p>\n        </div>\n      </div>\n      <% } %>\n    </div>\n    </div>\n  <% } %>\n</div> </div> <p><br></p>\n",
+    "selectors": "div.ib-card-group",
+    "unpack": ".card-body>*",
+    "parameters": [
+        {
+            "name": "num",
+            "title": "Nombre de targetes",
+            "type": "numeric",
+            "value": 2,
+            "min": 1
+        },
+        {
+            "name": "width",
+            "title": "Amplada en px",
+            "value": 250,
+            "type": "numeric",
+            "min": 100
+        },
+        {
+            "name": "height",
+            "title": "Altura en px",
+            "value": 350,
+            "type": "numeric",
+            "min": 100
+        },
+        {
+            "name": "hasImg",
+            "title": "Té imatge",
+            "type": "checkbox",
+            "value": true
+        },
+        {
+            "name": "header",
+            "title": "Té capçalera",
+            "type": "checkbox",
+            "value": false
+        },
+        {
+            "name": "footer",
+            "title": "Té peu",
+            "type": "checkbox",
+            "value": false
+        },
+        {
+            "name": "bgFront",
+            "title": "Color de fons (davant)",
+            "value": "bg-white text-dark",
+            "options": [
+                {
+                    "l": "Cap",
+                    "v": "bg-white text-dark"
+                },
+                {
+                    "l": "Gris fluix",
+                    "v": "bg-light text-dark"
+                },
+                {
+                    "l": "Gris",
+                    "v": "bg-secondary text-white"
+                },
+                {
+                    "l": "Blau",
+                    "v": "bg-primary text-white"
+                },
+                {
+                    "l": "Cian",
+                    "v": "bg-info text-dark"
+                },
+                {
+                    "l": "Oscur",
+                    "v": "bg-dark text-white"
+                }
+            ]
+        },
+        {
+            "name": "flip",
+            "title": "Es pot girar",
+            "type": "checkbox",
+            "value": false
+        },
+        {
+            "name": "bgBack",
+            "title": "Color de fons (revers)",
+            "value": "bg-light text-dark",
+            "when": "flip",
+            "options": [
+                {
+                    "l": "Cap",
+                    "v": "bg-white text-dark"
+                },
+                {
+                    "l": "Gris fluix",
+                    "v": "bg-light text-dark"
+                },
+                {
+                    "l": "Gris",
+                    "v": "bg-secondary text-white"
+                },
+                {
+                    "l": "Blau",
+                    "v": "bg-primary text-white"
+                },
+                {
+                    "l": "Cian",
+                    "v": "bg-info text-dark"
+                },
+                {
+                    "l": "Oscur",
+                    "v": "bg-dark text-white"
+                }
+            ]
+        }
+    ],
+    "contextmenu": [
+        {
+            "predicate": "div.ib-card",
+            "actions": "moveup movedown insertafter | remove"
+        },
+        {
+            "actions": "printable"
+        }
+    ],
+    "author": "Josep Mulet <pep.mulet@gmail.com>",
+    "nou": true,
+    "version": "1.2.0"
+}

@@ -252,6 +252,33 @@ h4.tiny_ibwidgethub-headertext {
   }
 }
 
+.tiny_ibwidgethub-loader {
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #999;
+    box-shadow: 32px 0 #999, -32px 0 #999;
+    animation: tiny_ibwidgethub-flash 0.5s ease-out infinite alternate;
+}
+@keyframes tiny_ibwidgethub-flash {
+    0% {
+      background-color: #FFF2;
+      box-shadow: 32px 0 #FFF2, -32px 0 #999;
+    }
+    50% {
+      background-color: #999;
+      box-shadow: 32px 0 #FFF2, -32px 0 #FFF2;
+    }
+    100% {
+      background-color: #FFF2;
+      box-shadow: 32px 0 #999, -32px 0 #FFF2;
+    }
+}
+
 /** Custom bootstrap buttons **/
 .tiny_ibwidgethub-btn {
   -webkit-user-select: none;
@@ -601,6 +628,11 @@ a.accordion-toggle[aria-expanded="true"]:before {
   margin-left: 4px;
   margin-top: 10px;
 }
+.iedib-capsa.alert {
+  padding: initial!important;
+  margin-bottom: initial!important;
+  padding-right: 1.90625rem!important;
+} 
 
 .iedib-capsa-gran, .iedib-capsa-mitjana {
   width: 98%;
@@ -1009,14 +1041,14 @@ div.iedib-tasca > h4:first-of-type {
 h4.iedib-subsub {
   position: relative;
   padding-left: 16px;
-  font-size: 1.32rem;
+  font-size: 1.40625rem;
   font-style: italic;
   font-weight: bold;
 }
 
 @media(max-width: 1200px) {
   h4.iedib-subsub {
-     font-size: calc(0.87625rem + 0.6075vw);
+     font-size: calc(0.950625rem + 0.6075vw);
   }
 }
 
@@ -1313,7 +1345,7 @@ div.iedib-capsalera-examen > table {
   box-shadow: -1px 0 0 0 #358ccb, 0 0 0 1px #dfdfdf;
   border-left: 10px solid #358ccb;
   background-color: #fdfdfd;
-  padding: 10px;
+  padding: 0 10px;
 }
 
 .iedib-code-stripped {
@@ -1502,6 +1534,133 @@ ol.iedib-falist>li::before {
   }
 }
 
+
+/************** Added a posteriori */
+.iedib-rwrap {
+  text-align: right;
+  font-size: 0;
+}
+
+i.fad.fa-stopwatch::before {
+  content: "\f017";
+  font-family: "Font Awesome 6 Free", "FontAwesome";
+  font-style: normal;
+  font-weight: 900;
+}
+
+.iedib-ctx {
+  display: inline-block;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background: rgb(31, 106, 219);
+  color: rgb(241, 245, 254);
+  margin: 0;
+  padding: 4px;
+  width: 18px;
+  font-size: 11px;
+}
+
+.iedib-time {
+  display: inline-block;
+  margin: 0px;
+  padding: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  background: rgb(241, 245, 254);
+  color: rgb(31, 106, 219);
+  font-size: 12px;
+}
+
+.iedib-time > span {
+  font-weight: bold;
+  font-style: normal;
+}
+
+div.popover {
+  max-width: 400px;
+}
+
+table.iedib-bstable {
+  margin: auto;
+}
+
+/* Targetes */
+.ib-card {
+  perspective: 1000px;
+  position: relative;
+}
+
+.ib-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid lightgray;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  background-color: #fff;
+  transition: transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+.ib-card.ib-card-flip .ib-card-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.ib-card.ib-card-flip:hover .ib-card-inner {
+  transform: rotateY(180deg);
+}
+
+.ib-card-front,
+.ib-card-back {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+}
+
+.ib-card-back {
+  transform: rotateY(180deg);
+}
+
+.ib-card img.card-img-top {
+  height: 100px;
+  object-fit: cover;
+}
+
+.ib-card-front .card-body,
+.ib-card-back .card-body {
+  height: 100%;
+  overflow: auto;
+  padding: 1rem;
+}
+.ib-card .card-header {
+  padding: .75rem 1rem;
+  background-color: whitesmoke;
+  border-radius: 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, .125);
+  transform: translate(0, -12px) scale(0.97);
+  position: relative!important;
+}
+
+.ib-video-group {
+    background-color: #5f6971;
+    background-image: url(https://ibsuite.es/iedib/img/ib_video_group.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    padding: 1rem;
+    border-top: 10px solid #fff3;
+    margin: 0;
+}
+.ib-video-group > h4 {
+  color: white;
+}
+
+/** Media print **/
 /*
    * Make acordions and tabpanes printables
 */
@@ -1570,78 +1729,23 @@ ol.iedib-falist>li::before {
      break-inside: auto; 
   }
 
-}
-
-/************** Added a posteriori */
-.iedib-rwrap {
-  text-align: right;
-  font-size: 0;
-}
-
-i.fad.fa-stopwatch::before {
-  content: "\f017";
-  font-family: "Font Awesome 6 Free", "FontAwesome";
-  font-style: normal;
-  font-weight: 900;
-}
-
-.iedib-ctx {
-  display: inline-block;
-  border-top-left-radius: 50%;
-  border-bottom-left-radius: 50%;
-  background: rgb(31, 106, 219);
-  color: rgb(241, 245, 254);
-  margin: 0;
-  padding: 4px;
-  width: 18px;
-  font-size: 11px;
-}
-
-.iedib-time {
-  display: inline-block;
-  margin: 0px;
-  padding: 5px;
-  border-bottom-right-radius: 5px;
-  border-top-right-radius: 5px;
-  background: rgb(241, 245, 254);
-  color: rgb(31, 106, 219);
-  font-size: 12px;
-}
-
-.iedib-time > span {
-  font-weight: bold;
-  font-style: normal;
-}
-
-div.popover {
-  max-width: 400px;
-}
-
-table.iedib-bstable {
-  margin: auto;
-}
-
-.ib-blink {
-  position: absolute;
-  top: 18px;
-  right: 60px;
-  font-size: 80%;
-  color: #5960b8;
-  padding: 5px;
-  font-weight: bold;
-  animation: ib_blinker 1s infinite;
-}
-
-@keyframes ib_blinker {
-  from {
-    opacity: 1.0;
+  .ib-card,
+  .ib-card * {
+    transform: none !important;
+    transition: none !important;
+    backface-visibility: visible !important;
   }
 
-  50% {
-    opacity: 0.25;
+  .ib-card-inner {
+    transform-style: flat !important;
   }
 
-  to {
-    opacity: 1.0;
+  .ib-card-back {
+    display: none !important;
+  }
+
+  .ib-card-front {
+    display: block !important;
+    position: relative !important;
   }
 }

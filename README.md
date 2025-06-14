@@ -51,7 +51,9 @@ The options available are:
 
 - **cfg**: This allows additional configuration using the syntax `property=value`, with one configuration per line:  
   
-  - *disable.plugin.pages*: A comma-separated list of body IDs for which the plugin will not be loaded.  
+  - *disable.plugin.pages*: A **comma-separated** list of body IDs for which the plugin will not be loaded.  
+
+  - *disable.plugin.pages.regex*: A **regular expression** that matches those body IDs for which the plugin will not be loaded.  
 
   - *enable.contextmenu.level*: Enable (`1`) or disable (`0`) context menus used by the plugin.
 
@@ -60,9 +62,6 @@ The options available are:
   - *oninit.refractor.ids=1* - Enable (`1`) or disable (`0`) automatic refracting of bad id identifiers affecting tabmenus and dropdowns when the editor opens (default: 1).
  
   - *oninit.refractor.bs5=1* - Enable (`1`) or disable (`0`) automatic refractoring of Bootstrap 5 `data-bs-xxx` attributes when the editor opens (default: 1).
-
-
-Feel free to share your widgets either by email `pep.mulet(at)gmail.com` or creating a pull request.
 
 The capability 'tiny/ibwidgethub:viewplugin' allows to set the plugin visibility for any role. Keep in mind that, by default, the role student is prevented from using the plugin.
 
