@@ -21,8 +21,6 @@ If you're editing an existing widget, you'll also see a Delete button, which all
 <img src="../img/yaml_editor.png" alt="Yaml editor" 
 width="350" style="margin:auto; max-width:400px;">
 
-
-#
 ## Best practices
 
 - Prepend the `key` of your widget with your username to avoid potential naming collisions with other widgets. For example, `key: jdahle1_boxes` is preferable to `key: boxes`.
@@ -94,7 +92,7 @@ author: Your name <your.email@domain.com>
 version: 1.0.0 
 ````
 
-To use it, you have to register this widget into your Moodle instance. Go to administration settings and search 'widget'. The search result will be under the URL /admin/category.php?category=tiny_ibwidgethub
+To use it, you have to register this widget into your Moodle instance. Go to administration settings and search 'widget'. The search result will be under the URL /admin/category.php?category=tiny_widgethub
 
 Click on the link <img src="../img/create_new_widget.png" height="25" style="height:25px; vertical-align: bottom;">
 
@@ -367,6 +365,7 @@ Checks for the presence of a data attribute on an element, accounting for Bootst
   
    Returns `true` if either attribute is found, `false` otherwise.
 
+
 - `notHasAttr(attrName: string, query?: string): boolean` - Negated version of the previous function
 
 - `attr(attrName: string, castTo?: string, query?: string): string | boolean | number` - Returns the value of an attribute named attrName
@@ -387,6 +386,7 @@ An adapted binding function that handles both `data-{attrName}` and `data-bs-{at
   - When setting an attribute's value:
       - The function sets the value for the attribute that takes precedence based on the `versionBootstrap` logic described above.
       - Returns `void`.
+
 
 -  `attrRegex(attrExpr: string, castTo?: string, query?: string): string | boolean | number` - attrExpr has the form attrName=attrValueRegex. Therefore this function extracts a part of the value of an atributed named attrName.
 
@@ -425,3 +425,75 @@ binding:
         v ? $e.addClass('badge') : $e.removeClass('badge')    
       }
 ````
+
+### Example 7. Creating a carousel with bootstrap
+
+This example serves as a starting point to implement an image carousel.
+
+````yaml
+key: bs-carousel
+name: Carousel
+category: bootstrap
+template: |
+  <p><br></p>  
+  <div id="carouselExampleCaptions" data-widget="bs_carousel" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"> </li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="1"> </li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="2"> </li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{{img1}}" class="d-block w-100" alt="Sample img 1">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{{img2}}" class="d-block w-100" alt="Sample img 2">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{{img3}}" class="d-block w-100" alt="Sample img 3">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"> </span>
+    <span class="sr-only">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-target="#carouselExampleCaptions" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"> </span>
+    <span class="sr-only">Next</span>
+  </button>
+  </div>   
+  <p><br></p>
+selectors: div[data-widget="bs_carousel"]
+parameters:
+  - name: img1
+    title: URL of image 1
+    type: image
+    value: https://picsum.photos/300/200?random=1
+    bind: attr('src', '.carousel-item:nth-of-type(1) img')
+  - name: img2
+    title: URL of image 2
+    type: image
+    value: https://picsum.photos/300/200?random=2
+    bind: attr('src', '.carousel-item:nth-of-type(2) img')
+  - name: img3
+    title: URL of image 3
+    type: image
+    value: https://picsum.photos/300/200?random=3
+    bind: attr('src', '.carousel-item:nth-of-type(3) img')
+author: Josep Mulet <pep.mulet@gmail.com>
+version: 1.0.0
+````
+
+**Note:** To change the images, right click onto the widget and, from the contextual menu, open the "properties" option. Please do not use the Tiny image button directly since it will break the HTML markup.

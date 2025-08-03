@@ -46,17 +46,21 @@
 
             
             <div class="tab-content" style="background:white;">
-                <div class="tab-pane  active  iedib-tabpane" id="tab-<%=tabid%>-0" style="position:relative;min-height:100px;max-height:400px;overflow: auto;">
+                <div class="tab-pane  active  iedib-tabpane" id="tab-<%=tabid%>-0" style="position:relative; min-height:100px; max-height:400px; overflow: auto;">
                     <% if(widget['category'] != 'filtres') { %>
                     <%-codiSnippetCompilat%>
                     <%} else { %>
                     <em>Els filtres no disposen de previsualització.</em>
                     <% } %>
                 </div>
-                <div class="tab-pane iedib-tabpane" id="tab-<%=tabid%>-1">
-                    <div style="position:relative;max-height: 400px;overflow: auto;">
-                    <pre class="iedib-code iedib-code-stripped" style="width:670px;"><code class="hljs html" id="tab-<%=tabid%>-12" style="min-height: 100px;"><%-codiSnippetCompilatEscaped%>
-                </code></pre>
+                <div class="tab-pane iedib-tabpane" id="tab-<%=tabid%>-1" style="width: 99%">
+                    <div style="position: relative; position: relative; overflow: hidden; height: 300px;">
+                    <pre class="iedib-code iedib-code-stripped"  
+                        style="width: 100%; height: 100%; left: 0; top: 0; position: absolute; overflow: hidden; padding-bottom: 50px;">
+                        <code class="hljs language-html" id="tab-<%=tabid%>-12" style="width: 100%; height: 100%; overflow: auto;">
+<%-codiSnippetCompilatEscaped%>
+                        </code>
+                    </pre>
                     <button data-key="<%=widget['key']%>" style="position:absolute;right:10px;top:4px;"
                         class="btn btn-sm btn-secondary"><i class="fas fa fa-copy"></i> Copiar</button>
                     </div>
@@ -65,7 +69,7 @@
                 <div class="alert alert-warning">
                     <p>Dependències JS necessàries (col·locar a final del codi HTML):</p>
                     <ul>
-                    <% Object.keys(widget.requires).map(function(k){return widget.requires[k];}).forEach( function(v){ %>
+                    <%  [widget.requires].map(v => v.split('|')[0].trim()).forEach( function(v){ %>
                     <li>&lt;script src="https://iedib.net/assets<%=v%>"&gt;&lt;/script&gt;</li>
                     <% }) %>
                     </ul>

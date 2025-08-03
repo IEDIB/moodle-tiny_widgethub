@@ -9,10 +9,18 @@ const directory = "../../presets";
 const fs = require("fs");
 const yaml = require("js-yaml");
 const path = require("path");
-const escapeHTML = require("escape-html");
+
 const beautify = require("js-beautify").html;
 const ejs = require("ejs");
 const {applyPartials} = require("../util");
+
+const he = require("he");
+function escapeHTML(rawHtml) {
+    return he.encode(rawHtml, {
+        useNamedReferences: true,
+        allowUnsafeSymbols: false
+    });
+}
 
 const TEMPLATE_SECCIO_SNIPPET = fs.readFileSync("./templates/seccio-widget.ejs", "utf-8");
 // Implementation of the template renderer
