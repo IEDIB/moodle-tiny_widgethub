@@ -58,7 +58,7 @@ parameters:
     bind:
       get: |
         function(e) {
-          return parseInt(e.find('.ib-card-inner').css('height') ?? '350');
+          return parseInt(e.find('.ib-card-inner')[0].style.height ?? '350');
         }
       set: |
         function(e, v, vm, u) {
