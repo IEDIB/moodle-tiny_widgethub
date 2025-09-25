@@ -13,9 +13,7 @@ template: |
   {{#peu}}<tfoot class="table-group-divider"><tr>{{#each}}[cols]<th>Resum{{j}}</th>{{/each}}</tr></tfoot>{{/peu}}
   </table> 
   {{#responsiu}}</div>{{/responsiu}}
-  {{#if}}[desc!='']<p
-  style="margin-top:5px;text-align: center;"><span class="iedib-caption-counter">Taula</span>: <span class="iedib-caption-title">Descripció
-  de la taula.</span></p>{{/if}}
+  {{#if}}[desc!='']<p class="iedib-caption">Taula: <em>Descripció de la taula.</em></p>{{/if}}
   <!--fi bstable-->
   <p><br></p>
 selectors: table.iedib-bstable

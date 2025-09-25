@@ -137,3 +137,7 @@ pre.iedib-code code:not(.nohljsln)::before {
     right: 25px !important;
     position: absolute;
 }
+.h5p-placeholder {
+    height: inherit!important;
+    aspect-ratio: 16/9;
+}

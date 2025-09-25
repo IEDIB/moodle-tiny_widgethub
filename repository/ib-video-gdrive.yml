@@ -14,7 +14,7 @@ template: |
     {{{codi_iframe}}}  
     </div>
       <div class="iedib-caption">
-     <span class="iedib-caption-counter">Vídeo</span><span class="iedib-caption-title">: {{titol}}</span></div>
+     Vídeo: <em>{{titol}}</em> </div>
     </div> 
   <!--end gdrive-->
   <p><br></p>

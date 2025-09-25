@@ -1247,16 +1247,23 @@ h4.iedib-subsub::before {
 .iedib-caption {
   text-align: center;
   margin: 10px auto;
+  font-size: 0.9rem;
 }
 
+.iedib-img-footer {
+  font-size: 0.9rem;
+}  
+
 .iedib-caption-counter {
-  font-weight: bold;
-  font-size: 90%;
+  /** 
+  font-weight: normal!important;
+  font-size: inherit!important; 
+  **/
 }
 
 .iedib-caption-title {
   font-style: italic;
-  font-size: 90%;
+  /** font-size: inherit!important; **/
 }
 
 .iedib-spinner {

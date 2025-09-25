@@ -3,7 +3,7 @@
     "name": "Video-GDrive",
     "category": "video",
     "instructions": "Atenció: Es recomana utilitzar el canal institucional de Youtube!<br>S'incrusta un vídeo que l'usuari ha compartit prèviament des del seu Google Drive. Introduïu el codi iframe de compartició i opcionalment un títol. <b>Vegeu tutorial:</b> <a href=\"https://iedib.net/avirtual/mod/page/view.php?id=33050\" target=\"_blank\">Com compartir un vídeo del GDrive?</a>\n",
-    "template": "<p><br></p> \n<!--ini gdrive-->\n<div class=\"iedib-video-container iedib-video-gdrive\" {{#if}}[ampladaMax>100]style=\"max-width:{{ampladaMax}}px\"{{/if}}>\n  <div class=\"iedib-videoWrapper\">\n  {{{codi_iframe}}}  \n  </div>\n    <div class=\"iedib-caption\">\n   <span class=\"iedib-caption-counter\">Vídeo</span><span class=\"iedib-caption-title\">: {{titol}}</span></div>\n  </div> \n<!--end gdrive-->\n<p><br></p>\n",
+    "template": "<p><br></p> \n<!--ini gdrive-->\n<div class=\"iedib-video-container iedib-video-gdrive\" {{#if}}[ampladaMax>100]style=\"max-width:{{ampladaMax}}px\"{{/if}}>\n  <div class=\"iedib-videoWrapper\">\n  {{{codi_iframe}}}  \n  </div>\n    <div class=\"iedib-caption\">\n   Vídeo: <em>{{titol}}</em> </div>\n  </div> \n<!--end gdrive-->\n<p><br></p>\n",
     "parameters": [
         {
             "name": "titol",
