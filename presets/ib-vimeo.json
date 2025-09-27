@@ -1,24 +1,10 @@
 {
-    "key": "vimeo",
-    "name": "Vimeo",
+    "key": "video-h5p",
+    "name": "Contenidor video H5P",
     "category": "video",
-    "instructions": "<b>Atenció</b>: Es recomana utilitzar el canal institucional de Youtube!<br> S'incrusta un vídeo de vimeo a la pàgina de forma responsiva. Introduïu la ID del vídeo de vimeo i un títol.  Podeu especificar l'instant d'inici del vídeo en segons.\n",
-    "template": "<p><br></p> \n<!--ini vimeo-->\n<div class=\"iedib-video-container\" {{#if}}[ampladaMax>100]style=\"max-width:{{ampladaMax}}px\"{{/if}}>\n  <div class=\"iedib-videoWrapper\">\n    <iframe src=\"https://player.vimeo.com/video/{{vimeoId}}{{#iniciSegons}}#t={{iniciSegons}}s{{/iniciSegons}}\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>\n  </div>\n    <div class=\"iedib-caption\">\n   Vídeo: <em>{{titol}}</em> </div>\n  </div> \n<!--end vimeo-->\n<p><br></p>\n",
+    "instructions": "Defineix un contenidor per a incrustar un video H5P on s'hi aplica un amplada màxima responsiva.\n",
+    "template": "<p><br></p>\n<!--ini youtube-->\n<div class=\"iedib-video-container\" {{#if}}[ampladaMax>100]style=\"max-width:{{ampladaMax}}px\"{{/if}}>\n  <div class=\"iedib-videoWrapper\">\n    <div class=\"h5p-placeholder\" contenteditable=\"false\"></div>\n  </div>\n    <div class=\"iedib-caption\">Vídeo: <em>{{titol}}</em></div>\n</div>\n<!--end youtube-->\n<p><br></p>\n",
     "parameters": [
-        {
-            "name": "vimeoId",
-            "value": "284914662",
-            "title": "URL o Id del vídeo vimeo",
-            "tip": "Podeu escriure la URL completa o només l'identificador numèric del vídeo.",
-            "type": "textfield",
-            "transform": "vimeoId"
-        },
-        {
-            "name": "titol",
-            "value": "Escriviu un títol",
-            "title": "Títol descriptiu",
-            "type": "textfield"
-        },
         {
             "name": "ampladaMax",
             "value": 500,
@@ -26,15 +12,12 @@
             "min": 100
         },
         {
-            "name": "iniciSegons",
-            "value": 0,
-            "title": "Comença la reproducció al segon",
-            "tip": "Estableix 0 per començar del principi del vídeo",
-            "min": 0
+            "name": "titol",
+            "value": "Títol",
+            "title": "Títol descriptiu."
         }
     ],
-    "stars": 1,
-    "scope": "^page-mod-(book|page|assign|quizz)-",
+    "nou": true,
     "author": "Josep Mulet Pol <pep.mulet@gmail.com>",
-    "version": "2023.01.07"
+    "version": "1.2.0"
 }

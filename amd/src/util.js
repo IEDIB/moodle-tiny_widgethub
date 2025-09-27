@@ -30,9 +30,9 @@
  * @returns {string} a randomID
  */
 export function genID(prefix = 'g') {
-   const timePart = Date.now().toString(32);
-   const randPart = Math.floor(Math.random() * 1e6).toString(32);
-   return `${prefix}-${timePart}${randPart}`;
+    const timePart = Date.now().toString(32);
+    const randPart = Math.floor(Math.random() * 1e6).toString(32);
+    return `${prefix}-${timePart}${randPart}`;
 }
 
 /**
@@ -107,19 +107,19 @@ export function searchComp(str1, needle) {
 /** Default transformers */
 const Transformers = {
     /** @param {string} txt */
-    toUpperCase: function(txt) {
+    toUpperCase: function (txt) {
         return (txt + "").toUpperCase();
     },
     /** @param {string} txt */
-    toLowerCase: function(txt) {
+    toLowerCase: function (txt) {
         return (txt + "").toLowerCase();
     },
-   /** @param {string} txt */
-    trim: function(txt) {
+    /** @param {string} txt */
+    trim: function (txt) {
         return (txt + "").trim();
     },
     /** @param {string} txt */
-    ytId: function(txt) {
+    ytId: function (txt) {
         // Finds the youtubeId in a text
         const rx = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/|shorts\/)|(?:(?:watch)?\?v(?:i)?=|&v(?:i)?=))([^#&?]*).*/;
         const r = (txt || '').match(rx);
@@ -129,7 +129,7 @@ const Transformers = {
         return txt;
     },
     /** @param {string} txt */
-    vimeoId: function(txt) {
+    vimeoId: function (txt) {
         const regExp = /^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?(\d+)/;
         const match = new RegExp(regExp).exec(txt || "");
         if (match?.[5]) {
@@ -138,7 +138,7 @@ const Transformers = {
         return txt;
     },
     /** @param {string} txt */
-    serveGDrive: function(txt) {
+    serveGDrive: function (txt) {
         // Expecting https://drive.google.com/file/d/1DDUzcFrOlzWb3CBdFPJ1NCNXClvPbm5B/preview
         const res = (txt + "").match(/https:\/\/drive.google.com\/file\/d\/([a-zA-Z0-9_]+)\//);
         if (res?.length) {
@@ -148,24 +148,24 @@ const Transformers = {
         return txt;
     },
     /** @param {string} txt */
-    removeHTML: function(txt) {
+    removeHTML: function (txt) {
         return (txt || '').replace(/<[^>]*>?/gm, '');
     },
     /** @param {string} txt */
-    escapeHTML: function(txt) {
+    escapeHTML: function (txt) {
         return (txt || '').replace(/&/g, "&amp;")
             .replace(/</g, "&lt;")
             .replace(/>/g, "&gt;")
             .replace(/"/g, "&quot;")
             .replace(/'/g, "&#039;");
     },
-   /** @param {string} txt */
-    encodeHTML: function(txt) {
+    /** @param {string} txt */
+    encodeHTML: function (txt) {
         // @ts-ignore
         return encodeURIComponent(txt || "");
     },
     /** @param {string} txt */
-    escapeQuotes: function(txt) {
+    escapeQuotes: function (txt) {
         return (txt || '').replace(/"/gm, "'");
     }
 };
@@ -243,10 +243,10 @@ export function applyWidgetFilterFactory(editor, coreStr) {
      * @param {object?} mergevars
      * @returns {Promise<boolean>} - True if the filter can be compiled
      */
-    return async(widgetTemplate, silent, mergevars) => {
+    return async (widgetTemplate, silent, mergevars) => {
         const translations = await coreStr.get_strings([
-            {key: 'filterres', component: 'tiny_ibwidgethub'},
-            {key: 'nochanges', component: 'tiny_ibwidgethub'}
+            { key: 'filterres', component: 'tiny_ibwidgethub' },
+            { key: 'nochanges', component: 'tiny_ibwidgethub' }
         ]);
         // Es tracta d'un filtre, no d'un widget i s'ha de tractar de forma diferent
         const userWidgetFilter = createFilterFunction(widgetTemplate);
@@ -260,7 +260,7 @@ export function applyWidgetFilterFactory(editor, coreStr) {
             return false;
         }
         // @ts-ignore
-        const handleFilterResult = function(res) {
+        const handleFilterResult = function (res) {
             const out = res[0];
             let msg = res[1];
             if (out != null) {
@@ -392,7 +392,7 @@ export function addBaseToUrl(base, url) {
  * @param {string | undefined} type
  * @returns {*}
  */
-export const performCasting = function(value, type) {
+export const performCasting = function (value, type) {
     if (!type || typeof value === type) {
         return value;
     }
@@ -440,7 +440,7 @@ export const performCasting = function(value, type) {
  * @param {unknown} a
  * @param {unknown} b
  */
-const xor = function(a, b) {
+const xor = function (a, b) {
     return !a !== !b;
 };
 
@@ -450,7 +450,7 @@ const xor = function(a, b) {
  * @param {string} replacement
  * @returns {string}
  */
-const replaceStrPart = function(str, match, replacement) {
+const replaceStrPart = function (str, match, replacement) {
     if (!match.indices) {
         console.error("RegExp match does not include indices");
         return str;
@@ -466,7 +466,7 @@ const replaceStrPart = function(str, match, replacement) {
  * @param {string} replacement
  * @returns {string}
  */
-const getValueFromRegex = function(regexExpr, replacement) {
+const getValueFromRegex = function (regexExpr, replacement) {
     const reParser = /\((?!\?:).*?\)/g;
     let capturingGroupCount = 0;
     return regexExpr.replace(reParser, () => {
@@ -482,7 +482,7 @@ const getValueFromRegex = function(regexExpr, replacement) {
  * @param {JQuery<HTMLElement>} $e - The target element
  * @returns
  */
-const bindingFactory = function($e) {
+const bindingFactory = function ($e) {
     /** @this {Record<string, Function>} */
     const methods = {
         /**
@@ -745,7 +745,7 @@ const bindingFactory = function($e) {
          * @param {string=} castTo
          * @returns {Binding}
          */
-        attrRegex: function(attr, query, castTo) {
+        attrRegex: function (attr, query, castTo) {
             let elem = $e;
             if (query) {
                 elem = $e.find(query);
@@ -791,7 +791,7 @@ const bindingFactory = function($e) {
          * @param {boolean=} neg
          * @returns {Binding}
          */
-        hasStyle: function(sty, query, neg) {
+        hasStyle: function (sty, query, neg) {
             let elem = $e;
             if (query) {
                 elem = $e.find(query);
@@ -837,7 +837,7 @@ const bindingFactory = function($e) {
          * @param {string=} castTo
          * @returns {Binding}
          */
-        styleRegex: function(attr, query, castTo) {
+        styleRegex: function (attr, query, castTo) {
             let elem = $e;
             if (query) {
                 elem = $e.find(query);
@@ -910,12 +910,12 @@ export const createBinding = (definition, elem, castTo) => {
     /** @type {Binding | null} */
     let bindFn = null;
     if (typeof (definition) === 'string') {
-        return evalInContext({...bindingFactory(elem)}, definition, true);
+        return evalInContext({ ...bindingFactory(elem) }, definition, true);
     } else {
         // The user provides the get and set functions
         bindFn = {
             getValue: () => {
-                let v = evalInContext({elem}, `(${definition.get})(elem)`);
+                let v = evalInContext({ elem }, `(${definition.get})(elem)`);
                 if (castTo) {
                     v = performCasting(v, castTo);
                 }
@@ -926,14 +926,14 @@ export const createBinding = (definition, elem, castTo) => {
                     // Utils object
                     const u = {
                         // @ts-ignore
-                        css: function(e, query, prop, value) {
+                        css: function (e, query, prop, value) {
                             const targetElem = e.find(query);
                             targetElem.css(prop, value);
                             // In TinyMCE must update the attr data-mce-style
                             targetElem.attr('data-mce-style', targetElem.attr('style') ?? '');
                         }
                     };
-                    evalInContext({elem, v, vm, u}, `(${definition.set})(elem, v, vm, u)`);
+                    evalInContext({ elem, v, vm, u }, `(${definition.set})(elem, v, vm, u)`);
                 }
             }
         };
@@ -995,9 +995,9 @@ export function toRgba(hex, alpha) {
         g = 0,
         b = 0;
     if (result) {
-      r = parseInt(result[1], 16);
-      g = parseInt(result[2], 16);
-      b = parseInt(result[3], 16);
+        r = parseInt(result[1], 16);
+        g = parseInt(result[2], 16);
+        b = parseInt(result[3], 16);
     }
     if (alpha === 1) {
         return `rgb(${r},${g},${b})`;
@@ -1024,7 +1024,7 @@ export function debounce(cb, delay = 1000) {
             window.clearTimeout(timeoutId);
         }
         timeoutId = window.setTimeout(() => {
-          cb(...args);
+            cb(...args);
         }, delay);
     };
     debounced.clear = () => {

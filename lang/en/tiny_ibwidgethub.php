@@ -36,7 +36,6 @@ $string['dialogtitle'] = 'Select a widget';
 $string['directinsert'] = 'Insert directly';
 $string['edit'] = 'Edit';
 $string['emptylist'] = 'No widgets have been found for the search criteria';
-$string['emptylist'] = 'No widgets have been found for the search criteria';
 $string['errkeyinuse'] = 'Key {$a} is already in use. Please rename it';
 $string['errparamtype'] = 'Parameter @1 must be of type @2';
 $string['errparamvalue'] = 'Parameter @1 must have a value @2';

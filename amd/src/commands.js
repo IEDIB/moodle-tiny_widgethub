@@ -33,6 +33,7 @@ import {getWidgetPickCtrl} from './controller/widgetpicker_ctrl';
 import {getListeners} from './extension';
 import {getUserStorage} from './service/userstorage_service';
 import {applyWidgetFilterFactory, findVariableByName, searchComp} from './util';
+import { emulateAttoNewlineBehaviour } from './extension/newlinebehavior';
 
 export const getSetup = async() => {
     // Get some translations
@@ -48,6 +49,11 @@ export const getSetup = async() => {
             // No capabilities required.
             return;
         }
+        // Newline emulation
+        if (getGlobalConfig(editor, 'emulate.atto.newlinebehaviour', '0') == '1') {
+            emulateAttoNewlineBehaviour(editor);
+        }
+
         // Check if there is a config option to disable the plugin for the current page.
         const page = Shared.currentScope;
         const disableList = getGlobalConfig(editor, "disable.plugin.pages", "")
