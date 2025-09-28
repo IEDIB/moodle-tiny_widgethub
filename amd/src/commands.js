@@ -33,7 +33,7 @@ import {getWidgetPickCtrl} from './controller/widgetpicker_ctrl';
 import {getListeners} from './extension';
 import {getUserStorage} from './service/userstorage_service';
 import {applyWidgetFilterFactory, findVariableByName, searchComp} from './util';
-import { emulateAttoNewlineBehaviour } from './extension/newlinebehavior';
+import { avoidScrollNonEditableZones, emulateAttoNewlineBehaviour } from './extension/newlinebehavior';
 
 export const getSetup = async() => {
     // Get some translations
@@ -49,8 +49,17 @@ export const getSetup = async() => {
             // No capabilities required.
             return;
         }
+        // Click problem fix
+        const cfgLevel1 = getGlobalConfig(editor, 'avoid.scroll.noneditablezones', '0');
+        if (cfgLevel1 !== '0') {
+            console.log('avoid.scroll.noneditablezones=', cfgLevel1);
+            avoidScrollNonEditableZones(editor, cfgLevel1);
+        }
+
         // Newline emulation
-        if (getGlobalConfig(editor, 'emulate.atto.newlinebehaviour', '0') == '1') {
+        const cfgLevel2 = getGlobalConfig(editor, 'emulate.atto.newlinebehaviour', '0');
+        if (cfgLevel2 !== '0') {
+            console.log('emulate.atto.newlinebehaviour=', cfgLevel2);
             emulateAttoNewlineBehaviour(editor);
         }
 

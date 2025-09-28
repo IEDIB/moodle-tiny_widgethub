@@ -29,17 +29,36 @@ export function removeEmptyParagraphs(content) {
         return '';
     }
 
-    // Quick regex optimization if no <script>, <pre>, or <code> tags exist
-    if (!/<(script|pre|code)[\s>]/i.test(content)) {
-        return content.replace(/<p>\s*<\/p>/gi, '');
-    }
-
     // Otherwise, use DOMParser for safety
     try {
         const parser = new DOMParser();
         const doc = parser.parseFromString(content, 'text/html');
         doc.querySelectorAll('p').forEach(p => {
-            if (/^\s*$/.test(p.innerHTML) && !p.closest('pre, code, script')) {
+            if (p.closest('pre, code, script')) {
+                return;
+            }
+
+            // Consider empty if contains only:
+            // - comments
+            // - whitespace text nodes
+            // - empty elements (like <span></span>)
+            const isEmpty = Array.from(p.childNodes).every(node => {
+                if (node.nodeType === Node.COMMENT_NODE) {
+                    return true;
+                }
+                if (node.nodeType === Node.TEXT_NODE) {
+                    return !node.textContent?.trim();
+                } else if (node.nodeType === Node.ELEMENT_NODE) {
+                    // @ts-ignore
+                    if (node.tagName === 'SPAN' && node.attributes.length === 0) {
+                        return !node.textContent?.trim();
+                    }
+                    return false;
+                }
+                return false;
+            });
+
+            if (isEmpty) {
                 p.remove();
             }
         });
@@ -147,4 +166,59 @@ export function emulateAttoNewlineBehaviour(editor) {
             return content;
         };
     }
+}
+
+/**
+ * @param {import("../plugin").TinyMCE} editor
+ * @param {string|number} cfgLevel - Si cfgLevel=1, evita scroll i no fa res més,
+ *                                   si cfgLevel=2 evita scroll i posiciona en element més proper.
+ */
+export function avoidScrollNonEditableZones(editor, cfgLevel) {
+
+    editor.on('mousedown', function(/** @type {MouseEvent} */ e) {
+        // Només actuem en clic esquerre
+        if (e.button !== 0) {
+            return;
+        }
+        const body = editor.getBody();
+        const html = body.parentElement;
+
+        // Sortim si el clic no és dins del body
+        if ((e.target !== html && e.target !== body) && !body.contains(e.target)) {
+            return;
+        }
+
+        // Ara podem tractar el cas “clic en zona buida” (target === body)
+        if (e.target === body || e.target == html) {
+            // Sortim si el body és buit
+            if (body.children.length === 0) {
+                return;
+            }
+            e.preventDefault();
+            e.stopPropagation();
+
+            const rng = editor.selection.getRng();
+
+            // Si l'editor no té focus, el posem
+            if (!editor.hasFocus()) {
+                // Get current scroll
+                const scrollTop = html.scrollTop;
+                const scrollLeft = html.scrollLeft;
+                editor.focus();
+                // Restore scroll
+                requestAnimationFrame(() => {
+                    html.scrollTop = scrollTop;
+                    html.scrollLeft = scrollLeft;
+                });
+            }
+
+            if (Number(cfgLevel) === 2) {
+                if (rng && rng.startContainer) {
+                    // Range existent → restaurar-lo
+                    editor.selection.setRng(rng);
+                }
+            }
+        }
+
+    });
 }
