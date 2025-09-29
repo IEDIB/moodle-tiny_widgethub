@@ -29,7 +29,6 @@ export function removeEmptyParagraphs(content) {
         return '';
     }
 
-    // Otherwise, use DOMParser for safety
     try {
         const parser = new DOMParser();
         const doc = parser.parseFromString(content, 'text/html');
@@ -136,8 +135,7 @@ export function emulateAttoNewlineBehaviour(editor) {
     if (!editor._orgSetContent) {
         editor._orgSetContent = editor.setContent;
 
-        editor.setContent = function(/** @type {string} */ content, /** @type {*} */ args) {
-            // Only process content for the first call
+        editor.setContent = function(/** @type {string} */ content, /** @type {any} */ args) {
             let processedContent = content;
             try {
                 if (!args || args.format === 'html') {
@@ -154,8 +152,8 @@ export function emulateAttoNewlineBehaviour(editor) {
     if (!editor._orgGetContent) {
         editor._orgGetContent = editor.getContent;
 
-        editor.getContent = function(/** @type {any} */ args) {
-            let content = editor._orgGetContent.call(this, args) || '';
+        editor.getContent = function() {
+            let content = editor._orgGetContent.apply(this, arguments) || '';
             try {
                 // Convert empty <p></p> to <p><br></p> for Atto compatibility
                 content = padEmptyParagraphsWith(content);

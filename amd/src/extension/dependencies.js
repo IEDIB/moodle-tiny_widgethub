@@ -314,8 +314,25 @@ export function alphaFixingRefractor(editor) {
     }
 }
 
-subscribe('contentSet', addRequires);
-subscribe('contentSet', alphaFixingRefractor);
-subscribe('widgetInserted', widgetInserted);
-subscribe('widgetRemoved', cleanUnusedRequires);
-subscribe('ctxAction', cleanUnusedRequires);
+/**
+ *
+ * @param {*} fn
+ * @returns
+ */
+function withErrorHandling(fn) {
+  return function(/** @type {any[]} */...args) {
+    try {
+      return fn(...args);
+    } catch (err) {
+      console.error(err);
+      // Optionally rethrow or return a default value
+      return null;
+    }
+  };
+}
+
+subscribe('contentSet', withErrorHandling(addRequires));
+subscribe('contentSet', withErrorHandling(alphaFixingRefractor));
+subscribe('widgetInserted', withErrorHandling(widgetInserted));
+subscribe('widgetRemoved', withErrorHandling(cleanUnusedRequires));
+subscribe('ctxAction', withErrorHandling(cleanUnusedRequires));

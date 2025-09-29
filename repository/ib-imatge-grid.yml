@@ -81,4 +81,4 @@ parameters:
 requires: "/sd/images.min.js | effect!='none'"
 stars: 0
 author: Josep Mulet Pol <pep.mulet@gmail.com>
-version: 1.2.0
+version: 3.2.0

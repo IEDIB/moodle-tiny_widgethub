@@ -28,4 +28,4 @@ $plugin->component = 'tiny_ibwidgethub';
 $plugin->release = '1.3.7';
 $plugin->requires = 2022112800;
 $plugin->maturity = MATURITY_STABLE;
-$plugin->version = 2025092502;
+$plugin->version = 2025092504;

@@ -40,5 +40,5 @@
     "scope": "^page-mod-(book|page|assign|quizz)-",
     "stars": 3,
     "author": "Josep Mulet Pol <pep.mulet@gmail.com>",
-    "version": "2025.05.16"
+    "version": "3.0.0"
 }

@@ -1247,11 +1247,12 @@ h4.iedib-subsub::before {
 .iedib-caption {
   text-align: center;
   margin: 10px auto;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
 }
 
 .iedib-img-footer {
-  font-size: 0.9rem;
+  display: block;
+  font-size: 0.875rem;
 }  
 
 .iedib-caption-counter {
@@ -1285,7 +1286,7 @@ h4.iedib-subsub::before {
 }
 
 .iedib-grid-responsive img {
-  margin: 10px;
+  margin: 10px auto;
 }
 
 /** Taules **/

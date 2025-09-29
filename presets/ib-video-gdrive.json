@@ -27,5 +27,5 @@
     "stars": 1,
     "scope": "^page-mod-(book|page|assign|quizz)-",
     "author": "Josep Mulet Pol <pep.mulet@gmail.com>",
-    "version": "2023.01.07"
+    "version": "3.0.0"
 }
