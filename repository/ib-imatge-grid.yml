@@ -25,7 +25,7 @@ template: >
   &nbsp;&nbsp;{{/if}}{{#if}}[comportament!='sub']Figura: <em>Descripció.</em> {{/if}}</p></td>{{/each}}</tr>{{/each}}
   {{#if}}[comportament=='sub']
   <tr><td colspan="{{columnes}}"><p style="text-align: center;vertical-align:top" class="iedib-img-footer">Figura: <em>
-  Descripció.</em> </p></td></tr>{{/if}}
+  Descripció.</em>. Font: Domini públic.</p></td></tr>{{/if}}
   </tbody>
   </table>
   <!--end:: graella d'imatges-->

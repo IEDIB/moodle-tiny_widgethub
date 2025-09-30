@@ -214,6 +214,18 @@ describe('emulateAttoNewlineBehaviour', () => {
         expect(textarea.value).toBe('<p>text</p>');
     });
 
+    test('setContent amb &nbsp; no l\'elimina', () => {
+        textarea.value = '';
+        emulateAttoNewlineBehaviour(editor);
+
+        const result = editor.setContent('<p>&nbsp;</p>');
+        expect(editor._orgSetContent).toHaveBeenCalledWith('<p>&nbsp;</p>', undefined);
+        expect(textarea.value).toBe('<p>&nbsp;</p>');
+
+        // GetContent should not modify it
+        expect(editor.getContent()).toBe('<p>&nbsp;</p>');
+    });
+
     test('getContent no toca paràgrafs amb spans amb text', () => {
         textarea.value = '<p><span>hi</span></p><p>hello</p>';
         emulateAttoNewlineBehaviour(editor);

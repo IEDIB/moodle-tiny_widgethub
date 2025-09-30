@@ -210,7 +210,7 @@ export function imageSwitchToSnippetAction() {
     const $snpt = jQuery('<div class="iedib-figura iedib-grid-responsive"></div');
     $snpt.append($target.clone());
     // eslint-disable-next-line max-len
-    $snpt.append(jQuery('<p class="iedib-img-footer"><span class="iedib-caption-counter">Imatge:</span> <span class="iedib-caption-title">Descripció</span></p>'));
+    $snpt.append(jQuery('<p class="iedib-img-footer">Imatge: <em>Descripció</em>. Font: Wikimedia. Domini públic.</p>'));
     $target.replaceWith($snpt);
 }
 

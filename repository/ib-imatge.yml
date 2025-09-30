@@ -28,7 +28,7 @@ template: |
   <img role="presentation"  src="https://ibsuite.es/iedib/img/sample3.png" alt="Imatge per defecte" 
   class="img-fluid align-middle"></div><div class="span6">
   <img role="presentation"  src="https://ibsuite.es/iedib/img/sample4.png" alt="Imatge per defecte" 
-  class="img-fluid align-middle"></div></div>{{/if}}{{#if}}[Text_Peu!='']<p class="iedib-img-footer">Imatge: <em>{{Text_Peu}}</em> </p>{{/if}}</div>
+  class="img-fluid align-middle"></div></div>{{/if}}{{#if}}[Text_Peu!='']<p class="iedib-img-footer">Imatge: <em>{{Text_Peu}}</em>. Font: Domini públic.</p>{{/if}}</div>
   <!--fi imatge-->
   <p><br></p>
 selectors: div.iedib-figura
