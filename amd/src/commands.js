@@ -33,6 +33,7 @@ import {getWidgetPickCtrl} from './controller/widgetpicker_ctrl';
 import {getListeners} from './extension';
 import {getUserStorage} from './service/userstorage_service';
 import {applyWidgetFilterFactory, findVariableByName, searchComp} from './util';
+import { avoidScrollNonEditableZones, emulateAttoNewlineBehaviour, restoreEquationpluginButton } from './extension/newlinebehavior';
 
 export const getSetup = async() => {
     // Get some translations
@@ -48,6 +49,24 @@ export const getSetup = async() => {
             // No capabilities required.
             return;
         }
+        // Click problem fix
+        const cfgLevel1 = getGlobalConfig(editor, 'avoid.scroll.noneditablezones', '1');
+        if (cfgLevel1 !== '0') {
+            avoidScrollNonEditableZones(editor, cfgLevel1);
+        }
+
+        // Newline emulation
+        const cfgLevel2 = getGlobalConfig(editor, 'emulate.atto.newlinebehaviour', '1');
+        if (cfgLevel2 !== '0') {
+            emulateAttoNewlineBehaviour(editor);
+        }
+
+        // Restore equation plugin button
+        const cfgLevel3 = getGlobalConfig(editor, 'restore.equationplugin.button', '1');
+        if (cfgLevel3 !== '0') {
+            restoreEquationpluginButton(editor);
+        }
+
         // Check if there is a config option to disable the plugin for the current page.
         const page = Shared.currentScope;
         const disableList = getGlobalConfig(editor, "disable.plugin.pages", "")
@@ -123,7 +142,11 @@ export const getSetup = async() => {
             onAction: defaultAction,
             onItemAction: (/** @type {*} */ api, /** @type {string} */ key) => {
                 const widgetPickCtrl = getWidgetPickCtrl(editor);
-                const ctx = storage.getRecentUsed().filter(e => e.key === key)[0].p;
+                /** @type {Record<string, *>} */
+                let ctx = widgetsDict[key]?.defaults || {};
+                // Si hi ha preferències desades, empra-les
+                const ctxStored = storage.getRecentUsed().filter(e => e.key === key)[0]?.p || {};
+                ctx = {...ctx, ...ctxStored};
                 widgetPickCtrl.handlePickModalAction(widgetsDict[key], true, ctx);
             }
         });
@@ -182,7 +205,10 @@ export const getSetup = async() => {
                     const pair = value.split('|');
                     const key = pair[0].trim();
                     /** @type {Record<string, *>} */
-                    const ctx = {};
+                    let ctx = widgetsDict[key]?.defaults || {};
+                    // Si hi ha preferències desades, empra-les
+                    const ctxStored = storage.getRecentUsed().filter(e => e.key === key)[0]?.p || {};
+                    ctx = {...ctx, ...ctxStored};
                     if (pair.length === 2) {
                         const [varname, value] = pair[1].split(":");
                         ctx[varname] = value;

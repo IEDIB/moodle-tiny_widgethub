@@ -2,7 +2,7 @@
     "key": "taula-predefinida",
     "name": "Taula predefinida",
     "instructions": "Crea una taula predefinida amb n files i m columnes. Cal que reviseu la visualització en dispositius mòbils.\n <a class=\"d-block m-1\" href=\"https://iedib.net/avirtual/mod/book/view.php?id=37192&chapterid=41216&snpt=altres$taula-predefinida\" target=\"_blank\"><i class=\"fas fa fa-book\"></i> Més informació...</a>\n",
-    "template": "<p><br></p> \n<!--ini taula predef-->\n<table class=\"iedib-table\"\nstyle=\"table-layout:{{amplades}};border-collapse: collapse; border-spacing: 0px;width:{{ampladaTPC}}%\">\n{{#capsaleres}}<thead><tr>{{#each}}[j=columnes]<th style=\"border: {{gruix}}px solid {{vorera}};background:\n{{fonsCapsalera}};\">Títol{{j}}</th>{{/each}}</tr></thead>{{/capsaleres}}\n<tbody>{{#each}}[files]<tr>{{#each}}[columnes]\n<td style=\"border: {{gruix}}px solid {{vorera}};\"> </td>{{/each}}</tr>{{/each}}</tbody></table><p\nstyle=\"margin-top:5px;text-align: center;\"><span class=\"iedib-caption-counter\">Taula</span>: <span class=\"iedib-caption-title\">Descripció\nde la taula.</span></p>\n<!--fi taula predef-->\n<p><br></p>\n",
+    "template": "<p><br></p> \n<!--ini taula predef-->\n<table class=\"iedib-table\"\nstyle=\"table-layout:{{amplades}};border-collapse: collapse; border-spacing: 0px;width:{{ampladaTPC}}%\">\n{{#capsaleres}}<thead><tr>{{#each}}[j=columnes]<th style=\"border: {{gruix}}px solid {{vorera}};background:\n{{fonsCapsalera}};\">Títol{{j}}</th>{{/each}}</tr></thead>{{/capsaleres}}\n<tbody>{{#each}}[files]<tr>{{#each}}[columnes]\n<td style=\"border: {{gruix}}px solid {{vorera}};\"> </td>{{/each}}</tr>{{/each}}</tbody></table>\n<p class=\"iedib-caption\">Taula: <em>Descripció de la taula.</em> </p>\n<!--fi taula predef-->\n<p><br></p>\n",
     "selectors": "table.iedib-table",
     "parameters": [
         {
@@ -99,5 +99,5 @@
     ],
     "stars": 1,
     "author": "Josep Mulet Pol <pep.mulet@gmail.com>",
-    "version": "2023.01.07"
+    "version": "3.2.0"
 }

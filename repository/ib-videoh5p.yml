@@ -10,8 +10,7 @@ template: |
     <div class="iedib-videoWrapper">
       <div class="h5p-placeholder" contenteditable="false"></div>
     </div>
-      <div class="iedib-caption">
-     <span class="iedib-caption-counter">Vídeo</span><span class="iedib-caption-title">: {{titol}}</span></div>
+      <div class="iedib-caption">Vídeo: <em>{{titol}}</em></div>
   </div>
   <!--end youtube-->
   <p><br></p>
@@ -25,4 +24,4 @@ parameters:
     title: Títol descriptiu.
 nou: true
 author: Josep Mulet Pol <pep.mulet@gmail.com>
-version: 2024.11.03
+version: 3.2.0

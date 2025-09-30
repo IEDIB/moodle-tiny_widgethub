@@ -37,6 +37,7 @@ import * as Configuration from './configuration';
 const documentationUrl = 'https://github.com/IEDIB/moodle-tiny_widgethub';
 const {component, pluginName} = Common;
 
+
 // Import extensions to the plugin
 import './extension/dependencies';
 import './extension/contextmenus';
@@ -57,7 +58,7 @@ export default new Promise(async(resolve) => {
 
     tinyMCE.overrideDefaults({
         ...tinyMCE.defaultOptions,
-        remove_trailing_brs: false, // TODO: Remove this in the future. Simply for compatibility with atto
+        remove_trailing_brs: false, // For compatibility with atto. Should remove empty <p></p> before processing
         allow_script_urls: true, // Allow href="javascript:void(0)" used in popover
     });
 

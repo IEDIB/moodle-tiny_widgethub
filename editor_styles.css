@@ -37,9 +37,9 @@
     border: 1px dashed orange;
 }
 .iedib-capsa>.iedib-tasca.iedib-central {
-    border-bottom: 1px dashed gray;
-    border-left: 1px dashed gray;
-    border-right: 1px dashed gray;
+    border-bottom: 1px dashed gray!important;
+    border-left: 1px dashed gray!important;
+    border-right: 1px dashed gray!important;
 }
 /** Troll **/
 .iedib-ret-trl {
@@ -136,4 +136,8 @@ pre.iedib-code code:not(.nohljsln)::before {
     top: 0 !important;
     right: 25px !important;
     position: absolute;
+}
+.h5p-placeholder {
+    height: inherit!important;
+    aspect-ratio: 16/9;
 }

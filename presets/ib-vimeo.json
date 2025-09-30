@@ -3,7 +3,7 @@
     "name": "Vimeo",
     "category": "video",
     "instructions": "<b>Atenció</b>: Es recomana utilitzar el canal institucional de Youtube!<br> S'incrusta un vídeo de vimeo a la pàgina de forma responsiva. Introduïu la ID del vídeo de vimeo i un títol.  Podeu especificar l'instant d'inici del vídeo en segons.\n",
-    "template": "<p><br></p> \n<!--ini vimeo-->\n<div class=\"iedib-video-container\" {{#if}}[ampladaMax>100]style=\"max-width:{{ampladaMax}}px\"{{/if}}>\n  <div class=\"iedib-videoWrapper\">\n    <iframe src=\"https://player.vimeo.com/video/{{vimeoId}}{{#iniciSegons}}#t={{iniciSegons}}s{{/iniciSegons}}\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>\n  </div>\n    <div class=\"iedib-caption\">\n   <span class=\"iedib-caption-counter\">Vídeo</span><span class=\"iedib-caption-title\">: {{titol}}</span></div>\n  </div> \n<!--end vimeo-->\n<p><br></p>\n",
+    "template": "<p><br></p> \n<!--ini vimeo-->\n<div class=\"iedib-video-container\" {{#if}}[ampladaMax>100]style=\"max-width:{{ampladaMax}}px\"{{/if}}>\n  <div class=\"iedib-videoWrapper\">\n    <iframe src=\"https://player.vimeo.com/video/{{vimeoId}}{{#iniciSegons}}#t={{iniciSegons}}s{{/iniciSegons}}\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>\n  </div>\n    <div class=\"iedib-caption\">Vídeo: <em>{{titol}}</em> </div>\n  </div> \n<!--end vimeo-->\n<p><br></p>\n",
     "parameters": [
         {
             "name": "vimeoId",
@@ -36,5 +36,5 @@
     "stars": 1,
     "scope": "^page-mod-(book|page|assign|quizz)-",
     "author": "Josep Mulet Pol <pep.mulet@gmail.com>",
-    "version": "2023.01.07"
+    "version": "3.0.0"
 }

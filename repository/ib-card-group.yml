@@ -13,7 +13,7 @@ template: >
       <div class="col-auto ib-card m-1<%=flip ? ' ib-card-flip' : ''%>" style="width:<%=width%>px;">
       <div class="ib-card-inner" style="height:<%=height%>px">
         <div class="ib-card-front <%=bgFront%>" data-face="front">
-          <% if(hasImg){ %><img src="https://picsum.photos/300/100" class="card-img-top" alt="Imatge targeta"><% } %>
+          <% if(hasImg){ %><img src="https://picsum.photos/300/100?random={{i}}" class="card-img-top" alt="Imatge targeta"><% } %>
           <% if(header){ %><div class="card-header">Capçalera de targeta <%=i%></div><% } %>
           <div class="card-body" style="height: calc(<%=height%>px - 100px);">
             <h5 class="card-title">Títol targeta <%=i%></h5>

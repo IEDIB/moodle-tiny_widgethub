@@ -28,9 +28,7 @@ template: |
   <img role="presentation"  src="https://ibsuite.es/iedib/img/sample3.png" alt="Imatge per defecte" 
   class="img-fluid align-middle"></div><div class="span6">
   <img role="presentation"  src="https://ibsuite.es/iedib/img/sample4.png" alt="Imatge per defecte" 
-  class="img-fluid align-middle"></div></div>{{/if}}{{#if}}[Text_Peu!='']<p class="iedib-img-footer"><span
-  class="iedib-caption-counter">Imatge:</span> <span
-  class="iedib-caption-title">{{Text_Peu}}</span></p>{{/if}}</div>
+  class="img-fluid align-middle"></div></div>{{/if}}{{#if}}[Text_Peu!='']<p class="iedib-img-footer">Imatge: <em>{{Text_Peu}}</em>. Font: Domini públic.</p>{{/if}}</div>
   <!--fi imatge-->
   <p><br></p>
 selectors: div.iedib-figura
@@ -57,4 +55,4 @@ parameters:
 stars: 3
 requires: "/sd/images.min.js | effect!='none'"
 author: Josep Mulet Pol <pep.mulet@gmail.com>
-version: 2022.10.28
+version: 3.3.0

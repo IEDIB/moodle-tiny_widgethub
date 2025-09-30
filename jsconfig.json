@@ -14,6 +14,7 @@
             "editor_tiny/utils": ["../../amd/src/utils"],
             "editor_tiny/loader": ["../../amd/src/loader"],
             "editor_tiny/options": ["../../amd/src/options"],
+            "editor_tiny/editor": ["../../amd/src/editor"],
             "core/str": ["../../../../amd/src/str.js"],
             "core/config": ["../../../../amd/src/config.js"],
             "core/mustache": ["../../../../amd/src/mustache.js"],
@@ -22,7 +23,7 @@
             "core/modal": ["../../../../amd/src/modal.js"],
             "core/modal_registry": ["../../../../amd/src/modal_registry.js"],
             "core/templates": ["../../../../amd/src/templates.js"],
-            "jquery": ["./tests/jsunit/node_modules/jquery/dist/jquery.js"]
+            "jquery": ["./tests/jsunit/node_modules/jquery/dist/jquery.js"],
         }
     }, 
   }
