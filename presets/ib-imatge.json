@@ -55,5 +55,5 @@
     "stars": 3,
     "requires": "/sd/images.min.js | effect!='none'",
     "author": "Josep Mulet Pol <pep.mulet@gmail.com>",
-    "version": "3.2.0"
+    "version": "3.3.0"
 }
