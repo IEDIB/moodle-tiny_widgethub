@@ -482,13 +482,16 @@ export class WidgetPickerCtrl {
             this.storage.setToLocal('startup.filters', [...autoFilters].join(","), true);
             return;
         }
-        /** @type {HTMLElement | undefined} */
+         /** @type {HTMLElement | undefined} */
+        // Recently used badges use <a> while real buttons are button[data-key]
         const aRecent = target.closest('a[data-key]');
         // If it is a recently used widget, recover the used parameters
+        // By default always initialize context ctx to widget's defaults
         /** @type {Record<string, any> | undefined} */
-        let ctx;
+        let ctx = widget.defaults || {};
         if (aRecent) {
-            ctx = this.storage.getRecentUsed().filter(e => e.key === widget.key)[0]?.p;
+            const stored = this.storage.getRecentUsed().filter(e => e.key === widget.key)[0]?.p || {};
+            ctx = {...ctx, ...stored};
         }
         // Must open a configuration dialogue for the current widget
         let confirmMsg = null;
