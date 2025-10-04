@@ -146,7 +146,7 @@ class plugininfo extends plugin implements
             $params['courseid'] = $COURSE->id;
             $params['widgetlist'] = $widgetlist;
             // Configuration.
-            $params['sharecss'] = $conf->sharecss;
+            $params['sharecss'] = (bool) $conf->sharecss;
             $params['additionalcss'] = $conf->additionalcss;
             // Syntax key=value per line.
             $params['cfg'] = tiny_ibwidgethub_parseconfig($conf->cfg ?? '');

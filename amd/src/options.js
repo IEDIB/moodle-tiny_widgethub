@@ -31,7 +31,7 @@ const userInfoOpt = getPluginOptionName(pluginName, 'user');
 const courseId = getPluginOptionName(pluginName, 'courseid');
 const widgetList = getPluginOptionName(pluginName, 'widgetlist');
 
-const shareStyles = getPluginOptionName(pluginName, 'sharestyles');
+const shareCss = getPluginOptionName(pluginName, 'sharecss');
 const additionalCss = getPluginOptionName(pluginName, 'additionalcss');
 const globalConfig = getPluginOptionName(pluginName, 'cfg');
 
@@ -65,7 +65,7 @@ export const register = (editor) => {
         "default": [],
     });
 
-    registerOption(shareStyles, {
+    registerOption(shareCss, {
         processor: 'boolean',
         "default": true,
     });
@@ -107,8 +107,8 @@ export const getAdditionalCss = (editor) => {
  * @param {import('./plugin').TinyMCE} editor
  * @returns {boolean} - whether site styles should be inserted into iframe
  */
-export const isShareStyles = (editor) => {
-    return editor.options.get(shareStyles);
+export const isShareCss = (editor) => {
+    return editor.options.get(shareCss);
 };
 
 
@@ -468,6 +468,7 @@ export class Widget {
         /** @type {Object.<string, any> } */
         const obj = {};
         (this._widget.parameters ?? []).forEach((param) => {
+            // TODO: Implement repeatable
             obj[param.name] = param.value;
         });
         return obj;
