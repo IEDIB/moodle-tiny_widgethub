@@ -57,7 +57,7 @@ class settingsutil {
             'tiny_ibwidgethub/additionalcss',
             'tiny_ibwidgethub_additionalcss',
             get_string('additionalcss', 'tiny_ibwidgethub'),
-            '',
+            "html, body {\n height: initial!important;\n}",
             PARAM_RAW
         );
         // Define additional settings in key=value syntax per line.
