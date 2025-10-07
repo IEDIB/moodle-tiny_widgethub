@@ -36,3 +36,4 @@ Fixes on card widgets
 == 1.3.7 ==
 Fixes on caption in widgets
 Emulation of new line behaviour as in Atto editor
+Issue #38 Error on contextmenu remove or insert: unrecognized expression: 
