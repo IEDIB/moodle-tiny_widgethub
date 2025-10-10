@@ -263,3 +263,33 @@ export function getTemplateSrv() {
     }
     return instanceSrv;
 }
+
+/**
+ * Creates default value for a given parameter.
+ * @param {import('../options').Param} param
+ * @param {boolean | undefined} [populateRepeatable]
+ * @returns {any}
+ */
+export function createDefaultsForParam(param, populateRepeatable) {
+    if (param.type !== 'repeatable') {
+        return param.value ?? '';
+    }
+    const lst = [];
+    if (populateRepeatable) {
+        // In repeatable fields, create objects in lst up to min value.
+        const nitems = param.min || 0;
+        for (let i = 1; i <= nitems; i++) {
+            /** @type {Record<string, *>} */
+            const obj = {};
+            param.fields?.forEach(field => {
+                let val = field.value ?? '';
+                if (typeof (val) === 'string' && val.indexOf("{{i}}") >= 0) {
+                    val = getTemplateSrv().renderMustache(val, {i});
+                }
+                obj[field.name] = val;
+            });
+            lst.push(obj);
+        }
+    }
+    return lst;
+}

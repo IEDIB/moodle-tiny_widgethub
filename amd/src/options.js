@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-console */
 // This file is part of Moodle - http://moodle.org/
 //
@@ -24,6 +25,8 @@
 
 import {getPluginOptionName} from 'editor_tiny/options';
 import Common from './common';
+import { genID } from './util';
+import { createDefaultsForParam } from './service/template_service';
 const pluginName = Common.pluginName;
 
 const showPlugin = getPluginOptionName(pluginName, 'showplugin');
@@ -316,7 +319,7 @@ export function applyPartials(widget, partials) {
  * @property {string=} partial
  * @property {string} name
  * @property {string} title
- * @property {'textfield' | 'numeric' | 'checkbox' | 'select' | 'autocomplete' | 'textarea' | 'image' | 'color'} [type]
+ * @property {'textfield' | 'numeric' | 'checkbox' | 'select' | 'autocomplete' | 'textarea' | 'image' | 'color' | 'repeatable'} [type]
  * @property {(ParamOption | string)[]} [options]
  * @property {any} value
  * @property {string=} tip
@@ -328,6 +331,7 @@ export function applyPartials(widget, partials) {
  * @property {string=} when
  * @property {boolean} [hidden]
  * @property {boolean} [editable]
+ * @property {Param[]} [fields]
  * @property {string} [for]
  */
 /**
@@ -381,6 +385,10 @@ export class Widget {
      * @param {Object.<string, any>=} partials
      */
     constructor(widget, partials) {
+        if (!widget.key) {
+            // Define a random key
+            widget.key = 'w' + genID();
+        }
         partials = partials ?? {};
         applyPartials(widget, partials);
         this._widget = widget;
@@ -465,11 +473,17 @@ export class Widget {
      * @returns {Object.<string, any>}
      */
     get defaults() {
+        return this.defaultsWithRepeatable(false);
+    }
+    /**
+     * @param {boolean} [populateRepeatable]
+     * @returns {Object.<string, any>}
+     */
+    defaultsWithRepeatable(populateRepeatable = true) {
         /** @type {Object.<string, any> } */
         const obj = {};
         (this._widget.parameters ?? []).forEach((param) => {
-            // TODO: Implement repeatable
-            obj[param.name] = param.value;
+            obj[param.name] = createDefaultsForParam(param, populateRepeatable);
         });
         return obj;
     }
@@ -545,6 +559,12 @@ export class Widget {
             return true;
         }
         return new RegExp(widgetScopes).test(scope);
+    }
+    /**
+     * @returns {boolean}
+    */
+    isSelectCapable() {
+        return this._widget.selectors !== undefined && this._widget.insertquery !== undefined;
     }
     /**
      * @returns {boolean}

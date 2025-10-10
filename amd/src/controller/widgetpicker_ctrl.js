@@ -30,7 +30,7 @@ import {getEditorOptions, getGlobalConfig} from '../options';
 import {getModalSrv} from '../service/modal_service';
 import {getTemplateSrv} from '../service/template_service';
 import {getUserStorage} from '../service/userstorage_service';
-import {debounce, genID, hashCode, searchComp, toggleClass} from '../util';
+import {debounce, genID, hashCode, removeRndFromCtx, searchComp, toggleClass} from '../util';
 
 /**
  * @param {HTMLElement} el
@@ -267,9 +267,17 @@ export class WidgetPickerCtrl {
             // Update list of recent
             const widgetDict = this.editorOptions.widgetDict;
             const html = this.storage.getRecentUsed()
-                .filter(r => widgetDict[r.key] !== undefined)
+                .filter(r => {
+                    const widget = widgetDict[r.key];
+                    if (widget === undefined) {
+                        return false;
+                    }
+                    return !selectmode || (selectmode && widget.isSelectCapable());
+                })
                 .map(r =>
-                    `<a href="javascript:void(0)" data-key="${r.key}" data-insert="recent"><span class="badge badge-secondary">${widgetDict[r.key].name}</span></a>`)
+                    `<a href="javascript:void(0)" data-key="${r.key}" data-insert="recent">
+                    <span class="badge badge-secondary text-truncate d-inline-block" style="max-width: 120px;" title="${widgetDict[r.key].name}">
+                    ${widgetDict[r.key].name}</span></a>`)
                 .join('\n');
             this.modal.body.find('.tiny_ibwidgethub-recent').html(html);
         }
@@ -303,7 +311,7 @@ export class WidgetPickerCtrl {
      * @returns {Promise<string>}
      */
     generatePreview(widget) {
-        const toInterpolate = {...widget.defaults};
+        const toInterpolate = {...widget.defaultsWithRepeatable(true)};
         // Decide which template engine to use
         const engine = widget.prop('engine');
         return this.templateSrv.render(widget.template ?? "", toInterpolate, widget.I18n, engine);
@@ -489,9 +497,10 @@ export class WidgetPickerCtrl {
         // By default always initialize context ctx to widget's defaults
         /** @type {Record<string, any> | undefined} */
         let ctx = widget.defaults || {};
-        if (aRecent) {
-            const stored = this.storage.getRecentUsed().filter(e => e.key === widget.key)[0]?.p || {};
-            ctx = {...ctx, ...stored};
+        const forceInsert = aRecent !== null || button?.dataset?.insert === 'true';
+        if (aRecent && forceInsert) {
+            const stored = this.storage.getRecentUsed().find(e => e.key === widget.key)?.p || {};
+            ctx = {...ctx, ...removeRndFromCtx(stored, widget.parameters)};
         }
         // Must open a configuration dialogue for the current widget
         let confirmMsg = null;
@@ -499,7 +508,6 @@ export class WidgetPickerCtrl {
         if (!widget.isUsableInScope()) {
             confirmMsg = await get_string('confirmusage', 'tiny_ibwidgethub');
         }
-        const forceInsert = aRecent !== null || button?.dataset?.insert === 'true';
         if (confirmMsg) {
             this.editor.windowManager.confirm(confirmMsg,
                 /** @param {*} state */

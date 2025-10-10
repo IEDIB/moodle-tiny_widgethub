@@ -1051,3 +1051,19 @@ export function toggleClass(elem, ...classNames) {
         }
     });
 }
+
+/**
+ * Parameters that are generated from $RND must never
+ * be stored as recently used, nor used as new contexts
+ * @param {Record<string, any>} ctx
+ * @param {import('./options').Param[]} parameters
+ * @returns {Record<string, any>}
+ */
+export function removeRndFromCtx(ctx, parameters) {
+    return Object.fromEntries(
+        Object.entries(ctx).filter(([k]) => {
+            const val = parameters.find(p => p.name === k)?.value;
+            return val !== '$RND';
+        })
+    );
+}

@@ -33,7 +33,7 @@ import jQuery from "jquery";
 import {getWidgetPickCtrl} from './controller/widgetpicker_ctrl';
 import {getListeners} from './extension';
 import {getUserStorage} from './service/userstorage_service';
-import {applyWidgetFilterFactory, findVariableByName, searchComp} from './util';
+import {applyWidgetFilterFactory, findVariableByName, removeRndFromCtx, searchComp} from './util';
 import { avoidScrollNonEditableZones, emulateAttoNewlineBehaviour, restoreEquationpluginButton } from './extension/newlinebehavior';
 
 export const getSetup = async() => {
@@ -133,21 +133,34 @@ export const getSetup = async() => {
             tooltip: widgetNameTitle,
             columns: 1,
             fetch: (/** @type ((items: *[]) => void) */callback) => {
-                const items = storage.getRecentUsed().map(e => ({
+                const isSelectMode = editor.selection.getContent().trim().length > 0;
+                const items = storage.getRecentUsed()
+                .filter(e => {
+                    const widget = widgetsDict[e.key];
+                    if (!widget?.name) {
+                        return false;
+                    }
+                    return !isSelectMode || (isSelectMode && widget.isSelectCapable());
+                })
+                .map(e => ({
                     type: 'choiceitem',
                     text: widgetsDict[e.key]?.name,
                     value: e.key
-                })).filter(item => item.text !== undefined);
+                }));
                 callback(items);
             },
             onAction: defaultAction,
             onItemAction: (/** @type {*} */ api, /** @type {string} */ key) => {
                 const widgetPickCtrl = getWidgetPickCtrl(editor);
+                const widget = widgetsDict[key];
+                if (!widget) {
+                    return;
+                }
                 /** @type {Record<string, *>} */
-                let ctx = widgetsDict[key]?.defaults || {};
+                let ctx = widget.defaults || {};
                 // Si hi ha preferències desades, empra-les
-                const ctxStored = storage.getRecentUsed().filter(e => e.key === key)[0]?.p || {};
-                ctx = {...ctx, ...ctxStored};
+                const ctxStored = storage.getRecentUsed().find(e => e.key === key)?.p || {};
+                ctx = {...ctx, ...removeRndFromCtx(ctxStored, widget.parameters)};
                 widgetPickCtrl.handlePickModalAction(widgetsDict[key], true, ctx);
             }
         });
@@ -276,6 +289,19 @@ function initializer(editor) {
             const allCss = `${cfg.wwwroot}/theme/styles.php/${cfg.theme}/${cfg.themerev}_${subversion}/all`;
             editor.dom.loadCSS(allCss);
         }
+        // Inject css from site Admin
+        let adminCss = (getAdditionalCss(editor) ?? '').trim();
+        if (adminCss) {
+            // Commented URLs are interpreted as loadCss
+            const regex = /\/\*{2}\s+(http(s?):\/\/.*)\s+\*{2}\//gm;
+            adminCss = adminCss.replace(regex, (_, $1) => {
+                editor.dom.loadCSS($1);
+                return '';
+            });
+            if (adminCss.trim()) {
+                editor.dom.addStyle(adminCss);
+            }
+        }
 
         // Inject styles and Javascript into the editor's iframe
         // editor.dom.loadCSS(`${baseUrl}/libs/fontawesome/css/font-awesome.min.css`);
@@ -313,20 +339,6 @@ function initializer(editor) {
             };
             // Run all subscribers
             getListeners('onInit').forEach(listener => listener(editor));
-
-            // Inject css from site Admin
-            let adminCss = (getAdditionalCss(editor) ?? '').trim();
-            if (adminCss) {
-                // Commented URLs are interpreted as loadCss
-                const regex = /\/\*{2}\s+(http(s?):\/\/.*)\s+\*{2}\//gm;
-                adminCss = adminCss.replace(regex, (_, $1) => {
-                    editor.dom.loadCSS($1);
-                    return '';
-                });
-                if (adminCss.trim()) {
-                    editor.dom.addStyle(adminCss);
-                }
-            }
 
             if (parseInt(getGlobalConfig(editor, 'enable.contextmenu.level', '1')) > 0) {
                 // Initialize context toolbars and menus
