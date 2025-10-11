@@ -116,8 +116,7 @@ class settingsutil {
             $title = get_string('edit', 'tiny_ibwidgethub') . ' ' . $widget->name;
         }
         // Page Settings for every widget.
-        $settingspage = new \admin_settingpage('tiny_ibwidgethub_spage_' . $windx,
-            $title, 'moodle/site:config', true);
+        $settingspage = new \admin_settingpage('tiny_ibwidgethub_spage_' . $windx, $title, 'moodle/site:config', true);
 
         if ($windx > 0) {
             $settingspage->add(
