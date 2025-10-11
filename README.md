@@ -63,7 +63,46 @@ The options available are:
  
   - *oninit.refractor.bs5=1* - Enable (`1`) or disable (`0`) automatic refractoring of Bootstrap 5 `data-bs-xxx` attributes when the editor opens (default: 1).
 
-The capability 'tiny/ibwidgethub:viewplugin' allows to set the plugin visibility for any role. Keep in mind that, by default, the role student is prevented from using the plugin.
+
+**Insert Behavior Configuration**
+ This section defines the general behavior configuration for all insert mechanisms in the plugin.
+
+**Behavior Modes**
+Each insert mechanism can be configured with one of the following modes:
+
+| Mode | Description |
+|------|--------------|
+| **none** | Disables the insert mechanism entirely. |
+| **default** | Inserts widget with default values. |
+| **lastused** | Inserts widget using the last used values. |
+| **ctrlclick** | Inserts widget with default values normally, and last used values when holding **Ctrl/Cmd** while clicking. |
+
+
+
+- Configuration Options
+
+  - **`insert.splitbutton.behavior=lastused`**  
+    Controls the behavior of the *Split Button* in the TinyMCE toolbar.  
+    **Options:** `none` | `default` | `lastused`
+
+  - **`insert.recentlyused.behavior=lastused`**  
+    Controls the behavior of the *Recently Used* badges displayed under the search text field.  
+    **Options:** `none` | `default` | `lastused` | `ctrlclick`
+
+  - **`insert.autocomplete.behavior=lastused`**  
+    Controls the *Autocompletion* feature behavior.  
+    **Options:** `none` | `default` | `lastused`
+
+  - **`insert.autocomplete.symbol=@`**  
+    Defines the symbol that triggers the autocompletion menu.  
+    This option has no effect if `insert.autocomplete.behavior=none`.
+
+  - **`insert.quickbutton.behavior=ctrlclick`**  
+    Controls the behavior of the *Quick Button* (that with a ray icon) next to the main widget button.  
+    **Options:** `none` | `default` | `lastused` | `ctrlclick`
+
+The capability 'tiny/widgethub:viewplugin' allows to set the plugin visibility for any role. Keep in mind that, by default, the role student is prevented from using the plugin.
+
 
  
  

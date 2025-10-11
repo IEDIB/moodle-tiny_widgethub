@@ -38,12 +38,10 @@ export class UserStorageSrv {
         this.localStorage = iStorage.localStorage;
         /** @type {Storage} */
         this.sessionStorage = iStorage.sessionStorage;
-        /** @type {string | number} */
-        this.userId = editorOptions.userInfo.id;
         /** @type {number} */
-        this.courseId = editorOptions.courseId;
+        this._courseId = editorOptions.courseId;
         /** @type {string} */
-        this.STORE_KEY = "iedib-widgets_" + this.userId;
+        this.STORE_KEY = "iedib-widgets_" + editorOptions.userInfo.id;
         /**
          * @type {Record<string, any>}
          */
