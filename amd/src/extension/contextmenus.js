@@ -309,6 +309,8 @@ function provider(ctx) {
                         } else {
                             $target.css("counter-reset", "");
                         }
+                        // Sync data-mce-style
+                        $target.attr('data-mce-style', $target.attr('style') ?? '');
                     }
                 },
                 {
@@ -331,6 +333,8 @@ function provider(ctx) {
                             const beginAt3 = convertInt(startAt2, 1);
                             $target.attr("start", beginAt3);
                             $target.css("counter-reset", "iedibfalist-counter " + (beginAt3 - 1));
+                            // Sync data-mce-style
+                            $target.attr('data-mce-style', $target.attr('style') ?? '');
                         });
                     },
                 }

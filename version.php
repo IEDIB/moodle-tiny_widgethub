@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'tiny_ibwidgethub';
-$plugin->release = '1.3.8';
+$plugin->release = '1.4.0';
 $plugin->requires = 2022112800;
 $plugin->maturity = MATURITY_STABLE;
-$plugin->version = 2025101101;
+$plugin->version = 2025102401;
