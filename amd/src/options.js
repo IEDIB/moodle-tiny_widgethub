@@ -18,15 +18,15 @@
 /**
  * Tiny WidgetHub plugin.
  *
- * @module      tiny_ibwidgethub/plugin
+ * @module      tiny_widgethub/plugin
  * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 import {getPluginOptionName} from 'editor_tiny/options';
 import Common from './common';
-import { genID } from './util';
-import { createDefaultsForParam } from './service/template_service';
+import {compareVersion, genID} from './util';
+import {createDefaultsForParam} from './service/template_service';
 const pluginName = Common.pluginName;
 
 const showPlugin = getPluginOptionName(pluginName, 'showplugin');
@@ -52,7 +52,7 @@ export const register = (editor) => {
     registerOption(userInfoOpt, {
         processor: 'object',
         "default": {
-            id: '0',
+            id: 0,
             username: '',
             roles: []
         },
@@ -60,7 +60,7 @@ export const register = (editor) => {
 
     registerOption(courseId, {
         processor: 'string',
-        "default": '-1',
+        "default": "-1",
     });
 
     registerOption(widgetList, {
@@ -84,14 +84,6 @@ export const register = (editor) => {
     });
 };
 
-
-/**
- * @typedef {Object} UserInfo
- * @property {string | number} id
- * @property {string} username
- * @property {string[]} roles
- */
-
 /**
  * @param {import('./plugin').TinyMCE} editor
  * @returns {boolean} - are the plugin buttons visible?
@@ -113,7 +105,6 @@ export const getAdditionalCss = (editor) => {
 export const isShareCss = (editor) => {
     return editor.options.get(shareCss);
 };
-
 
 /**
  * @param {import('./plugin').TinyMCE} editor
@@ -153,13 +144,15 @@ export const getWidgetDict = (editor) => {
     const wrappedWidgets = rawWidgets
         .map(w => new Widget(w, partials || {}));
 
-    // Remove those buttons that aren't usable for the current user
+    // Remove those widgets that aren't usable for the current user
+    // and not supported by the currentVersion of the plugin.
     const userInfo = editor.options.get(userInfoOpt);
-    wrappedWidgets.filter(w => w.isFor(userInfo)).forEach(w => {
-        if (_widgetDict) {
-            _widgetDict[w.key] = w;
-        }
-    });
+    wrappedWidgets.filter(w => w.isFor(userInfo) && compareVersion(Common.currentRelease, w.prop('plugin_release')))
+        .forEach(w => {
+            if (_widgetDict) {
+                _widgetDict[w.key] = w;
+            }
+        });
     return _widgetDict;
 };
 
@@ -172,7 +165,7 @@ export class EditorOptions {
     }
 
     /**
-     * @returns {UserInfo} - an integer with the id of the current user
+     * @returns {{id: number, username: string, roles: string[]}} - an integer with the id of the current user
      */
     get userInfo() {
         return this.editor.options.get(userInfoOpt);
@@ -186,7 +179,7 @@ export class EditorOptions {
     }
 
     /**
-     * @returns {Object.<string, Widget>} - a dictionary of "usable" widgets for the current user
+     * @returns {Object.<string, Widget>} - a dictionary of "usable" widgets for the current userId
      */
     get widgetDict() {
        return getWidgetDict(this.editor);
@@ -327,12 +320,13 @@ export function applyPartials(widget, partials) {
  * @property {number=} min
  * @property {number=} max
  * @property {string=} transform
- * @property {string | {get: string, set: string} } [bind]
+ * @property {string | {get?: string, set?: string, getValue?: string, setValue?: string} } [bind]
+ * @property {string} [item_selector]
  * @property {string=} when
  * @property {boolean} [hidden]
  * @property {boolean} [editable]
- * @property {Param[]} [fields]
  * @property {string} [for]
+ * @property {Param[]} [fields]
  */
 /**
  * @typedef {Object} Action
@@ -341,10 +335,10 @@ export function applyPartials(widget, partials) {
  */
 /**
  * @typedef {Object} RawWidget
+ * @property {string} [plugin_release]
  * @property {number} id
  * @property {string} key
  * @property {string} name
- * @property {string} [order] - Optional to redefine position by name
  * @property {string} category
  * @property {string} [scope] - Regex for idenfying allowed body ids
  * @property {string} [instructions]
@@ -357,14 +351,14 @@ export function applyPartials(widget, partials) {
  * @property {string} [insertquery]
  * @property {string} [unwrap]
  * @property {string} [for]
- * @property {string} [forids]
+ * @property {string} [forids] - Equivalent to [for]
  * @property {string} [forusernames]
  * @property {string} [forroles]
- * @property {string} [formatch]
+ * @property {string} [formatch] - AND or OR, Defaults to AND (The rules must be satified if present)
  * @property {string} [autocomplete]
  * @property {string} version
  * @property {string} author
- * @property {string[]} [requires]
+ * @property {string} [requires]
  * @property {boolean} [hidden]
  * @property {number} [stars]
  * @property {Action[]} [contextmenu]
@@ -424,10 +418,10 @@ export class Widget {
         return this._widget.template ?? this._widget.filter ?? '';
     }
     /**
-     * @returns {string}
+     * @returns {string | undefined}
      */
     get category() {
-        return this._widget.category ?? "MISC";
+        return this._widget.category;
     }
     /**
      * @returns {string=}
@@ -488,11 +482,11 @@ export class Widget {
         return obj;
     }
     /**
-     * @param {UserInfo} userInfo
+     * @param {{id: number, username: string, roles: string[]}} userInfo
      * @returns {boolean}
      */
     isFor(userInfo) {
-       if (this._widget.hidden === true) {
+        if (this._widget.hidden === true) {
             return false;
         }
 
@@ -538,6 +532,11 @@ export class Widget {
         }
 
         const isAllowed = matchMode === 'OR' ? results.some(Boolean) : results.every(Boolean);
+
+        if (!isAllowed) {
+            console.warn(`Widget ${this._widget.key} not allowed for user ${userInfo.id}`);
+        }
+
         return isAllowed;
     }
 
@@ -562,7 +561,7 @@ export class Widget {
     }
     /**
      * @returns {boolean}
-    */
+     */
     isSelectCapable() {
         return this._widget.selectors !== undefined && this._widget.insertquery !== undefined;
     }
@@ -570,7 +569,11 @@ export class Widget {
      * @returns {boolean}
      */
     hasBindings() {
-        return (this._widget.parameters ?? []).some(param => param.bind !== undefined);
+        const parameters = this._widget.parameters ?? [];
+        const repeatable = parameters.filter(param => param.type === 'repeatable')
+            .map(rep => (rep.fields || []).some(field => field.bind !== undefined));
+        return parameters.some(param => param.bind !== undefined) ||
+            repeatable.some(rep => rep);
     }
     /**
      * Recovers the property value named name of the original definition

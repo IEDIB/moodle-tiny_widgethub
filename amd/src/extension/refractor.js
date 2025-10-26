@@ -171,4 +171,4 @@ function refractoring(editor) {
     }
 }
 
-subscribe('onInit', refractoring);
+subscribe('contentSet', refractoring);

@@ -23,13 +23,18 @@
 
 import * as Config from 'core/config';
 
-// @ts-ignore
-const baseUrl = `${Config.wwwroot}/lib/editor/tiny/plugins/widgethub`;
-const component = 'tiny_ibwidgethub';
+const componentName = 'ibwidgethub';
+const component = `tiny_${componentName}`;
 
 export default {
-    baseUrl,
+    // @ts-ignore
+    baseUrl: `${Config.wwwroot}/lib/editor/tiny/plugins/${componentName}`,
     component,
+    componentName,
+    jsURL: 'https://iedib.net/assets',
+    jsAreaClassname: 'iedib-sd-area',
     pluginName: `${component}/plugin`,
-    icon: `${component}`
+    icon: component,
+    currentRelease: '1.4.1'
 };
+

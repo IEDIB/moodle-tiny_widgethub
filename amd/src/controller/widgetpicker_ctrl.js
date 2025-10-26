@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 /* eslint-disable max-len */
 /* eslint-disable no-eq-null */
 /* eslint-disable no-console */
@@ -20,17 +19,21 @@
 /**
  * Tiny WidgetHub plugin.
  *
- * @module      tiny_ibwidgethub/plugin
+ * @module      tiny_widgethub/plugin
  * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+// eslint-disable-next-line camelcase
 import {get_string} from 'core/str';
+import Common from '../common';
 import {getWidgetParamsFactory} from '../controller/widgetparams_ctrl';
 import {getEditorOptions, getGlobalConfig} from '../options';
 import {getModalSrv} from '../service/modal_service';
 import {getTemplateSrv} from '../service/template_service';
 import {getUserStorage} from '../service/userstorage_service';
 import {debounce, genID, hashCode, removeRndFromCtx, searchComp, toggleClass} from '../util';
+
+const {component} = Common;
 
 /**
  * @param {HTMLElement} el
@@ -92,14 +95,14 @@ export class WidgetPickerCtrl {
         let numshown = 0;
         const selectmode = this.isSelectMode();
         /** @type {JQuery<HTMLDivElement>} */
-        const allbtns = bodyForm.find(".tiny_ibwidgethub-btn-group");
+        const allbtns = bodyForm.find(".tiny_widgethub-btn-group");
         allbtns.each((i, el) => {
             // Is supported in select mode?
             let visible = !selectmode || (selectmode && el.dataset.selectable === "true");
             const el2 = el.querySelector('button');
             // Does fullfill the search criteria?
             visible = visible && (el2 !== null) && (searchtext.trim() === '' || searchComp(el2.textContent ?? '', searchtext) ||
-                searchComp(el2?.dataset?.title ?? '', searchtext));
+                searchComp(el2.dataset.title ?? '', searchtext));
             setVisibility(el, visible);
             if (visible) {
                 numshown++;
@@ -118,13 +121,13 @@ export class WidgetPickerCtrl {
         // Are we in selectmode, does the widget support it? insertquery
         const numshown = this.setWidgetButtonsVisibility(this.modal.body, searchtext);
         // If no button visible, show emptyList message
-        setVisibility(this.modal.body.find(".tiny_ibwidgethub-emptylist")[0], numshown == 0);
+        setVisibility(this.modal.body.find(".tiny_widgethub-emptylist")[0], numshown == 0);
 
         // Hide categories without any button visible
         /** @type {JQuery<HTMLElement>} */
-        const allcatgs = this.modal.body.find(".tiny_ibwidgethub-category");
+        const allcatgs = this.modal.body.find(".tiny_widgethub-category");
         allcatgs.each((_, el) => {
-            const count = el.querySelectorAll(".tiny_ibwidgethub-btn-group:not(.d-none)").length;
+            const count = el.querySelectorAll(".tiny_widgethub-btn-group:not(.d-none)").length;
             setVisibility(el, count > 0);
         });
     }
@@ -134,7 +137,7 @@ export class WidgetPickerCtrl {
      */
     async onMouseEnterButton(evt) {
         const widgetTable = this.editorOptions.widgetDict;
-        const key = evt.target?.closest('.tiny_ibwidgethub-btn-group')?.dataset?.key ?? '';
+        const key = evt.target?.closest('.tiny_widgethub-btn-group')?.dataset?.key ?? '';
         const widget = widgetTable[key];
         if (!widget || widget.isFilter()) {
             // Filters do not offer preview
@@ -147,7 +150,7 @@ export class WidgetPickerCtrl {
             html = await this.generatePreview(widget);
             widget._preview = html;
         }
-        this.modal.body.find("div.tiny_ibwidgethub-preview")
+        this.modal.body.find("div.tiny_widgethub-preview")
             .html(html)
             .css("display", "block");
     }
@@ -155,8 +158,9 @@ export class WidgetPickerCtrl {
     async createModal() {
         /** @type {string} */
         const searchtext = this.storage.getFromSession("searchtext", "");
+        const miscStr = await get_string('misc', component);
         const data = {
-            ...this.getPickTemplateContext(),
+            ...this.getPickTemplateContext({misc: miscStr}),
             searchtext
         };
 
@@ -164,22 +168,22 @@ export class WidgetPickerCtrl {
 
         // Add select mode identifier to the header
         const blinkElem = document.createElement("SPAN");
-        blinkElem.classList.add("tiny_ibwidgethub-blink", "d-none");
-        const selectModeStr = await get_string('selectmode', 'tiny_ibwidgethub');
+        blinkElem.classList.add("tiny_widgethub-blink", "d-none");
+        const selectModeStr = await get_string('selectmode', component);
         blinkElem.innerHTML = `<span class="twh-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M48 115.8C38.2 107 32 94.2 32 80c0-26.5 21.5-48 48-48c14.2 0 27 6.2 35.8 16l344.4 0c8.8-9.8 21.6-16 35.8-16c26.5 0 48 21.5 48 48c0 14.2-6.2 27-16 35.8l0 280.4c9.8 8.8 16 21.6 16 35.8c0 26.5-21.5 48-48 48c-14.2 0-27-6.2-35.8-16l-344.4 0c-8.8 9.8-21.6 16-35.8 16c-26.5 0-48-21.5-48-48c0-14.2 6.2-27 16-35.8l0-280.4zM125.3 96c-4.8 13.6-15.6 24.4-29.3 29.3l0 261.5c13.6 4.8 24.4 15.6 29.3 29.3l325.5 0c4.8-13.6 15.6-24.4 29.3-29.3l0-261.5c-13.6-4.8-24.4-15.6-29.3-29.3L125.3 96zm2.7 64c0-17.7 14.3-32 32-32l128 0c17.7 0 32 14.3 32 32l0 96c0 17.7-14.3 32-32 32l-128 0c-17.7 0-32-14.3-32-32l0-96zM256 320l32 0c35.3 0 64-28.7 64-64l0-32 64 0c17.7 0 32 14.3 32 32l0 96c0 17.7-14.3 32-32 32l-128 0c-17.7 0-32-14.3-32-32l0-32z"/></svg>
         </span> ${selectModeStr}`;
         this.modal.header[0]?.append(blinkElem);
 
         try {
-            this.modal.body.find(".tiny_ibwidgethub-categorycontainer")
+            this.modal.body.find(".tiny_widgethub-categorycontainer")
                 // @ts-ignore
                 .scrollspy('refresh');
         } catch (ex) {
             console.error("Problem setting scrollspy", ex);
         }
 
-               // Confiure preview panel events
+        // Confiure preview panel events
         /**
          * @type {any}
          */
@@ -203,14 +207,14 @@ export class WidgetPickerCtrl {
             this.onSearchKeyup();
         });
         // Click on any widget button (bubbles)
-        this.modal.body.find('div.tiny_ibwidgethub-categorycontainer, div.tiny_ibwidgethub-recent').on('click',
+        this.modal.body.find('div.tiny_widgethub-categorycontainer, div.tiny_widgethub-recent').on('click',
             /** @param {JQuery.ClickEvent} event */
             (event) => {
                 if (timerEnter) {
                     clearTimeout(timerEnter);
                     timerEnter = null;
                 }
-                this.modal.body.find("div.tiny_ibwidgethub-preview")
+                this.modal.body.find("div.tiny_widgethub-preview")
                     .css("display", "none");
                 this.handlePickModalClick(event);
             });
@@ -227,7 +231,7 @@ export class WidgetPickerCtrl {
         const funOut = (/** @type {any} */ evt) => {
             const movedFrom = evt.target;
             const movedTo = evt.relatedTarget;
-            if (movedFrom.classList.contains("tiny_ibwidgethub-btn") && movedTo.classList.contains("tiny_ibwidgethub-btn")) {
+            if (movedFrom.classList.contains("tiny_widgethub-btn") && movedTo.classList.contains("tiny_widgethub-btn")) {
                 const key1 = movedFrom?.parentElement?.dataset?.key;
                 const key2 = movedTo?.parentElement?.dataset?.key;
                 if (key1 != null && key1 == key2) {
@@ -238,19 +242,19 @@ export class WidgetPickerCtrl {
             clearTimeout(timerEnter);
             timerEnter = null;
             timerOut = setTimeout(() => {
-                this.modal.body.find("div.tiny_ibwidgethub-preview")
+                this.modal.body.find("div.tiny_widgethub-preview")
                 .html('')
                 .css("display", "none");
             }, 500);
         };
 
         // Preview panel
-        this.modal.body.find(".tiny_ibwidgethub-btn-group > button")
+        this.modal.body.find(".tiny_widgethub-btn-group > button")
             .on("mouseenter", funEnter)
             .on("mouseout", funOut);
 
         // Store current scroll
-        const scrollPane = this.modal.body.find('.tiny_ibwidgethub-categorycontainer');
+        const scrollPane = this.modal.body.find('.tiny_widgethub-categorycontainer');
         scrollPane.on('scroll', debounce(() => {
             this.scrollPos = Math.round(scrollPane.scrollTop() ?? 0);
         }, 100));
@@ -280,19 +284,17 @@ export class WidgetPickerCtrl {
                     <span class="badge badge-secondary text-truncate d-inline-block" style="max-width: 120px;" title="${widgetDict[r.key].name}">
                     ${widgetDict[r.key].name}</span></a>`)
                 .join('\n');
-            this.modal.body.find('.tiny_ibwidgethub-recent').html(html);
+            this.modal.body.find('.tiny_widgethub-recent').html(html);
         }
         // Call filter function to make sure the list is updated.
         this.onSearchKeyup();
 
         if (selectmode) {
-            this.modal.header.find("span.tiny_ibwidgethub-blink").removeClass("d-none");
+            this.modal.header.find("span.tiny_widgethub-blink").removeClass("d-none");
         } else {
-            this.modal.header.find("span.tiny_ibwidgethub-blink").addClass("d-none");
+            this.modal.header.find("span.tiny_widgethub-blink").addClass("d-none");
         }
 
-        // TODO: Opened issue: Closing a tiny dialog -- afects the main bootstap dialog
-        this.modal.modal?.removeClass("hide");
         this.modal.show();
 
         setTimeout(() => {
@@ -300,10 +302,15 @@ export class WidgetPickerCtrl {
                 return;
             }
             if (this.scrollPos > 0) {
-                this.modal.body.find('.tiny_ibwidgethub-categorycontainer').scrollTop(this.scrollPos);
+                this.modal.body.find('.tiny_widgethub-categorycontainer').scrollTop(this.scrollPos);
             }
             this.modal.body.find("input").trigger('focus');
         }, 200);
+    }
+
+
+    show() {
+        this.modal?.show();
     }
 
     /**
@@ -346,10 +353,10 @@ export class WidgetPickerCtrl {
      */
     /**
      * Get the template context for the dialogue.
-     *
+     * @param {Record<string, string>} translations
      * @returns {TemplateContext} data
      */
-    getPickTemplateContext() {
+    getPickTemplateContext(translations) {
         /** @type {Record<string, string>} */
         const categoryOrderMap = {};
         getGlobalConfig(this.editor, 'category.order', '')
@@ -366,14 +373,18 @@ export class WidgetPickerCtrl {
         // Parse filters that are autoset by the user.
         const autoFilters = this.storage.getFromLocal("startup.filters", "")
             .split(",").map(f => f.trim());
+
+        const quickbuttonBehavior = getGlobalConfig(this.editor, 'insert.quickbutton.behavior', 'ctrlclick');
         /**
          * @type {Object.<string, Category>}
          **/
         const categories = {};
-        const quickbuttonBehavior = getGlobalConfig(this.editor, 'insert.quickbutton.behavior', 'ctrlclick');
         allButtons.forEach(btn => {
             const isFilter = btn.isFilter();
-            const catName = (btn.category ?? 'MISC').toLocaleUpperCase();
+            let catName = (btn.category ?? 'MISC').toUpperCase();
+            if (catName === 'MISC' && translations.misc) {
+                catName = translations.misc.toUpperCase();
+            }
             let found = categories[catName];
             if (!found) {
                 const color = hashCode(catName) % 360;
@@ -420,7 +431,7 @@ export class WidgetPickerCtrl {
 
         const recentlyUsedBehavior = getGlobalConfig(this.editor, 'insert.recentlyused.behavior', 'lastused');
         if (recentlyUsedBehavior !== 'none') {
-            // Update the list of recently used widgets
+        // Update the list of recently used widgets
             recentList = this.storage.getRecentUsed().filter((/** @type {any} **/ recent) => {
                 const key = recent.key;
                 const widget = snptDict[key];
@@ -480,15 +491,16 @@ export class WidgetPickerCtrl {
             }
         }
         if (!widget) {
+            console.warn('Cannot find widget');
             return;
         }
         /** @type {HTMLElement | undefined} */
-        const button = target.closest('button.tiny_ibwidgethub-btn');
+        const button = target.closest('button.tiny_widgethub-btn');
         // Check if it is a toggle button to autoset a filter
         if (button?.dataset?.auto) {
             const isSet = button.dataset.auto !== "true";
             button.dataset.auto = isSet + '';
-            toggleClass(button, 'tiny_ibwidgethub-btn-primary', 'tiny_ibwidgethub-btn-outline-primary');
+            toggleClass(button, 'tiny_widgethub-btn-primary', 'tiny_widgethub-btn-outline-primary');
             const key = widget.key;
             // Persist option
             const autoFilters = new Set(this.storage.getFromLocal('startup.filters', '').split(''));
@@ -518,11 +530,11 @@ export class WidgetPickerCtrl {
             const metaActive = event.ctrlKey || event.metaKey;
             /**
              * @param {string} key
-             * @param {string} defaultvalue
+             * @param {string} defaultValue
              * @returns {boolean}
              */
-            const isBehaviourLastUsed = (key, defaultvalue) => {
-                let b = getGlobalConfig(this.editor, `insert.${key}.behavior`, defaultvalue);
+            const isBehaviourLastUsed = (key, defaultValue) => {
+                let b = getGlobalConfig(this.editor, `insert.${key}.behavior`, defaultValue);
                 return (b === 'ctrlclick' && metaActive) || b === 'lastused';
             };
             const shouldLoadRecentValues = (aRecentBadge && isBehaviourLastUsed('recentlyused', 'lastused')) ||
@@ -540,7 +552,7 @@ export class WidgetPickerCtrl {
         let confirmMsg = null;
 
         if (!widget.isUsableInScope()) {
-            confirmMsg = await get_string('confirmusage', 'tiny_ibwidgethub');
+            confirmMsg = await get_string('confirmusage', component);
         }
         if (confirmMsg) {
             this.editor.windowManager.confirm(confirmMsg,
@@ -570,6 +582,7 @@ export class WidgetPickerCtrl {
             // Do insert directly
             paramsController.insertWidget(ctx ?? {}, forceInsert);
         } else {
+            // Show widget's parameters modal
             paramsController.handleAction();
         }
     }

@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 /* eslint-disable max-len */
 // This file is part of Moodle - http://moodle.org/
 //
@@ -16,16 +15,19 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 import {getWidgetDict} from './options';
-import jQuery from "jquery";
 import {getDomSrv} from './service/dom_service';
 import {getWidgetPropertiesCtrl} from './controller/widgetproperties_ctrl';
 import {getMenuItemProviders, getListeners} from './extension';
+import Common from './common';
+// eslint-disable-next-line camelcase
 import {get_strings} from 'core/str';
+
+const {component, componentName} = Common;
 
 /**
  * Tiny WidgetHub plugin.
  *
- * @module      tiny_ibwidgethub/plugin
+ * @module      tiny_widgethub/plugin
  * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -33,10 +35,10 @@ import {get_strings} from 'core/str';
 /**
  * Defines the type PathResult
  * @typedef {Object} PathResult
- * @property {JQuery<HTMLElement>} selectedElement - The DOM element from which the search starts.
- * @property {JQuery<HTMLElement>} [elem] - Indicates the element corresponding to the selector of the widget found
- * @property {JQuery<HTMLElement>} [targetElement] - Indicates the element corresponding the intermediate selector
- * @property {import('./options').Widget} [widget] - The current widget definition associated with the elem
+ * @property {Element} selectedElement - The DOM element from which the search starts.
+ * @property {Element} [elem] - Indicates the element corresponding to the selector of the widget found
+ * @property {Element | null | undefined} [targetElement] - Indicates the element corresponding the intermediate selector
+ * @property {import('./options').Widget=} widget - The current widget definition associated with the elem
  */
 
 /**
@@ -81,7 +83,14 @@ const defineIcons = function(editor) {
  * @returns {boolean}
  */
 function hasBindings(widget) {
-    return widget.parameters?.some(param => param.bind !== undefined);
+    return widget.parameters?.some(param => {
+        if (param.type === 'repeatable') {
+            const hasFieldBindings = param.fields?.some(f => f.bind !== undefined);
+            return typeof param.bind === 'object' || (hasFieldBindings && typeof param.item_selector === 'string');
+        } else {
+            return param.bind !== undefined;
+        }
+    });
 }
 
 /**
@@ -118,44 +127,60 @@ const predefinedActionsFactory = function(editor, domSrv) {
     const factory = {
         /**
          * Unwraps or destroys the contents of a widget
-         * @param {PathResult} path
+         * @param {PathResult} context
          */
-        unwrap: (path) => {
-            if (!path?.elem || !path?.widget?.unwrap) {
+        unwrap: (context) => {
+            if (!context?.elem || !context?.widget?.unwrap) {
                 return;
             }
-            /** @type {JQuery<HTMLElement> | string} */
-            let toUnpack = path.elem.find(path.widget.unwrap);
-            if (!toUnpack[0]) {
-                // Create a text element
-                toUnpack = path.elem.text();
+            /** @type {NodeListOf<Node>} */
+            const nodes = context.elem.querySelectorAll(context.widget.unwrap);
+
+            const parent = context.elem.parentNode;
+            if (!parent) {
+                return;
             }
-            path.elem.replaceWith(toUnpack);
+
+            if (nodes.length === 0) {
+                // Fallback: single text node
+                const textNode = document.createTextNode(context.elem.textContent);
+                context.elem.replaceWith(textNode);
+            } else if (nodes.length === 1) {
+                // Only one node: normal unwrap
+                context.elem.replaceWith(nodes[0]);
+            } else {
+                // More than one node: wrap in DocumentFragment to replace
+                const fragment = document.createDocumentFragment();
+                nodes.forEach(node => fragment.appendChild(node));
+                context.elem.replaceWith(fragment);
+            }
+
             // Call any subscribers
-            getListeners('widgetRemoved').forEach(listener => listener(editor, path.widget));
+            getListeners('widgetRemoved').forEach(listener => listener(editor, context.widget));
         },
         /**
          * Moves the selected element above in the parent container
          * unless it is the first one
          * Only on tabbed widgets!
-         * If $e or any of its descendants references another element in
+         * If elem or any of its descendants references another element in
          * the widget, then it also must be moved before its sibling
-         * @param {PathResult} path
+         * @param {PathResult} context
          */
-        movebefore: (path) => {
-            const $e = path?.targetElement;
-            const $root = path?.elem;
-            if (!$e || !$root) {
+        movebefore: (context) => {
+            const el = context?.targetElement;
+            const root = context?.elem;
+            if (!el || !root) {
                 return;
             }
-            const prev = $e.prev();
+            const prev = el.previousElementSibling;
             if (prev) {
-                prev.insertAfter($e);
-                if (prev.closest(".nav").length) {
-                    domSrv.findReferences($e, $root).forEach($ref => {
-                        const prev2 = $ref.prev();
+                // Swap el and prev (move el before prev)
+                el.parentNode?.insertBefore(el, prev);
+                if (prev.closest(".nav")) {
+                    domSrv.findReferences(el, root).forEach(ref => {
+                        const prev2 = ref.previousElementSibling;
                         if (prev2) {
-                            prev2.insertAfter($ref);
+                            ref.parentNode?.insertBefore(ref, prev2);
                         }
                     });
                 }
@@ -165,24 +190,28 @@ const predefinedActionsFactory = function(editor, domSrv) {
          * Moves the selected element above in the parent container
          * unless it is the first one
          * Only on tabbed widgets!
-         * If $e or any of its descendants references another element in
+         * If elem or any of its descendants references another element in
          * the widget, then it also must be moved after its sibling
-         * @param {PathResult} path
+         * @param {PathResult} context
          */
-        moveafter: (path) => {
-            const $e = path?.targetElement;
-            const $root = path?.elem;
-            if (!$e || !$root) {
+        moveafter: (context) => {
+            const el = context?.targetElement;
+            const root = context?.elem;
+            if (!el || !root) {
                 return;
             }
-            const next = $e.next();
+
+            const next = el.nextElementSibling;
             if (next) {
-                next.insertBefore($e);
-                if (next.closest(".nav").length) {
-                    domSrv.findReferences($e, $root).forEach($ref => {
-                        const next2 = $ref.next();
+                // Move `el` after `next` (swap their order)
+                next.parentNode?.insertBefore(next, el);
+
+                // If inside a `.nav` ancestor, reorder references too
+                if (next.closest(".nav")) {
+                    domSrv.findReferences(el, root).forEach(ref => {
+                        const next2 = ref.nextElementSibling;
                         if (next2) {
-                            next2.insertBefore($ref);
+                            next2.parentNode?.insertBefore(next2, ref);
                         }
                     });
                 }
@@ -190,49 +219,58 @@ const predefinedActionsFactory = function(editor, domSrv) {
         },
         /**
          * Inserts a clone of the selected element after it
-         * @param {PathResult} path
+         * @param {PathResult} context
          */
-        insertafter: (path) => {
-            const $e = path?.targetElement;
-            const $root = path?.elem;
-            if (!$e || !$root) {
+        insertafter: (context) => {
+            const el = context?.targetElement;
+            const root = context?.elem;
+            if (!el || !root) {
                 return;
             }
+
             /** @type {Record<string, string>} */
             const idMap = {};
-            const clone = domSrv.smartClone($e, $root, idMap);
-            clone.insertAfter($e).removeClass("active show");
+            const clone = domSrv.smartClone(el, root, idMap);
+
+            // Insert the clone *after* the original element
+            el.parentNode?.insertBefore(clone, el.nextSibling);
+
+            // Remove "active" and "show" classes
+            clone.classList.remove("active", "show");
         },
         /**
          * Removes the selected element
-         * @param {PathResult} path
+         * @param {PathResult} context
          */
-        remove: (path) => {
-            const $e = path?.targetElement;
-            const $root = path?.elem;
-            if (!$e || !$root) {
+        remove: (context) => {
+            const el = context?.targetElement;
+            const root = context?.elem;
+            if (!el || !root) {
                 return;
             }
-            // Does the $e or its descendants reference another element in the widget?
-            // If so, it must be removed too
-            domSrv.findReferences($e, $root).forEach($ref => $ref.remove());
-            const $parent = $e.parent();
-            $e.remove();
-            if ($parent.children().length === 0) {
-                // Good candidate to remove the entire widget
-                $root.remove();
+
+            // Remove any references inside the widget
+            domSrv.findReferences(el, root).forEach(ref => ref.remove());
+
+            // Remove the element itself
+            const parent = el.parentNode;
+            el?.remove();
+
+            // If parent is now empty, remove the root widget
+            if (parent && parent.children.length === 0) {
+                root.remove();
             }
         },
         /**
          * Toggles a snippet as printable or not
-         * @param {PathResult} path
+         * @param {PathResult} context
          */
-        printable: (path) => {
-            const elem = path?.elem;
-            if (!elem) {
+        printable: (context) => {
+            const el = context?.elem;
+            if (!el) {
                 return;
             }
-            elem.toggleClass('d-print-none');
+            el.classList.toggle('d-print-none');
         }
     };
     factory.moveup = factory.movebefore;
@@ -244,7 +282,7 @@ const predefinedActionsFactory = function(editor, domSrv) {
 };
 
 /**
- * @typedef {{editor: import('./plugin').TinyMCE, path?: PathResult, jQuery: JQueryStatic, actionPaths: Record<string, PathResult>}} ItemMenuContext
+ * @typedef {{editor: import('./plugin').TinyMCE, path?: PathResult, actionPaths: Record<string, PathResult>}} ItemMenuContext
  */
 
 /**
@@ -260,15 +298,13 @@ export async function initContextActions(editor) {
      */
     const ctx = {
         actionPaths: {},
-        editor: editor,
-        jQuery
+        editor: editor
     };
 
     // Define icons
     defineIcons(editor);
 
     // Get translations
-    const component = 'tiny_ibwidgethub';
     const [
         strProperties, strUnwrap, strMoveUp, strMoveDown, strMoveAfter, strMoveBefore,
         strInsert, strRemove, strPrintable
@@ -302,63 +338,60 @@ export async function initContextActions(editor) {
     };
 
     // Generic button action for opening the properties modal
-    editor.ui.registry.addButton('widgethub_modal_btn', {
+    editor.ui.registry.addButton(`${componentName}_modal_btn`, {
         icon: ICONS.gear,
         tooltip: strProperties,
         onAction: showPropertiesAction
     });
-    editor.ui.registry.addMenuItem('widgethub_modal_item', {
+    editor.ui.registry.addMenuItem(`${componentName}_modal_item`, {
         icon: ICONS.gear,
         text: strProperties,
         onAction: showPropertiesAction
     });
 
     /**
-     * Defines a generic action.
+     * Defines a generic action
      * @param {string} name
      */
     function genericAction(name) {
         return function() {
-            let path = ctx.actionPaths[name];
-            if (!path) {
-                path = domSrv.findWidgetOnEventPath(widgetList, editor.selection.getNode());
-                if (!path.widget) {
+            if (!ctx.path?.widget) {
+                ctx.path = domSrv.findWidgetOnEventPath(widgetList, editor.selection.getNode());
+                if (!ctx.path?.widget) {
                     return;
                 }
             }
             const action = predefinedActions[name];
             if (action) {
-                // Make sure that generic actions use the right path object.
-                // Define one path per action.
-                action(path);
-                // Call any subscriber.
-                getListeners('ctxAction').forEach(listener => listener(editor, path.widget));
+                action(ctx.path);
+                // Call any subscriber
+                getListeners('ctxAction').forEach(listener => listener(editor, ctx.path?.widget));
             }
         };
     }
 
-    // Generic button action for unwrapping those widgets that support this feature.
-    editor.ui.registry.addButton('widgethub_unwrap_btn', {
+    // Generic button action for unwrapping those widgets that support this feature
+    editor.ui.registry.addButton(`${componentName}_unwrap_btn`, {
         icon: ICONS.arrowUpFromBracket,
         tooltip: strUnwrap,
         onAction: genericAction('unwrap')
     });
-    editor.ui.registry.addMenuItem('widgethub_unwrap_item', {
+    editor.ui.registry.addMenuItem(`${componentName}_unwrap_item`, {
         icon: ICONS.arrowUpFromBracket,
         text: strUnwrap,
         onAction: genericAction('unwrap')
     });
-    editor.ui.registry.addMenuItem('widgethub_moveup_item', {
+    editor.ui.registry.addMenuItem(`${componentName}_moveup_item`, {
         icon: ICONS.arrowUp,
         text: strMoveUp,
-        onAction: genericAction('moveup')
+        onAction: genericAction('movebefore')
     });
-    editor.ui.registry.addMenuItem('widgethub_movedown_item', {
+    editor.ui.registry.addMenuItem(`${componentName}_movedown_item`, {
         icon: ICONS.arrowDown,
         text: strMoveDown,
-        onAction: genericAction('movedown')
+        onAction: genericAction('moveafter')
     });
-    editor.ui.registry.addMenuItem('widgethub_movebefore_item', {
+   editor.ui.registry.addMenuItem('widgethub_movebefore_item', {
         icon: ICONS.arrowLeft,
         text: strMoveBefore,
         onAction: genericAction('movebefore')
@@ -368,23 +401,23 @@ export async function initContextActions(editor) {
         text: strMoveAfter,
         onAction: genericAction('moveafter')
     });
-    editor.ui.registry.addMenuItem('widgethub_insertafter_item', {
+    editor.ui.registry.addMenuItem(`${componentName}_insertafter_item`, {
         icon: ICONS.clone,
         text: strInsert,
         onAction: genericAction('insertafter')
     });
-    editor.ui.registry.addMenuItem('widgethub_remove_item', {
+    editor.ui.registry.addMenuItem(`${componentName}_remove_item`, {
         icon: ICONS.remove,
         text: strRemove,
         onAction: genericAction('remove')
     });
-    editor.ui.registry.addToggleMenuItem('widgethub_printable_item', {
+    editor.ui.registry.addToggleMenuItem(`${componentName}_printable_item`, {
         icon: 'print',
         text: strPrintable,
         onAction: genericAction('printable'),
         onSetup: (/** @type {*} */ api) => {
             let toggleState = true;
-            if (ctx.path?.elem?.hasClass('d-print-none')) {
+            if (ctx.path?.elem?.classList?.contains('d-print-none')) {
                 toggleState = false;
             }
             api.setActive(toggleState);
@@ -392,32 +425,30 @@ export async function initContextActions(editor) {
         }
     });
 
-    // Let extensions to register additional menuItem and nestedMenuItem.
-    /** @type {import('./extension/contextmenus').UserDefinedItem[]} */
+    // Let extensions to register additional menuItem and nestedMenuItem
+    /** @type {import('./extension').UserDefinedItem[]} */
     const widgetsWithExtensions = getMenuItemProviders().flatMap(provider => provider(ctx));
     widgetsWithExtensions.forEach(menuItem => {
         if (menuItem.subMenuItems) {
-            // It is a nested menu.
-            editor.ui.registry.addNestedMenuItem(`widgethub_${menuItem.name}`, {
-                icon: menuItem.icon,
-                text: menuItem.title,
-                getSubmenuItems: menuItem.subMenuItems,
-            });
-        } else if (menuItem.onAction) {
-            // It is a simple menu item.
-            editor.ui.registry.addMenuItem(`widgethub_${menuItem.name}`, {
-                icon: menuItem.icon,
-                text: menuItem.title,
-                onAction: menuItem.onAction,
-            });
-        }
+                // It is a nested menu.
+                editor.ui.registry.addNestedMenuItem(`${componentName}_${menuItem.name}`, {
+                    icon: menuItem.icon,
+                    text: menuItem.title,
+                    getSubmenuItems: menuItem.subMenuItems
+                });
+            } else if (menuItem.onAction) {
+                // It is a simple menu item.
+                editor.ui.registry.addMenuItem(`${componentName}_${menuItem.name}`, {
+                    icon: menuItem.icon,
+                    text: menuItem.title,
+                    onAction: menuItem.onAction
+                });
+            }
     });
 
-    editor.ui.registry.addContextMenu('tiny_ibwidgethub', {
+    editor.ui.registry.addContextMenu(component, {
         /** @param {HTMLElement} element */
         update: (element) => {
-            // Get rid of previous paths
-            ctx.actionPaths = {};
             // Look for a context
             ctx.path = domSrv.findWidgetOnEventPath(widgetList, element);
             if (!ctx.path?.widget || ctx.path.widget.prop("contexttoolbar")) {
@@ -434,7 +465,7 @@ export async function initContextActions(editor) {
             /** @type {PathResult | null} */
             let parentPath = null;
             if (widget.prop('bubbles')) {
-                const parentElem = ctx.path?.elem?.[0]?.parentElement;
+                const parentElem = ctx.path?.elem?.parentElement;
                 if (parentElem) {
                     const p = domSrv.findWidgetOnEventPath(widgetList, parentElem);
                     if (p && p.widget?.key === widget.prop('bubbles')) {
@@ -455,11 +486,11 @@ export async function initContextActions(editor) {
                 }
                 contextmenu.forEach(cm => {
                     // Does the element matches the predicate?
-                    /** @type {HTMLElement | null} */
+                    /** @type {Element | null} */
                     let targetElem = null;
                     // If predicate is unset then use the widget root elem
                     if (!cm.predicate) {
-                        targetElem = path?.elem?.[0] ?? null;
+                        targetElem = path?.elem ?? null;
                     } else if (element.matches(cm.predicate)) {
                         targetElem = element;
                     } else {
@@ -470,7 +501,7 @@ export async function initContextActions(editor) {
                     }
                     const newActionsToAdd = cm.actions.split(' ')
                         .map(e => e.trim())
-                        // moveleft/right should be mapped into movebefore/moveafter
+                        // Moveleft/right should be mapped into movebefore/moveafter
                         .map(action => {
                             if (action === 'moveleft') {
                                 return 'movebefore';
@@ -486,7 +517,7 @@ export async function initContextActions(editor) {
 
                     // Register the new paths of every action
                     newActionsToAdd.filter(e => e !== '|').forEach((/** @type {string} */ e) => {
-                        path.targetElement = jQuery(targetElem);
+                        path.targetElement = targetElem;
                         ctx.actionPaths[e] = {...path};
                     });
                 });
@@ -498,16 +529,16 @@ export async function initContextActions(editor) {
             }
             populateMenuItems(ctx.path);
 
-            menuItems = menuItems.map(e => e === '|' ? '|' : `widgethub_${e}_item`);
+            menuItems = menuItems.map(e => e === '|' ? '|' : `${componentName}_${e}_item`);
             // Check if the current widget has any action registered by extensions
             const actionNames = widgetsWithExtensions
                 .filter(e => matchesCondition(e.condition, widget.key))
-                .map(e => `widgethub_${e.name}`);
+                .map(e => `${componentName}_${e.name}`);
             menuItems.push(...actionNames);
 
             // Unwrap action always to the end
             if (widget.unwrap) {
-                menuItems.push('widgethub_unwrap_item');
+                menuItems.push(`${componentName}_unwrap_item`);
             }
             return menuItems.join(' ');
         }
@@ -523,12 +554,12 @@ export async function initContextActions(editor) {
             items.push('unwrap');
         }
         if (widget.prop("contexttoolbar")) {
-            editor.ui.registry.addContextToolbar(`widgethub_ctb_${widget.key}`, {
+            editor.ui.registry.addContextToolbar(`${componentName}_ctb_${widget.key}`, {
                 /** @param {HTMLElement} node */
                 predicate: function(node) {
                     return domSrv.matchesSelectors(node, widget.selectors);
                 },
-                items: items.map(e => `widgethub_${e}_btn`).join(' '),
+                items: items.map(e => `${componentName}_${e}_btn`).join(' '),
                 position: 'node'
             });
         }

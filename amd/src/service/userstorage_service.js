@@ -15,11 +15,13 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 import {getEditorOptions} from '../options';
+import Common from '../common';
+const {component} = Common;
 
 /**
  * Tiny WidgetHub plugin.
  *
- * @module      tiny_ibwidgethub/plugin
+ * @module      tiny_widgethub/plugin
  * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -41,7 +43,7 @@ export class UserStorageSrv {
         /** @type {number} */
         this._courseId = editorOptions.courseId;
         /** @type {string} */
-        this.STORE_KEY = "iedib-widgets_" + editorOptions.userInfo.id;
+        this.STORE_KEY = `${component}_${editorOptions.userInfo.id}`;
         /**
          * @type {Record<string, any>}
          */

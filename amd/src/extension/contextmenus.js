@@ -23,7 +23,7 @@
  */
 import {registerMenuItemProvider} from "../extension";
 import {getUserStorage} from "../service/userstorage_service";
-import {convertInt, findVariableByName} from "../util";
+import {convertInt, findVariableByName, removeStyleMCE, setStyleMCE} from "../util";
 import * as Action from './contextactions';
 
 const SUPPORTED_LANGS = [
@@ -99,7 +99,7 @@ function provider(ctx) {
             if (!elem) {
                 return '';
             }
-            if (!elem.attr('data-snptd')) {
+            if (!elem.getAttribute('data-snptd')) {
                 return AVAILABLE_EFFECTS.map(e => ({
                     type: 'menuitem',
                     text: e.title,
@@ -130,10 +130,10 @@ function provider(ctx) {
                 key !== undefined &&
                 key !== 'imatge' &&
                 key !== 'grid-imatge' &&
-                elem?.prop('tagName') === 'IMG' &&
+                elem?.tagName === 'IMG' &&
                 // Do not take into account images in ib-card
-                !elem?.hasClass('card-img-top'));
-           if (ctx.path && isImg && elem?.[0]) {
+                !elem?.classList?.contains('card-img-top'));
+           if (ctx.path && isImg && elem) {
                 ctx.path.targetElement = elem;
            }
            return isImg;
@@ -154,7 +154,7 @@ function provider(ctx) {
             if (!elem) {
                 return '';
             }
-            const currentLang = elem.attr('data-lang') ?? '';
+            const currentLang = elem.getAttribute('data-lang') ?? '';
             return SUPPORTED_LANGS.map(({iso, title}) => ({
                 type: 'menuitem',
                 text: title,
@@ -181,7 +181,7 @@ function provider(ctx) {
             return (sizes || SUPPORTED_SIZES).map((/** @type {*}*/ e) => ({
                 type: 'menuitem',
                 text: e.l ?? e,
-                icon: elem.hasClass('iedib-capsa-' + (e.v ?? e)) ? 'checkmark' : undefined,
+                icon: elem.classList.contains('iedib-capsa-' + (e.v ?? e)) ? 'checkmark' : undefined,
                 onAction: Action.changeBoxSizeAction.bind({ctx, size: e.v ?? e})
             }));
         }
@@ -204,7 +204,7 @@ function provider(ctx) {
             return (severities || []).map((/** @type {*}*/ e) => ({
                 type: 'menuitem',
                 text: e.l ?? e,
-                icon: elem.hasClass('iedib-' + (e.v ?? e) + '-border') ? 'checkmark' : undefined,
+                icon: elem.classList.contains('iedib-' + (e.v ?? e) + '-border') ? 'checkmark' : undefined,
                 onAction: Action.changeBoxSeverityAction.bind({ctx, severity: e.v ?? e})
             }));
         }
@@ -231,9 +231,12 @@ function provider(ctx) {
                 onAction: Action.changeColumnWidth.bind({ctx, colSpan: 0})
             }];
 
-            const firstSpan =
-            (elem.find("div:first-child").attr('class')?.split(' ') ?? [])
-            .filter(c => c.startsWith('span')).map(c => c.replace('span', ''))[0];
+            const firstDiv = elem.querySelector('div:first-child');
+            const firstSpan = firstDiv
+            ? (firstDiv.className?.split(' ') ?? [])
+                .filter(c => c.startsWith('span'))
+                .map(c => c.replace('span', ''))[0]
+            : undefined;
 
             for (let i = 2; i < 12; i = i + 2) {
                 const tpc = parseInt((100 * i / 12.0).toFixed(0));
@@ -279,16 +282,16 @@ function provider(ctx) {
             const selectedElement = ctx.path?.selectedElement;
             // It must search an OL in the path, probably selectedElement is LI or so!!!!!
             const target = selectedElement?.closest("ol");
-            if (ctx.path && target?.[0]) {
+            if (ctx.path && target) {
                 ctx.path.targetElement = target;
             }
-            return target?.[0] !== undefined;
+            return target !== undefined;
         },
         icon: 'list-num-default',
         title: 'Llista',
         subMenuItems: () => {
             // Determine if the class is there
-            const isBeauty = ctx.path?.targetElement?.hasClass('iedib-falist');
+            const isBeauty = ctx.path?.targetElement?.classList?.contains('iedib-falist');
             return [
                 {
                     type: 'menuitem',
@@ -296,21 +299,19 @@ function provider(ctx) {
                     icon: isBeauty ? 'checkmark' : undefined,
                     onAction: () => {
                         // Toggle class
-                        const $target = ctx.path?.targetElement;
-                        if (!$target) {
+                        const target = ctx.path?.targetElement;
+                        if (!target || !(target instanceof HTMLElement)) {
                             return;
                         }
-                        $target.toggleClass('iedib-falist');
+                        target.classList.toggle('iedib-falist');
                         // Make sure that start and style are in sync
-                        const startAt = $target.attr("start") || "1";
-                        if ($target.hasClass('iedib-falist')) {
+                        const startAt = target.getAttribute("start") || "1";
+                        if (target.classList.contains('iedib-falist')) {
                             const beginAt = parseInt(startAt);
-                            $target.css("counter-reset", "iedibfalist-counter " + (beginAt - 1));
+                            setStyleMCE(target, "counter-reset", "iedibfalist-counter " + (beginAt - 1));
                         } else {
-                            $target.css("counter-reset", "");
+                            removeStyleMCE(target, "counter-reset");
                         }
-                        // Sync data-mce-style
-                        $target.attr('data-mce-style', $target.attr('style') ?? '');
                     }
                 },
                 {
@@ -318,23 +319,21 @@ function provider(ctx) {
                     text: 'Comença a',
                     onAction: () => {
                         // Get the start property of the list
-                        const startAt1 = ctx.path?.targetElement?.attr("start") ?? "1";
+                        const startAt1 = ctx.path?.targetElement?.getAttribute("start") ?? "1";
                         // Open input dialog, set the value and retrieve new value
                         openInputDialog('Comença la numeració a ...', '', startAt1,
                         (/** @type {*} */ api) => {
                             // TODO: Opened issue: Closing a tiny dialog -- afects the main bootstap dialog
                             api.close();
-                            const $target = ctx.path?.targetElement;
-                            if (!$target) {
+                            const target = ctx.path?.targetElement;
+                            if (!target || !(target instanceof HTMLElement)) {
                                 return;
                             }
                             // Change the number at which start
                             const startAt2 = api.getData().value ?? "1";
                             const beginAt3 = convertInt(startAt2, 1);
-                            $target.attr("start", beginAt3);
-                            $target.css("counter-reset", "iedibfalist-counter " + (beginAt3 - 1));
-                            // Sync data-mce-style
-                            $target.attr('data-mce-style', $target.attr('style') ?? '');
+                            target.setAttribute("start", beginAt3 + '');
+                            setStyleMCE(target, "counter-reset", "iedibfalist-counter " + (beginAt3 - 1));
                         });
                     },
                 }
@@ -350,15 +349,15 @@ function provider(ctx) {
         condition: 'desplegable2',
         title: 'Comportament',
         subMenuItems: () => {
-            const $target = ctx.path?.elem;
-            if (!$target) {
+            const target = ctx.path?.elem;
+            if (!target) {
                 return '';
             }
             // Is Accordion behavior?
-            const isDependentBehavior =
-            (
-                ($target.find("div.accordion-body").attr("data-parent") ||
-                 $target.find("div.accordion-body").attr("data-bs-parent")) ?? null) !== null;
+           const accordionBody = target.querySelector("div.accordion-body");
+           const isDependentBehavior =
+                ((accordionBody?.getAttribute("data-parent") ??
+                    accordionBody?.getAttribute("data-bs-parent")) ?? null) !== null;
 
             return [false, true].map(opt => ({
                 type: 'menuitem',
@@ -378,25 +377,25 @@ function provider(ctx) {
         condition: 'taula-predefinida,taula-bs',
         title: 'Amplada taula',
         onAction: () => {
-            const $target = ctx.path?.elem;
-            if (!$target) {
+            const target = ctx.path?.elem;
+            if (!target || !(target instanceof HTMLElement)) {
                 return;
             }
             // Get the initial width
-            const startAt1 = ($target.css("max-width") || "-1")
+            const startAt1 = (target.style.getPropertyValue("max-width") || "-1")
                 .replace("px", "").replace("none", "-1");
             // Open input dialog, set the value and retrieve new value
             openInputDialog('Amplada màxima en (px)', '-1=sense limit', startAt1,
             (/** @type {*} */ api) => {
-                const $target = ctx.path?.elem;
-                if (!$target) {
+                const target = ctx.path?.elem;
+                if (!target || !(target instanceof HTMLElement)) {
                     return;
                 }
                 const maxwidth = convertInt(api.getData().value.replace("px", "").trim(), 0);
                 if (maxwidth > 0) {
-                    $target.css("max-width", maxwidth + "px");
+                    setStyleMCE(target, "max-width", maxwidth + "px");
                 } else {
-                    $target.css("max-width", "");
+                    removeStyleMCE(target, "max-width");
                 }
                 api.close();
             });
@@ -431,12 +430,12 @@ function provider(ctx) {
         condition: 'taula-bs',
         title: 'Responsivitat',
         subMenuItems: () => {
-            const $target = ctx.path?.elem;
-            if (!$target) {
+            const target = ctx.path?.elem;
+            if (!target) {
                 return '';
             }
             // Is responsiveness active
-            const isResponsive = $target.parent().hasClass('table-responsive');
+            const isResponsive = target.parentElement?.classList.contains('table-responsive');
 
             return [{
                 type: 'menuitem',
@@ -454,11 +453,11 @@ function provider(ctx) {
             condition: 'taula-predefinida,taula-bs',
             title: 'Capçalera',
             subMenuItems: () => {
-                const $target = ctx.path?.elem;
-                if (!$target) {
+                const target = ctx.path?.elem;
+                if (!target) {
                     return '';
                 }
-                const hasHeader = $target.find('thead').length > 0;
+                const hasHeader = target.querySelector('thead') !== null;
 
                 return [{
                     type: 'menuitem',
@@ -476,11 +475,11 @@ function provider(ctx) {
         condition: 'taula-predefinida,taula-bs',
         title: 'Peu de taula',
         subMenuItems: () => {
-            const $target = ctx.path?.elem;
-            if (!$target) {
+            const target = ctx.path?.elem;
+            if (!target) {
                 return '';
             }
-            const hasFooter = $target.find('tfoot').length > 0;
+            const hasFooter = target.querySelector('tfoot') !== null;
 
             return [{
                 type: 'menuitem',
@@ -585,13 +584,12 @@ function provider(ctx) {
     const tablesCellColorNestedMenu = {
         name: 'tablesCellColorNestedMenu',
         condition: () => {
-            const target = ctx.path?.selectedElement?.closest("table");
-            return target?.[0] !== undefined;
+            return !!ctx.path?.selectedElement?.closest("table");
         },
         title: 'Cel·la',
         subMenuItems: () => {
-            const $cell = ctx.path?.selectedElement?.closest('td, th');
-            if (!$cell) {
+            const cell = ctx.path?.selectedElement?.closest('td, th');
+            if (!cell || !(cell instanceof HTMLElement)) {
                 return '';
             }
             const menus = [
@@ -601,19 +599,19 @@ function provider(ctx) {
                     onAction: () => {
                         colorPicker(ctx.editor,
                             (/** @type {string} */ color) => {
-                                $cell.css('background-color', color);
+                                setStyleMCE(cell, 'background-color', color);
                             }
                         );
                     }
                 }
             ];
 
-            if ($cell[0].style.backgroundColor) {
+            if (cell.style.backgroundColor) {
                 menus.push({
                     type: 'menuitem',
                     text: 'Eliminar fons',
                     onAction: () => {
-                        $cell.css('background-color', '');
+                        removeStyleMCE(cell, 'background-color');
                     }
                 });
             }
@@ -629,13 +627,12 @@ function provider(ctx) {
     const tablesRowColorNestedMenu = {
         name: 'tablesRowColorNestedMenu',
         condition: () => {
-            const target = ctx.path?.selectedElement?.closest("table");
-            return target?.[0] !== undefined;
+            return !!ctx.path?.selectedElement?.closest("table");
         },
         title: 'Fila',
         subMenuItems: () => {
-            const $row = ctx.path?.selectedElement?.closest('tr');
-            if (!$row) {
+            const row = ctx.path?.selectedElement?.closest('tr');
+            if (!row || !(row instanceof HTMLElement)) {
                 return '';
             }
             const menus = [
@@ -645,18 +642,18 @@ function provider(ctx) {
                      onAction: () => {
                         colorPicker(ctx.editor,
                             (/** @type {string} */ color) => {
-                                $row.css('background-color', color);
+                                setStyleMCE(row, 'background-color', color);
                             }
                         );
                     }
                 }
             ];
-            if ($row[0].style.backgroundColor) {
+            if (row.style.backgroundColor) {
                 menus.push({
                     type: 'menuitem',
                     text: 'Eliminar fons',
                     onAction: () => {
-                        $row.css('background-color', '');
+                        removeStyleMCE(row, 'background-color');
                     }
                 });
             }

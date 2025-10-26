@@ -4,7 +4,12 @@
 // Mock virtual modules
 require('../module.mocks')(jest);
 const actions = require('../../src/extension/contextactions');
-import jQuery from 'jquery';
+const editorFactory = require('../editor.mock');
+
+const widget = {
+    selectors: 'div[data-snptd="zoom"]',
+    requires: '/sd/images.min.js',
+};
 
 /**
  * 
@@ -12,33 +17,10 @@ import jQuery from 'jquery';
  * @returns {*}
  */
 const createEditor = (html) => {
-    const body = document.createElement('DIV');
-    body.innerHTML = html;
-    return {
-        options: {
-            get: () => {
-                return {}
-            }
-        },
-        getBody: () => body,
-        dom: {
-            create: jest.fn().mockImplementation((elemTag, props, inner) => {
-                const elem = document.createElement(elemTag);
-                if (props) {
-                    Object.keys(props).forEach(key => {
-                        elem.setAttribute(key, props[key]);
-                    });
-                }
-                if (inner) {
-                    elem.innerHTML = inner;
-                }
-                return elem;
-            })
-        },
-        notificationManager: {
-            open: jest.fn()
-        }
-    };
+    const editor = editorFactory();
+    editor.setContent(html);
+    editor.options.get = jest.fn().mockReturnValue([widget])
+    return editor;
 };
 
 describe('contextactions', () => {
@@ -46,7 +28,7 @@ describe('contextactions', () => {
     it('addImageEffectAction includes zoom effect', () => {
         const editor = createEditor(`
         <div class="iedib-img">
-            <img></img>
+            <img src="https://server.com/sample.png"/>
         </div>    
         `);
         /** @type {HTMLElement} */
@@ -58,19 +40,18 @@ describe('contextactions', () => {
             ctx: {
                 editor,
                 path: {
-                    selectedElement: jQuery(selectedElement),
-                    elem: jQuery(elem),
+                    selectedElement: selectedElement,
+                    elem: elem,
                     targetElement: undefined,
                     /** @type {*} */
-                    widget: {}
-                }, 
-                jQuery
+                    widget
+                },
+                actionPaths: {}
             },
             type: 'zoom'
         };
 
         actions.addImageEffectAction.call(self);
-
         expect(editor.getBody().querySelector('.iedib-img').dataset.snptd).toEqual('zoom');
         expect(editor.getBody().querySelector('.iedib-sd-area')).toBeTruthy();
         expect(editor.getBody().querySelectorAll('.iedib-sd-area script[src*="images.min.js"]')).toHaveLength(1);
@@ -95,8 +76,8 @@ describe('contextactions', () => {
             ctx: {
                 editor,
                 path: {
-                    selectedElement: jQuery(selectedElement),
-                    elem: jQuery(elem),
+                    selectedElement,
+                    elem: elem,
                     targetElement: undefined,
                     /** @type {*} */
                     widget: {
@@ -108,7 +89,7 @@ describe('contextactions', () => {
                         }
                     }
                 }, 
-                jQuery
+                actionPaths: {}
             },
             iso: 'en'
         };

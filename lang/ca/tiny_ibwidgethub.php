@@ -54,6 +54,7 @@ $string['ibwidgethub:viewplugin'] = 'Veure connector';
 $string['insert'] = 'Inserir';
 $string['invalidfilter'] = 'Filtre no vàlid. Si us plau, reviseu la configuració';
 $string['key'] = 'Clau';
+$string['misc'] = 'Altres';
 $string['moveafter'] = 'Moure després de';
 $string['movebefore'] = 'Moure abans de';
 $string['movedown'] = 'Moure avall';

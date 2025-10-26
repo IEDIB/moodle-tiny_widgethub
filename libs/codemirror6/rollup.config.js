@@ -2,7 +2,7 @@
 import replace from '@rollup/plugin-replace';
 import {nodeResolve} from '@rollup/plugin-node-resolve';
 import path from 'path';
-import {fileURLToPath} from 'url';
+import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -33,20 +33,6 @@ export default [
                 },
                 delimiters: ['', '']
             }),
-            nodeResolve()
-        ]
-    },
-    {
-        input: './codemirror6/yaml.mjs',
-        output: {
-            sourcemap: false,
-            file: path.resolve(__dirname, '../../amd/src/libs/yaml-lazy.js'),
-            format: 'esm',
-            name: 'yaml',
-            plugins: [],
-            banner
-        },
-        plugins: [
             nodeResolve()
         ]
     },

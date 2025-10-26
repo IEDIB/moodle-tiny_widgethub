@@ -1,6 +1,14 @@
 /**
  * @jest-environment jsdom
  */
+ jest.mock("../../src/options", () => ({
+        __esModule: true,
+        default: {
+            getGlobalConfig: jest.fn()
+        }
+    }), {virtual: true});
+
+
 
 import {
     removeEmptyParagraphs,

@@ -25,7 +25,7 @@ import * as coreStr from "core/str";
 /**
  * Tiny WidgetHub plugin.
  *
- * @module      tiny_ibwidgethub/plugin
+ * @module      tiny_widgethub/plugin
  * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -72,24 +72,32 @@ export class WidgetParamsCtrl {
          this.modal?.destroy();
          this.modal = null;
       });
+      /** @type {import('../service/modal_service').ListenerTracker} */
+      const listenerTracker = (/** @type {Element}*/ el, /** @type {string} */ evType, /** @type {EventListener} */ handler) => {
+         this.modal?.twhRegisterListener(el, evType, handler);
+      };
       this.modal = modal;
+      const bodyElem = modal.body[0];
+      const formElem = modal.body.find("form")[0];
       modal.body.find(`a[href="#${data.idtabpane}_1"`).on("click", async() => {
          // Handle preview;
-         const ctxFromDialogue = this.formCtrl.extractFormParameters(this.widget, modal.body.find("form"), true);
+         const ctxFromDialogue = this.formCtrl.extractFormParameters(this.widget, formElem, true);
          await this.updatePreview(data.idtabpane, ctxFromDialogue);
       });
-      this.formCtrl.attachPickers(modal.body);
+      this.formCtrl.attachRepeatable(bodyElem, this.widget);
+      this.formCtrl.attachPickers(bodyElem, listenerTracker);
       modal.footer.show();
-      modal.footer.find("button.tiny_ibwidgethub-btn-secondary").on("click", async() => {
+      modal.footer.find("button.tiny_widgethub-btn-secondary").on("click", async() => {
          // Go back to main menú
+         // TODO detachPicker and detachRepeatable
          modal.destroy();
          if (this.parentCtrl) {
             await this.parentCtrl.handleAction();
          }
       });
-      modal.footer.find("button.tiny_ibwidgethub-btn-primary").on("click", async() => {
+      modal.footer.find("button.tiny_widgethub-btn-primary").on("click", async() => {
          // Go back to main menú
-         const ctxFromDialogue = this.formCtrl.extractFormParameters(this.widget, modal.body.find("form"), true);
+         const ctxFromDialogue = this.formCtrl.extractFormParameters(this.widget, formElem, true);
          modal.hide();
          await this.insertWidget(ctxFromDialogue);
          modal.destroy();
@@ -97,18 +105,18 @@ export class WidgetParamsCtrl {
 
       // Change input fields visibilities upon conditions
       const selectmode = this.editor.selection.getContent().trim() != '';
-      this.formCtrl.applyFieldWatchers(modal.body, this.widget.defaults, this.widget, selectmode);
+      this.formCtrl.applyFieldWatchers(bodyElem, this.widget.defaults, this.widget, selectmode, listenerTracker);
 
       // Help circles require popover
       try {
          // @ts-ignore
          modal.body.popover({
             container: "body",
-            selector: "[data-toggle=popover][data-trigger=hover], [data-bs-toggle=popover][data-bs-trigger=hover]",
-            trigger: "hover",
+            selector: "[data-toggle=popover][data-trigger=hover]",
+            trigger: "hover"
          });
       } catch (ex) {
-         // console.error(ex);
+         console.error(ex);
       }
 
       modal.show();

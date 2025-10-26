@@ -14,6 +14,9 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+import {subscribe} from "../extension";
+import {getGlobalConfig} from "../options";
+
 /**
  * Tiny WidgetHub plugin.
  *
@@ -202,3 +205,22 @@ export function restoreEquationpluginButton(editor) {
             });
     });
 }
+
+/**
+ * @param {import("../plugin").TinyMCE} editor
+ */
+const listener = (editor) => {
+ // Newline emulation
+        const cfgLevel2 = getGlobalConfig(editor, 'emulate.atto.newlinebehaviour', '1');
+        if (cfgLevel2 !== '0') {
+            emulateAttoNewlineBehaviour(editor);
+        }
+
+        // Restore equation plugin button
+        const cfgLevel3 = getGlobalConfig(editor, 'restore.equationplugin.button', '1');
+        if (cfgLevel3 !== '0') {
+            restoreEquationpluginButton(editor);
+        }
+};
+
+subscribe('setup', listener);

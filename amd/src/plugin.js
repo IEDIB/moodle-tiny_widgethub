@@ -39,6 +39,7 @@ const {component, pluginName} = Common;
 
 
 // Import extensions to the plugin
+import './extension/newlinebehavior';
 import './extension/dependencies';
 import './extension/contextmenus';
 import './extension/refractor';

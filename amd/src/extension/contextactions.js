@@ -21,8 +21,19 @@
  * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+import {htmlToElement, setStyleMCE} from '../util';
 import {addRequires, cleanUnusedRequires} from './dependencies';
-import jQuery from 'jquery';
+
+/**
+ * @param {Node} el
+ * @returns
+ */
+function detachNode(el) {
+  if (el && el.parentNode) {
+    el.parentNode.removeChild(el);
+  }
+  return el;
+}
 
 /**
  * @this {{ctx: import("../contextinit").ItemMenuContext, type: string}}}
@@ -34,7 +45,7 @@ export function addImageEffectAction() {
     if (!elem) {
         return;
     }
-    elem.attr("data-snptd", type);
+    elem.setAttribute("data-snptd", type);
     addRequires(ctx.editor, ["/sd/images.min.js"]);
 }
 
@@ -47,9 +58,9 @@ export function removeImageEffectsAction() {
     if (!elem) {
         return;
     }
-    elem.removeAttr("data-snptd");
-    if (elem.attr("role")?.startsWith("snptd_")) {
-        elem.removeAttr("role");
+    elem.removeAttribute("data-snptd");
+    if (elem.getAttribute("role")?.startsWith("snptd_")) {
+        elem.removeAttribute("role");
     }
     cleanUnusedRequires(ctx.editor);
 }
@@ -64,22 +75,22 @@ export function changeBoxLangAction() {
     if (!elem || !widget) {
         return;
     }
-    const $lateral = elem.find('.iedib-titolLateral');
-    const isTascaExercici = elem.attr('data-proposat') !== undefined ||
-        elem.find('.iedib-tasca.iedib-central').length > 0;
+    const lateral = elem.querySelector('.iedib-titolLateral');
+    const isTascaExercici = elem.getAttribute('data-proposat') ||
+        elem.querySelector('.iedib-tasca.iedib-central');
 
     let theType;
     let langKey = "msg";
     if (isTascaExercici) {
-        if (elem.find('.iedib-tasca.iedib-proposat').length) {
+        if (elem.querySelector('.iedib-tasca.iedib-proposat')) {
             langKey = "msg_epr";
         } else {
             // Must see if it is tava or tapr
-            langKey = "msg_" + (elem.attr('data-proposat') ?? "tapr");
+            langKey = "msg_" + (elem.getAttribute('data-proposat') ?? "tapr");
         }
     } else if (widget.key === 'capsa-generica') {
         ["alerta", "ampliacio", "consell", "important", "introduccio"].forEach((ty) => {
-            if (elem.hasClass("iedib-" + ty + "-border")) {
+            if (elem.classList.contains("iedib-" + ty + "-border")) {
                 theType = ty;
             }
         });
@@ -88,15 +99,19 @@ export function changeBoxLangAction() {
     const I18n = widget.I18n;
     if (I18n?.[langKey]?.[iso]) {
         if (isTascaExercici) {
-            const h4 = elem.find('.iedib-central h4').first();
-            h4.html(I18n[langKey][iso] + ":");
-        } else {
-            $lateral.html(I18n[langKey][iso]);
-            $lateral.append('<span class="iedib-' + theType + '-logo"></span>');
+            const h4 = elem.querySelector('.iedib-central h4');
+            if (h4) {
+                h4.innerHTML = (I18n[langKey][iso] + ":");
+            }
+        } else if (lateral) {
+            lateral.innerHTML = I18n[langKey][iso];
+            if (theType) {
+                lateral.append('<span class="iedib-' + theType + '-logo"></span>');
+            }
         }
     }
     // Replace data-lang
-    elem.attr('data-lang', iso);
+    elem.setAttribute('data-lang', iso);
 }
 
 /**
@@ -108,8 +123,8 @@ export function changeBoxSizeAction() {
     if (!elem || !widget) {
         return;
     }
-    elem.removeClass("iedib-capsa-petita iedib-capsa-mitjana iedib-capsa-gran");
-    elem.addClass("iedib-capsa-" + this.size);
+    elem.classList.remove("iedib-capsa-petita", "iedib-capsa-mitjana", "iedib-capsa-gran");
+    elem.classList.add("iedib-capsa-" + this.size);
 }
 
 /**
@@ -122,18 +137,21 @@ export function changeBoxSeverityAction() {
     if (!elem || !widget) {
         return;
     }
-    elem.removeClass(
-        "iedib-alerta-border iedib-important-border iedib-consell-border iedib-introduccio-border iedib-ampliacio-border");
-    elem.addClass("iedib-" + severity + "-border");
-    const $lateral = elem.find(".iedib-lateral");
-    $lateral.removeClass("iedib-alerta iedib-important iedib-consell iedib-introduccio iedib-ampliacio");
-    $lateral.addClass("iedib-" + severity);
-    const lang = elem.attr("data-lang") || "ca";
+    elem.classList.remove(
+        "iedib-alerta-border", "iedib-important-border", "iedib-consell-border",
+        "iedib-introduccio-border", "iedib-ampliacio-border");
+    elem.classList.add("iedib-" + severity + "-border");
+    const lateral = elem.querySelector(".iedib-lateral");
+    lateral?.classList.remove("iedib-alerta", "iedib-important", "iedib-consell", "iedib-introduccio", "iedib-ampliacio");
+    lateral?.classList.add("iedib-" + severity);
+    const lang = elem.getAttribute("data-lang") || "ca";
     let langKey = "msg_" + severity;
     // Change the lateral title
     if (widget.I18n?.[langKey]?.[lang]) {
-        $lateral.find('.iedib-titolLateral')
-            .html(widget.I18n[langKey][lang]);
+        const titolLateral = lateral?.querySelector('.iedib-titolLateral');
+        if (titolLateral) {
+            titolLateral.innerHTML = widget.I18n[langKey][lang];
+        }
     }
 
 }
@@ -142,31 +160,28 @@ export function changeBoxSeverityAction() {
  * @this {{ctx: import("../contextinit").ItemMenuContext}}
  */
 export function switchBoxSimpleExampleAction() {
-    const $target = this.ctx.path?.elem;
+    const target = this.ctx.path?.elem;
     const widget = this.ctx.path?.widget;
-    if (!$target || !widget) {
+    if (!target || !widget) {
         return;
     }
-    const lang = $target.attr("data-lang") || "ca";
+    const lang = target.getAttribute("data-lang") || "ca";
     const solLabel = widget.I18n?.sol?.[lang] ?? 'Solució';
-    const formulacio = $target.find("div.iedib-formulacio-rows > *").clone();
-    const resolucio = $target.find("div.iedib-resolucio-rows >  *").clone();
-    const lateral = $target.find("p.iedib-titolLateral").html();
-    const newSnpt = jQuery('<div class="iedib-capsa iedib-capsa-gran iedib-exemple-border" data-lang="' + lang + '">' +
-        '<div class="iedib-lateral iedib-exemple">' +
-        '<p class="iedib-titolLateral">' + lateral + '</span></p>' +
-        '</div>' +
-        '<div class="iedib-central">' +
-        // Formulacio
-        // Resolució
-        '<br></div></div>');
-    const central = newSnpt.find('div.iedib-central');
-    central.append(formulacio);
-    if (resolucio.find('div.accordion').length === 0) {
-        central.append("<p><b>" + solLabel + "</b>:</p>");
-    }
-    central.append(resolucio);
-    $target.replaceWith(newSnpt);
+    const formulacio = target.querySelector("div.iedib-formulacio-rows");
+    const resolucio = target.querySelector("div.iedib-resolucio-rows");
+    const solLabelHTML = resolucio?.querySelector('div.accordion') ? "<p><b>" + solLabel + "</b>:</p>" : "";
+    const lateralText = target.querySelector("p.iedib-titolLateral")?.innerHTML ?? '';
+    const doc = this.ctx.editor.getDoc();
+    const newSnpt = htmlToElement(doc, `<div class="iedib-capsa iedib-capsa-gran iedib-exemple-border" data-lang="${lang}">
+        <div class="iedib-lateral iedib-exemple">
+        <p class="iedib-titolLateral">${lateralText}</span></p>
+        </div>
+        <div class="iedib-central">
+        ${formulacio?.innerHTML ?? ''}
+        ${solLabelHTML}
+         ${resolucio?.innerHTML ?? ''}
+        '<br></div></div>`);
+    target.replaceWith(newSnpt);
 
 }
 
@@ -174,28 +189,27 @@ export function switchBoxSimpleExampleAction() {
  * @this {{ctx: import("../contextinit").ItemMenuContext}}
  */
 export function switchBoxRowsExampleAction() {
-    const $target = this.ctx.path?.elem;
-    if (!$target) {
+    const target = this.ctx.path?.elem;
+    if (!target) {
         return;
     }
-    const lang = $target.attr("data-lang") || "ca";
-    const lateral = $target.find("p.iedib-titolLateral").html();
-    const formulacio = $target.find("div.span4.iedib-formulacio > *");
-    const resolucio = $target.find("div.span8.iedib-resolucio > div.iedib-central > *");
-    const newSnpt = jQuery('<div class="iedib-capsa iedib-capsa-gran iedib-exemple-border" data-lang="' + lang + '">' +
-        '<div class="iedib-lateral iedib-exemple">' +
-        '<p class="iedib-titolLateral">' + lateral + '</p>' +
-        '</div>' +
-        '<div class="iedib-formulacio-rows">' +
-        // Add formulació
-        '</div>' +
-        '<div class="iedib-resolucio-rows">' +
-        // Add resolució
-        '</div></div>');
+    const lang = target.getAttribute("data-lang") || "ca";
+    const lateralText = target.querySelector("p.iedib-titolLateral")?.innerHTML ?? '';
+    const formulacio = target.querySelector("div.span4.iedib-formulacio");
+    const resolucio = target.querySelector("div.span8.iedib-resolucio > div.iedib-central");
+    const doc = this.ctx.editor.getDoc();
+    const newSnpt = htmlToElement(doc, `<div class="iedib-capsa iedib-capsa-gran iedib-exemple-border" data-lang="${lang}">
+        <div class="iedib-lateral iedib-exemple">
+        <p class="iedib-titolLateral">${lateralText}</p>
+        </div>
+        <div class="iedib-formulacio-rows">
+        ${formulacio?.innerHTML ?? ''}
+        </div>
+        <div class="iedib-resolucio-rows">
+        ${resolucio?.innerHTML ?? ''}
+        </div></div>`);
 
-    newSnpt.find('div.iedib-formulacio-rows').append(formulacio);
-    newSnpt.find('div.iedib-resolucio-rows').append(resolucio);
-    $target.replaceWith(newSnpt);
+    target.replaceWith(newSnpt);
 
 }
 
@@ -203,15 +217,16 @@ export function switchBoxRowsExampleAction() {
  * @this {{ctx: import("../contextinit").ItemMenuContext}}
  */
 export function imageSwitchToSnippetAction() {
-    const $target = this.ctx.path?.targetElement;
-    if (!$target) {
+    const target = this.ctx.path?.targetElement;
+    if (!target) {
         return;
     }
-    const $snpt = jQuery('<div class="iedib-figura iedib-grid-responsive"></div');
-    $snpt.append($target.clone());
-    // eslint-disable-next-line max-len
-    $snpt.append(jQuery('<p class="iedib-img-footer">Imatge: <em>Descripció</em>. Font: Wikimedia. Domini públic.</p>'));
-    $target.replaceWith($snpt);
+    const doc = this.ctx.editor.getDoc();
+    const snpt = htmlToElement(doc, `<div class="iedib-figura iedib-grid-responsive">
+        ${target.outerHTML}
+        <p class="iedib-img-footer">Imatge: <em>Descripció</em>. Font: Wikimedia. Domini públic.</p>
+        </div>`);
+    target.replaceWith(snpt);
 }
 
 /**
@@ -219,23 +234,27 @@ export function imageSwitchToSnippetAction() {
  */
 export function changeColumnWidth() {
     const colSpan = this.colSpan;
-    const $target = this.ctx.path?.elem;
-    if (!$target) {
+    const target = this.ctx.path?.elem;
+    if (!target) {
         return;
     }
     if (colSpan <= 0 || colSpan > 12) {
         // Set to one column flow
-        const columns = $target.find("div");
-        columns.removeClass();
-        $target.replaceWith(columns);
+        const columns = target.querySelectorAll("div");
+        columns.forEach(c => {
+            c.className = '';
+        });
+        target.replaceWith(...Array.from(columns));
     } else {
         // Define the spans
-        const first = $target.find("div:first-child");
-        const last = $target.find("div:last-child");
-        first.removeClass();
-        last.removeClass();
-        first.addClass("span" + colSpan);
-        last.addClass("span" + (12 - colSpan));
+        const first = target.querySelector("div:first-child");
+        const last = target.querySelector("div:last-child");
+        if (first) {
+            first.className = "span" + colSpan;
+        }
+        if (last) {
+            last.className = "span" + (12 - colSpan);
+        }
     }
 }
 
@@ -244,19 +263,23 @@ export function changeColumnWidth() {
  */
 export function setAccordionBehavior() {
     const isDependentBehavior = this.isDependentBehavior;
-    const $target = this.ctx.path?.elem;
-    if (!$target) {
+    const target = this.ctx.path?.elem;
+    if (!target) {
         return;
     }
     if (isDependentBehavior) {
         // Behavior individual
-        $target.find("div.accordion-body").removeAttr("data-parent data-bs-parent");
+        target.querySelectorAll("div.accordion-body").forEach(e => {
+            e.removeAttribute("data-parent");
+            e.removeAttribute("data-bs-parent");
+        });
     } else {
         // Behavior accordion
-        const acid = $target.attr("id");
-        $target.find("div.accordion-body")
-            .attr("data-parent", "#" + acid)
-            .attr("data-bs-parent", "#" + acid);
+        const acid = target.id;
+        target.querySelectorAll("div.accordion-body").forEach(e => {
+            e.setAttribute("data-parent", "#" + acid);
+            e.setAttribute("data-bs-parent", "#" + acid);
+        });
     }
 }
 
@@ -264,75 +287,101 @@ export function setAccordionBehavior() {
  * @this {{ctx: import("../contextinit").ItemMenuContext}}
  */
 export function convert2BootstrapTable() {
-    const $target = this.ctx.path?.elem;
-    if (!$target) {
+    const target = this.ctx.path?.elem;
+    if (!target) {
         return;
     }
-    $target.removeClass("iedib-table").removeAttr('style').removeAttr('border')
-           .addClass("table table-striped iedib-bstable");
-    $target.find("td,th").removeAttr("style");
-    $target.find("thead > tr > th").attr("role", "col");
+    target.classList.remove("iedib-table");
+    target.classList.add("table", "table-striped", "iedib-bstable");
+    target.removeAttribute('style');
+    target.removeAttribute('border');
+    target.querySelectorAll("td,th").forEach(e => {
+        e.removeAttribute('style');
+        e.removeAttribute('data-mce-style');
+    });
+    target.querySelectorAll("thead > tr > th").forEach(e => {
+        e.setAttribute("role", "col");
+    });
 }
 
 /**
  * @this {{ctx: import("../contextinit").ItemMenuContext}}
  */
 export function convertDropdownToList() {
-    const $target = this.ctx.path?.elem;
-    if (!$target) {
+    const target = this.ctx.path?.elem;
+    if (!target) {
         return;
     }
     // Convert into a list
-    const listSubstitute = this.ctx.jQuery("<ul></ul>");
-    $target.find("a.accordion-toggle").each((i, a) => {
-          const $e = $target.find(a.getAttribute("href") || "");
-          $e.detach();
-          $e.removeClass();
-          const theLi = this.ctx.jQuery("<li></li>");
+    const doc = this.ctx.editor.dom.getDoc();
+    const listSubstitute = doc.createElement('UL');
+    target.querySelectorAll("a.accordion-toggle").forEach(a => {
+          const href = a.getAttribute("href");
+          if (!href) {
+            return;
+          }
+          const e = target.querySelector(href);
+          if (!e) {
+            return;
+          }
+          detachNode(e);
+          e.className = '';
+          const theLi = doc.createElement('LI');
           theLi.append(a.innerHTML);
-          theLi.append($e);
+          theLi.append(e);
           listSubstitute.append(theLi);
     });
-    $target.replaceWith(listSubstitute);
+    target.replaceWith(listSubstitute);
 }
 
 /**
  * @this {{ctx: import("../contextinit").ItemMenuContext}}
  */
 export function convert2PrefefinedTable() {
-    const $target = this.ctx.path?.elem;
-    if (!$target) {
+    const target = this.ctx.path?.elem;
+    if (!target) {
         return;
     }
-    $target.removeClass("table table-bordered table-hover table-striped table-responsive iedib-bstable");
-    $target.addClass("iedib-table");
-    $target.attr("style", 'table-layout:fixed; border-collapse:collapse; border-spacing:0px; width:96%;');
-    $target.find("td,th").css("border", '1px solid gray');
+    target.classList.remove("table", "table-bordered", "table-hover", "table-striped", "table-responsive", "iedib-bstable");
+    target.classList.add("iedib-table");
+    target.setAttribute("style", 'table-layout:fixed; border-collapse:collapse; border-spacing:0px; width:96%;');
+    target.setAttribute("data-mce-style", target.getAttribute('style') ?? '');
+    /** @type {NodeListOf<HTMLElement>} */
+    const allTdTh = target.querySelectorAll("td,th");
+    allTdTh.forEach(e => setStyleMCE(e, "border", '1px solid gray'));
 }
 
 /**
  * @this {{ctx: import("../contextinit").ItemMenuContext}}
  */
 export function toggleTableHeader() {
-    const $target = this.ctx.path?.elem;
-    if (!$target) {
+    const target = this.ctx.path?.elem;
+    if (!target) {
         return;
     }
-    let head = $target.find("thead");
-    if (head.length) {
+    let head = target.querySelector("thead");
+    if (head) {
+        // Remove head
         head.remove();
     } else {
-        const jQuery = this.ctx.jQuery;
-        head = jQuery("<thead></thead>");
-        const tr = jQuery("<tr></tr>");
-        $target.find("tr").first().find("td").each(function() {
-            const newTh = jQuery('<th role="col">Títol</th>');
-            const st = jQuery(this).attr("style");
-            newTh.attr("style", st ? st : "");
-            tr.append(newTh);
-        });
-        head.append(tr);
-        $target.prepend(head);
+        // Create a head
+        const doc = this.ctx.editor.dom.getDoc();
+        head = doc.createElement('THEAD');
+        const tr = doc.createElement('TR');
+        const firstTr = target.querySelector("tr");
+        if (firstTr) {
+            firstTr.querySelectorAll("td").forEach(e => {
+                const newTh = htmlToElement(doc, '<th role="col">Títol</th>');
+                const st = e.getAttribute("style");
+                newTh.setAttribute("style", st ? st : "");
+                newTh.setAttribute("data-mce-style", st ? st : "");
+                tr.append(newTh);
+            });
+            if (head) {
+                head.append(tr);
+                target.prepend(head);
+            }
+        }
     }
 }
 
@@ -340,29 +389,33 @@ export function toggleTableHeader() {
  * @this {{ctx: import("../contextinit").ItemMenuContext}}
  */
 export function toggleTableFooter() {
-    const $target = this.ctx.path?.elem;
-    if (!$target) {
+    const target = this.ctx.path?.elem;
+    if (!target) {
         return;
     }
-    let foot = $target.find("tfoot");
-    if (foot.length) {
+    let foot = target.querySelector("tfoot");
+    if (foot) {
+        // Remove the footer
         foot.remove();
     } else {
-        const jQuery = this.ctx.jQuery;
-        foot = jQuery("<tfoot></tfoot>");
-        const tr2 = jQuery("<tr></tr>");
-        $target.find("tbody tr").first().find("td").each(
-        /**
-         * @this {HTMLElement}
-         */
-        function() {
-            const newTd = jQuery("<td>Resum</td>");
-            const st = jQuery(this).attr("style");
-            newTd.attr("style", st ? st : "");
-            tr2.append(newTd);
-        });
-        foot.append(tr2);
-        $target.append(foot);
+        // Creates a footer
+        const doc = this.ctx.editor.dom.getDoc();
+        foot = doc.createElement("TFOOT");
+        const tr2 = doc.createElement("TR");
+        const firstTr = target.querySelector("tbody tr");
+        if (firstTr) {
+            firstTr.querySelectorAll("td").forEach(e => {
+                const newTd = htmlToElement(doc, "<td>Resum</td>");
+                const st =e.getAttribute("style");
+                newTd.setAttribute("style", st ? st : "");
+                newTd.setAttribute("data-mce-style", st ? st : "");
+                tr2.append(newTd);
+            });
+            if (foot) {
+                foot.append(tr2);
+                target.append(foot);
+            }
+        }
     }
 }
 
@@ -371,19 +424,21 @@ export function toggleTableFooter() {
  * @this {{ctx: import("../contextinit").ItemMenuContext}}
  */
 export function toggleBootstapTableResponsiveness() {
-    const $target = this.ctx.path?.elem;
-    if (!$target) {
+    const target = this.ctx.path?.elem;
+    if (!target) {
         return;
     }
 
-    if ($target.parent().hasClass("table-responsive")) {
+    if (target.parentElement?.classList?.contains("table-responsive")) {
         // Delete responsiveness
-        $target.parent().replaceWith($target);
+       target.parentElement.replaceWith(target);
     } else {
         // Add responsiveness
-        const $div = this.ctx.jQuery('<div class="table-responsive"></div>');
-        $target.replaceWith($div);
-        $div.append($target);
+        const doc = this.ctx.editor.dom.getDoc();
+        const div = htmlToElement(doc, `<div class="table-responsive">
+            ${target.outerHTML}
+            </div>`);
+        target.replaceWith(div);
     }
 }
 

@@ -17,13 +17,15 @@
 /**
  * Tiny WidgetHub plugin.
  *
- * @module      tiny_ibwidgethub/plugin
+ * @module      tiny_widgethub/plugin
  * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 import mustache from 'core/mustache';
 import {evalInContext, genID} from '../util';
+import Common from '../common';
+const {component} = Common;
 
 
 /**
@@ -91,7 +93,7 @@ export class TemplateSrv {
             return ejsResolved.render(template, ctx);
         } catch (ex) {
             console.error(ex);
-            return "";
+            return "<p>Error: rendering EJS template.</p>";
         }
     }
 
@@ -241,7 +243,7 @@ const ejsLoader = () => {
     }
     return new Promise((resolve, reject) => {
         // @ts-ignore
-        window.require(['tiny_ibwidgethub/libs/ejs-lazy'], (ejsModule) => {
+        window.require([`${component}/libs/ejs-lazy`], (ejsModule) => {
             _ejs = ejsModule;
             if (_ejs) {
                 resolve(_ejs);

@@ -54,6 +54,7 @@ $string['ibwidgethub:viewplugin'] = 'View plugin';
 $string['insert'] = 'Insert';
 $string['invalidfilter'] = 'Invalid filter. Please check the configuration';
 $string['key'] = 'Key';
+$string['misc'] = 'Others';
 $string['moveafter'] = 'Move after';
 $string['movebefore'] = 'Move before';
 $string['movedown'] = 'Move down';

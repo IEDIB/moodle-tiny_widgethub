@@ -19,7 +19,7 @@
  * Tiny WidgetHub plugin.
  * An adaptation of the EJS templating engine as AMD module.
  *
- * @module      tiny_ibwidgethub/plugin
+ * @module      tiny_widgethub/plugin
  * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -48,8 +48,8 @@ const utils = {};
     const regExpChars = /[|\\{}()[\]^$+*?.]/g;
     const hasOwnProperty = Object.prototype.hasOwnProperty;
     const hasOwn = function(obj, key) {
- return hasOwnProperty.apply(obj, [key]);
-};
+        return hasOwnProperty.apply(obj, [key]);
+    };
 
     /**
      * Escape characters reserved in regular expressions.

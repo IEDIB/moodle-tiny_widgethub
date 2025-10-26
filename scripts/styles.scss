@@ -20,9 +20,9 @@ $solucio-fons-color: rgb(219, 242, 248);
 $solucio-border-color: rgb(13, 38, 68);
 
 /********************************** WidgetHub plugin styles */
-.tiny_ibwidgethub-container {
+.tiny_widgethub-container {
   position: relative;
-  div.tiny_ibwidgethub-top {
+  div.tiny_widgethub-top {
     position: relative;
     vertical-align: middle;
     margin-top: 5px;
@@ -30,7 +30,7 @@ $solucio-border-color: rgb(13, 38, 68);
   }
 }
 
-.tiny_ibwidgethub-preview {
+.tiny_widgethub-preview {
   position: absolute;
   bottom: -10px;
   left: 0;
@@ -44,11 +44,11 @@ $solucio-border-color: rgb(13, 38, 68);
   z-index: 1000;
 }
 
-.tiny_ibwidgethub-recent {
+.tiny_widgethub-recent {
   flex-basis: 100%;
 }
 
-.tiny_ibwidgethub-preview > * {
+.tiny_widgethub-preview > * {
   margin: auto;
   transform: scale(70%);
   transform-origin: 50% 0;
@@ -59,7 +59,7 @@ $solucio-border-color: rgb(13, 38, 68);
   background: whitesmoke;
 }
 
-.tiny_ibwidgethub-previewpanel {
+.tiny_widgethub-previewpanel {
   border: 1px solid gray;
   width: 98%;
   height: 300px;
@@ -68,21 +68,21 @@ $solucio-border-color: rgb(13, 38, 68);
   overflow: auto;
 }
 
-.tiny_ibwidgethub-ymlcontrol {
+.tiny_widgethub-ymlcontrol {
     width: 100%;
     height: 300px;
     overflow: auto;
 }
 
-.tiny_ibwidgethub-ymlcontrol .cm-editor {
+.tiny_widgethub-ymlcontrol .cm-editor {
     height: 300px;
 }
 
-.tiny_ibwidgethub-dropdownsub {
+.tiny_widgethub-dropdownsub {
   position: relative;
 }
 
-.tiny_ibwidgethub-dropdownsub > .tiny_ibwidgethub-dropdown {
+.tiny_widgethub-dropdownsub > .tiny_widgethub-dropdown {
   top: 0;
   left: 100%;
   margin-top: -6px;
@@ -92,11 +92,11 @@ $solucio-border-color: rgb(13, 38, 68);
   border-radius: 0 6px 6px 6px;
 }
 
-.tiny_ibwidgethub-dropdownsub:hover > .tiny_ibwidgethub-dropdown {
+.tiny_widgethub-dropdownsub:hover > .tiny_widgethub-dropdown {
   display: block;
 }
 
-.tiny_ibwidgethub-dropdownsub > a:after {
+.tiny_widgethub-dropdownsub > a:after {
   display: block;
   content: " ";
   float: right;
@@ -110,15 +110,15 @@ $solucio-border-color: rgb(13, 38, 68);
   margin-right: -10px;
 }
 
-.tiny_ibwidgethub-dropdownsub:hover > a:after {
+.tiny_widgethub-dropdownsub:hover > a:after {
   border-left-color: #fff;
 }
 
-.tiny_ibwidgethub-dropdownsub.pull-left {
+.tiny_widgethub-dropdownsub.pull-left {
   float: none;
 }
 
-.tiny_ibwidgethub-dropdownsub.pull-left > .tiny_ibwidgethub-dropdown {
+.tiny_widgethub-dropdownsub.pull-left > .tiny_widgethub-dropdown {
   left: -100%;
   margin-left: 10px;
   -webkit-border-radius: 6px 0 6px 6px;
@@ -126,11 +126,11 @@ $solucio-border-color: rgb(13, 38, 68);
   border-radius: 6px 0 6px 6px;
 }
 
-#tiny_ibwidgethub-popup a, #tiny_ibwidgethub-popup span {
+#tiny_widgethub-popup a, #tiny_widgethub-popup span {
   font-size: 90%;
 }
 
-div.tiny_ibwidgethub-growl {
+div.tiny_widgethub-growl {
   font-size: 90%;
   position: fixed;
   width: 300px;
@@ -143,35 +143,35 @@ div.tiny_ibwidgethub-growl {
 }
 
 /** Other plugin styles **/
-.tiny_ibwidgethub-emptylist {
+.tiny_widgethub-emptylist {
   margin: 45px;
 }
 
-.tiny_ibwidgethub-categorycontainer {
+.tiny_widgethub-categorycontainer {
   position: relative;
   max-height: 450px; 
   overflow: hidden auto;
   overscroll-behavior-y: contain;
 }
 
-.tiny_ibwidgethub-category {
+.tiny_widgethub-category {
   margin:2px auto;
   width: 99%;
   display:table;
 }
 
-.tiny_ibwidgethub-category button {
+.tiny_widgethub-category button {
   height: 40px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-.tiny_ibwidgethub-disabled > button {
+.tiny_widgethub-disabled > button {
   opacity: 60%;
 }
 
-.tiny_ibwidgethub-lateral {
+.tiny_widgethub-lateral {
   display: table-cell;
   position: relative;
   width: 20px;
@@ -185,7 +185,7 @@ div.tiny_ibwidgethub-growl {
   overflow: hidden;
 }
 
-.tiny_ibwidgethub-title {
+.tiny_widgethub-title {
   padding-left: 5px;
   -webkit-transform: rotate(-90deg);
   -moz-transform: rotate(-90deg);
@@ -197,24 +197,24 @@ div.tiny_ibwidgethub-growl {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
-.tiny_ibwidgethub-instructionstext {
+.tiny_widgethub-instructionstext {
   font-size: 90%;
   line-height: 1.25em;
 }
 
-h4.tiny_ibwidgethub-headertext {
+h4.tiny_widgethub-headertext {
   margin-top: 10px;
 }
 
-.tiny_ibwidgethub-uds {
+.tiny_widgethub-uds {
   background-color: #e7f2f9;
 }
 
-.tiny_ibwidgethub-uds:nth-child(odd) {
+.tiny_widgethub-uds:nth-child(odd) {
   background-color: whitesmoke;
 }
 
-.tiny_ibwidgethub-pattern {
+.tiny_widgethub-pattern {
   display: inline-block;
   height: 24px;
   vertical-align: sub;
@@ -226,7 +226,7 @@ h4.tiny_ibwidgethub-headertext {
   background-size: 16px 16px;
 }
 
-.tiny_ibwidgethub-pattern > input {
+.tiny_widgethub-pattern > input {
   position: absolute;
   top: 0;
   left: 0;
@@ -234,14 +234,14 @@ h4.tiny_ibwidgethub-headertext {
   height: 100%;
 }
 
-.tiny_ibwidgethub-blink {
+.tiny_widgethub-blink {
   position: absolute;
   right: 80px;
   top: 20px;
-  animation: tiny_ibwidgethub-blinker 1s infinite;
+  animation: tiny_widgethub-blinker 1s infinite;
 }
 
-@keyframes tiny_ibwidgethub-blinker {
+@keyframes tiny_widgethub-blinker {
   from {
     opacity: 1.0;
   }
@@ -253,7 +253,7 @@ h4.tiny_ibwidgethub-headertext {
   }
 }
 
-.tiny_ibwidgethub-loader {
+.tiny_widgethub-loader {
     position: absolute;
     z-index: 100;
     top: 50%;
@@ -263,9 +263,9 @@ h4.tiny_ibwidgethub-headertext {
     border-radius: 50%;
     background-color: #999;
     box-shadow: 32px 0 #999, -32px 0 #999;
-    animation: tiny_ibwidgethub-flash 0.5s ease-out infinite alternate;
+    animation: tiny_widgethub-flash 0.5s ease-out infinite alternate;
 }
-@keyframes tiny_ibwidgethub-flash {
+@keyframes tiny_widgethub-flash {
     0% {
       background-color: #FFF2;
       box-shadow: 32px 0 #FFF2, -32px 0 #999;
@@ -281,7 +281,7 @@ h4.tiny_ibwidgethub-headertext {
 }
 
 /** Custom bootstrap buttons **/
-.tiny_ibwidgethub-btn {
+.tiny_widgethub-btn {
   -webkit-user-select: none;
   -ms-user-select: none;
   display: inline-block;
@@ -299,12 +299,12 @@ h4.tiny_ibwidgethub-headertext {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.tiny_ibwidgethub-btn:hover {
+.tiny_widgethub-btn:hover {
   color: #1d2125;
   text-decoration: none;
 }
 
-.tiny_ibwidgethub-btn-group {
+.tiny_widgethub-btn-group {
   position: relative;
   display: inline-flex;
   vertical-align: middle;
@@ -313,61 +313,61 @@ h4.tiny_ibwidgethub-headertext {
   margin-left: -15px;
 }
 
-.tiny_ibwidgethub-btn-group > .tiny_ibwidgethub-btn:not(:last-child) {
+.tiny_widgethub-btn-group > .tiny_widgethub-btn:not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.tiny_ibwidgethub-btn-group > .tiny_ibwidgethub-btn:not(:first-child) {
+.tiny_widgethub-btn-group > .tiny_widgethub-btn:not(:first-child) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.tiny_ibwidgethub-btn:not(:disabled):not(.disabled) {
+.tiny_widgethub-btn:not(:disabled):not(.disabled) {
   cursor: pointer;
 }
 
-.tiny_ibwidgethub-btn-group > .tiny_ibwidgethub-btn {
+.tiny_widgethub-btn-group > .tiny_widgethub-btn {
   position: relative;
   flex: 1 1 auto;
 }
 
-.tiny_ibwidgethub-btn-primary {
+.tiny_widgethub-btn-primary {
   color: #fff;
   background-color: #0f6cbf;
   border-color: #0f6cbf;
 }
-.tiny_ibwidgethub-btn-primary:hover {
+.tiny_widgethub-btn-primary:hover {
   color: #fff;
   background-color: #0c589c;
   border-color: #0b5190;
 }
 
-.tiny_ibwidgethub-btn-outline-primary {
+.tiny_widgethub-btn-outline-primary {
   color: #0f6cbf;
   border-color: #0f6cbf;
 }
 
-.tiny_ibwidgethub-btn-outline-primary:hover {
+.tiny_widgethub-btn-outline-primary:hover {
   color: #fff;
   background-color: #0f6cbf;
 }
 
-.tiny_ibwidgethub-btn-sm,
-.tiny_ibwidgethub-btn-group-sm > .tiny_ibwidgethub-btn {
+.tiny_widgethub-btn-sm,
+.tiny_widgethub-btn-group-sm > .tiny_widgethub-btn {
   padding: .25rem .5rem;
   font-size: .8203125rem;
   line-height: 1.5;
   border-radius: .2rem;
 }
 
-.tiny_ibwidgethub-btn-secondary {
+.tiny_widgethub-btn-secondary {
   color: #1d2125;
   background-color: #ced4da;
   border-color: #ced4da;
 }
 
-.tiny_ibwidgethub-btn-secondary:hover {
+.tiny_widgethub-btn-secondary:hover {
   color: #1d2125;
   background-color: #b8c1ca;
   border-color: #b1bbc4;
@@ -387,16 +387,16 @@ h4.tiny_ibwidgethub-headertext {
 .twh-icon svg {
   pointer-events: none;
 }
-.tiny_ibwidgethub-btn-primary .twh-icon path {
+.tiny_widgethub-btn-primary .twh-icon path {
   fill: #fff;
 }
-.tiny_ibwidgethub-btn-secondary .twh-icon path {
+.tiny_widgethub-btn-secondary .twh-icon path {
   fill: #474747;
 }
-.tiny_ibwidgethub-btn-outline-primary .twh-icon path {
+.tiny_widgethub-btn-outline-primary .twh-icon path {
   fill: #0f6cbf;
 }
-.tiny_ibwidgethub-btn-outline-primary:hover .twh-icon path {
+.tiny_widgethub-btn-outline-primary:hover .twh-icon path {
   fill: #fff;
 }
 
@@ -1489,7 +1489,7 @@ ol.iedib-falist>li::before {
     min-width: 100%
   }
 
-  .tiny_ibwidgethub-preview {
+  .tiny_widgethub-preview {
     display: none!important;
   }
   

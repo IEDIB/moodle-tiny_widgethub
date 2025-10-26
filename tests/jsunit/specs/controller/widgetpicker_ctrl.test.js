@@ -1,6 +1,12 @@
 /*
  * @jest-environment jsdom
-*/
+ *
+ * Tiny WidgetHub plugin.
+ *
+ * @module      tiny_widgethub/plugin
+ * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 import jQuery from 'jquery';
 require('../module.mocks')(jest);
 const util = require('../../src/util');
@@ -57,7 +63,7 @@ const widget1 = {
         { name: "p5", value: "#000000", type: "color" },
         { name: "p6", value: "", type: "select", options: ["a", "b", "c"] },
     ],
-    prop: (/** @type {string}*/ a) => undefined,
+    prop: (/** @type {any} */ key) => undefined,
     isUsableInScope: () => true,
     isFilter: () => false
 };
@@ -135,17 +141,17 @@ describe("WidgetPickerCtrl", () => {
         document.body.innerHTML = `
         <div id="modal">
             <input>
-            <div class="tiny_ibwidgethub-emptylist"></div>
-            <div class="tiny_ibwidgethub-category">
-                <div class="tiny_ibwidgethub-btn-group" data-selectable="true" data-key="k1">
+            <div class="tiny_widgethub-emptylist"></div>
+            <div class="tiny_widgethub-category">
+                <div class="tiny_widgethub-btn-group" data-selectable="true" data-key="k1">
                     <button data-title="Boxes">Example box</button>
                 </div>
-                <div class="tiny_ibwidgethub-btn-group" data-selectable="true" data-key="k2">
+                <div class="tiny_widgethub-btn-group" data-selectable="true" data-key="k2">
                     <button data-title="Boxes">Important box</button>
                 </div>
             </div>
-            <div class="tiny_ibwidgethub-category">
-                <div class="tiny_ibwidgethub-btn-group" data-key="k3">
+            <div class="tiny_widgethub-category">
+                <div class="tiny_widgethub-btn-group" data-key="k3">
                     <button data-title="Videos">Insert YouTube</button>
                 </div>
             </div>
@@ -159,7 +165,7 @@ describe("WidgetPickerCtrl", () => {
         widgetPickCtrl.modal = {
             body: $modalBody
         };
-        const $empty = $modalBody.find(".tiny_ibwidgethub-emptylist");
+        const $empty = $modalBody.find(".tiny_widgethub-emptylist");
         const $input = $modalBody.find("input");
         $input.val("   ");
 
@@ -167,20 +173,20 @@ describe("WidgetPickerCtrl", () => {
         widgetPickCtrl.onSearchKeyup();
         expect(mockUserStorage.setToSession).toHaveBeenCalledWith('searchtext', '   ', true);
         expect($modalBody.find('div[data-key]:not(.d-none)').length).toBe(3);
-        expect($modalBody.find('div.tiny_ibwidgethub-category:not(.d-none)').length).toBe(2);
+        expect($modalBody.find('div.tiny_widgethub-category:not(.d-none)').length).toBe(2);
         expect($empty.hasClass("d-none")).toBe(true);
 
         $input.val("  ViDEos  ");
         widgetPickCtrl.onSearchKeyup();
         expect(mockUserStorage.setToSession).toHaveBeenCalledWith('searchtext', '  ViDEos  ', true);
         expect($modalBody.find('div[data-key]:not(.d-none)').length).toBe(1);
-        expect($modalBody.find('div.tiny_ibwidgethub-category:not(.d-none)').length).toBe(1);
+        expect($modalBody.find('div.tiny_widgethub-category:not(.d-none)').length).toBe(1);
         expect($empty.hasClass("d-none")).toBe(true);
 
         $input.val("  cd c,wec wecw !  ");
         widgetPickCtrl.onSearchKeyup();
         expect($modalBody.find('div[data-key]:not(.d-none)').length).toBe(0);
-        expect($modalBody.find('div.tiny_ibwidgethub-category:not(.d-none)').length).toBe(0);
+        expect($modalBody.find('div.tiny_widgethub-category:not(.d-none)').length).toBe(0);
         expect($empty.hasClass("d-none")).toBe(false);
 
 
@@ -191,7 +197,7 @@ describe("WidgetPickerCtrl", () => {
         widgetPickCtrl.onSearchKeyup();
         expect(mockUserStorage.setToSession).toHaveBeenCalledWith('searchtext', '  ViDEos  ', true);
         expect($modalBody.find('div[data-key]:not(.d-none)').length).toBe(0);
-        expect($modalBody.find('div.tiny_ibwidgethub-category:not(.d-none)').length).toBe(0);
+        expect($modalBody.find('div.tiny_widgethub-category:not(.d-none)').length).toBe(0);
         expect($empty.hasClass("d-none")).toBe(false);
     });
 
@@ -199,7 +205,7 @@ describe("WidgetPickerCtrl", () => {
         mockEditor.selection.getContent.mockClear();
         mockEditor.selection.getContent.mockReturnValue("");
 
-        const ctx = widgetPickCtrl.getPickTemplateContext();
+        const ctx = widgetPickCtrl.getPickTemplateContext({});
 
         expect(ctx.selectmode).toBe(false);
         expect(ctx.rid).toMatch(/^[a-zA-Z]\w*$/);
@@ -249,20 +255,20 @@ describe("WidgetPickerCtrl", () => {
 
     it("onMouseEnterButton decides how to render preview", async () => {
         const btnGroup = document.createElement("div");
-        btnGroup.classList.add("tiny_ibwidgethub-btn-group");
+        btnGroup.classList.add("tiny_widgethub-btn-group");
         btnGroup.dataset.key = "k1";
         btnGroup.innerHTML = '<button><i class="fa"></i></button>';
 
         // @ts-ignore
         widgetPickCtrl.modal = {
-            body: jQuery(`<div><div class="tiny_ibwidgethub-preview" style="display: none;"></div></div>`)
+            body: jQuery(`<div><div class="tiny_widgethub-preview" style="display: none;"></div></div>`)
         };
         widgetPickCtrl.generatePreview = jest.fn().mockReturnValue("The preview");
 
         await widgetPickCtrl.onMouseEnterButton({ target: btnGroup.querySelector("i") });
         expect(widgetPickCtrl.generatePreview).toHaveBeenCalledWith(widget1);
         expect(widgetPickCtrl.modal.body.html()).toContain("The preview");
-        expect(widgetPickCtrl.modal.body.find(".tiny_ibwidgethub-preview").css('display')).toBe('block');
+        expect(widgetPickCtrl.modal.body.find(".tiny_widgethub-preview").css('display')).toBe('block');
 
     });
 
@@ -271,11 +277,11 @@ describe("WidgetPickerCtrl", () => {
 
         const $modalBody = jQuery(`<div>
             <input><button id="widget-clearfilter-btna12345">X</button>
-            <div class="tiny_ibwidgethub-recent"></div>
-            <div class="tiny_ibwidgethub-categorycontainer">
+            <div class="tiny_widgethub-recent"></div>
+            <div class="tiny_widgethub-categorycontainer">
             </div>
             </div>`);
-        const $modalHeader = jQuery(`<div><span class="tiny_ibwidgethub-blink"></span></div>`);
+        const $modalHeader = jQuery(`<div><span class="tiny_widgethub-blink"></span></div>`);
         const modalShow = jest.fn();
         mockModalSrv.create = jest.fn().mockImplementation(() => {
             return Promise.resolve({
@@ -291,7 +297,7 @@ describe("WidgetPickerCtrl", () => {
     });
 
     it('Must handle action', async () => {
-        const header = jQuery('<div><span class="tiny_ibwidgethub-blink"></span></div>');
+        const header = jQuery('<div><span class="tiny_widgethub-blink"></span></div>');
         // Assuming modal is not created
         const spyCreateModal =
             jest.spyOn(widgetPickCtrl, 'createModal').mockImplementation(() => {
@@ -309,7 +315,7 @@ describe("WidgetPickerCtrl", () => {
         await widgetPickCtrl.handleAction();
         expect(spyCreateModal).toHaveBeenCalledTimes(1);
         expect(widgetPickCtrl.modal.show).toHaveBeenCalled();
-        expect(header.find('.tiny_ibwidgethub-blink').hasClass('d-none')).toBe(true);
+        expect(header.find('.tiny_widgethub-blink').hasClass('d-none')).toBe(true);
 
         // Now that modal is created 
         // Set selection mode
@@ -318,7 +324,7 @@ describe("WidgetPickerCtrl", () => {
         spyCreateModal.mockReset();
         expect(spyCreateModal).toHaveBeenCalledTimes(0);
         expect(widgetPickCtrl.modal.show).toHaveBeenCalled();
-        expect(header.find('.tiny_ibwidgethub-blink').hasClass('d-none')).toBe(false);
+        expect(header.find('.tiny_widgethub-blink').hasClass('d-none')).toBe(false);
     });
 
     test("handlePickModalClick", async () => {
@@ -337,8 +343,8 @@ describe("WidgetPickerCtrl", () => {
         // Expect the modal contains 2 buttons in 2 categories
         const modal = widgetPickCtrl.modal;
         expect(modal).toBeTruthy();
-        expect(modal.body.find('.tiny_ibwidgethub-category')).toHaveLength(2);
-        expect(modal.body.find('.tiny_ibwidgethub-btn-group')).toHaveLength(2);
+        expect(modal.body.find('.tiny_widgethub-category')).toHaveLength(2);
+        expect(modal.body.find('.tiny_widgethub-btn-group')).toHaveLength(2);
         // It must contain one recently used widget
         expect(widgetPickCtrl.isSelectMode()).toBe(false);
         expect(modal.body.find('a[data-insert="recent"]')).toHaveLength(1);
@@ -346,7 +352,7 @@ describe("WidgetPickerCtrl", () => {
         // Trigger click on first button
         // Not usable in scope
         widget1.isUsableInScope = () => false;
-        modal.body.find('.tiny_ibwidgethub-btn-group button').first().trigger('click');
+        modal.body.find('.tiny_widgethub-btn-group button').first().trigger('click');
         await wait(500);
         expect(modal.hide).not.toHaveBeenCalled();
         expect(modal.destroy).not.toHaveBeenCalled();
@@ -356,7 +362,7 @@ describe("WidgetPickerCtrl", () => {
         // It is usable in scope
         widget1.isUsableInScope = () => true;
         mockEditor.windowManager.confirm.mockReset();
-        modal.body.find('.tiny_ibwidgethub-btn-group button').first().trigger('click');
+        modal.body.find('.tiny_widgethub-btn-group button').first().trigger('click');
         expect(modal.hide).toHaveBeenCalled();
         expect(modal.destroy).not.toHaveBeenCalled();
         expect(mockEditor.windowManager.confirm).not.toHaveBeenCalled();

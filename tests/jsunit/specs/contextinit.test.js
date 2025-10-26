@@ -1,5 +1,11 @@
 /**
  * @jest-environment jsdom
+ *
+ * Tiny WidgetHub plugin.
+ *
+ * @module      tiny_widgethub/plugin
+ * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 // Mock virtual modules
 require('./module.mocks')(jest);
@@ -40,7 +46,7 @@ describe('ContextInit', () => {
 
     it('creates', () => {
         const editor = {
-            id: 1,
+            id: 'editor1',
             ui: {
                 registry: {
                     addIcon: jest.fn(),
@@ -54,7 +60,14 @@ describe('ContextInit', () => {
                 }
             },
             options: {
-                get: () => {
+                get: (/** @type {string} */ key) => {
+                    if (key === 'user') {
+                        return  {
+                            id: 1,
+                            username: 'joe',
+                            roles: ['teacher']
+                        };
+                    }
                     return [rawSnpt];
                 }
             }

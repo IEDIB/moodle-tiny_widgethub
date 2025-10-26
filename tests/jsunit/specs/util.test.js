@@ -1,5 +1,11 @@
 /**
  * @jest-environment jsdom
+ *
+ * Tiny WidgetHub plugin.
+ *
+ * @module      tiny_widgethub/plugin
+ * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 require('./module.mocks')(jest);
 const U = require("../src/util");
@@ -17,6 +23,16 @@ const wait = function(delay) {
 }
 
 describe('utils module tests', () => {
+    /** @type {any} */
+    let consoleSpy;
+
+    beforeEach(() => {
+        consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    });
+
+    afterEach(() => {
+        consoleSpy.mockRestore();
+    });
 
     test('genID starts with alpha-numeric', () => {
         const g = U.genID();
@@ -79,7 +95,7 @@ describe('utils module tests', () => {
         res = U.evalInContext(scope, "");
         expect(res).toBe(undefined);
         const f = () => U.evalInContext(scope, "7*h");
-        expect(f).toThrowError();
+        expect(f).toThrow();
         res = U.evalInContext({}, "5*4-8");
         expect(res).toBe(12);
     });
@@ -302,7 +318,7 @@ describe('utils module tests', () => {
 
         ["attr('data-locked')", `<span data-locked="false"></span>`, "false"],
         ["attr('data-locked', null, 'number')", `<span data-locked="4"></span>`, 4],
-        ["attr('data-locked')", `<span></span>`, undefined],
+        ["attr('data-locked')", `<span></span>`, null],
 
         ["attrRegex('role=channel(.*)')", `<span role="channel1234"></span>`, '1234'],
         ["attrRegex('role=channel(.*)', null, 'number')", `<span role="channel1234"></span>`, 1234],
@@ -323,34 +339,45 @@ describe('utils module tests', () => {
             `<span class="iedib-background-img" style="background-image:url(http://localhost:4545/pluginfile.php/19/mod_page/content/5/icon.png); padding: 10px; min-height: 40px; background-repeat: no-repeat; background-size: cover; background-position: 50% 50%;">
             Quina probabilitat tinc de guanyar els jocs d'atzar?</span>`, 'http://localhost:4545/pluginfile.php/19/mod_page/content/5/icon.png']
     ])('Create GET binding %s on %s returns %s', (bindDef, elemDef, result) => {
-        let $e = jQuery(elemDef)
+        let elem = U.htmlToElement(document, elemDef)
         // Binding on the same element
-        let binding = U.createBinding(bindDef, $e);
+        let binding = U.createBinding(bindDef, elem);
         expect(binding).not.toBeNull();
         expect(binding?.getValue()).toBe(result);
 
         // Binding on a child
-        $e = jQuery(`<div class="container">${elemDef}</div>`);
+        elem = U.htmlToElement(document, `<div class="container">${elemDef}</div>`);
         if (bindDef.indexOf("null") > 0) {
             bindDef = bindDef.replace("null", "'span'");
         } else {
             bindDef = bindDef.substring(0, bindDef.length - 1) + ", 'span')";
         }
-        binding = U.createBinding(bindDef, $e);
+        binding = U.createBinding(bindDef, elem);
         expect(binding).not.toBeNull();
         expect(binding?.getValue()).toBe(result);
     });
 
     test('Testing class regex', () => {
         let [bindDef, elemDef, result] = ["classRegex('alert-(.*)')", `<div class="m-2 alert alert-secondary fade show" role="alert"><div class="alert-content"><p>Lorem ipsum.</p></div></div>`, 'secondary'];
-        let $e = jQuery(elemDef);
-        expect($e.length).toBe(1);
+        let elem = U.htmlToElement(document, elemDef);
+        expect(elem).toBeTruthy();
         // Binding on the same element
-        let binding = U.createBinding(bindDef, $e);
+        let binding = U.createBinding(bindDef, elem);
         expect(binding).not.toBeNull();
         expect(binding?.getValue()).toBe(result);
     });
 
+    /**
+     * 
+     * @param {string | undefined} html 
+     * @returns {string}
+     */
+    function normalizeStyle(html) {
+       return html?.replace(/\s*:\s*/g, ':')
+        .replace(/\s*;\s*/g, ';')
+        .replace(/&quot;/g, '"')
+        .replace(/url\((['"]?)(.*?)\1\)/g, 'url($2)') || '';
+    }
 
     test.each([
         ["hasClass('editable')", `<span class="a editable"></span>`, true, `<span class="a editable"></span>`],
@@ -404,32 +431,32 @@ describe('utils module tests', () => {
         ["styleRegex('width: (.*)px', null, 'number')", `<span style="width: 100px;"></span>`, 700, `<span style="width: 700px;" data-mce-style="width: 700px;"></span>`],
 
         [`styleRegex("background-image:url\\\\(['\\"]?([^'\\")]*)['\\"]?\\\\)")`, 
-            `<span class="iedib-background-img" style="background-image:url('http://localhost:4545/pluginfile.php/19/mod_page/content/5/icon.png'); padding: 10px;">
+            `<span class="iedib-background-img" style="background-image:url(http://localhost:4545/pluginfile.php/19/mod_page/content/5/icon.png); padding: 10px;">
             Quina probabilitat tinc de guanyar els jocs d'atzar?</span>`, 
             'https://iedib.net/example.png', 
-            `<span class="iedib-background-img" style="background-image: url(https://iedib.net/example.png); padding: 10px;" data-mce-style="background-image: url(https://iedib.net/example.png); padding: 10px;">
+            `<span class="iedib-background-img" style="background-image: url(&quot;https://iedib.net/example.png&quot;); padding: 10px;" data-mce-style="background-image: url(&quot;https://iedib.net/example.png&quot;); padding: 10px;">
             Quina probabilitat tinc de guanyar els jocs d'atzar?</span>`]
               
 
     ])('Create SET binding %s on %s. If sets value %s yields %s', (bindDef, elemDef, value, result) => {
-        let $e = jQuery(elemDef)
+        let elem = U.htmlToElement(document, elemDef)
         // Binding on the same element
-        let binding = U.createBinding(bindDef, $e);
+        let binding = U.createBinding(bindDef, elem);
         expect(binding).not.toBeNull();
         binding?.setValue(value)
-        expect($e.prop('outerHTML')).toBe(result);
+        expect(normalizeStyle(elem.outerHTML)).toEqual(normalizeStyle(result));
 
         // Binding on a child
-        $e = jQuery(`<div class="container">${elemDef}</div>`);
+        const e = U.htmlToElement(document, `<div class="container">${elemDef}</div>`);
         if (bindDef.indexOf("null") > 0) {
             bindDef = bindDef.replace("null", "'span'");
         } else {
             bindDef = bindDef.substring(0, bindDef.length - 1) + ", 'span')";
         }
-        binding = U.createBinding(bindDef, $e);
+        binding = U.createBinding(bindDef, e);
         expect(binding).not.toBeNull();
         binding?.setValue(value)
-        expect($e.find("span").prop('outerHTML')).toBe(result);
+        expect(normalizeStyle(e.querySelector("span")?.outerHTML)).toBe(normalizeStyle(result));
     });
 
     test('User defined binding', () => {
@@ -524,4 +551,92 @@ describe('utils module tests', () => {
         U.toggleClass(elem, 'cl1', 'cl3');
         expect([...elem.classList].sort()).toStrictEqual(['cl2', 'cl4']);        
     });
+
+    test.each([
+        // Basic comparisons
+        ["1.2.3", "1.2.3", true, false],
+        ["1.2.3", "= 1.2.3", true, false],
+        ["1.2.3", "> 1.2.2", true, false],
+        ["1.2.3", ">= 1.2.3", true, false],
+        ["1.2.3", "< 1.2.4", true, false],
+        ["1.2.3", "<= 1.2.3", true, false],
+        ["1.2.3", "< 1.2.3", false, false],
+        ["1.2.3", "> 1.2.3", false, false],
+        ["1.2.3", "= 1.2.2", false, false],
+
+        // Missing minor or patch
+        ["1", "= 1.0.0", true, false],
+        ["1", ">= 0.9.9", true, false],
+        ["1.2", "= 1.2.0", true, false],
+        ["1.2", "< 1.2.1", true, false],
+        ["1.2.3", "> 1.1", true, false],
+        ["2", "<= 2.0.0", true, false],
+
+        // Spaces around numbers/operators
+        [" 1.2.3 ", " = 1.2.3 ", true, false],
+        ["1.2.3", ">= 1.2", true, false],
+        ["1.2.3", " < 2.0.0 ", true, false],
+        [" 1.2.3", " >1.2.4", false, false],
+        ["1.2.3", "= 1.2.3 ", true, false],
+        ["1 . 2 . 3", "= 1.2.3", true, false],
+
+        // Edge cases
+        ["0.0.0", "= 0", true, false],
+        ["0.0.1", "> 0", true, false],
+        ["0.1", "< 0.2.0", true, false],
+        ["1.0.0", "< 2", true, false],
+        ["2.0.0", "> 1.9.9", true, false],
+
+        // Invalid / empty / null / undefined
+        ["1.2.3", ">> 1.2.3", true, true],
+        ["1.2.3", "=> 1.2.3", true, true],
+        ["1.2.3", "1..2", true, true],
+        ["1.2.3", ">= abc", true, true],
+        ["1.2.3", "", true, false],
+        ["1.2.3", null, true, false],
+        ["1.2.3", undefined, true, false],
+    ])(
+        'compareVersion(%s, %s)',
+        (current, condition, expected, shouldThrow) => {
+            expect(U.compareVersion(current, condition)).toBe(expected);
+            if (shouldThrow) {
+                expect(consoleSpy).toHaveBeenCalled();
+            } 
+            }
+    );
+
+
+    test("removeRndFromCtx should remove parameters associated to $RND", () => {
+        /** @type {*} */
+        const parameters = [
+            {name: 'q', value: ''},
+            {name: 'id', value: '$RND'},
+            {name: 'effect', value: 'none'},
+        ];
+        const ctx = {
+            q: 'foo value',
+            id: 'd24523fvvv_34',
+            effect: 'fade'
+        }
+        expect(U.removeRndFromCtx(ctx, parameters)).toStrictEqual({ 
+            q: 'foo value',
+            effect: 'fade'}
+        );
+    });
+
+    test("removeRndFromCtx should not remove any parameters", () => {
+        /** @type {*} */
+        const parameters = [
+            {name: 'q', value: ''},
+            {name: 'id', value: 'RND'},
+            {name: 'effect', value: 'none'},
+        ];
+        const ctx = {
+            q: 'foo value',
+            id: 'd24523fvvv_34',
+            effect: 'fade'
+        }
+        expect(U.removeRndFromCtx(ctx, parameters)).toStrictEqual(ctx);
+    });
+
 });
