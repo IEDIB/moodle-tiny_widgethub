@@ -21,29 +21,15 @@
  * @copyright   2024 Josep Mulet Pol <pep.mulet@gmail.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+import Common from '../common';
 import {registerMenuItemProvider} from "../extension";
 import {getUserStorage} from "../service/userstorage_service";
 import {convertInt, findVariableByName, removeStyleMCE, setStyleMCE} from "../util";
 import * as Action from './contextactions';
+// eslint-disable-next-line camelcase
+import {get_strings} from "core/str";
 
-const SUPPORTED_LANGS = [
-    {iso: 'ca', title: 'Català'},
-    {iso: 'es', title: 'Castellà'},
-    {iso: 'en', title: 'English'},
-    {iso: 'fr', title: 'Francès'},
-    {iso: 'de', title: 'Alemany'},
-];
-
-const AVAILABLE_EFFECTS = [
-    {name: 'zoom', title: 'Zoom'},
-    {name: 'lightbox', title: 'Pantalla completa'},
-];
-
-const SUPPORTED_SIZES = [
-    {v: 'gran', l: 'Gran'},
-    {v: 'mitjana', l: 'Mitjana'},
-    {v: 'petita', l: 'Petita'},
-];
+const {component} = Common;
 
 /**
  * @typedef {{type: string, text: string, icon?: string, onAction: (api?: *) => void}} MenuItem
@@ -52,9 +38,70 @@ const SUPPORTED_SIZES = [
 
 /**
  * @param {import("../contextinit").ItemMenuContext} ctx
- * @returns {UserDefinedItem[]}
+ * @returns {Promise<UserDefinedItem[]>}
  **/
-function provider(ctx) {
+async function provider(ctx) {
+    // Get translations
+    const [
+        strAccept, strAdd, strBeautified, strBehavior, strBig, strCancel, strChooseBackground, strChooseColor,
+        strDependent, strFooter, strFullscreen, strHeader, strImageEffects, strIndependent,
+        strMaxWidthpx, strMedium, strMinusOneNoLimit, strRemove, strRemoveBackground, strResponsivity,
+        strRow, strSmall, strStartsAt, strStartsNumerationAt, strTableWidth, strToBootstrapTable,
+        strToExample2Rows, strToExampleSimple, strToList, strToOneCol, strToPredefinedTable, strToWidgetImage,
+    ] = await get_strings([
+            'accept',
+            'add',
+            'beautified',
+            'behavior',
+            'big',
+            'cancel',
+            'choosebackground',
+            'choosecolor',
+            'dependent',
+            'footer',
+            'fullscreen',
+            'header',
+            'imageeffects',
+            'independent',
+            'maxwidthpx',
+            'medium',
+            'minusonenolimit',
+            'remove',
+            'removebackground',
+            'responsivity',
+            'row',
+            'small',
+            'startsat',
+            'startsnumerationat',
+            'tablewidth',
+            'tobootstraptable',
+            'toexamplerows',
+            'toexamplesimple',
+            'tolist',
+            'toonecol',
+            'topredefinedtable',
+            'towidgetimage',
+        ].map(key => ({key, component})));
+
+    const SUPPORTED_LANGS = [
+        {iso: 'ca', title: 'Català'},
+        {iso: 'es', title: 'Castellà'},
+        {iso: 'en', title: 'English'},
+        {iso: 'fr', title: 'Francès'},
+        {iso: 'de', title: 'Alemany'},
+    ];
+
+    const AVAILABLE_EFFECTS = [
+        {name: 'zoom', title: 'Zoom'},
+        {name: 'lightbox', title: strFullscreen},
+    ];
+
+    const SUPPORTED_SIZES = [
+        {v: 'gran', l: strBig},
+        {v: 'mitjana', l: strMedium},
+        {v: 'petita', l: strSmall},
+    ];
+
     /**
      * @param {string} title
      * @param {string} label
@@ -65,20 +112,20 @@ function provider(ctx) {
         ctx.editor?.windowManager.open({
             title,
             body: {
-              type: 'panel',
-              items: [
-                {
-                  type: 'input',
-                  name: 'value',
-                  label: label
-                }
-              ]
+                type: 'panel',
+                items: [
+                    {
+                        type: 'input',
+                        name: 'value',
+                        label: label
+                    }
+                ]
             },
             buttons: [
-              {
-                type: 'submit',
-                text: 'Acceptar'
-              }
+                {
+                    type: 'submit',
+                    text: strAccept
+                }
             ],
             initialData: {
                 value: initialValue
@@ -93,7 +140,7 @@ function provider(ctx) {
     const imageEffectsNestedMenu = {
         name: 'imageEffects',
         condition: 'imatge',
-        title: 'Efectes d\'imatge',
+        title: strImageEffects,
         subMenuItems: () => {
             const elem = ctx.path?.elem;
             if (!elem) {
@@ -109,7 +156,7 @@ function provider(ctx) {
                 return [{
                     type: 'menuitem',
                     icon: 'remove',
-                    text: 'Treure',
+                    text: strRemove,
                     onAction: Action.removeImageEffectsAction.bind({ctx})
                 }];
             }
@@ -122,23 +169,23 @@ function provider(ctx) {
     const imageSwitchToSnippet = {
         name: 'imageSwitchToSnippet',
         condition: () => {
-           // We are not inside a widget image and the
-           // selectedElement right clicked must be a tag img
-           const key = ctx.path?.widget?.key;
-           const elem = ctx.path?.selectedElement;
-           const isImg = (
+            // We are not inside a widget image and the
+            // selectedElement right clicked must be a tag img
+            const key = ctx.path?.widget?.key;
+            const elem = ctx.path?.selectedElement;
+            const isImg = (
                 key !== undefined &&
                 key !== 'imatge' &&
                 key !== 'grid-imatge' &&
                 elem?.tagName === 'IMG' &&
                 // Do not take into account images in ib-card
                 !elem?.classList?.contains('card-img-top'));
-           if (ctx.path && isImg && elem) {
+            if (ctx.path && isImg && elem) {
                 ctx.path.targetElement = elem;
-           }
-           return isImg;
+            }
+            return isImg;
         },
-        title: 'Convertir a snippet imatge',
+        title: strToWidgetImage,
         onAction: Action.imageSwitchToSnippetAction.bind({ctx})
     };
 
@@ -227,16 +274,16 @@ function provider(ctx) {
             /** @type {*} */
             const menuItems = [{
                 type: 'menuitem',
-                text: "A una columna",
+                text: strToOneCol,
                 onAction: Action.changeColumnWidth.bind({ctx, colSpan: 0})
             }];
 
             const firstDiv = elem.querySelector('div:first-child');
             const firstSpan = firstDiv
-            ? (firstDiv.className?.split(' ') ?? [])
-                .filter(c => c.startsWith('span'))
-                .map(c => c.replace('span', ''))[0]
-            : undefined;
+                ? (firstDiv.className?.split(' ') ?? [])
+                    .filter(c => c.startsWith('span'))
+                    .map(c => c.replace('span', ''))[0]
+                : undefined;
 
             for (let i = 2; i < 12; i = i + 2) {
                 const tpc = parseInt((100 * i / 12.0).toFixed(0));
@@ -259,7 +306,7 @@ function provider(ctx) {
     const switchBoxRowsExample = {
         name: 'switchBoxRowsExample',
         condition: 'capsa-exemple-cols',
-        title: 'Convertir a exemple 2 files',
+        title: strToExample2Rows,
         onAction: Action.switchBoxRowsExampleAction.bind({ctx})
     };
 
@@ -269,7 +316,7 @@ function provider(ctx) {
     const switchBoxSimpleExample = {
         name: 'switchBoxSimpleExample',
         condition: 'capsa-exemple-rows',
-        title: 'Convertir a exemple simple',
+        title: strToExampleSimple,
         onAction: Action.switchBoxSimpleExampleAction.bind({ctx})
     };
 
@@ -295,7 +342,7 @@ function provider(ctx) {
             return [
                 {
                     type: 'menuitem',
-                    text: 'Embellit',
+                    text: strBeautified,
                     icon: isBeauty ? 'checkmark' : undefined,
                     onAction: () => {
                         // Toggle class
@@ -316,25 +363,25 @@ function provider(ctx) {
                 },
                 {
                     type: 'menuitem',
-                    text: 'Comença a',
+                    text: strStartsAt,
                     onAction: () => {
                         // Get the start property of the list
                         const startAt1 = ctx.path?.targetElement?.getAttribute("start") ?? "1";
                         // Open input dialog, set the value and retrieve new value
-                        openInputDialog('Comença la numeració a ...', '', startAt1,
-                        (/** @type {*} */ api) => {
-                            // TODO: Opened issue: Closing a tiny dialog -- afects the main bootstap dialog
-                            api.close();
-                            const target = ctx.path?.targetElement;
-                            if (!target || !(target instanceof HTMLElement)) {
-                                return;
-                            }
-                            // Change the number at which start
-                            const startAt2 = api.getData().value ?? "1";
-                            const beginAt3 = convertInt(startAt2, 1);
-                            target.setAttribute("start", beginAt3 + '');
-                            setStyleMCE(target, "counter-reset", "iedibfalist-counter " + (beginAt3 - 1));
-                        });
+                        openInputDialog(strStartsNumerationAt + ' ...', '', startAt1,
+                            (/** @type {*} */ api) => {
+                                // TODO: Opened issue: Closing a tiny dialog -- afects the main bootstap dialog
+                                api.close();
+                                const target = ctx.path?.targetElement;
+                                if (!target || !(target instanceof HTMLElement)) {
+                                    return;
+                                }
+                                // Change the number at which start
+                                const startAt2 = api.getData().value ?? "1";
+                                const beginAt3 = convertInt(startAt2, 1);
+                                target.setAttribute("start", beginAt3 + '');
+                                setStyleMCE(target, "counter-reset", "iedibfalist-counter " + (beginAt3 - 1));
+                            });
                     },
                 }
             ];
@@ -344,24 +391,24 @@ function provider(ctx) {
     /**
      * @type {UserDefinedItem}
      */
-   const accordionIndependentBehaviorNestedMenu = {
+    const accordionIndependentBehaviorNestedMenu = {
         name: 'accordionIndependentBehavior',
         condition: 'desplegable2',
-        title: 'Comportament',
+        title: strBehavior,
         subMenuItems: () => {
             const target = ctx.path?.elem;
             if (!target) {
                 return '';
             }
             // Is Accordion behavior?
-           const accordionBody = target.querySelector("div.accordion-body");
-           const isDependentBehavior =
+            const accordionBody = target.querySelector("div.accordion-body");
+            const isDependentBehavior =
                 ((accordionBody?.getAttribute("data-parent") ??
                     accordionBody?.getAttribute("data-bs-parent")) ?? null) !== null;
 
             return [false, true].map(opt => ({
                 type: 'menuitem',
-                text: opt ? 'Independents' : 'Dependents',
+                text: opt ? strIndependent : strDependent,
                 icon: isDependentBehavior === opt ? undefined : 'checkmark',
                 onAction: Action.setAccordionBehavior.bind({ctx, isDependentBehavior: opt})
             }));
@@ -375,7 +422,7 @@ function provider(ctx) {
     const tablesMaxWidthMenu = {
         name: 'tablesMaxWidthMenu',
         condition: 'taula-predefinida,taula-bs',
-        title: 'Amplada taula',
+        title: strTableWidth,
         onAction: () => {
             const target = ctx.path?.elem;
             if (!target || !(target instanceof HTMLElement)) {
@@ -385,20 +432,20 @@ function provider(ctx) {
             const startAt1 = (target.style.getPropertyValue("max-width") || "-1")
                 .replace("px", "").replace("none", "-1");
             // Open input dialog, set the value and retrieve new value
-            openInputDialog('Amplada màxima en (px)', '-1=sense limit', startAt1,
-            (/** @type {*} */ api) => {
-                const target = ctx.path?.elem;
-                if (!target || !(target instanceof HTMLElement)) {
-                    return;
-                }
-                const maxwidth = convertInt(api.getData().value.replace("px", "").trim(), 0);
-                if (maxwidth > 0) {
-                    setStyleMCE(target, "max-width", maxwidth + "px");
-                } else {
-                    removeStyleMCE(target, "max-width");
-                }
-                api.close();
-            });
+            openInputDialog(strMaxWidthpx, strMinusOneNoLimit, startAt1,
+                (/** @type {*} */ api) => {
+                    const target = ctx.path?.elem;
+                    if (!target || !(target instanceof HTMLElement)) {
+                        return;
+                    }
+                    const maxwidth = convertInt(api.getData().value.replace("px", "").trim(), 0);
+                    if (maxwidth > 0) {
+                        setStyleMCE(target, "max-width", maxwidth + "px");
+                    } else {
+                        removeStyleMCE(target, "max-width");
+                    }
+                    api.close();
+                });
         },
     };
 
@@ -408,7 +455,7 @@ function provider(ctx) {
     const convertToBsTableMenu = {
         name: 'convertToBsTableMenu',
         condition: 'taula-predefinida',
-        title: 'Convertir a taula Bootstrap',
+        title: strToBootstrapTable,
         onAction: Action.convert2BootstrapTable.bind({ctx}),
     };
 
@@ -418,17 +465,17 @@ function provider(ctx) {
     const convertToPredefinedTableMenu = {
         name: 'convertToPredefinedTableMenu',
         condition: 'taula-bs',
-        title: 'Convertir a taula predefinida',
+        title: strToPredefinedTable,
         onAction: Action.convert2PrefefinedTable.bind({ctx}),
     };
 
-     /**
-      * @type {UserDefinedItem}
-      */
-     const responsivenessNestedMenu = {
+    /**
+     * @type {UserDefinedItem}
+     */
+    const responsivenessNestedMenu = {
         name: 'responsivenessNestedMenu',
         condition: 'taula-bs',
-        title: 'Responsivitat',
+        title: strResponsivity,
         subMenuItems: () => {
             const target = ctx.path?.elem;
             if (!target) {
@@ -439,7 +486,7 @@ function provider(ctx) {
 
             return [{
                 type: 'menuitem',
-                text: isResponsive ? 'Treure' : 'Afegir',
+                text: isResponsive ? strRemove : strAdd,
                 onAction: Action.toggleBootstapTableResponsiveness.bind({ctx})
             }];
         }
@@ -449,22 +496,22 @@ function provider(ctx) {
      * @type {UserDefinedItem}
      */
     const tablesHeaderNestedMenu = {
-            name: 'tablesHeaderNestedMenu',
-            condition: 'taula-predefinida,taula-bs',
-            title: 'Capçalera',
-            subMenuItems: () => {
-                const target = ctx.path?.elem;
-                if (!target) {
-                    return '';
-                }
-                const hasHeader = target.querySelector('thead') !== null;
-
-                return [{
-                    type: 'menuitem',
-                    text: hasHeader ? 'Treure' : 'Afegir',
-                    onAction: Action.toggleTableHeader.bind({ctx})
-                }];
+        name: 'tablesHeaderNestedMenu',
+        condition: 'taula-predefinida,taula-bs',
+        title: strHeader,
+        subMenuItems: () => {
+            const target = ctx.path?.elem;
+            if (!target) {
+                return '';
             }
+            const hasHeader = target.querySelector('thead') !== null;
+
+            return [{
+                type: 'menuitem',
+                text: hasHeader ? strRemove : strAdd,
+                onAction: Action.toggleTableHeader.bind({ctx})
+            }];
+        }
     };
 
     /**
@@ -473,7 +520,7 @@ function provider(ctx) {
     const tablesFooterNestedMenu = {
         name: 'tablesFooterNestedMenu',
         condition: 'taula-predefinida,taula-bs',
-        title: 'Peu de taula',
+        title: strFooter,
         subMenuItems: () => {
             const target = ctx.path?.elem;
             if (!target) {
@@ -483,19 +530,19 @@ function provider(ctx) {
 
             return [{
                 type: 'menuitem',
-                text: hasFooter ? 'Treure' : 'Afegir',
+                text: hasFooter ? strRemove : strAdd,
                 onAction: Action.toggleTableFooter.bind({ctx})
             }];
         }
     };
 
-     /**
-      * @type {UserDefinedItem}
-      */
-     const convertDropdownToList = {
+    /**
+     * @type {UserDefinedItem}
+     */
+    const convertDropdownToList = {
         name: 'convertDropdownToList',
         condition: 'desplegable2',
-        title: 'Convertir a llista',
+        title: strToList,
         onAction: Action.convertDropdownToList.bind({ctx}),
     };
 
@@ -504,7 +551,7 @@ function provider(ctx) {
      * @param {import("../plugin").TinyMCE} editor
      * @param {(color: string) => void} cbAccept
      */
-     function colorPicker(editor, cbAccept) {
+    function colorPicker(editor, cbAccept) {
         // Get last value from localStorage or white
         const storageSrv = getUserStorage(editor);
         const iniValue = storageSrv.getFromLocal('pickercolor', '#FFFFFF');
@@ -514,13 +561,13 @@ function provider(ctx) {
         let handleClick;
 
         editor.windowManager.open({
-            title: 'Tria un color',
+            title: strChooseColor,
             body: {
                 type: 'panel',
                 items: [
-                {
-                    type: 'htmlpanel',
-                    html: `<input type="color" id="tiny_ibwidgethub_colorinput" value="${iniValue}" style="width:100%; height:50px;" />
+                    {
+                        type: 'htmlpanel',
+                        html: `<input type="color" id="tiny_ibwidgethub_colorinput" value="${iniValue}" style="width:100%; height:50px;" />
                     <div id="tiny_ibwidgethub_preset-colors" style="margin: 8px;">
                         <button type="button" data-color="#BFEDD2" style="background:#BFEDD2; width:24px; height:24px; border:none; margin-right:4px;"></button>
                         <button type="button" data-color="#FBEEB8" style="background:#FBEEB8; width:24px; height:24px; border:none; margin-right:4px;"></button>
@@ -530,26 +577,26 @@ function provider(ctx) {
                         <button type="button" data-color="#ECF0F1" style="background:#ECF0F1; width:24px; height:24px; border:none; margin-right:4px"></button>
                         <button type="button" data-color="#CED4D9" style="background:#CED4D9; width:24px; height:24px; border:none;"></button>
                     </div>`
-                }
+                    }
                 ]
             },
             buttons: [
                 {
-                type: 'cancel',
-                text: 'Cancel·la'
+                    type: 'cancel',
+                    text: strCancel
                 },
                 {
-                type: 'submit',
-                text: 'Aplica',
-                primary: true
+                    type: 'submit',
+                    text: strAccept,
+                    primary: true
                 }
             ],
             onSubmit: (/** @type{*} **/ api) => {
                 /** @type {any} */
                 const control = document.getElementById('tiny_ibwidgethub_colorinput');
                 if (control?.value) {
-                   cbAccept?.(control.value);
-                   storageSrv.setToLocal('pickercolor', control.value, true);
+                    cbAccept?.(control.value);
+                    storageSrv.setToLocal('pickercolor', control.value, true);
                 }
                 api.close();
                 if (container && handleClick) {
@@ -563,15 +610,15 @@ function provider(ctx) {
             container = document.getElementById('tiny_ibwidgethub_preset-colors');
             if (container) {
                 handleClick = (/** @type {*} */ e) => {
-                     const target = e.target.closest('button');
-                     if (target) {
+                    const target = e.target.closest('button');
+                    if (target) {
                         const color = target.dataset.color;
                         /** @type{any} */
                         const input = document.getElementById('tiny_ibwidgethub_colorinput');
                         if (input) {
-                             input.value = color;
+                            input.value = color;
                         }
-                     }
+                    }
                 };
                 container.addEventListener('click', handleClick);
             }
@@ -595,7 +642,7 @@ function provider(ctx) {
             const menus = [
                 {
                     type: 'menuitem',
-                    text: 'Triar fons',
+                    text: strChooseBackground,
                     onAction: () => {
                         colorPicker(ctx.editor,
                             (/** @type {string} */ color) => {
@@ -609,7 +656,7 @@ function provider(ctx) {
             if (cell.style.backgroundColor) {
                 menus.push({
                     type: 'menuitem',
-                    text: 'Eliminar fons',
+                    text: strRemoveBackground,
                     onAction: () => {
                         removeStyleMCE(cell, 'background-color');
                     }
@@ -629,7 +676,7 @@ function provider(ctx) {
         condition: () => {
             return !!ctx.path?.selectedElement?.closest("table");
         },
-        title: 'Fila',
+        title: strRow,
         subMenuItems: () => {
             const row = ctx.path?.selectedElement?.closest('tr');
             if (!row || !(row instanceof HTMLElement)) {
@@ -638,8 +685,8 @@ function provider(ctx) {
             const menus = [
                 {
                     type: 'menuitem',
-                    text: 'Triar fons',
-                     onAction: () => {
+                    text: strChooseBackground,
+                    onAction: () => {
                         colorPicker(ctx.editor,
                             (/** @type {string} */ color) => {
                                 setStyleMCE(row, 'background-color', color);
@@ -651,7 +698,7 @@ function provider(ctx) {
             if (row.style.backgroundColor) {
                 menus.push({
                     type: 'menuitem',
-                    text: 'Eliminar fons',
+                    text: strRemoveBackground,
                     onAction: () => {
                         removeStyleMCE(row, 'background-color');
                     }
