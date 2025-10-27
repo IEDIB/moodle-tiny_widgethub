@@ -444,7 +444,7 @@ describe('utils module tests', () => {
         let binding = U.createBinding(bindDef, elem);
         expect(binding).not.toBeNull();
         binding?.setValue(value)
-        expect(normalizeStyle(elem.outerHTML)).toEqual(normalizeStyle(result));
+        expect(normalizeStyle(elem.outerHTML)).toBe(normalizeStyle(result));
 
         // Binding on a child
         const e = U.htmlToElement(document, `<div class="container">${elemDef}</div>`);

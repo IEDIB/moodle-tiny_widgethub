@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template tiny_widgethub/modal
+    @template tiny_ibwidgethub/modal
 
     Modal to manage components within the Tiny Editor.
 
@@ -72,13 +72,13 @@
 }}
 {{< core/modal }}
     {{$title}}
-        {{#str}} dialogtitle, tiny_widgethub {{/str}}
+        {{#str}} dialogtitle, tiny_ibwidgethub {{/str}}
     {{/title}}
     {{$body}}
         <div class="tiny_widgethub-container">
            <div class="tiny_widgethub-top input-group">
-                <input type="text" name="widgethub_search_textfield" class="form-control" placeholder="{{#str}} wsearch, tiny_widgethub {{/str}}" style="width:80%" value="{{searchText}}">
-                <button id="widget-clearfilter-btn{{rid}}" class="ml-1 tiny_widgethub-btn tiny_widgethub-btn-sm tiny_widgethub-btn-secondary" title="{{#str}} rmfilter, tiny_widgethub {{/str}}">
+                <input type="text" name="widgethub_search_textfield" class="form-control" placeholder="{{#str}} wsearch, tiny_ibwidgethub {{/str}}" style="width:80%" value="{{searchText}}">
+                <button id="widget-clearfilter-btn{{rid}}" class="ml-1 tiny_widgethub-btn tiny_widgethub-btn-sm tiny_widgethub-btn-secondary" title="{{#str}} rmfilter, tiny_ibwidgethub {{/str}}">
                     <span class="twh-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
                     </span>
@@ -103,7 +103,7 @@
                 <div class="col-md-8 pl-md-0 tiny_widgethub-categorycontainer"
                      data-spy="scroll" data-bs-spy="scroll" data-target="#{{rid}}_list" data-bs-target="#{{rid}}_list" data-offset="0" data-bs-offset="0">
                 
-                    <div class="tiny_widgethub-emptylist d-none"><span>{{#str}} emptylist, tiny_widgethub {{/str}}</span></div>
+                    <div class="tiny_widgethub-emptylist d-none"><span>{{#str}} emptylist, tiny_ibwidgethub {{/str}}</span></div>
                     {{#categories}}
                     <div class="tiny_widgethub-category{{#hidden}} d-none{{/hidden}}"
                         style="border: 2px solid hsl({{color}}, 40%);background: hsl({{color}}, 96%);" id="{{rid}}_{{name}}">
@@ -129,7 +129,7 @@
                                         </span>{{/disabled}} {{widgetname}}
                                 </button>
                                 {{#showquickbuttons}}
-                                <button class="col-2 tiny_widgethub-btn tiny_widgethub-btn-outline-primary" data-insert="true" title="{{#str}} directinsert, tiny_widgethub {{/str}}">
+                                <button class="col-2 tiny_widgethub-btn tiny_widgethub-btn-outline-primary" data-insert="true" title="{{#str}} directinsert, tiny_ibwidgethub {{/str}}">
                                     <span class="twh-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M0 256L28.5 28c2-16 15.6-28 31.8-28H228.9c15 0 27.1 12.1 27.1 27.1c0 3.2-.6 6.5-1.7 9.5L208 160H347.3c20.2 0 36.7 16.4 36.7 36.7c0 7.4-2.2 14.6-6.4 20.7l-192.2 281c-5.9 8.6-15.6 13.7-25.9 13.7h-2.9c-15.7 0-28.5-12.8-28.5-28.5c0-2.3 .3-4.6 .9-6.9L176 288H32c-17.7 0-32-14.3-32-32z"/></svg>
                                     </span>
