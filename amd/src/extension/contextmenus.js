@@ -551,8 +551,9 @@ export async function provider(ctx) {
         condition: 'taula-predefinida,taula-bs',
         title: i18n.tablewidth,
         onAction: () => {
+            /** @type {any} */
             const target = ctx.path?.elem;
-            if (!target || !(target instanceof HTMLElement)) {
+            if (!target || target.nodeType !== 1) {
                 return;
             }
             // Get the initial width
@@ -561,8 +562,9 @@ export async function provider(ctx) {
             // Open input dialog, set the value and retrieve new value
             openInputDialog(i18n.maxwidthpx, i18n.minusonenolimit, startAt1,
                 (/** @type {*} */ api) => {
+                    /** @type {any} */
                     const target = ctx.path?.elem;
-                    if (!target || !(target instanceof HTMLElement)) {
+                    if (!target || target.nodeType !== 1) {
                         return;
                     }
                     const maxwidth = convertInt(api.getData().value.replace("px", "").trim(), 0);
