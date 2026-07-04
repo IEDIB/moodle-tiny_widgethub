@@ -14,7 +14,13 @@ $alerta-lateral-color: #c64949;
 $consell-lateral-color: rgb(172, 20, 154);
 $consell-fons-color: rgb(251, 237, 248);
 
-$introduccio-lateral-color: rgb(121, 121, 121);
+$introduccio-lateral-color: rgb(91, 138, 153);
+$introduccio-fons-color-from: #f0f9ff;
+$introduccio-fons-color-to: #faf8ff;
+
+$info-lateral-color: rgb(121, 121, 121);
+$info-fons-color: #f9f9f9;
+$info-font-color: #2d2d2d;
 
 $solucio-fons-color: rgb(219, 242, 248);
 $solucio-border-color: rgb(13, 38, 68);
@@ -386,7 +392,7 @@ div.iedib-tasca>h4:first-of-type {
 
 .iedib-lateral.iedib-introduccio::after {
   background: $introduccio-lateral-color;
-  content: "\f041";
+  content: "\f02d";
 }
 
 .iedib-lateral.iedib-consell::after {
@@ -422,6 +428,41 @@ div.iedib-tasca>h4:first-of-type {
   height: 125px;
 }
 
+.iedib-introduccio-border .iedib-central {
+  background: linear-gradient(45deg, $introduccio-fons-color-from, $introduccio-fons-color-to);
+}
+
+div.iedib-capsa-info {
+  background: $info-fons-color;
+  border-left: 4px solid $info-lateral-color;
+  padding: 5px 10px;
+  position: relative;
+  margin-bottom: 1rem;
+
+  >a[role="button"] {
+    padding-left: 25px;
+  }
+}
+
+div.iedib-capsa-info::before {
+  content: "\f05a";
+  font-size: 16px;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  font-family: "Font Awesome 6 Free", "FontAwesome";
+  font-weight: 900;
+  color: $info-lateral-color;
+  padding: 0;
+}
+
+div.iedib-capsa-info div.iedib-central {
+  font-size: 93%;
+  color: $info-font-color;
+  padding: 15px 10px 1px 25px;
+}
 
 /** optimització d'altures **/
 .iedib-lateral.iedib-alerta {
@@ -895,16 +936,8 @@ h4.iedib-subsub::before {
   font-size: 0.875rem;
 }
 
-.iedib-caption-counter {
-  /** 
-  font-weight: normal!important;
-  font-size: inherit!important; 
-  **/
-}
-
 .iedib-caption-title {
   font-style: italic;
-  /** font-size: inherit!important; **/
 }
 
 .iedib-spinner {
@@ -1405,6 +1438,15 @@ table.iedib-bstable {
     break-inside: auto;
   }
 
+  .iedib-capsa-info>a[role="button"] {
+    display: none;
+  }
+
+  .iedib-capsa-info div.iedib-central {
+    display: block;
+    break-inside: avoid;
+  }
+
   .iedib-tabmenu>ul>li>a {
     color: #222;
   }
@@ -1468,6 +1510,15 @@ table.iedib-bstable {
 
 /** Display accordions and tabs on book print preview **/
 #page-mod-book-print {
+  .iedib-capsa-info>a[role="button"] {
+    display: none;
+  }
+
+  .iedib-capsa-info div.iedib-central {
+    display: block;
+    break-inside: avoid;
+  }
+
   .accordion-body.collapse {
     display: block !important;
     height: auto !important;
