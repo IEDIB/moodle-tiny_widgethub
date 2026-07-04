@@ -982,8 +982,8 @@ div.iedib-tasca > h4:first-of-type {
 }
 
 .iedib-lateral.iedib-introduccio::after {
-  background: rgb(121, 121, 121);
-  content: "\f041";
+  background: rgb(91, 138, 153);
+  content: "\f02d";
 }
 
 .iedib-lateral.iedib-consell::after {
@@ -1015,8 +1015,43 @@ div.iedib-tasca > h4:first-of-type {
 }
 
 .iedib-introduccio {
-  background: rgb(121, 121, 121);
+  background: rgb(91, 138, 153);
   height: 125px;
+}
+
+.iedib-introduccio-border .iedib-central {
+  background: linear-gradient(45deg, #f0f9ff, #faf8ff);
+}
+
+div.iedib-capsa-info {
+  background: #f9f9f9;
+  border-left: 4px solid rgb(121, 121, 121);
+  padding: 5px 10px;
+  position: relative;
+  margin-bottom: 1rem;
+}
+div.iedib-capsa-info > a[role=button] {
+  padding-left: 25px;
+}
+
+div.iedib-capsa-info::before {
+  content: "\f05a";
+  font-size: 16px;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  font-family: "Font Awesome 6 Free", "FontAwesome";
+  font-weight: 900;
+  color: rgb(121, 121, 121);
+  padding: 0;
+}
+
+div.iedib-capsa-info div.iedib-central {
+  font-size: 93%;
+  color: #2d2d2d;
+  padding: 15px 10px 1px 25px;
 }
 
 /** optimització d'altures **/
@@ -1484,16 +1519,8 @@ h4.iedib-subsub::before {
   font-size: 0.875rem;
 }
 
-.iedib-caption-counter {
-  /** 
-  font-weight: normal!important;
-  font-size: inherit!important; 
-  **/
-}
-
 .iedib-caption-title {
   font-style: italic;
-  /** font-size: inherit!important; **/
 }
 
 .iedib-spinner {
@@ -1965,6 +1992,13 @@ table.iedib-bstable {
   div.accordion-inner .iedib-capsa {
     break-inside: auto;
   }
+  .iedib-capsa-info > a[role=button] {
+    display: none;
+  }
+  .iedib-capsa-info div.iedib-central {
+    display: block;
+    break-inside: avoid;
+  }
   .iedib-tabmenu > ul > li > a {
     color: #222;
   }
@@ -2017,6 +2051,13 @@ table.iedib-bstable {
   }
 }
 /** Display accordions and tabs on book print preview **/
+#page-mod-book-print .iedib-capsa-info > a[role=button] {
+  display: none;
+}
+#page-mod-book-print .iedib-capsa-info div.iedib-central {
+  display: block;
+  break-inside: avoid;
+}
 #page-mod-book-print .accordion-body.collapse {
   display: block !important;
   height: auto !important;

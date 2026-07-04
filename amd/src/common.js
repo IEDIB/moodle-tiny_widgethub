@@ -36,6 +36,6 @@ export default {
     jsAreaClassname: 'iedib-sd-area',
     pluginName: `${component}/plugin`,
     icon: component,
-    currentRelease: '1.4.4'
+    currentRelease: '1.4.5'
 };
 

@@ -61,3 +61,8 @@ Issue #38 Error on contextmenu remove or insert: unrecognized expression:
 == 1.4.4 ==
  - Fix issue #56 (widgethub): Dynamically created Repeatable parameters have no filepicker attached.
  - Fix on dependencies cleanUnusedRequires method.
+
+== 1.4.5 ==
+ - New box widget "Capsa info"
+ - Redesign "Capsa generic" type "introducció"
+ 
