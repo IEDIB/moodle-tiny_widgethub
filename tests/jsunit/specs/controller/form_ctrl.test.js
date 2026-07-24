@@ -40,7 +40,9 @@ const mockTemplateSrv = {
 /** @type {*} */
 const mockFileSrv = {
     getImagePicker: jest.fn(),
-    displayImagePicker: jest.fn()
+    displayImagePicker: jest.fn(),
+    getFilePicker: jest.fn(),
+    displayFilePicker: jest.fn()
 };
 
 /** @type {FormCtrl} */
@@ -368,8 +370,8 @@ describe("FormCtrl", () => {
             const modalBody = document.createElement('div');
             modalBody.innerHTML = `<div class="form-group"><button class="whb-image-picker"></button><input type="text"></div>`;
             const listenerTracker = jest.fn();
-            mockFileSrv.getImagePicker.mockReturnValue(true);
-            mockFileSrv.displayImagePicker.mockResolvedValue({ url: 'http://example.com/image.png' });
+            mockFileSrv.getFilePicker.mockReturnValue(true);
+            mockFileSrv.displayFilePicker.mockResolvedValue({ url: 'http://example.com/image.png' });
 
             formCtrl.attachPickers(modalBody, listenerTracker);
 
@@ -385,7 +387,7 @@ describe("FormCtrl", () => {
             const evt = { preventDefault: jest.fn(), currentTarget: btn };
             clickHandler(evt);
 
-            expect(mockFileSrv.displayImagePicker).toHaveBeenCalled();
+            expect(mockFileSrv.displayFilePicker).toHaveBeenCalledWith('image');
         });
 
         it("should attach change listeners to color pickers", () => {
