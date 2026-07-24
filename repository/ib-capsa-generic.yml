@@ -102,5 +102,5 @@ stars: 2
 contextmenu:
   - actions: printable
 author: Josep Mulet Pol <pep.mulet@gmail.com>
-version: 2.1.0
+version: 2.2.0
 icon: fa-solid fa-box-open
