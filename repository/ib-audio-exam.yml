@@ -7,7 +7,7 @@ instructions: >
 template: |
   <p><br></p>
   <!-- begin audio-questionaris -->
-  <div class="card shadow-sm border-0 rounded-lg p-3 my-2 bg-light" data-snptd="audio-exam" data-src="{{source}}" data-once="{{once}}">
+  <div class="card shadow-sm border-0 rounded-lg p-3 my-2 bg-light" data-snptd="audio-exam" data-src="{{source}}" data-once="{{once}}" data-lang="{{_lang}}">
     <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between">
       <div class="d-flex align-items-center mb-2 mb-sm-0">
         <div class="p-3 bg-info text-white rounded-circle mr-3 me-3 d-flex justify-content-center align-items-center shrink-0" style="width: 44px; height: 44px; min-width: 44px;">
