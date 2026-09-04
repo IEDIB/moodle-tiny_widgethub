@@ -354,9 +354,9 @@ export class FormCtrl {
    }
 
    /**
-       * @param {HTMLElement} modalBody - The modal body
-       * @param {import('../service/modal_service').ListenerTracker} listenerTracker
-       */
+    * @param {HTMLElement} modalBody - The modal body
+    * @param {import('../service/modal_service').ListenerTracker} listenerTracker
+    */
    attachPickers(modalBody, listenerTracker) {
       this.attachFilePickers(modalBody, listenerTracker);
       this.attachColorPickers(modalBody, listenerTracker);
