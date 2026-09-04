@@ -188,3 +188,9 @@ pre.iedib-code code:not(.nohljsln)::before {
 [data-widget="ib-carousel"] .carousel-caption {
     display: block !important;
 }
+
+[data-snptd="audio-exam"] .ib-audio-playing,
+[data-snptd="audio-exam"] .ib-audio-ended,
+[data-snptd="audio-exam"] progress {
+    display: block !important;
+}
