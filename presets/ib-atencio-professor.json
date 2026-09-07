@@ -1,0 +1,24 @@
+{
+    "key": "atencio-professor",
+    "name": "Atenció Professor/a",
+    "category": "Plantilles",
+    "instructions": "Per canviar la foto feis click dret damunt la imatge i elegiu\n",
+    "template": "<div class=\"iedib-plantilla-atencio-professor-1\">\n<section class=\"dades-professor\"><img class=\"foto\" src=\"{{fotourl}}\" alt=\"Retrat del professor\">\n  <div class=\"contacte\">\n    <h2>Toni Vilaret Noguera</h2>\n    <a class=\"telefon\" href=\"tel:971170650\">971 170 650</a> <a class=\"btn btn-secondary boto-videoconferencia\" href=\"https://meet.google.com/kjc-mnnu-dqn\" target=\"_blank\" rel=\"noopener\">Vídeoconferència</a>\n  </div>\n</section>\n<section class=\"reservar-videoconferencia\">\n  <p>Per a una tutoria via <strong>videoconferència</strong> acordau prèviament per <a href=\"https://iedib.net/avirtual/local/mail/view.php?t=inbox\" target=\"_blank\" rel=\"noopener\">correu</a> l’horari amb el professor/a:</p>\n  <div class=\"horari-professor-container\"><button class=\"btn btn-secondary horari-professor collapsed\" type=\"button\" data-toggle=\"collapse\" data-target=\"{{ID}}\" aria-expanded=\"false\" aria-controls=\"{{ID}}\" data-bs-toggle=\"collapse\" data-bs-target=\"#{{ID}}\">\n      <div class=\"icona-calendari\">&nbsp;</div>\n      <div class=\"text-horari-container\">\n        <div class=\"text-horari\">Horari d'atenció</div>\n        <div class=\"text-nom-professor\">Nom del professor</div>\n      </div>\n      <div class=\"icona-caret\">&nbsp;</div>\n    </button></div>\n  <div id=\"{{ID}}\" class=\"taula-horari-collapsable collapse\">\n    <div class=\"card card-body taula-horari-container\">\n      <div class=\"taula-horari-cella\">\n        <div class=\"taula-horari-dia\">Dl</div>\n        <div class=\"taula-horari-hores\">\n          <div class=\"taula-hora-inici\">12:00</div>\n          <div class=\"taula-hora-final\">14:00</div>\n        </div>\n      </div>\n      <div class=\"taula-horari-cella\">\n        <div class=\"taula-horari-dia\">Dm</div>\n        <div class=\"taula-horari-hores\">\n          <div class=\"taula-hora-inici\">16:00</div>\n          <div class=\"taula-hora-final\">18:00</div>\n        </div>\n      </div>\n      <div class=\"taula-horari-cella\">\n        <div class=\"taula-horari-dia\">Dc</div>\n        <div class=\"taula-horari-hores\">\n          <div class=\"taula-hora-inici\">12:00</div>\n          <div class=\"taula-hora-final\">14:00</div>\n        </div>\n      </div>\n      <div class=\"taula-horari-cella\">\n        <div class=\"taula-horari-dia\">Dj</div>\n        <div class=\"taula-horari-hores\">\n          <div class=\"taula-hora-inici\">16:00</div>\n          <div class=\"taula-hora-final\">18:00</div>\n        </div>\n      </div>\n      <div class=\"taula-horari-cella\">\n        <div class=\"taula-horari-dia\">Dv</div>\n        <div class=\"taula-horari-hores\">\n          <div class=\"taula-hora-inici\">11:00</div>\n          <div class=\"taula-hora-final\">13:00</div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n</div>\n",
+    "selectors": "div.iedib-plantilla-atencio-professor-1",
+    "parameters": [
+        "__ID__",
+        {
+            "name": "fotourl",
+            "value": "",
+            "title": "Foto",
+            "type": "image",
+            "bind": {
+                "getValue": "function (elem) {\n  var img = elem.querySelector('img.foto') ?? elem.querySelector('img');\n  if (img) {\n    return img.getAttribute('src') ?? '';\n  }\n  return '';\n}\n",
+                "setValue": "function (elem, v) {\n  var img = elem.querySelector('img.foto') ?? elem.querySelector('img');\n  if (img) {\n    img.setAttribute('src', v);\n    img.setAttribute('data-mce-src', v)\n    img.classList.add('foto');\n    img.setAttribute('alt', 'Retrat del professor');\n  }\n}\n"
+            }
+        }
+    ],
+    "author": "Josep Mulet Pol <pep.mulet@gmail.com>",
+    "version": "1.1.0",
+    "icon": "fa-solid fa-user-tie"
+}

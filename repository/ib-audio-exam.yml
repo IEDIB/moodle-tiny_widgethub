@@ -1,5 +1,5 @@
 key: audio-exam  
-name: Audio per a questionaris
+name: Audio per a examens
 category: idiomes
 instructions: > 
   Aquest snippet permet incloure un reproductor d'audio segur per a 
@@ -100,5 +100,5 @@ I18n:
     de: Audio gestartet
     fr: Audio démarré
 author: Josep Mulet Pol <pep.mulet@gmail.com>
-version: 1.2.0
+version: 1.2.1
 icon: fa-solid fa-headphones

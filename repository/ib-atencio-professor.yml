@@ -1,0 +1,93 @@
+key: atencio-professor
+name: Atenció Professor/a
+category: Plantilles
+instructions: > 
+  Per canviar la foto feis click dret damunt la imatge i elegiu
+template: |
+  <div class="iedib-plantilla-atencio-professor-1">
+  <section class="dades-professor"><img class="foto" src="{{fotourl}}" alt="Retrat del professor">
+    <div class="contacte">
+      <h2>Toni Vilaret Noguera</h2>
+      <a class="telefon" href="tel:971170650">971 170 650</a> <a class="btn btn-secondary boto-videoconferencia" href="https://meet.google.com/kjc-mnnu-dqn" target="_blank" rel="noopener">Vídeoconferència</a>
+    </div>
+  </section>
+  <section class="reservar-videoconferencia">
+    <p>Per a una tutoria via <strong>videoconferència</strong> acordau prèviament per <a href="https://iedib.net/avirtual/local/mail/view.php?t=inbox" target="_blank" rel="noopener">correu</a> l’horari amb el professor/a:</p>
+    <div class="horari-professor-container"><button class="btn btn-secondary horari-professor collapsed" type="button" data-toggle="collapse" data-target="{{ID}}" aria-expanded="false" aria-controls="{{ID}}" data-bs-toggle="collapse" data-bs-target="#{{ID}}">
+        <div class="icona-calendari">&nbsp;</div>
+        <div class="text-horari-container">
+          <div class="text-horari">Horari d'atenció</div>
+          <div class="text-nom-professor">Nom del professor</div>
+        </div>
+        <div class="icona-caret">&nbsp;</div>
+      </button></div>
+    <div id="{{ID}}" class="taula-horari-collapsable collapse">
+      <div class="card card-body taula-horari-container">
+        <div class="taula-horari-cella">
+          <div class="taula-horari-dia">Dl</div>
+          <div class="taula-horari-hores">
+            <div class="taula-hora-inici">12:00</div>
+            <div class="taula-hora-final">14:00</div>
+          </div>
+        </div>
+        <div class="taula-horari-cella">
+          <div class="taula-horari-dia">Dm</div>
+          <div class="taula-horari-hores">
+            <div class="taula-hora-inici">16:00</div>
+            <div class="taula-hora-final">18:00</div>
+          </div>
+        </div>
+        <div class="taula-horari-cella">
+          <div class="taula-horari-dia">Dc</div>
+          <div class="taula-horari-hores">
+            <div class="taula-hora-inici">12:00</div>
+            <div class="taula-hora-final">14:00</div>
+          </div>
+        </div>
+        <div class="taula-horari-cella">
+          <div class="taula-horari-dia">Dj</div>
+          <div class="taula-horari-hores">
+            <div class="taula-hora-inici">16:00</div>
+            <div class="taula-hora-final">18:00</div>
+          </div>
+        </div>
+        <div class="taula-horari-cella">
+          <div class="taula-horari-dia">Dv</div>
+          <div class="taula-horari-hores">
+            <div class="taula-hora-inici">11:00</div>
+            <div class="taula-hora-final">13:00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+selectors: div.iedib-plantilla-atencio-professor-1
+parameters:
+  - __ID__
+  - name: fotourl
+    value: ''
+    title: Foto
+    type: image
+    bind:
+      getValue: |
+        function (elem) {
+          var img = elem.querySelector('img.foto') ?? elem.querySelector('img');
+          if (img) {
+            return img.getAttribute('src') ?? '';
+          }
+          return '';
+        }
+      setValue: |
+        function (elem, v) {
+          var img = elem.querySelector('img.foto') ?? elem.querySelector('img');
+          if (img) {
+            img.setAttribute('src', v);
+            img.setAttribute('data-mce-src', v)
+            img.classList.add('foto');
+            img.setAttribute('alt', 'Retrat del professor');
+          }
+        }
+author: Josep Mulet Pol <pep.mulet@gmail.com>
+version: 1.1.0
+icon: fa-solid fa-user-tie
